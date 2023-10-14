@@ -1,10 +1,29 @@
 LeetCode
 ========
 
-> LeetCode problems and how I solved them.
+> [LeetCode problems](https://leetcode.com/problemset/all/) and how I [solved](./pkg/arch) them.
 
 Structure
 ---------
 
- - [Archive](./pkg/arch) - all solved problems.
- - [Study](./pkg/std) - some code from chapters ["Data Structures and Algorithms"](https://leetcode.com/explore/featured/card/leetcodes-interview-crash-course-data-structures-and-algorithms/)
+ - [Internal](./internal) - all completed and refactored solved problems
+ - [Again](./pkg/again) - need resolve because of loosing day streak or not enough knowledge
+ - [Archive](./pkg/arch) - all solved problems that in progress refactoring
+
+Development
+-----------
+
+After adding some code samples run [`code.sh`](./scripts/code.sh)
+
+```shell
+./scripts/code.sh
+```
+
+You can automate this action by calling `pre`
+
+Testing
+-------
+
+```shell
+go test -race ./...
+```

@@ -49,9 +49,5 @@ func isValid(s string) bool {
 		}
 	}
 
-	if stack.head != nil {
-		return false
-	}
-
-	return true
+	return stack.head == nil
 }
