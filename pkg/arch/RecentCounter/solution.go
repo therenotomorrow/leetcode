@@ -2,7 +2,6 @@ package RecentCounter
 
 type RecentCounter struct {
 	reqs []int
-	l, r int
 }
 
 func Constructor() RecentCounter {

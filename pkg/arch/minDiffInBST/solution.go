@@ -52,10 +52,7 @@ func minDiffInBST(root *TreeNode) int {
 		} else {
 			root = stack.Pop()
 
-			switch diff := root.Val - val; {
-			case val == -1:
-				val = root.Val
-			case diff < min:
+			if diff := root.Val - val; diff < min {
 				min = diff
 			}
 

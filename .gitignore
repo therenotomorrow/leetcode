@@ -1,0 +1,6 @@
+# environemnt
+.idea
+.go-version
+
+# caches
+cover.out
