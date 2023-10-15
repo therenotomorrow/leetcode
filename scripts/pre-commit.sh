@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-set -ex
+set -x
 
 ./scripts/code.sh
+./scripts/test.sh -fast
 
 git add .
 
