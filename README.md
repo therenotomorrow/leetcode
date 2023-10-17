@@ -62,6 +62,7 @@ Completed problems
 54. Spiral Matrix
 66. Plus One
 67. Add Binary
+70. [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/): [`climbstairs.go`](./internal/solutions/climbstairs.go)
 71. Simplify Path
 82. Remove Duplicates from Sorted List II
 83. Remove Duplicates from Sorted List
