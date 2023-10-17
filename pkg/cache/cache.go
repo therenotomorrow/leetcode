@@ -2,23 +2,28 @@ package cache
 
 import "fmt"
 
-type Cache map[string]int
-
-func New() *Cache {
-	c := Cache(make(map[string]int))
-	return &c
+type Cache interface {
+	Load(keys ...int) (val int, ok bool)
+	Save(val int, keys ...int)
 }
 
-func (c *Cache) makeKey(parts []int) string {
+type cache struct {
+	data map[string]int
+}
+
+func NewCache() Cache {
+	return &cache{data: make(map[string]int)}
+}
+
+func (c *cache) makeKey(parts []int) string {
 	return fmt.Sprintf("%v", parts)
 }
 
-func (c *Cache) Load(keys ...int) (int, bool) {
-	val, ok := (*c)[c.makeKey(keys)]
-	return val, ok
+func (c *cache) Load(keys ...int) (val int, ok bool) {
+	val, ok = c.data[c.makeKey(keys)]
+	return
 }
 
-func (c *Cache) Save(res int, keys ...int) int {
-	(*c)[c.makeKey(keys)] = res
-	return res
+func (c *cache) Save(val int, keys ...int) {
+	c.data[c.makeKey(keys)] = val
 }

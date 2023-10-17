@@ -1,4 +1,4 @@
-package getrow
+package solutions
 
 import (
 	"reflect"

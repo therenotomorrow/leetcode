@@ -1,4 +1,4 @@
-package numways
+package solutions
 
 import "testing"
 

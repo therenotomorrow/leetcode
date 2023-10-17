@@ -1,4 +1,4 @@
-package getrow
+package solutions
 
 func getRow(rowIndex int) []int {
 	// formula: C(n, k) = C(n, k-1) * (n - k + 1) / k

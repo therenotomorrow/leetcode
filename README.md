@@ -38,7 +38,7 @@ Fast/Race tests.
 
 Completed problems
 ------------------
-1. Two Sum
+1. [Two Sum](https://leetcode.com/problems/two-sum/): [`twosum.go`](./internal/solutions/twosum.go)
 2. Add Two Numbers
 3. Longest Substring Without Repeating Characters
 4. Median of Two Sorted Arrays
@@ -78,7 +78,7 @@ Completed problems
 111. Minimum Depth of Binary Tree
 112. Path Sum
 118. Pascal's Triangle
-119. [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/): [`getrow.go`](./internal/getrow/getrow.go)
+119. [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/): [`getrow.go`](./internal/solutions/getrow.go)
 121. Best Time to Buy and Sell Stock
 122. Best Time to Buy and Sell Stock II
 125. Valid Palindrome
@@ -193,11 +193,12 @@ Completed problems
 1208. Get Equal Substrings Within Budget
 1232. Check If It Is a Straight Line
 1248. Count Number of Nice Subarrays
-1269. [Number of Ways to Stay in the Same Place After Some Steps](https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/): [`numways`](./internal/numways/numways.go)
+1269. [Number of Ways to Stay in the Same Place After Some Steps](https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/): [`numways.go`](./internal/solutions/numways.go)
 1290. Convert Binary Number in a Linked List to Integer
 1302. Deepest Leaves Sum
 1342. Number of Steps to Reduce a Number to Zero
 1351. Count Negative Numbers in a Sorted Matrix
+1361. [Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes/): [`validatebinarytreenodes.go`](./internal/solutions/validatebinarytreenodes.go)
 1372. Longest ZigZag Path in a Binary Tree
 1394. Find Lucky Integer in an Array
 1413. Minimum Value to Get Positive Step by Step Sum

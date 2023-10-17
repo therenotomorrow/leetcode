@@ -1,4 +1,4 @@
-package numways
+package solutions
 
 import "github.com/therenotomorrow/leetcode/pkg/cache"
 
@@ -6,7 +6,7 @@ const MOD int = 1e9 + 7
 
 func numWays(steps int, arrLen int) int {
 	var (
-		c       = cache.New()
+		c       = cache.NewCache()
 		dynamic func(currPos int, stepsRemain int) (waysCnt int)
 	)
 
@@ -33,7 +33,9 @@ func numWays(steps int, arrLen int) int {
 			waysCnt = (waysCnt + dynamic(currPos+1, stepsRemain-1)) % MOD
 		}
 
-		return c.Save(waysCnt, currPos, stepsRemain)
+		c.Save(waysCnt, currPos, stepsRemain)
+
+		return waysCnt
 	}
 
 	return dynamic(0, steps)
