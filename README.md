@@ -36,15 +36,23 @@ Fast/Race tests.
 ./scripts/test.sh [-fast|-race]
 ```
 
+Completed explores
+------------------
+
+* [The LeetCode Beginner's Guide](https://leetcode.com/explore/featured/card/the-leetcode-beginners-guide/)
+* [Array and String. Introduction to Data Structure](https://leetcode.com/explore/learn/card/array-and-string/)
+* [Top Interview Questions. Easy Collection](https://leetcode.com/explore/featured/card/top-interview-questions-easy/)
+
 Completed problems
 ------------------
+
 1. [Two Sum](https://leetcode.com/problems/two-sum/): [`twosum.go`](./internal/solutions/twosum.go)
-2. Add Two Numbers
-3. Longest Substring Without Repeating Characters
-4. Median of Two Sorted Arrays
-7. Reverse Integer
+2. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/): [`addtwonumbers.go`](./internal/solutions/addtwonumbers.go)
+3. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/): [`lengthoflongestsubstring.go`](./internal/solutions/lengthoflongestsubstring.go)
+4. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/): [`findmediansortedarrays.go`](./internal/solutions/findmediansortedarrays.go)
+7. [Reverse Integer](https://leetcode.com/problems/reverse-integer/): [`reverse.go`](./internal/solutions/reverse.go)
 8. String to Integer (atoi)
-9. Palindrome Number
+9. [Palindrome Number](https://leetcode.com/problems/palindrome-number/): [`ispalindrome.go`](./internal/solutions/ispalindrome.go)
 11. Container With Most Water
 13. Roman to Integer
 14. Longest Common Prefix
@@ -59,6 +67,7 @@ Completed problems
 36. Valid Sudoku
 48. Rotate Image
 49. Group Anagrams
+53. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/): [`maxsubarray.go`](./internal/solutions/maxsubarray.go)
 54. Spiral Matrix
 66. Plus One
 67. Add Binary
@@ -93,6 +102,7 @@ Completed problems
 189. Rotate Array
 190. Reverse Bits
 191. Number of 1 Bits
+198. [House Robber](https://leetcode.com/problems/house-robber/): [`rob.go`](./internal/solutions/rob.go)
 199. Binary Tree Right Side View
 203. Remove Linked List Elements
 204. Count Primes
@@ -230,6 +240,7 @@ Completed problems
 2000. Reverse Prefix of Word
 2009. Minimum Number of Operations to Make Array Continuous
 2038. Remove Colored Pieces if Both Neighbors are the Same Color
+2050. Parallel Courses III
 2074. Reverse Nodes in Even Length Groups
 2090. K Radius Subarray Averages
 2095. Delete the Middle Node of a Linked List

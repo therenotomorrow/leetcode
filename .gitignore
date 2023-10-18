@@ -4,3 +4,7 @@
 
 # caches
 cover.out
+
+# hidden entities
+.ignore*
+ignore*

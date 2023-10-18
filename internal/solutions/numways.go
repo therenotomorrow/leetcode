@@ -1,8 +1,9 @@
 package solutions
 
-import "github.com/therenotomorrow/leetcode/pkg/cache"
-
-const MOD int = 1e9 + 7
+import (
+	"github.com/therenotomorrow/leetcode/internal/structs"
+	"github.com/therenotomorrow/leetcode/pkg/cache"
+)
 
 func numWays(steps int, arrLen int) int {
 	var (
@@ -26,11 +27,11 @@ func numWays(steps int, arrLen int) int {
 		waysCnt = dynamic(currPos, stepsRemain-1) // don't move
 
 		if currPos > 0 {
-			waysCnt = (waysCnt + dynamic(currPos-1, stepsRemain-1)) % MOD
+			waysCnt = (waysCnt + dynamic(currPos-1, stepsRemain-1)) % structs.MOD
 		}
 
 		if currPos < arrLen-1 {
-			waysCnt = (waysCnt + dynamic(currPos+1, stepsRemain-1)) % MOD
+			waysCnt = (waysCnt + dynamic(currPos+1, stepsRemain-1)) % structs.MOD
 		}
 
 		c.Save(waysCnt, currPos, stepsRemain)
