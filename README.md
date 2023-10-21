@@ -24,16 +24,8 @@ You can automate this action by calling [`pre-commit.sh`](./scripts/pre-commit.s
 Testing
 -------
 
-Coverage tests for CI/CD.
-
 ```shell
-./scripts/test.sh
-```
-
-Fast/Race tests.
-
-```shell
-./scripts/test.sh [-fast|-race]
+./scripts/test.sh [-fast|-race|-cover]
 ```
 
 Completed explores
@@ -46,13 +38,25 @@ Completed explores
 Completed problems
 ------------------
 
-1. [Two Sum](https://leetcode.com/problems/two-sum/): [`twosum.go`](./internal/solutions/twosum.go)
-2. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/): [`addtwonumbers.go`](./internal/solutions/addtwonumbers.go)
-3. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/): [`lengthoflongestsubstring.go`](./internal/solutions/lengthoflongestsubstring.go)
-4. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/): [`findmediansortedarrays.go`](./internal/solutions/findmediansortedarrays.go)
-7. [Reverse Integer](https://leetcode.com/problems/reverse-integer/): [`reverse.go`](./internal/solutions/reverse.go)
+|  #   | Problem                                                                                                                                               | Solution                                                                          |
+|:----:|:------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|
+|  1   | [Two Sum](https://leetcode.com/problems/two-sum/)                                                                                                     | [`twosum.go`](./internal/solutions/twosum.go)                                     |
+|  2   | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)                                                                                     | [`addtwonumbers.go`](./internal/solutions/addtwonumbers.go)                       |
+|  3   | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)                       | [`lengthoflongestsubstring.go`](./internal/solutions/lengthoflongestsubstring.go) |
+|  4   | [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)                                                             | [`findmediansortedarrays.go`](./internal/solutions/findmediansortedarrays.go)     |
+|  7   | [Reverse Integer](https://leetcode.com/problems/reverse-integer/)                                                                                     | [`reverse.go`](./internal/solutions/reverse.go)                                   |
+|  9   | [Palindrome Number](https://leetcode.com/problems/palindrome-number/)                                                                                 | [`ispalindrome.go`](./internal/solutions/ispalindrome.go)                         |
+|  53  | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)                                                                                   | [`maxsubarray.go`](./internal/solutions/maxsubarray.go)                           |
+|  70  | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)                                                                                     | [`climbstairs.go`](./internal/solutions/climbstairs.go)                           |
+| 118  | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)                                                                                  | [`generate.go`](./internal/solutions/generate.go)                                 |
+| 119  | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/)                                                                            | [`getrow.go`](./internal/solutions/getrow.go)                                     |
+| 198  | [House Robber](https://leetcode.com/problems/house-robber/)                                                                                           | [`rob.go`](./internal/solutions/rob.go)                                           |
+| 844  | [Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)                                                                   | [`backspacecompare.go`](./internal/solutions/backspacecompare.go)                 |
+| 1018 | [Binary Prefix Divisible By 5](https://leetcode.com/problems/binary-prefix-divisible-by-5/)                                                           | [`prefixesdivby5.go`](./internal/solutions/prefixesdivby5.go)                     |
+| 1269 | [Number of Ways to Stay in the Same Place After Some Steps](https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/) | [`numways.go`](./internal/solutions/numways.go)                                   |
+| 1361 | [Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes/)                                                               | [`validatebinarytreenodes.go`](./internal/solutions/validatebinarytreenodes.go)   |
+
 8. String to Integer (atoi)
-9. [Palindrome Number](https://leetcode.com/problems/palindrome-number/): [`ispalindrome.go`](./internal/solutions/ispalindrome.go)
 11. Container With Most Water
 13. Roman to Integer
 14. Longest Common Prefix
@@ -67,11 +71,9 @@ Completed problems
 36. Valid Sudoku
 48. Rotate Image
 49. Group Anagrams
-53. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/): [`maxsubarray.go`](./internal/solutions/maxsubarray.go)
 54. Spiral Matrix
 66. Plus One
 67. Add Binary
-70. [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/): [`climbstairs.go`](./internal/solutions/climbstairs.go)
 71. Simplify Path
 82. Remove Duplicates from Sorted List II
 83. Remove Duplicates from Sorted List
@@ -87,8 +89,6 @@ Completed problems
 108. Convert Sorted Array to Binary Search Tree
 111. Minimum Depth of Binary Tree
 112. Path Sum
-118. Pascal's Triangle
-119. [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/): [`getrow.go`](./internal/solutions/getrow.go)
 121. Best Time to Buy and Sell Stock
 122. Best Time to Buy and Sell Stock II
 125. Valid Palindrome
@@ -102,7 +102,6 @@ Completed problems
 189. Rotate Array
 190. Reverse Bits
 191. Number of 1 Bits
-198. [House Robber](https://leetcode.com/problems/house-robber/): [`rob.go`](./internal/solutions/rob.go)
 199. Binary Tree Right Side View
 203. Remove Linked List Elements
 204. Count Primes
@@ -131,6 +130,7 @@ Completed problems
 328. Odd Even Linked List
 334. Increasing Triplet Subsequence
 338. Counting Bits
+341. Flatten Nested List Iterator
 343. Integer Break
 344. Reverse String
 345. Reverse Vowels of a String
@@ -177,7 +177,6 @@ Completed problems
 771. Jewels and Stones
 783. Minimum Distance Between BST Nodes
 791. Custom Sort String
-844. Backspace String Compare
 852. Peak Index in a Mountain Array
 872. Leaf-Similar Trees
 876. Middle of the Linked List
@@ -204,16 +203,15 @@ Completed problems
 1208. Get Equal Substrings Within Budget
 1232. Check If It Is a Straight Line
 1248. Count Number of Nice Subarrays
-1269. [Number of Ways to Stay in the Same Place After Some Steps](https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/): [`numways.go`](./internal/solutions/numways.go)
 1290. Convert Binary Number in a Linked List to Integer
 1302. Deepest Leaves Sum
 1342. Number of Steps to Reduce a Number to Zero
 1351. Count Negative Numbers in a Sorted Matrix
-1361. [Validate Binary Tree Nodes](https://leetcode.com/problems/validate-binary-tree-nodes/): [`validatebinarytreenodes.go`](./internal/solutions/validatebinarytreenodes.go)
 1372. Longest ZigZag Path in a Binary Tree
 1394. Find Lucky Integer in an Array
 1413. Minimum Value to Get Positive Step by Step Sum
 1420. Build Array Where You Can Find The Maximum Exactly K Comparisons
+1425. Constrained Subsequence Sum
 1426. Counting Elements
 1431. Kids With the Greatest Number of Candies
 1436. Destination City
