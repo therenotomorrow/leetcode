@@ -233,6 +233,7 @@ Completed problems
 1732. Find the Highest Altitude
 1748. Sum of Unique Elements
 1768. Merge Strings Alternately
+1793. Maximum Score of a Good Subarray
 1832. Check if the Sentence Is Pangram
 1941. Check if All Characters Have Equal Number of Occurrences
 2000. Reverse Prefix of Word
