@@ -1,19 +1,5 @@
 package isPalindrome
 
-func isPalindrome(x int) bool {
-	if x < 0 {
-		return false
-	}
-
-	var y int
-	for j := x; j > 0; j /= 10 {
-		y = (y + j%10) * 10
-	}
-
-	y /= 10
-	return x == y
-}
-
 type ListNode struct {
 	Val  int
 	Next *ListNode

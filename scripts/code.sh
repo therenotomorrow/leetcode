@@ -2,4 +2,5 @@
 
 set -e
 
+gofmt -w -s .
 golangci-lint run
