@@ -74,3 +74,27 @@ func TestAbs(t *testing.T) {
 		})
 	}
 }
+
+func TestSum(t *testing.T) {
+	type args struct {
+		num  int
+		nums []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{name: "positive", args: args{num: 1, nums: []int{1, 3, 2, 4, 0}}, want: 11},
+		{name: "negative", args: args{num: -1, nums: []int{-1, -3, -2, -4, -5}}, want: -16},
+		{name: "mixed", args: args{num: -1, nums: []int{-1, 3, -2, 4, 0}}, want: 3},
+		{name: "single", args: args{num: 5}, want: 5},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := mathfunc.Sum(tt.args.num, tt.args.nums...); got != tt.want {
+				t.Errorf("Sum() = %v, want = %v", got, tt.want)
+			}
+		})
+	}
+}
