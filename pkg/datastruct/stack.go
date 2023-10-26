@@ -28,7 +28,7 @@ func (s *stack) Push(val int) {
 }
 
 func (s *stack) Pop() (val int, ok bool) {
-	if s.Size() == 0 {
+	if s.IsEmpty() {
 		return
 	}
 
@@ -40,7 +40,7 @@ func (s *stack) Pop() (val int, ok bool) {
 }
 
 func (s *stack) Peek() (val int, ok bool) {
-	if s.Size() == 0 {
+	if s.IsEmpty() {
 		return
 	}
 

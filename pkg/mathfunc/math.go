@@ -28,3 +28,11 @@ func Abs(num int) int {
 	}
 	return num
 }
+
+func Sum(num int, nums ...int) int {
+	s := num
+	for _, n := range nums {
+		s += n
+	}
+	return s
+}

@@ -27,7 +27,7 @@ func (q *queue) Enqueue(val int) {
 	old := q.tail
 	q.tail = &qNode{val: val}
 
-	if q.Size() == 0 {
+	if q.IsEmpty() {
 		q.head = q.tail
 	} else {
 		old.next = q.tail
@@ -37,7 +37,7 @@ func (q *queue) Enqueue(val int) {
 }
 
 func (q *queue) Dequeue() (val int, ok bool) {
-	if q.Size() == 0 {
+	if q.IsEmpty() {
 		return
 	}
 
@@ -49,7 +49,7 @@ func (q *queue) Dequeue() (val int, ok bool) {
 }
 
 func (q *queue) Peek() (val int, ok bool) {
-	if q.Size() == 0 {
+	if q.IsEmpty() {
 		return
 	}
 
