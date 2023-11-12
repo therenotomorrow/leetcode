@@ -198,6 +198,7 @@ Completed problems
 771. Jewels and Stones
 783. Minimum Distance Between BST Nodes
 791. Custom Sort String
+815. Bus Routes
 823. Binary Trees With Factors
 852. Peak Index in a Mountain Array
 872. Leaf-Similar Trees
