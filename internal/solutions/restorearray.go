@@ -19,7 +19,7 @@ func restoreArray(adjacentPairs [][]int) []int {
 	}
 
 	ans := make([]int, len(graph))
-	used := datastruct.NewSet()
+	used := datastruct.NewSet[int]()
 
 	ans[0] = edge
 	for i := 1; i < len(ans); i++ {

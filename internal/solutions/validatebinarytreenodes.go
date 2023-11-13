@@ -3,7 +3,7 @@ package solutions
 import "github.com/therenotomorrow/leetcode/pkg/datastruct"
 
 func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
-	children := datastruct.NewSet()
+	children := datastruct.NewSet[int]()
 
 	children.Populate(leftChild...)
 	children.Populate(rightChild...)
