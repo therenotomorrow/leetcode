@@ -6,7 +6,7 @@ import (
 )
 
 func TestSeatManagerSmoke1(t *testing.T) {
-	obj := Constructor(5)
+	obj := SeatManagerConstructor(5)
 	want := 0
 
 	want = 1
@@ -57,7 +57,7 @@ func TestSeatManagerSmoke1(t *testing.T) {
 }
 
 func TestSeatManagerWrongAnswer13(t *testing.T) {
-	obj := Constructor(798)
+	obj := SeatManagerConstructor(798)
 	got := make([]int, 0)
 
 	got = append(got, obj.Reserve())

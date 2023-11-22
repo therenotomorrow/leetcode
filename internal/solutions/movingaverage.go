@@ -1,11 +1,11 @@
-package MovingAverage
+package solutions
 
 type MovingAverage struct {
 	queue []int
 	size  int
 }
 
-func Constructor(size int) MovingAverage {
+func MovingAverageConstructor(size int) MovingAverage {
 	return MovingAverage{queue: make([]int, 0, size), size: size}
 }
 

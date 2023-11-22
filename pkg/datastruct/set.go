@@ -1,17 +1,19 @@
 package datastruct
 
-type Set[T int | rune] interface {
+type Set[T comparable] interface {
 	Add(val T)
 	Del(val T)
+	Len() int
 	Populate(vals ...T)
 	Contains(val T) (ok bool)
+	Values() (vals []T)
 }
 
-type set[T int | rune] struct {
+type set[T comparable] struct {
 	data map[T]struct{}
 }
 
-func NewSet[T int | rune]() Set[T] {
+func NewSet[T comparable]() Set[T] {
 	return &set[T]{data: make(map[T]struct{})}
 }
 
@@ -23,6 +25,10 @@ func (s *set[T]) Del(val T) {
 	delete(s.data, val)
 }
 
+func (s *set[T]) Len() int {
+	return len(s.data)
+}
+
 func (s *set[T]) Populate(vals ...T) {
 	for _, val := range vals {
 		s.Add(val)
@@ -32,4 +38,12 @@ func (s *set[T]) Populate(vals ...T) {
 func (s *set[T]) Contains(val T) (ok bool) {
 	_, ok = s.data[val]
 	return
+}
+
+func (s *set[T]) Values() (vals []T) {
+	vals = make([]T, 0, s.Len())
+	for val := range s.data {
+		vals = append(vals, val)
+	}
+	return vals
 }
