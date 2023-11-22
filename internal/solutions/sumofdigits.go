@@ -3,7 +3,7 @@ package solutions
 import "github.com/therenotomorrow/leetcode/pkg/mathfunc"
 
 func sumOfDigits(nums []int) int {
-	minNum := mathfunc.Min(nums[0], nums...)
+	minNum := mathfunc.Min(nums...)
 
 	sum := 0
 

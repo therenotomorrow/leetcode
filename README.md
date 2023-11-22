@@ -158,7 +158,6 @@ Completed problems
 343. Integer Break
 344. Reverse String
 345. Reverse Vowels of a String
-346. Moving Average from Data Stream
 350. Intersection of Two Arrays II
 374. Guess Number Higher or Lower
 383. Ransom Note

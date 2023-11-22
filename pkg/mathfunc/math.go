@@ -1,8 +1,10 @@
 package mathfunc
 
-func Max(num int, nums ...int) int {
+import "math"
+
+func Max(nums ...int) int {
 	// LeetCode use Golang < 1.21
-	m := num
+	m := math.MinInt
 	for _, n := range nums {
 		if n > m {
 			m = n
@@ -11,9 +13,9 @@ func Max(num int, nums ...int) int {
 	return m
 }
 
-func Min(num int, nums ...int) int {
+func Min(nums ...int) int {
 	// LeetCode use Golang < 1.21
-	m := num
+	m := math.MaxInt
 	for _, n := range nums {
 		if n < m {
 			m = n
@@ -29,8 +31,8 @@ func Abs(num int) int {
 	return num
 }
 
-func Sum(num int, nums ...int) int {
-	s := num
+func Sum(nums ...int) int {
+	s := 0
 	for _, n := range nums {
 		s += n
 	}

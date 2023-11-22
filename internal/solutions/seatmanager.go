@@ -5,7 +5,7 @@ type SeatManager struct {
 	curr  int
 }
 
-func Constructor(n int) SeatManager {
+func SeatManagerConstructor(n int) SeatManager {
 	// could be solved using heap
 	return SeatManager{seats: make([]int, n+1), curr: 1}
 }

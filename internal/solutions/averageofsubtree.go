@@ -18,7 +18,7 @@ func postOrderTraversal(root *structs.TreeNode) ([]int, int) {
 
 	cnt := 0
 
-	if mathfunc.Sum(arr[0], arr[1:]...)/len(arr) == root.Val {
+	if mathfunc.Sum(arr...)/len(arr) == root.Val {
 		cnt++
 	}
 
