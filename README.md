@@ -62,6 +62,7 @@ Completed problems
 | 624  | [Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/)                                                               | [`maxdistance.go`](./internal/solutions/maxdistance.go)                                                                     |
 | 779  | [K-th Symbol in Grammar](https://leetcode.com/problems/k-th-symbol-in-grammar/)                                                                       | [`kthgrammar.go`](./internal/solutions/kthgrammar.go)                                                                       |
 | 844  | [Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)                                                                   | [`backspacecompare.go`](./internal/solutions/backspacecompare.go)                                                           |
+| 935  | [Knight Dialer](https://leetcode.com/problems/knight-dialer/)                                                                                         | [`knightdialer.go`](./internal/solutions/knightdialer.go)                                                                   |
 | 1018 | [Binary Prefix Divisible By 5](https://leetcode.com/problems/binary-prefix-divisible-by-5/)                                                           | [`prefixesdivby5.go`](./internal/solutions/prefixesdivby5.go)                                                               |
 | 1057 | [Campus Bikes](https://leetcode.com/problems/campus-bikes/)                                                                                           | [`assignbikes.go`](./internal/solutions/assignbikes.go)                                                                     |
 | 1085 | [Sum of Digits in the Minimum Number](https://leetcode.com/problems/sum-of-digits-in-the-minimum-number/)                                             | [`sumofdigits.go`](./internal/solutions/sumofdigits.go)                                                                     |
@@ -302,5 +303,5 @@ In revision
 204. Using a Robot to Print the Lexicographically Smallest String
 205. Total Cost to Hire K Workers
 206. Design Graph With Shortest Path Calculator
-207. Painting the Walls 
+207. Painting the Walls
 208. Largest Submatrix With Rearrangements
