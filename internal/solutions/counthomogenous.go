@@ -3,10 +3,9 @@ package solutions
 import "github.com/therenotomorrow/leetcode/internal/structs"
 
 func countHomogenous(s string) int {
-	var (
-		curr     rune
-		ans, cnt int
-	)
+	curr := rune(0)
+	ans := 0
+	cnt := 0
 
 	for _, r := range s {
 		if r != curr {

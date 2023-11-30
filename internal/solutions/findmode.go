@@ -18,7 +18,9 @@ func findMode(root *structs.TreeNode) []int {
 	modes := make([]int, 0)
 	values := inOrderTraversal(root)
 
-	var maxCnt, currCnt, currNum int
+	maxCnt := 0
+	currCnt := 0
+	currNum := 0
 
 	for _, num := range values {
 		if num == currNum {
