@@ -1,10 +1,10 @@
 package mathfunc
 
-import "math"
+import "cmp"
 
-func Max(nums ...int) int {
-	// LeetCode use Golang < 1.21
-	m := math.MinInt
+func Max[T cmp.Ordered](nums ...T) T {
+	// LeetCode use Golang < 1.21, panics below should be
+	m := nums[0]
 	for _, n := range nums {
 		if n > m {
 			m = n
@@ -13,9 +13,9 @@ func Max(nums ...int) int {
 	return m
 }
 
-func Min(nums ...int) int {
-	// LeetCode use Golang < 1.21
-	m := math.MaxInt
+func Min[T cmp.Ordered](nums ...T) T {
+	// LeetCode use Golang < 1.21, panics below should be
+	m := nums[0]
 	for _, n := range nums {
 		if n < m {
 			m = n

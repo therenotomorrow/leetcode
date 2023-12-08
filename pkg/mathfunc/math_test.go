@@ -2,7 +2,6 @@ package mathfunc_test
 
 import (
 	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
-	"math"
 	"testing"
 )
 
@@ -19,7 +18,6 @@ func TestMax(t *testing.T) {
 		{name: "negative", args: args{nums: []int{-1, -3, -2, -4, -5}}, want: -1},
 		{name: "mixed", args: args{nums: []int{-1, 3, -2, 4, 0}}, want: 4},
 		{name: "single", args: args{nums: []int{0}}, want: 0},
-		{name: "zero", args: args{nums: []int{}}, want: math.MinInt},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -43,7 +41,6 @@ func TestMin(t *testing.T) {
 		{name: "negative", args: args{nums: []int{-1, -3, -2, -4, -5}}, want: -5},
 		{name: "mixed", args: args{nums: []int{-1, 3, -2, 4, 0}}, want: -2},
 		{name: "single", args: args{nums: []int{0}}, want: 0},
-		{name: "zero", args: args{nums: []int{}}, want: math.MaxInt},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
