@@ -21,7 +21,7 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 		return false
 	}
 
-	stack := datastruct.NewStack()
+	stack := datastruct.NewStack[int]()
 	stack.Push(root)
 
 	cnt := 0 // track visited nodes

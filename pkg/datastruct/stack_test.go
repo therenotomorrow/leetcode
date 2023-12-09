@@ -6,7 +6,7 @@ import (
 )
 
 func TestStackPushPop(t *testing.T) {
-	s := datastruct.NewStack()
+	s := datastruct.NewStack[int]()
 
 	s.Push(1)
 	s.Push(2)
@@ -30,7 +30,7 @@ func TestStackPushPop(t *testing.T) {
 }
 
 func TestStackPeek(t *testing.T) {
-	s := datastruct.NewStack()
+	s := datastruct.NewStack[int]()
 
 	s.Push(42)
 
@@ -46,7 +46,7 @@ func TestStackPeek(t *testing.T) {
 }
 
 func TestStackIsEmptySize(t *testing.T) {
-	s := datastruct.NewStack()
+	s := datastruct.NewStack[int]()
 
 	s.Push(1)
 	s.Push(2)

@@ -1,33 +1,39 @@
 package datastruct
 
-type Stack interface {
-	Push(val int)
-	Pop() (val int, ok bool)
-	Peek() (val int, ok bool)
+import "github.com/therenotomorrow/leetcode/internal/structs"
+
+type Stackable interface {
+	~int | ~*structs.TreeNode
+}
+
+type Stack[T Stackable] interface {
+	Push(val T)
+	Pop() (val T, ok bool)
+	Peek() (val T, ok bool)
 	Size() int
 	IsEmpty() bool
 }
 
-type sNode struct {
-	val  int
-	next *sNode
+type sNode[T Stackable] struct {
+	val  T
+	next *sNode[T]
 }
 
-type stack struct {
-	head *sNode
+type stack[T Stackable] struct {
+	head *sNode[T]
 	size int
 }
 
-func NewStack() Stack {
-	return &stack{}
+func NewStack[T Stackable]() Stack[T] {
+	return &stack[T]{}
 }
 
-func (s *stack) Push(val int) {
-	s.head = &sNode{val: val, next: s.head}
+func (s *stack[T]) Push(val T) {
+	s.head = &sNode[T]{val: val, next: s.head}
 	s.size++
 }
 
-func (s *stack) Pop() (val int, ok bool) {
+func (s *stack[T]) Pop() (val T, ok bool) {
 	if s.IsEmpty() {
 		return
 	}
@@ -39,7 +45,7 @@ func (s *stack) Pop() (val int, ok bool) {
 	return val, true
 }
 
-func (s *stack) Peek() (val int, ok bool) {
+func (s *stack[T]) Peek() (val T, ok bool) {
 	if s.IsEmpty() {
 		return
 	}
@@ -47,10 +53,10 @@ func (s *stack) Peek() (val int, ok bool) {
 	return s.head.val, true
 }
 
-func (s *stack) Size() int {
+func (s *stack[T]) Size() int {
 	return s.size
 }
 
-func (s *stack) IsEmpty() bool {
+func (s *stack[T]) IsEmpty() bool {
 	return s.Size() == 0
 }
