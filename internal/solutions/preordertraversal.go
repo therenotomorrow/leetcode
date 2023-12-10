@@ -5,7 +5,7 @@ import (
 	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 )
 
-func inorderTraversal(root *structs.TreeNode) []int {
+func preorderTraversal(root *structs.TreeNode) []int {
 	order := make([]int, 0)
 	stack := datastruct.NewStack[*structs.TreeNode]()
 
@@ -13,16 +13,19 @@ func inorderTraversal(root *structs.TreeNode) []int {
 		return order
 	}
 
-	for root != nil || !stack.IsEmpty() {
-		for root != nil {
-			stack.Push(root)
-			root = root.Left
+	stack.Push(root)
+
+	for !stack.IsEmpty() {
+		root, _ = stack.Pop()
+
+		if root == nil {
+			continue
 		}
 
-		root, _ = stack.Pop()
 		order = append(order, root.Val)
 
-		root = root.Right
+		stack.Push(root.Right)
+		stack.Push(root.Left)
 	}
 
 	return order

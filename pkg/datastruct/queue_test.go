@@ -6,7 +6,7 @@ import (
 )
 
 func TestQueueEnqueueDequeue(t *testing.T) {
-	q := datastruct.NewQueue()
+	q := datastruct.NewQueue[int]()
 
 	q.Enqueue(1)
 	q.Enqueue(2)
@@ -30,7 +30,7 @@ func TestQueueEnqueueDequeue(t *testing.T) {
 }
 
 func TestQueuePeek(t *testing.T) {
-	q := datastruct.NewQueue()
+	q := datastruct.NewQueue[int]()
 
 	q.Enqueue(42)
 
@@ -46,7 +46,7 @@ func TestQueuePeek(t *testing.T) {
 }
 
 func TestQueueIsEmptySize(t *testing.T) {
-	s := datastruct.NewQueue()
+	s := datastruct.NewQueue[int]()
 
 	s.Enqueue(1)
 	s.Enqueue(2)

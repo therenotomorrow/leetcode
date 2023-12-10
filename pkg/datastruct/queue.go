@@ -1,31 +1,37 @@
 package datastruct
 
-type Queue interface {
-	Enqueue(val int)
-	Dequeue() (val int, ok bool)
-	Peek() (val int, ok bool)
+import "github.com/therenotomorrow/leetcode/internal/structs"
+
+type Queueable interface {
+	~int | ~*structs.TreeNode
+}
+
+type Queue[T Queueable] interface {
+	Enqueue(val T)
+	Dequeue() (val T, ok bool)
+	Peek() (val T, ok bool)
 	Size() int
 	IsEmpty() bool
 }
 
-type qNode struct {
-	val  int
-	next *qNode
+type qNode[T Queueable] struct {
+	val  T
+	next *qNode[T]
 }
 
-type queue struct {
-	head *qNode
-	tail *qNode
+type queue[T Queueable] struct {
+	head *qNode[T]
+	tail *qNode[T]
 	size int
 }
 
-func NewQueue() Queue {
-	return &queue{}
+func NewQueue[T Queueable]() Queue[T] {
+	return &queue[T]{}
 }
 
-func (q *queue) Enqueue(val int) {
+func (q *queue[T]) Enqueue(val T) {
 	old := q.tail
-	q.tail = &qNode{val: val}
+	q.tail = &qNode[T]{val: val}
 
 	if q.IsEmpty() {
 		q.head = q.tail
@@ -36,7 +42,7 @@ func (q *queue) Enqueue(val int) {
 	q.size++
 }
 
-func (q *queue) Dequeue() (val int, ok bool) {
+func (q *queue[T]) Dequeue() (val T, ok bool) {
 	if q.IsEmpty() {
 		return
 	}
@@ -48,7 +54,7 @@ func (q *queue) Dequeue() (val int, ok bool) {
 	return val, true
 }
 
-func (q *queue) Peek() (val int, ok bool) {
+func (q *queue[T]) Peek() (val T, ok bool) {
 	if q.IsEmpty() {
 		return
 	}
@@ -56,10 +62,10 @@ func (q *queue) Peek() (val int, ok bool) {
 	return q.head.val, true
 }
 
-func (q *queue) Size() int {
+func (q *queue[T]) Size() int {
 	return q.size
 }
 
-func (q *queue) IsEmpty() bool {
+func (q *queue[T]) IsEmpty() bool {
 	return q.Size() == 0
 }
