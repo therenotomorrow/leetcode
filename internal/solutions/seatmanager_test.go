@@ -120,8 +120,7 @@ func TestSeatManagerWrongAnswer13(t *testing.T) {
 	got = append(got, obj.Reserve())
 	obj.Unreserve(2)
 	got = append(got, obj.Reserve())
-	//[1 1 1 1 2 3 4 5 2 3 4 1 1 1 2 3 4 1 2 3 1 2 3 4 5 1 2 1 2 3 4 2]
-	//[1 1 1 1 2 3 4 5 2 3 4 1 1 1 2 3 4 1 5 6 1 2 3 5 5 1 2 1 2 3 4 2]
+
 	want := []int{1, 1, 1, 1, 2, 3, 4, 5, 2, 3, 4, 1, 1, 1, 2, 3, 4, 1, 5, 6, 1, 2, 3, 5, 5, 1, 2, 1, 2, 3, 4, 2}
 	t.Run("", func(t *testing.T) {
 		if !reflect.DeepEqual(got, want) {
