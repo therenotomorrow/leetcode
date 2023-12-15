@@ -1,4 +1,4 @@
-package destCity
+package solutions
 
 func destCity(paths [][]string) string {
 	set := make(map[string]bool)
