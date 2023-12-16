@@ -1,4 +1,4 @@
-package isAnagram
+package solutions
 
 func isAnagram(s string, t string) bool {
 	var usedS [26]rune
