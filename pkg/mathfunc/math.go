@@ -2,8 +2,9 @@ package mathfunc
 
 import "cmp"
 
+// Max returns maximum of `nums` of type `T` and have more friendly interface then build-in `max()`.
+// Panics if `nums` have zero elements.
 func Max[T cmp.Ordered](nums ...T) T {
-	// LeetCode use Golang < 1.21, panics below should be
 	m := nums[0]
 	for _, n := range nums {
 		if n > m {
@@ -13,8 +14,9 @@ func Max[T cmp.Ordered](nums ...T) T {
 	return m
 }
 
+// Min returns minimum of `nums` of type `T` and have more friendly interface then build-in `min()`.
+// Panics if `nums` have zero elements.
 func Min[T cmp.Ordered](nums ...T) T {
-	// LeetCode use Golang < 1.21, panics below should be
 	m := nums[0]
 	for _, n := range nums {
 		if n < m {
