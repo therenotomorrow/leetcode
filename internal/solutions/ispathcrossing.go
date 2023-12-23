@@ -1,11 +1,13 @@
-package isPathCrossing
+package solutions
+
+import "github.com/therenotomorrow/leetcode/pkg/datastruct"
 
 func isPathCrossing(path string) bool {
-	set := make(map[[2]int]bool)
+	set := datastruct.NewSet[[2]int]()
 	cur := [2]int{0, 0}
 
 	for _, p := range path {
-		set[cur] = true
+		set.Add(cur)
 
 		switch p {
 		case 'N':
@@ -18,7 +20,7 @@ func isPathCrossing(path string) bool {
 			cur[0]--
 		}
 
-		if set[cur] {
+		if set.Contains(cur) {
 			return true
 		}
 	}

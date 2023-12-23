@@ -100,6 +100,7 @@ Completed problems
 | 1436 | [Destination City](https://leetcode.com/problems/destination-city/)                                                                                         | [`destcity.go`](./internal/solutions/destcity.go)                                                                           |
 | 1441 | [Build an Array With Stack Operations](https://leetcode.com/problems/build-an-array-with-stack-operations/)                                                 | [`buildarray.go`](./internal/solutions/buildarray.go)                                                                       |
 | 1464 | [Maximum Product of Two Elements in an Array](https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/)                                   | [`maxproduct.go`](./internal/solutions/maxproduct.go)                                                                       |
+| 1496 | [Path Crossing](https://leetcode.com/problems/path-crossing/)                                                                                               | [`ispathcrossing.go`](./internal/solutions/ispathcrossing.go)                                                               |
 | 1503 | [Last Moment Before All Ants Fall Out of a Plank](https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/)                           | [`getlastmoment.go`](./internal/solutions/getlastmoment.go)                                                                 |
 | 1535 | [Find the Winner of an Array Game](https://leetcode.com/problems/find-the-winner-of-an-array-game/)                                                         | [`getwinner.go`](./internal/solutions/getwinner.go)                                                                         |
 | 1561 | [Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/)                                                   | [`maxcoins.go`](./internal/solutions/maxcoins.go)                                                                           |
@@ -302,45 +303,44 @@ In revision
 161. Max Dot Product of Two Subsequences
 162. Running Sum of 1d Array
 163. Longest Subarray of 1's After Deleting One Element
-164. Path Crossing
-165. Can Make Arithmetic Progression From Sequence
-166. Number of Good Pairs
-167. Make The String Great
-168. Determine if Two Strings Are Close
-169. Richest Customer Wealth
-170. Max Number of K-Sum Pairs
-171. Maximum Erasure Value
-172. Swapping Nodes in a Linked List
-173. Find the Highest Altitude
-174. Sum of Unique Elements
-175. Merge Strings Alternately
-176. Maximum Score of a Good Subarray
-177. Check if the Sentence Is Pangram
-178. Check if All Characters Have Equal Number of Occurrences
-179. Reverse Prefix of Word
-180. Minimum Number of Operations to Make Array Continuous
-181. Remove Colored Pieces if Both Neighbors are the Same Color
-182. Parallel Courses III
-183. Reverse Nodes in Even Length Groups
-184. K Radius Subarray Averages
-185. Delete the Middle Node of a Linked List
-186. Maximum Twin Sum of a Linked List
-187. Find the Difference of Two Arrays
-188. Find Players With Zero or One Losses
-189. Add Two Integers
-190. Intersection of Multiple Arrays
-191. Number of Flowers in Full Bloom
-192. Minimum Consecutive Cards to Pick Up
-193. Number of Ways to Split Array
-194. Successful Pairs of Spells and Potions
-195. Max Sum of a Pair With Equal Sum of Digits
-196. First Letter to Appear Twice
-197. Equal Row and Column Pairs
-198. Removing Stars From a String
-199. Using a Robot to Print the Lexicographically Smallest String
-200. Total Cost to Hire K Workers
-201. Design Graph With Shortest Path Calculator
-202. Painting the Walls
-203. Largest Submatrix With Rearrangements
-204. Number of Ways to Divide a Long Corridor
-205. Minimum One Bit Operations to Make Integers Zero
+164. Can Make Arithmetic Progression From Sequence
+165. Number of Good Pairs
+166. Make The String Great
+167. Determine if Two Strings Are Close
+168. Richest Customer Wealth
+169. Max Number of K-Sum Pairs
+170. Maximum Erasure Value
+171. Swapping Nodes in a Linked List
+172. Find the Highest Altitude
+173. Sum of Unique Elements
+174. Merge Strings Alternately
+175. Maximum Score of a Good Subarray
+176. Check if the Sentence Is Pangram
+177. Check if All Characters Have Equal Number of Occurrences
+178. Reverse Prefix of Word
+179. Minimum Number of Operations to Make Array Continuous
+180. Remove Colored Pieces if Both Neighbors are the Same Color
+181. Parallel Courses III
+182. Reverse Nodes in Even Length Groups
+183. K Radius Subarray Averages
+184. Delete the Middle Node of a Linked List
+185. Maximum Twin Sum of a Linked List
+186. Find the Difference of Two Arrays
+187. Find Players With Zero or One Losses
+188. Add Two Integers
+189. Intersection of Multiple Arrays
+190. Number of Flowers in Full Bloom
+191. Minimum Consecutive Cards to Pick Up
+192. Number of Ways to Split Array
+193. Successful Pairs of Spells and Potions
+194. Max Sum of a Pair With Equal Sum of Digits
+195. First Letter to Appear Twice
+196. Equal Row and Column Pairs
+197. Removing Stars From a String
+198. Using a Robot to Print the Lexicographically Smallest String
+199. Total Cost to Hire K Workers
+200. Design Graph With Shortest Path Calculator
+201. Painting the Walls
+202. Largest Submatrix With Rearrangements
+203. Number of Ways to Divide a Long Corridor
+204. Minimum One Bit Operations to Make Integers Zero
