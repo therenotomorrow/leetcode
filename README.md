@@ -89,6 +89,7 @@ Completed problems
 | 1085 | [Sum of Digits in the Minimum Number](https://leetcode.com/problems/sum-of-digits-in-the-minimum-number/)                                                   | [`sumofdigits.go`](./internal/solutions/sumofdigits.go)                                                                     |
 | 1099 | [Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)                                                                                   | [`twosumlessthank.go`](./internal/solutions/twosumlessthank.go)                                                             |
 | 1120 | [Maximum Average Subtree](https://leetcode.com/problems/maximum-average-subtree/)                                                                           | [`maximumaveragesubtree.go`](./internal/solutions/maximumaveragesubtree.go)                                                 |
+| 1155 | [Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)                                                 | [`numrollstotarget.go`](./internal/solutions/numrollstotarget.go)                                                           |
 | 1160 | [Find Words That Can Be Formed by Characters](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/)                                   | [`countcharacters.go`](./internal/solutions/countcharacters.go)                                                             |
 | 1266 | [Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points/)                                                         | [`mintimetovisitallpoints.go`](./internal/solutions/mintimetovisitallpoints.go)                                             |
 | 1269 | [Number of Ways to Stay in the Same Place After Some Steps](https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/)       | [`numways.go`](./internal/solutions/numways.go)                                                                             |
@@ -344,5 +345,5 @@ In revision
 201. Painting the Walls
 202. Largest Submatrix With Rearrangements
 203. Number of Ways to Divide a Long Corridor
-204. Minimum One Bit Operations to Make Integers Zero 
+204. Minimum One Bit Operations to Make Integers Zero
 205. Decode Ways
