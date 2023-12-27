@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestTwoSum(t *testing.T) {
+func TestTwoSum1(t *testing.T) {
 	type args struct {
 		nums   []int
 		target int
@@ -22,11 +22,11 @@ func TestTwoSum(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := twoSum(tt.args.nums, tt.args.target)
+			got := twoSum1(tt.args.nums, tt.args.target)
 			// You can return the answer in any order.
 			sort.Ints(got)
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("twoSum() = %v, want = %v", got, tt.want)
+				t.Errorf("twoSum1() = %v, want = %v", got, tt.want)
 			}
 		})
 	}

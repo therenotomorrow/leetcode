@@ -1,6 +1,6 @@
 package solutions
 
-func twoSum(nums []int, target int) []int {
+func twoSum1(nums []int, target int) []int {
 	diff := make(map[int]int)
 
 	for i, num := range nums {
