@@ -352,3 +352,4 @@ In revision
 204. Minimum One Bit Operations to Make Integers Zero
 205. Decode Ways
 206. String Compression II
+207. Minimum Difficulty of a Job Schedule
