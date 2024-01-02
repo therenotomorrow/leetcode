@@ -3,4 +3,4 @@
 set -e
 
 gofmt -w -s .
-golangci-lint run
+golangci-lint run ./internal/... ./pkg/...

@@ -9,16 +9,16 @@ import (
 func numRollsToTarget(n int, k int, target int) int {
 	var (
 		c       = cache.NewCache()
-		dynamic func(dice int, currSum int) (rollsCnt int)
+		dynamic func(dice int, currSum int) int
 	)
 
-	dynamic = func(dice int, currSum int) (rollsCnt int) {
+	dynamic = func(dice int, currSum int) int {
 		if dice == n {
 			if currSum == target {
-				rollsCnt = 1
+				return 1
 			}
 
-			return rollsCnt
+			return 0
 		}
 
 		if val, ok := c.Load(dice, currSum); ok {
@@ -26,6 +26,8 @@ func numRollsToTarget(n int, k int, target int) int {
 		}
 
 		rolls := mathfunc.Min(k, target-currSum)
+		rollsCnt := 0
+
 		for i := 1; i <= rolls; i++ {
 			rollsCnt += dynamic(dice+1, currSum+i)
 			rollsCnt %= structs.MOD

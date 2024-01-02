@@ -1,8 +1,9 @@
 package solutions
 
 import (
-	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 	"math"
+
+	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 )
 
 func maxDistance(arrays [][]int) int {

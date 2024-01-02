@@ -6,6 +6,7 @@ func TestMaximumElementAfterDecrementingAndRearranging(t *testing.T) {
 	type args struct {
 		arr []int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -15,6 +16,7 @@ func TestMaximumElementAfterDecrementingAndRearranging(t *testing.T) {
 		{name: "smoke 2", args: args{arr: []int{100, 1, 1000}}, want: 3},
 		{name: "smoke 3", args: args{arr: []int{1, 2, 3, 4, 5}}, want: 5},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := maximumElementAfterDecrementingAndRearranging(tt.args.arr); got != tt.want {

@@ -7,6 +7,7 @@ func TestBackspaceCompare(t *testing.T) {
 		s string
 		t string
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -19,6 +20,7 @@ func TestBackspaceCompare(t *testing.T) {
 		{name: "test 102: wrong answer", args: args{s: "y#fo##f", t: "y#f#o##f"}, want: true},
 		{name: "test 106: wrong answer", args: args{s: "bxj##tw", t: "bxj###tw"}, want: false},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := backspaceCompare(tt.args.s, tt.args.t); got != tt.want {

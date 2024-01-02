@@ -7,6 +7,7 @@ func TestRemoveDigit(t *testing.T) {
 		number string
 		digit  byte
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -16,6 +17,7 @@ func TestRemoveDigit(t *testing.T) {
 		{name: "smoke 2", args: args{number: "1231", digit: '1'}, want: "231"},
 		{name: "smoke 3", args: args{number: "551", digit: '5'}, want: "51"},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := removeDigit(tt.args.number, tt.args.digit); got != tt.want {

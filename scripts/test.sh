@@ -13,4 +13,7 @@ case "$1" in
     go test -race -coverprofile cover.out -cover ./...
     go tool cover -func cover.out | grep total:
     ;;
+  *)
+    echo "Usage: ./test.sh [-fast|-race|-cover]" && exit 1
+    ;;
 esac

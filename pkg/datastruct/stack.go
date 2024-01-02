@@ -8,8 +8,8 @@ type Stackable interface {
 
 type Stack[T Stackable] interface {
 	Push(val T)
-	Pop() (val T, ok bool)
-	Peek() (val T, ok bool)
+	Pop() (T, bool)
+	Peek() (T, bool)
 	Size() int
 	IsEmpty() bool
 }
@@ -25,7 +25,7 @@ type stack[T Stackable] struct {
 }
 
 func NewStack[T Stackable]() Stack[T] {
-	return &stack[T]{}
+	return &stack[T]{head: nil, size: 0}
 }
 
 func (s *stack[T]) Push(val T) {
@@ -33,21 +33,25 @@ func (s *stack[T]) Push(val T) {
 	s.size++
 }
 
-func (s *stack[T]) Pop() (val T, ok bool) {
+func (s *stack[T]) Pop() (T, bool) {
 	if s.IsEmpty() {
-		return
+		var zero T
+
+		return zero, false
 	}
 
-	val = s.head.val
+	val := s.head.val
 	s.head = s.head.next
 	s.size--
 
 	return val, true
 }
 
-func (s *stack[T]) Peek() (val T, ok bool) {
+func (s *stack[T]) Peek() (T, bool) {
 	if s.IsEmpty() {
-		return
+		var zero T
+
+		return zero, false
 	}
 
 	return s.head.val, true

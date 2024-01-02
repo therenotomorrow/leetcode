@@ -10,6 +10,7 @@ func TestRestoreArray(t *testing.T) {
 	type args struct {
 		adjacentPairs [][]int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -19,6 +20,7 @@ func TestRestoreArray(t *testing.T) {
 		{name: "smoke 2", args: args{adjacentPairs: [][]int{{4, -2}, {1, 4}, {-3, 1}}}, want: []int{-2, 4, 1, -3}},
 		{name: "smoke 3", args: args{adjacentPairs: [][]int{{100000, -100000}}}, want: []int{100000, -100000}},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := restoreArray(tt.args.adjacentPairs)

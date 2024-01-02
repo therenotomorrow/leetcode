@@ -8,6 +8,7 @@ func TestPoorPigs(t *testing.T) {
 		minutesToDie  int
 		minutesToTest int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -18,6 +19,7 @@ func TestPoorPigs(t *testing.T) {
 		{name: "test 11: wrong answer", args: args{buckets: 8, minutesToDie: 15, minutesToTest: 40}, want: 2},
 		{name: "test 17: wrong answer", args: args{buckets: 125, minutesToDie: 1, minutesToTest: 4}, want: 3},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := poorPigs(tt.args.buckets, tt.args.minutesToDie, tt.args.minutesToTest); got != tt.want {

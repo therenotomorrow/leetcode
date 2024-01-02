@@ -16,6 +16,7 @@ func (sm *SeatManager) Reserve() int {
 	for i, seat := range sm.seats[curr:] {
 		if seat == 0 {
 			curr += i
+
 			break
 		}
 	}

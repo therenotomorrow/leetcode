@@ -6,6 +6,7 @@ func TestCountPalindromicSubsequence(t *testing.T) {
 	type args struct {
 		s string
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -15,6 +16,7 @@ func TestCountPalindromicSubsequence(t *testing.T) {
 		{name: "smoke 2", args: args{s: "adc"}, want: 0},
 		{name: "smoke 3", args: args{s: "bbcbaba"}, want: 4},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := countPalindromicSubsequence(tt.args.s); got != tt.want {

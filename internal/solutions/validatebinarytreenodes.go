@@ -9,10 +9,12 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 	children.Populate(rightChild...)
 
 	root := -1
+
 	for node := 0; node < n; node++ {
 		// root cannot be a child node
 		if !children.Contains(node) {
 			root = node
+
 			break
 		}
 	}
@@ -25,6 +27,7 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 	stack.Push(root)
 
 	cnt := 0 // track visited nodes
+
 	for ; !stack.IsEmpty(); cnt++ {
 		node, _ := stack.Pop()
 

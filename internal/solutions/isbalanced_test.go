@@ -1,14 +1,16 @@
 package solutions
 
 import (
-	"github.com/therenotomorrow/leetcode/internal/structs"
 	"testing"
+
+	"github.com/therenotomorrow/leetcode/internal/structs"
 )
 
 func TestIsBalanced(t *testing.T) {
 	type args struct {
 		root *structs.TreeNode
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -18,11 +20,11 @@ func TestIsBalanced(t *testing.T) {
 			name: "smoke 1",
 			args: args{root: &structs.TreeNode{
 				Val:  3,
-				Left: &structs.TreeNode{Val: 9},
+				Left: &structs.TreeNode{Val: 9, Left: nil, Right: nil},
 				Right: &structs.TreeNode{
 					Val:   20,
-					Left:  &structs.TreeNode{Val: 15},
-					Right: &structs.TreeNode{Val: 7},
+					Left:  &structs.TreeNode{Val: 15, Left: nil, Right: nil},
+					Right: &structs.TreeNode{Val: 7, Left: nil, Right: nil},
 				},
 			}},
 			want: true,
@@ -35,12 +37,12 @@ func TestIsBalanced(t *testing.T) {
 					Val: 2,
 					Left: &structs.TreeNode{
 						Val:   3,
-						Left:  &structs.TreeNode{Val: 4},
-						Right: &structs.TreeNode{Val: 4},
+						Left:  &structs.TreeNode{Val: 4, Left: nil, Right: nil},
+						Right: &structs.TreeNode{Val: 4, Left: nil, Right: nil},
 					},
-					Right: &structs.TreeNode{Val: 3},
+					Right: &structs.TreeNode{Val: 3, Left: nil, Right: nil},
 				},
-				Right: &structs.TreeNode{Val: 2},
+				Right: &structs.TreeNode{Val: 2, Left: nil, Right: nil},
 			}},
 			want: false,
 		},
@@ -56,15 +58,19 @@ func TestIsBalanced(t *testing.T) {
 				Left: &structs.TreeNode{
 					Val: 2,
 					Left: &structs.TreeNode{
-						Val:  3,
-						Left: &structs.TreeNode{Val: 4},
+						Val:   3,
+						Left:  &structs.TreeNode{Val: 4, Left: nil, Right: nil},
+						Right: nil,
 					},
+					Right: nil,
 				},
 				Right: &structs.TreeNode{
-					Val: 2,
+					Val:  2,
+					Left: nil,
 					Right: &structs.TreeNode{
 						Val:   3,
-						Right: &structs.TreeNode{Val: 4},
+						Left:  nil,
+						Right: &structs.TreeNode{Val: 4, Left: nil, Right: nil},
 					},
 				},
 			}},
@@ -78,16 +84,17 @@ func TestIsBalanced(t *testing.T) {
 					Val: 2,
 					Left: &structs.TreeNode{
 						Val:   3,
-						Left:  &structs.TreeNode{Val: 4},
-						Right: &structs.TreeNode{Val: 4},
+						Left:  &structs.TreeNode{Val: 4, Left: nil, Right: nil},
+						Right: &structs.TreeNode{Val: 4, Left: nil, Right: nil},
 					},
-					Right: &structs.TreeNode{Val: 3},
+					Right: &structs.TreeNode{Val: 3, Left: nil, Right: nil},
 				},
-				Right: &structs.TreeNode{Val: 2},
+				Right: &structs.TreeNode{Val: 2, Left: nil, Right: nil},
 			}},
 			want: false,
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := isBalanced(tt.args.root); got != tt.want {

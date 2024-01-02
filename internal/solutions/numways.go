@@ -8,23 +8,23 @@ import (
 func numWays(steps int, arrLen int) int {
 	var (
 		c       = cache.NewCache()
-		dynamic func(currPos int, stepsRemain int) (waysCnt int)
+		dynamic func(currPos int, stepsRemain int) int
 	)
 
-	dynamic = func(currPos int, stepsRemain int) (waysCnt int) {
+	dynamic = func(currPos int, stepsRemain int) int {
 		if stepsRemain == 0 {
 			if currPos == 0 {
-				waysCnt = 1
+				return 1
 			}
 
-			return waysCnt
+			return 0
 		}
 
 		if val, ok := c.Load(currPos, stepsRemain); ok {
 			return val
 		}
 
-		waysCnt = dynamic(currPos, stepsRemain-1) // don't move
+		waysCnt := dynamic(currPos, stepsRemain-1) // don't move
 
 		if currPos > 0 {
 			waysCnt = (waysCnt + dynamic(currPos-1, stepsRemain-1)) % structs.MOD

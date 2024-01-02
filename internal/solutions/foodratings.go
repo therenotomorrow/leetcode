@@ -29,7 +29,13 @@ func (pq *FoodItemsPQ) Swap(i, j int) {
 }
 
 func (pq *FoodItemsPQ) Push(x interface{}) {
-	pq.data = append(pq.data, x.(*FoodItem))
+	val, ok := x.(*FoodItem)
+
+	if !ok {
+		panic("wrong FoodItem")
+	}
+
+	pq.data = append(pq.data, val)
 }
 
 func (pq *FoodItemsPQ) Pop() interface{} {
@@ -37,6 +43,7 @@ func (pq *FoodItemsPQ) Pop() interface{} {
 	n := len(old)
 	item := old[n-1]
 	pq.data = old[:pq.Len()-1]
+
 	return item
 }
 
@@ -51,7 +58,7 @@ func FoodRatingsConstructor(foods []string, cuisines []string, ratings []int) Fo
 
 	for i, cuisine := range cuisines {
 		if _, ok := data[cuisine]; !ok {
-			data[cuisine] = &FoodItemsPQ{}
+			data[cuisine] = &FoodItemsPQ{data: nil}
 		}
 
 		rate[foods[i]] = &FoodItem{food: foods[i], rate: ratings[i], cuisine: cuisine}

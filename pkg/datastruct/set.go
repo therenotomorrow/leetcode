@@ -5,8 +5,8 @@ type Set[T comparable] interface {
 	Del(val T)
 	Len() int
 	Populate(vals ...T)
-	Contains(val T) (ok bool)
-	Values() (vals []T)
+	Contains(val T) bool
+	Values() []T
 }
 
 type set[T comparable] struct {
@@ -35,15 +35,18 @@ func (s *set[T]) Populate(vals ...T) {
 	}
 }
 
-func (s *set[T]) Contains(val T) (ok bool) {
-	_, ok = s.data[val]
-	return
+func (s *set[T]) Contains(val T) bool {
+	_, ok := s.data[val]
+
+	return ok
 }
 
-func (s *set[T]) Values() (vals []T) {
-	vals = make([]T, 0, s.Len())
+func (s *set[T]) Values() []T {
+	vals := make([]T, 0, s.Len())
+
 	for val := range s.data {
 		vals = append(vals, val)
 	}
+
 	return vals
 }

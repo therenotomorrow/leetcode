@@ -3,11 +3,11 @@ package solutions
 import "github.com/therenotomorrow/leetcode/pkg/mathfunc"
 
 func getSumAbsoluteDifferences(nums []int) []int {
-	ans := make([]int, len(nums))
-
-	totalSum := mathfunc.Sum(nums...)
-	leftSum := 0
-	rightSum := 0
+	var (
+		ans               = make([]int, len(nums))
+		totalSum          = mathfunc.Sum(nums...)
+		leftSum, rightSum int
+	)
 
 	for i, num := range nums {
 		rightSum = totalSum - leftSum - num

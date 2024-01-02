@@ -7,6 +7,7 @@ func TestCountCharacters(t *testing.T) {
 		words []string
 		chars string
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -15,6 +16,7 @@ func TestCountCharacters(t *testing.T) {
 		{name: "smoke 1", args: args{words: []string{"cat", "bt", "hat", "tree"}, chars: "atach"}, want: 6},
 		{name: "smoke 2", args: args{words: []string{"hello", "world", "leetcode"}, chars: "welldonehoneyr"}, want: 10},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := countCharacters(tt.args.words, tt.args.chars); got != tt.want {

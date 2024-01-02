@@ -8,10 +8,10 @@ import (
 func isValidPalindrome(s string, k int) bool {
 	var (
 		c       = cache.NewCache()
-		dynamic func(left int, right int) (removesCnt int)
+		dynamic func(left int, right int) int
 	)
 
-	dynamic = func(left int, right int) (removesCnt int) {
+	dynamic = func(left int, right int) int {
 		if val, ok := c.Load(left, right); ok {
 			return val
 		}
@@ -29,7 +29,7 @@ func isValidPalindrome(s string, k int) bool {
 			return dynamic(left+1, right-1)
 		}
 
-		removesCnt = 1 + mathfunc.Min(dynamic(left+1, right), dynamic(left, right-1))
+		removesCnt := 1 + mathfunc.Min(dynamic(left+1, right), dynamic(left, right-1))
 
 		c.Save(removesCnt, left, right)
 

@@ -8,6 +8,7 @@ func findDiagonalOrder(nums [][]int) []int {
 		for j, ceil := range nums[i] {
 			diagNum := i + j
 			size++
+
 			diag[diagNum] = append(diag[diagNum], ceil)
 		}
 	}

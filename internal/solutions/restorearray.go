@@ -11,9 +11,11 @@ func restoreArray(adjacentPairs [][]int) []int {
 	}
 
 	edge := 0
+
 	for num, neighbors := range graph {
 		if len(neighbors) == 1 {
 			edge = num
+
 			break
 		}
 	}
@@ -29,6 +31,7 @@ func restoreArray(adjacentPairs [][]int) []int {
 			}
 
 			used.Add(edge)
+
 			ans[i] = neighbor
 			edge = neighbor
 		}

@@ -7,13 +7,17 @@ import (
 
 func maximumAverageSubtree(root *structs.TreeNode) float64 {
 	_, _, avg := inOrderCounter(root)
+
 	return avg
 }
 
-func inOrderCounter(root *structs.TreeNode) (sum int, cnt int, avg float64) {
+func inOrderCounter(root *structs.TreeNode) (int, int, float64) {
 	if root == nil {
 		return 0, 0, 0
 	}
+
+	sum := 0
+	cnt := 0
 
 	// ---- left
 	sumL, cntL, avgL := inOrderCounter(root.Left)
@@ -29,7 +33,7 @@ func inOrderCounter(root *structs.TreeNode) (sum int, cnt int, avg float64) {
 
 	// ---- postorder
 	sum += root.Val
-	cnt += 1
+	cnt++
 
 	return sum, cnt, mathfunc.Max(float64(sum)/float64(cnt), avgL, avgR)
 }

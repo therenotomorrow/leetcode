@@ -7,6 +7,7 @@ func TestIsValidPalindrome(t *testing.T) {
 		s string
 		k int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -16,6 +17,7 @@ func TestIsValidPalindrome(t *testing.T) {
 		{name: "smoke 2", args: args{s: "abbababa", k: 1}, want: true},
 		{name: "test 3: runtime", args: args{s: "baaaabaa", k: 3}, want: true},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := isValidPalindrome(tt.args.s, tt.args.k); got != tt.want {

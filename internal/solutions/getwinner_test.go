@@ -7,6 +7,7 @@ func TestGetWinner(t *testing.T) {
 		arr []int
 		k   int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -18,6 +19,7 @@ func TestGetWinner(t *testing.T) {
 		{name: "test 139: wrong answer", args: args{arr: []int{1, 25, 35, 42, 68, 70}, k: 2}, want: 70},
 		{name: "test 160: wrong answer", args: args{arr: []int{1, 25, 68, 35, 42, 70}, k: 2}, want: 68},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := getWinner(tt.args.arr, tt.args.k); got != tt.want {

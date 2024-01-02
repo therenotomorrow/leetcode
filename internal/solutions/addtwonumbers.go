@@ -21,12 +21,12 @@ func addTwoNumbers(l1 *structs.ListNode, l2 *structs.ListNode) *structs.ListNode
 		sum += carry
 		carry = sum / 10 // max = 1 + 9 + 9, so carry 0 or 1
 
-		curr.Next = &structs.ListNode{Val: sum % 10}
+		curr.Next = &structs.ListNode{Val: sum % 10, Next: nil}
 		curr = curr.Next
 	}
 
 	if carry != 0 {
-		curr.Next = &structs.ListNode{Val: carry}
+		curr.Next = &structs.ListNode{Val: carry, Next: nil}
 	}
 
 	return head.Next

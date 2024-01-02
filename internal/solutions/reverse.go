@@ -12,7 +12,7 @@ func reverse(x int) int {
 			return 0
 		}
 
-		x = x / 10
+		x /= 10
 		y = y*10 + digit
 	}
 

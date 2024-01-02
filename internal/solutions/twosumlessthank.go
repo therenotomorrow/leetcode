@@ -1,8 +1,9 @@
 package solutions
 
 import (
-	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 	"sort"
+
+	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 )
 
 func twoSumLessThanK(nums []int, k int) int {

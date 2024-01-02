@@ -7,6 +7,7 @@ func TestKthGrammar(t *testing.T) {
 		n int
 		k int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -18,6 +19,7 @@ func TestKthGrammar(t *testing.T) {
 		{name: "test 15: oom", args: args{n: 30, k: 434991989}, want: 0},
 		{name: "test 32: wrong answer", args: args{n: 3, k: 3}, want: 1},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := kthGrammar(tt.args.n, tt.args.k); got != tt.want {

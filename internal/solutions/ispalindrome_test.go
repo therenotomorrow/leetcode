@@ -6,6 +6,7 @@ func TestIsPalindrome(t *testing.T) {
 	type args struct {
 		x int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -15,6 +16,7 @@ func TestIsPalindrome(t *testing.T) {
 		{name: "smoke 2", args: args{x: -121}, want: false},
 		{name: "smoke 3", args: args{x: 10}, want: false},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := isPalindrome(tt.args.x); got != tt.want {

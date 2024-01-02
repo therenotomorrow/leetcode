@@ -6,6 +6,7 @@ func TestIsPowerOfFour(t *testing.T) {
 	type args struct {
 		n int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -16,6 +17,7 @@ func TestIsPowerOfFour(t *testing.T) {
 		{name: "smoke 3", args: args{n: 1}, want: true},
 		{name: "test 1045: wrong answer", args: args{n: 0}, want: false},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := isPowerOfFour(tt.args.n); got != tt.want {

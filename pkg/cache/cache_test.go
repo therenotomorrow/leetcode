@@ -1,8 +1,9 @@
 package cache_test
 
 import (
-	"github.com/therenotomorrow/leetcode/pkg/cache"
 	"testing"
+
+	"github.com/therenotomorrow/leetcode/pkg/cache"
 )
 
 func TestCacheSaveLoad(t *testing.T) {

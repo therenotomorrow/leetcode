@@ -1,18 +1,21 @@
 package structs_test
 
 import (
-	"github.com/therenotomorrow/leetcode/internal/structs"
 	"testing"
+
+	"github.com/therenotomorrow/leetcode/internal/structs"
 )
 
-func TestListNode(t *testing.T) {
+func TestListNode(_ *testing.T) {
 	// make sure about creation
-
-	_ = structs.ListNode{Val: 42, Next: &structs.ListNode{Val: 36}}
+	_ = structs.ListNode{Val: 42, Next: &structs.ListNode{Val: 36, Next: nil}}
 }
 
-func TestTreeNode(t *testing.T) {
+func TestTreeNode(_ *testing.T) {
 	// make sure about creation
-
-	_ = structs.TreeNode{Val: 42, Left: &structs.TreeNode{Val: 36}, Right: &structs.TreeNode{Val: 25}}
+	_ = structs.TreeNode{
+		Val:   42,
+		Left:  &structs.TreeNode{Val: 36, Left: nil, Right: nil},
+		Right: &structs.TreeNode{Val: 25, Left: nil, Right: nil},
+	}
 }

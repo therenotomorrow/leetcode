@@ -10,6 +10,7 @@ func TestMinDistance(t *testing.T) {
 		squirrel []int
 		nuts     [][]int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -38,6 +39,7 @@ func TestMinDistance(t *testing.T) {
 			want: 3,
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := minDistance(tt.args.height, tt.args.width, tt.args.tree, tt.args.squirrel, tt.args.nuts); got != tt.want {

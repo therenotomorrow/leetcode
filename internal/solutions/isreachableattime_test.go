@@ -10,6 +10,7 @@ func TestIsReachableAtTime(t *testing.T) {
 		fy int
 		t  int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -20,6 +21,7 @@ func TestIsReachableAtTime(t *testing.T) {
 		{name: "test 769", args: args{sx: 1, sy: 1, fx: 2, fy: 2, t: 1}, want: true},
 		{name: "test 799", args: args{sx: 1, sy: 2, fx: 1, fy: 2, t: 1}, want: false},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := isReachableAtTime(tt.args.sx, tt.args.sy, tt.args.fx, tt.args.fy, tt.args.t); got != tt.want {

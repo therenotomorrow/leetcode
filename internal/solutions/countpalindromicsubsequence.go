@@ -1,8 +1,9 @@
 package solutions
 
 import (
-	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 	"strings"
+
+	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 )
 
 func countPalindromicSubsequence(s string) int {

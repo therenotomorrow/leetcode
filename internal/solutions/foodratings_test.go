@@ -13,6 +13,7 @@ func TestFoodRatingsSmoke1(t *testing.T) {
 	want := ""
 
 	want = "kimchi"
+
 	t.Run("", func(t *testing.T) {
 		if got := obj.HighestRated("korean"); got != want {
 			t.Errorf(" obj.HighestRated() = %v, want = %v", got, want)
@@ -20,6 +21,7 @@ func TestFoodRatingsSmoke1(t *testing.T) {
 	})
 
 	want = "ramen"
+
 	t.Run("", func(t *testing.T) {
 		if got := obj.HighestRated("japanese"); got != want {
 			t.Errorf(" obj.HighestRated() = %v, want = %v", got, want)
@@ -29,6 +31,7 @@ func TestFoodRatingsSmoke1(t *testing.T) {
 	obj.ChangeRating("sushi", 16)
 
 	want = "sushi"
+
 	t.Run("", func(t *testing.T) {
 		if got := obj.HighestRated("japanese"); got != want {
 			t.Errorf(" obj.HighestRated() = %v, want = %v", got, want)
@@ -38,6 +41,7 @@ func TestFoodRatingsSmoke1(t *testing.T) {
 	obj.ChangeRating("ramen", 16)
 
 	want = "ramen"
+
 	t.Run("", func(t *testing.T) {
 		if got := obj.HighestRated("japanese"); got != want {
 			t.Errorf(" obj.HighestRated() = %v, want = %v", got, want)

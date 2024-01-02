@@ -6,6 +6,7 @@ func TestLargestOddNumber(t *testing.T) {
 	type args struct {
 		num string
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -15,6 +16,7 @@ func TestLargestOddNumber(t *testing.T) {
 		{name: "smoke 2", args: args{num: "4206"}, want: ""},
 		{name: "smoke 3", args: args{num: "35427"}, want: "35427"},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := largestOddNumber(tt.args.num); got != tt.want {

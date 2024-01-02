@@ -11,6 +11,7 @@ func TestTwoSum1(t *testing.T) {
 		nums   []int
 		target int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -20,6 +21,7 @@ func TestTwoSum1(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{3, 2, 4}, target: 6}, want: []int{1, 2}},
 		{name: "smoke 3", args: args{nums: []int{3, 3}, target: 6}, want: []int{0, 1}},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := twoSum1(tt.args.nums, tt.args.target)

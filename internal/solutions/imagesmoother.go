@@ -15,7 +15,7 @@ func imageSmoother(img [][]int) [][]int {
 				for y := j - 1; y <= j+1; y++ {
 					if 0 <= x && x < len(img) && 0 <= y && y < len(row) {
 						sum += img[x][y]
-						cnt += 1
+						cnt++
 					}
 				}
 			}

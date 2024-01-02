@@ -10,6 +10,7 @@ func TestBuildArray(t *testing.T) {
 		target []int
 		n      int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -19,6 +20,7 @@ func TestBuildArray(t *testing.T) {
 		{name: "smoke 2", args: args{target: []int{1, 2, 3}, n: 3}, want: []string{"Push", "Push", "Push"}},
 		{name: "smoke 3", args: args{target: []int{1, 2}, n: 4}, want: []string{"Push", "Push"}},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := buildArray(tt.args.target, tt.args.n); !reflect.DeepEqual(got, tt.want) {

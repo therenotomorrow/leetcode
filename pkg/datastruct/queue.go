@@ -8,8 +8,8 @@ type Queueable interface {
 
 type Queue[T Queueable] interface {
 	Enqueue(val T)
-	Dequeue() (val T, ok bool)
-	Peek() (val T, ok bool)
+	Dequeue() (T, bool)
+	Peek() (T, bool)
 	Size() int
 	IsEmpty() bool
 }
@@ -26,12 +26,12 @@ type queue[T Queueable] struct {
 }
 
 func NewQueue[T Queueable]() Queue[T] {
-	return &queue[T]{}
+	return &queue[T]{head: nil, tail: nil, size: 0}
 }
 
 func (q *queue[T]) Enqueue(val T) {
 	old := q.tail
-	q.tail = &qNode[T]{val: val}
+	q.tail = &qNode[T]{val: val, next: nil}
 
 	if q.IsEmpty() {
 		q.head = q.tail
@@ -42,21 +42,25 @@ func (q *queue[T]) Enqueue(val T) {
 	q.size++
 }
 
-func (q *queue[T]) Dequeue() (val T, ok bool) {
+func (q *queue[T]) Dequeue() (T, bool) {
 	if q.IsEmpty() {
-		return
+		var zero T
+
+		return zero, false
 	}
 
-	val = q.head.val
+	val := q.head.val
 	q.head = q.head.next
 	q.size--
 
 	return val, true
 }
 
-func (q *queue[T]) Peek() (val T, ok bool) {
+func (q *queue[T]) Peek() (T, bool) {
 	if q.IsEmpty() {
-		return
+		var zero T
+
+		return zero, false
 	}
 
 	return q.head.val, true

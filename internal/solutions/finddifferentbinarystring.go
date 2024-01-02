@@ -2,9 +2,10 @@ package solutions
 
 import (
 	"fmt"
-	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 	"math/rand"
 	"strconv"
+
+	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 )
 
 func findDifferentBinaryString(nums []string) string {
@@ -15,7 +16,8 @@ func findDifferentBinaryString(nums []string) string {
 		uniq.Add(int(val))
 	}
 
-	found := -1
+	var found int
+
 	for {
 		found = rand.Intn(len(nums) + 1)
 		if !uniq.Contains(found) {

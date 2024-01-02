@@ -6,6 +6,7 @@ func TestLargestGoodInteger(t *testing.T) {
 	type args struct {
 		num string
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -16,6 +17,7 @@ func TestLargestGoodInteger(t *testing.T) {
 		{name: "smoke 3", args: args{num: "42352338"}, want: ""},
 		{name: "test 71: wrong answer", args: args{num: "3200014888"}, want: "888"},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := largestGoodInteger(tt.args.num); got != tt.want {

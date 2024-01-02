@@ -12,6 +12,7 @@ func getWinner(arr []int, k int) int {
 
 		if opponent < winner {
 			streak++
+
 			continue
 		}
 

@@ -1,8 +1,9 @@
 package solutions
 
 import (
-	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 	"math"
+
+	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 )
 
 func maxLeft(part int, nums []int) int {
@@ -50,7 +51,7 @@ func findMedianSortedArrays(nums1, nums2 []int) float64 {
 		switch {
 		case l1 <= r2 && l2 <= r1:
 			if (len1+len2)%2 == 0 {
-				return float64(mathfunc.Max(l1, l2)+mathfunc.Min(r1, r2)) / 2.0
+				return float64(mathfunc.Max(l1, l2)+mathfunc.Min(r1, r2)) / 2
 			}
 
 			return float64(mathfunc.Max(l1, l2))

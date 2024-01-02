@@ -8,6 +8,7 @@ func sortVowels(s string) string {
 		_, ok := count[r]
 		if ok {
 			count[r]++
+
 			runes[i] = '_'
 		}
 	}

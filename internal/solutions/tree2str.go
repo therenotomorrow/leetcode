@@ -1,9 +1,10 @@
 package solutions
 
 import (
-	"github.com/therenotomorrow/leetcode/internal/structs"
 	"strconv"
 	"strings"
+
+	"github.com/therenotomorrow/leetcode/internal/structs"
 )
 
 func tree2str(root *structs.TreeNode) string {
@@ -23,6 +24,7 @@ func tree2strBuild(root *structs.TreeNode, sb *strings.Builder) {
 
 	if root.Left == nil && root.Right == nil {
 		sb.WriteString(")")
+
 		return
 	}
 

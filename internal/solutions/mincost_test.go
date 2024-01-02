@@ -7,6 +7,7 @@ func TestMinCost(t *testing.T) {
 		colors     string
 		neededTime []int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -16,6 +17,7 @@ func TestMinCost(t *testing.T) {
 		{name: "smoke 2", args: args{colors: "abc", neededTime: []int{1, 2, 3}}, want: 0},
 		{name: "smoke 3", args: args{colors: "aabaa", neededTime: []int{1, 2, 3, 4, 1}}, want: 2},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := minCost(tt.args.colors, tt.args.neededTime); got != tt.want {

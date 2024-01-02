@@ -14,6 +14,7 @@ func findMissingRanges(nums []int, lower int, upper int) [][]int {
 		if nums[i+1]-nums[i] < 2 {
 			continue
 		}
+
 		ranges = append(ranges, []int{nums[i] + 1, nums[i+1] - 1})
 	}
 

@@ -1,14 +1,14 @@
 package structs_test
 
 import (
-	"github.com/therenotomorrow/leetcode/internal/structs"
 	"testing"
+
+	"github.com/therenotomorrow/leetcode/internal/structs"
 )
 
 //goland:noinspection GoBoolExpressions
 func TestConst(t *testing.T) {
 	// make sure about values
-
 	if want := 1000000007; structs.MOD != want {
 		t.Errorf("MOD() = %v, want = %v", structs.MOD, want)
 	}

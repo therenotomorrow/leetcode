@@ -6,6 +6,7 @@ func TestLengthOfLastWord(t *testing.T) {
 	type args struct {
 		s string
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -17,6 +18,7 @@ func TestLengthOfLastWord(t *testing.T) {
 		{name: "test 49: wrong answer", args: args{s: "a"}, want: 1},
 		{name: "test 51: wrong answer", args: args{s: "day"}, want: 3},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := lengthOfLastWord(tt.args.s); got != tt.want {

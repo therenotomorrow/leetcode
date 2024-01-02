@@ -13,7 +13,9 @@ func postOrderTraversal(root *structs.TreeNode) ([]int, int) {
 	arrL, cntL := postOrderTraversal(root.Left)
 	arrR, cntR := postOrderTraversal(root.Right)
 
-	arr := append(arrL, arrR...)
+	arr := make([]int, 0)
+	arr = append(arr, arrL...)
+	arr = append(arr, arrR...)
 	arr = append(arr, root.Val)
 
 	cnt := 0
@@ -27,5 +29,6 @@ func postOrderTraversal(root *structs.TreeNode) ([]int, int) {
 
 func averageOfSubtree(root *structs.TreeNode) int {
 	_, cnt := postOrderTraversal(root)
+
 	return cnt
 }

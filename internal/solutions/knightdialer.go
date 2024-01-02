@@ -8,7 +8,7 @@ import (
 func knightDialer(n int) int {
 	var (
 		c       = cache.NewCache()
-		dynamic func(remain int, currDigit int) (numsCnt int)
+		dynamic func(remain int, currDigit int) int
 	)
 
 	graph := [][]int{
@@ -24,7 +24,7 @@ func knightDialer(n int) int {
 		{2, 4},
 	}
 
-	dynamic = func(remain int, digit int) (numsCnt int) {
+	dynamic = func(remain int, digit int) int {
 		if remain == 0 {
 			return 1
 		}
@@ -33,6 +33,7 @@ func knightDialer(n int) int {
 			return val
 		}
 
+		numsCnt := 0
 		for _, nextDigit := range graph[digit] {
 			numsCnt = (numsCnt + dynamic(remain-1, nextDigit)) % structs.MOD
 		}

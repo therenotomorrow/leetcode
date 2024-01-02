@@ -1,6 +1,6 @@
 package solutions
 
-func buildArray(target []int, n int) []string {
+func buildArray(target []int, _ int) []string {
 	ops := make([]string, 0)
 	stream := 1
 

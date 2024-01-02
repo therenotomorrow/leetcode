@@ -7,6 +7,7 @@ func TestNumWays(t *testing.T) {
 		steps  int
 		arrLen int
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -19,6 +20,7 @@ func TestNumWays(t *testing.T) {
 		{name: "test 9: time limit", args: args{steps: 13, arrLen: 11}, want: 41835},
 		{name: "test 18: wrong answer", args: args{steps: 27, arrLen: 7}, want: 127784505},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := numWays(tt.args.steps, tt.args.arrLen); got != tt.want {

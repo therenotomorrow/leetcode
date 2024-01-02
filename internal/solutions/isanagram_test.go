@@ -7,6 +7,7 @@ func TestIsAnagram(t *testing.T) {
 		s string
 		t string
 	}
+
 	tests := []struct {
 		name string
 		args args

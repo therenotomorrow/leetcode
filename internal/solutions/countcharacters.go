@@ -18,6 +18,7 @@ func countCharacters(words []string, chars string) int {
 	}
 
 	ans := 0
+
 	for _, word := range words {
 		tmp := make([]int, 26)
 		copy(tmp, used)
