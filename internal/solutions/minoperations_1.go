@@ -4,7 +4,7 @@ import (
 	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 )
 
-func minOperations(s string) int {
+func minOperations1(s string) int {
 	cnt := 0 // will count '1'
 
 	for i, digit := range s {
