@@ -1,12 +1,8 @@
-package rangeSumBST
+package solutions
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+import "github.com/therenotomorrow/leetcode/internal/structs"
 
-func rangeSumBST(root *TreeNode, low int, high int) int {
+func rangeSumBST(root *structs.TreeNode, low int, high int) int {
 	sum := 0
 
 	if root == nil {
