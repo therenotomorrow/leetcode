@@ -368,5 +368,5 @@ In revision
 204. Decode Ways
 205. String Compression II
 206. Minimum Difficulty of a Job Schedule
-208. Maximum Profit in Job Scheduling
-209. Arithmetic Slices II - Subsequence
+207. Maximum Profit in Job Scheduling
+208. Arithmetic Slices II - Subsequence
