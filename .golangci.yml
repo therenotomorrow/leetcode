@@ -37,7 +37,7 @@ linters-settings:
       - "26"
       - "255"
   funlen:
-    lines: 120
+    lines: 150
   gosec:
     excludes:
       - G404
