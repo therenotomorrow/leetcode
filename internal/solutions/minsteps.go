@@ -10,6 +10,7 @@ func minSteps(s string, t string) int {
 	}
 
 	steps := 0
+
 	for _, times := range cnt {
 		if times < 0 {
 			steps += -times

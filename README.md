@@ -126,6 +126,7 @@ Completed problems
 | 1624 | [Largest Substring Between Two Equal Characters](https://leetcode.com/problems/largest-substring-between-two-equal-characters/description/)                             | [`maxlengthbetweenequalcharacters.go`](./internal/solutions/maxlengthbetweenequalcharacters.go)                             |
 | 1630 | [Arithmetic Subarrays](https://leetcode.com/problems/arithmetic-subarrays/description/)                                                                                 | [`checkarithmeticsubarrays.go`](./internal/solutions/checkarithmeticsubarrays.go)                                           |
 | 1637 | [Widest Vertical Area Between Two Points Containing No Points](https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/description/) | [`maxwidthofverticalarea.go`](./internal/solutions/maxwidthofverticalarea.go)                                               |
+| 1657 | [Determine if Two Strings Are Close](https://leetcode.com/problems/determine-if-two-strings-are-close/description/)                                                     | [`closestrings.go`](./internal/solutions/closestrings.go)                                                                   |
 | 1662 | [Check If Two String Arrays are Equivalent](https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/)                                       | [`arraystringsareequal.go`](./internal/solutions/arraystringsareequal.go)                                                   |
 | 1685 | [Sum of Absolute Differences in a Sorted Array](https://leetcode.com/problems/sum-of-absolute-differences-in-a-sorted-array/description/)                               | [`getsumabsolutedifferences.go`](./internal/solutions/getsumabsolutedifferences.go)                                         |
 | 1688 | [Count of Matches in Tournament](https://leetcode.com/problems/count-of-matches-in-tournament/description/)                                                             | [`numberofmatches.go`](./internal/solutions/numberofmatches.go)                                                             |
@@ -331,46 +332,45 @@ In revision
 161. Can Make Arithmetic Progression From Sequence
 162. Number of Good Pairs
 163. Make The String Great
-164. Determine if Two Strings Are Close
-165. Richest Customer Wealth
-166. Max Number of K-Sum Pairs
-167. Maximum Erasure Value
-168. Swapping Nodes in a Linked List
-169. Find the Highest Altitude
-170. Sum of Unique Elements
-171. Merge Strings Alternately
-172. Maximum Score of a Good Subarray
-173. Check if the Sentence Is Pangram
-174. Check if All Characters Have Equal Number of Occurrences
-175. Reverse Prefix of Word
-176. Minimum Number of Operations to Make Array Continuous
-177. Remove Colored Pieces if Both Neighbors are the Same Color
-178. Parallel Courses III
-179. Reverse Nodes in Even Length Groups
-180. K Radius Subarray Averages
-181. Delete the Middle Node of a Linked List
-182. Maximum Twin Sum of a Linked List
-183. Find the Difference of Two Arrays
-184. Find Players With Zero or One Losses
-185. Add Two Integers
-186. Intersection of Multiple Arrays
-187. Number of Flowers in Full Bloom
-188. Minimum Consecutive Cards to Pick Up
-189. Number of Ways to Split Array
-190. Successful Pairs of Spells and Potions
-191. Max Sum of a Pair With Equal Sum of Digits
-192. First Letter to Appear Twice
-193. Equal Row and Column Pairs
-194. Removing Stars From a String
-195. Using a Robot to Print the Lexicographically Smallest String
-196. Total Cost to Hire K Workers
-197. Design Graph With Shortest Path Calculator
-198. Painting the Walls
-199. Largest Submatrix With Rearrangements
-200. Number of Ways to Divide a Long Corridor
-201. Minimum One Bit Operations to Make Integers Zero
-202. Decode Ways
-203. String Compression II
-204. Minimum Difficulty of a Job Schedule
-205. Maximum Profit in Job Scheduling
-206. Arithmetic Slices II - Subsequence
+164. Richest Customer Wealth
+165. Max Number of K-Sum Pairs
+166. Maximum Erasure Value
+167. Swapping Nodes in a Linked List
+168. Find the Highest Altitude
+169. Sum of Unique Elements
+170. Merge Strings Alternately
+171. Maximum Score of a Good Subarray
+172. Check if the Sentence Is Pangram
+173. Check if All Characters Have Equal Number of Occurrences
+174. Reverse Prefix of Word
+175. Minimum Number of Operations to Make Array Continuous
+176. Remove Colored Pieces if Both Neighbors are the Same Color
+177. Parallel Courses III
+178. Reverse Nodes in Even Length Groups
+179. K Radius Subarray Averages
+180. Delete the Middle Node of a Linked List
+181. Maximum Twin Sum of a Linked List
+182. Find the Difference of Two Arrays
+183. Find Players With Zero or One Losses
+184. Add Two Integers
+185. Intersection of Multiple Arrays
+186. Number of Flowers in Full Bloom
+187. Minimum Consecutive Cards to Pick Up
+188. Number of Ways to Split Array
+189. Successful Pairs of Spells and Potions
+190. Max Sum of a Pair With Equal Sum of Digits
+191. First Letter to Appear Twice
+192. Equal Row and Column Pairs
+193. Removing Stars From a String
+194. Using a Robot to Print the Lexicographically Smallest String
+195. Total Cost to Hire K Workers
+196. Design Graph With Shortest Path Calculator
+197. Painting the Walls
+198. Largest Submatrix With Rearrangements
+199. Number of Ways to Divide a Long Corridor
+200. Minimum One Bit Operations to Make Integers Zero
+201. Decode Ways
+202. String Compression II
+203. Minimum Difficulty of a Job Schedule
+204. Maximum Profit in Job Scheduling
+205. Arithmetic Slices II - Subsequence
