@@ -81,6 +81,8 @@ Completed problems
 | 487  | [Max Consecutive Ones II](https://leetcode.com/problems/max-consecutive-ones-ii/description/)                                                                           | [`findmaxconsecutiveones_2.go`](./internal/solutions/findmaxconsecutiveones_2.go)                                           |
 | 501  | [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/description/)                                                           | [`findmode.go`](./internal/solutions/findmode.go)                                                                           |
 | 525  | [Contiguous Array](https://leetcode.com/problems/contiguous-array/description/)                                                                                         | [`findmaxlength.go`](./internal/solutions/findmaxlength.go)                                                                 |
+| 539  | [Minimum Time Difference](https://leetcode.com/problems/minimum-time-difference/description/)                                                                           | [`findmindifference.go`](./internal/solutions/findmindifference.go)                                                         |
+| 572  | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/description/)                                                                           | [`issubtree.go`](./internal/solutions/issubtree.go)                                                                         |
 | 573  | [Squirrel Simulation](https://leetcode.com/problems/squirrel-simulation/description/)                                                                                   | [`mindistance.go`](./internal/solutions/mindistance.go)                                                                     |
 | 606  | [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/description/)                                                       | [`tree2str.go`](./internal/solutions/tree2str.go)                                                                           |
 | 624  | [Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/description/)                                                                     | [`maxdistance.go`](./internal/solutions/maxdistance.go)                                                                     |
@@ -102,6 +104,7 @@ Completed problems
 | 1120 | [Maximum Average Subtree](https://leetcode.com/problems/maximum-average-subtree/description/)                                                                           | [`maximumaveragesubtree.go`](./internal/solutions/maximumaveragesubtree.go)                                                 |
 | 1155 | [Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/description/)                                                 | [`numrollstotarget.go`](./internal/solutions/numrollstotarget.go)                                                           |
 | 1160 | [Find Words That Can Be Formed by Characters](https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/description/)                                   | [`countcharacters.go`](./internal/solutions/countcharacters.go)                                                             |
+| 1165 | [Single-Row Keyboard](https://leetcode.com/problems/single-row-keyboard/description/)                                                                                   | [`calculatetime.go`](./internal/solutions/calculatetime.go)                                                                 |
 | 1216 | [Valid Palindrome III](https://leetcode.com/problems/valid-palindrome-iii/description/)                                                                                 | [`isvalidpalindrome.go`](./internal/solutions/isvalidpalindrome.go)                                                         |
 | 1219 | [Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold/description/)                                                                             | [`getmaximumgold.go`](./internal/solutions/getmaximumgold.go)                                                               |
 | 1266 | [Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points/description/)                                                         | [`mintimetovisitallpoints.go`](./internal/solutions/mintimetovisitallpoints.go)                                             |
@@ -152,6 +155,7 @@ Completed problems
 | 1961 | [Check If String Is a Prefix of Array](https://leetcode.com/problems/check-if-string-is-a-prefix-of-array/description/)                                                 | [`isprefixstring.go`](./internal/solutions/isprefixstring.go)                                                               |
 | 1980 | [Find Unique Binary String](https://leetcode.com/problems/find-unique-binary-string/description/)                                                                       | [`finddifferentbinarystring.go`](./internal/solutions/finddifferentbinarystring.go)                                         |
 | 2125 | [Number of Laser Beams in a Bank](https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/)                                                           | [`numberofbeams.go`](./internal/solutions/numberofbeams.go)                                                                 |
+| 2225 | [Find Players With Zero or One Losses](https://leetcode.com/problems/find-players-with-zero-or-one-losses/description/)                                                 | [`findwinners.go`](./internal/solutions/findwinners.go)                                                                     |
 | 2244 | [Minimum Rounds to Complete All Tasks](https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/description/)                                                 | [`minimumrounds.go`](./internal/solutions/minimumrounds.go)                                                                 |
 | 2259 | [Remove Digit From Number to Maximize Result](https://leetcode.com/problems/remove-digit-from-number-to-maximize-result/description/)                                   | [`removedigit.go`](./internal/solutions/removedigit.go)                                                                     |
 | 2264 | [Largest 3-Same-Digit Number in String](https://leetcode.com/problems/largest-3-same-digit-number-in-string/description/)                                               | [`largestgoodinteger.go`](./internal/solutions/largestgoodinteger.go)                                                       |
@@ -352,26 +356,25 @@ In revision
 180. Delete the Middle Node of a Linked List
 181. Maximum Twin Sum of a Linked List
 182. Find the Difference of Two Arrays
-183. Find Players With Zero or One Losses
-184. Add Two Integers
-185. Intersection of Multiple Arrays
-186. Number of Flowers in Full Bloom
-187. Minimum Consecutive Cards to Pick Up
-188. Number of Ways to Split Array
-189. Successful Pairs of Spells and Potions
-190. Max Sum of a Pair With Equal Sum of Digits
-191. First Letter to Appear Twice
-192. Equal Row and Column Pairs
-193. Removing Stars From a String
-194. Using a Robot to Print the Lexicographically Smallest String
-195. Total Cost to Hire K Workers
-196. Design Graph With Shortest Path Calculator
-197. Painting the Walls
-198. Largest Submatrix With Rearrangements
-199. Number of Ways to Divide a Long Corridor
-200. Minimum One Bit Operations to Make Integers Zero
-201. Decode Ways
-202. String Compression II
-203. Minimum Difficulty of a Job Schedule
-204. Maximum Profit in Job Scheduling
-205. Arithmetic Slices II - Subsequence
+183. Add Two Integers
+184. Intersection of Multiple Arrays
+185. Number of Flowers in Full Bloom
+186. Minimum Consecutive Cards to Pick Up
+187. Number of Ways to Split Array
+188. Successful Pairs of Spells and Potions
+189. Max Sum of a Pair With Equal Sum of Digits
+190. First Letter to Appear Twice
+191. Equal Row and Column Pairs
+192. Removing Stars From a String
+193. Using a Robot to Print the Lexicographically Smallest String
+194. Total Cost to Hire K Workers
+195. Design Graph With Shortest Path Calculator
+196. Painting the Walls
+197. Largest Submatrix With Rearrangements
+198. Number of Ways to Divide a Long Corridor
+199. Minimum One Bit Operations to Make Integers Zero
+200. Decode Ways
+201. String Compression II
+202. Minimum Difficulty of a Job Schedule
+203. Maximum Profit in Job Scheduling
+204. Arithmetic Slices II - Subsequence

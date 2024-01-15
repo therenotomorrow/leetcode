@@ -1,4 +1,4 @@
-package findWinners
+package solutions
 
 import "sort"
 
@@ -6,10 +6,8 @@ func findWinners(matches [][]int) [][]int {
 	games := make(map[int]int)
 
 	for _, match := range matches {
-		win, los := match[0], match[1]
-
-		games[win] += 0
-		games[los] -= 1
+		games[match[0]] += 0
+		games[match[1]]--
 	}
 
 	wins := make([]int, 0)
@@ -19,6 +17,7 @@ func findWinners(matches [][]int) [][]int {
 		if game == 0 {
 			wins = append(wins, player)
 		}
+
 		if game == -1 {
 			loss = append(loss, player)
 		}
