@@ -1,4 +1,4 @@
-package uniqueOccurrences
+package solutions
 
 func uniqueOccurrences(arr []int) bool {
 	occ := make(map[int]int)
@@ -13,6 +13,7 @@ func uniqueOccurrences(arr []int) bool {
 		if ok {
 			return false
 		}
+
 		uni[v] = struct{}{}
 	}
 
