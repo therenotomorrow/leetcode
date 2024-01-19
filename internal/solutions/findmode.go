@@ -4,7 +4,7 @@ import "github.com/therenotomorrow/leetcode/internal/structs"
 
 func findMode(root *structs.TreeNode) []int {
 	modes := make([]int, 0)
-	// took from inordertraversal.go: https://leetcode.com/problems/binary-tree-inorder-traversal/
+	// took from inordertraversal.go: https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 	values := inorderTraversal(root)
 
 	maxCnt := 0

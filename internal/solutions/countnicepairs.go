@@ -6,7 +6,7 @@ func countNicePairs(nums []int) int {
 	diff := make([]int, len(nums))
 
 	for i, num := range nums {
-		// took from reverse.go: https://leetcode.com/problems/reverse-integer/
+		// took from reverse.go: https://leetcode.com/problems/reverse-integer/description/
 		diff[i] = num - reverse(num)
 	}
 
