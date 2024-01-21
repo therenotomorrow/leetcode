@@ -6,15 +6,15 @@ import (
 )
 
 func collectTree(root *structs.TreeNode) []int {
-	s := datastruct.NewStack[*structs.TreeNode]()
+	stack := datastruct.NewStack[*structs.TreeNode]()
 	arr := make([]int, 0)
 
 	for ok := true; ok; {
 		if root != nil {
-			s.Push(root)
+			stack.Push(root)
 			root = root.Left
 		} else {
-			root, ok = s.Pop()
+			root, ok = stack.Pop()
 			if !ok {
 				break
 			}
