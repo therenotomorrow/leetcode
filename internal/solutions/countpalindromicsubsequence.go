@@ -24,7 +24,7 @@ func countPalindromicSubsequence(s string) int {
 			between.Add(rune(s[k]))
 		}
 
-		cnt += between.Len()
+		cnt += between.Size()
 	}
 
 	return cnt

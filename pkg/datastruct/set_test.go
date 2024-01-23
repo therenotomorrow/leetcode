@@ -8,7 +8,7 @@ import (
 	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 )
 
-func TestSetAddDelLenContains(t *testing.T) {
+func TestSetAddDelSizeContains(t *testing.T) {
 	set := datastruct.NewSet[int]()
 
 	// empty set
@@ -24,8 +24,8 @@ func TestSetAddDelLenContains(t *testing.T) {
 		t.Errorf("Add() = (%v, %v), want = (%v, %v)", is42, is36, true, true)
 	}
 
-	if got, want := set.Len(), 2; got != want {
-		t.Errorf("Len() = %v, want = %v", got, want)
+	if got, want := set.Size(), 2; got != want {
+		t.Errorf("Size() = %v, want = %v", got, want)
 	}
 
 	// regular usage `.Del()`
@@ -35,8 +35,8 @@ func TestSetAddDelLenContains(t *testing.T) {
 		t.Errorf("Del() = (%v, %v), want = (%v, %v)", is42, is36, false, true)
 	}
 
-	if got, want := set.Len(), 1; got != want {
-		t.Errorf("Len() = %v, want = %v", got, want)
+	if got, want := set.Size(), 1; got != want {
+		t.Errorf("Size() = %v, want = %v", got, want)
 	}
 
 	// key doesn't exist
@@ -46,8 +46,8 @@ func TestSetAddDelLenContains(t *testing.T) {
 		t.Errorf("Del() = %v, want = %v", got, true)
 	}
 
-	if got, want := set.Len(), 1; got != want {
-		t.Errorf("Len() = %v, want = %v", got, want)
+	if got, want := set.Size(), 1; got != want {
+		t.Errorf("Size() = %v, want = %v", got, want)
 	}
 }
 
@@ -71,7 +71,7 @@ func TestSetLenPopulateValues(t *testing.T) {
 		t.Errorf("Values() = %v, want = %v", got, want)
 	}
 
-	if set.Len() != 5 {
-		t.Errorf("Len() = %v, want = %v", set.Len(), 5)
+	if set.Size() != 5 {
+		t.Errorf("Size() = %v, want = %v", set.Size(), 5)
 	}
 }
