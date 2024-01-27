@@ -94,6 +94,7 @@ Completed problems
 | 539  | [Minimum Time Difference](https://leetcode.com/problems/minimum-time-difference/description/)                                                                               | [`findmindifference.go`](./internal/solutions/findmindifference.go)                                                         |
 | 572  | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/description/)                                                                               | [`issubtree.go`](./internal/solutions/issubtree.go)                                                                         |
 | 573  | [Squirrel Simulation](https://leetcode.com/problems/squirrel-simulation/description/)                                                                                       | [`mindistance.go`](./internal/solutions/mindistance.go)                                                                     |
+| 576  | [Out of Boundary Paths](https://leetcode.com/problems/out-of-boundary-paths/description/)                                                                                   | [`findpaths.go`](./internal/solutions/findpaths.go)                                                                         |
 | 606  | [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/description/)                                                           | [`tree2str.go`](./internal/solutions/tree2str.go)                                                                           |
 | 624  | [Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/description/)                                                                         | [`maxdistance.go`](./internal/solutions/maxdistance.go)                                                                     |
 | 645  | [Set Mismatch](https://leetcode.com/problems/set-mismatch/description/)                                                                                                     | [`finderrornums.go`](./internal/solutions/finderrornums.go)                                                                 |
@@ -401,3 +402,4 @@ In revision
 199. Minimum Difficulty of a Job Schedule
 200. Maximum Profit in Job Scheduling
 201. Arithmetic Slices II - Subsequence
+202. K Inverse Pairs Array
