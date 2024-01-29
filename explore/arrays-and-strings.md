@@ -85,4 +85,5 @@ function fn(arr1, arr2):
 
 #### Notes
 
-Sometimes there will be "three pointers", sometimes the approach with the pointers (1) will not start from 0 or ends with last element. Sometimes (2) will uses only with one source.  The basic idea is to use two pointers to traverse the data structure in a specific way to achieve a particular goal efficiently.
+Sometimes there will be "three pointers", sometimes the approach with the pointers (1) will not start from 0 or ends with last element. 
+Sometimes (2) will use only with one source. The basic idea is to use two pointers to traverse the data structure in a specific way to achieve a particular goal efficiently.
