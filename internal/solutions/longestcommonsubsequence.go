@@ -4,7 +4,7 @@ import "github.com/therenotomorrow/leetcode/pkg/mathfunc"
 
 func longestCommonSubsequence(text1 string, text2 string) int {
 	var (
-		memo    = make([][]int, len(text1)+1)
+		memo    = make([][]int, len(text1)+1) // alternative of `cache.NewCache()`
 		dynamic func(i int, j int) int
 	)
 

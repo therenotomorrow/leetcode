@@ -2,7 +2,7 @@ package solutions
 
 import "github.com/therenotomorrow/leetcode/pkg/mathfunc"
 
-func minCost(colors string, neededTime []int) int {
+func minCost1(colors string, neededTime []int) int {
 	left := 0
 	right := 0
 	cost := 0

@@ -2,7 +2,7 @@ package solutions
 
 import "testing"
 
-func TestMinCost(t *testing.T) {
+func TestMinCost1(t *testing.T) {
 	type args struct {
 		colors     string
 		neededTime []int
@@ -20,8 +20,8 @@ func TestMinCost(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := minCost(tt.args.colors, tt.args.neededTime); got != tt.want {
-				t.Errorf("minCost() = %v, want = %v", got, tt.want)
+			if got := minCost1(tt.args.colors, tt.args.neededTime); got != tt.want {
+				t.Errorf("minCost1() = %v, want = %v", got, tt.want)
 			}
 		})
 	}

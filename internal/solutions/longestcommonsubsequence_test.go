@@ -9,6 +9,7 @@ func TestLongestCommonSubsequence(t *testing.T) {
 		text1 string
 		text2 string
 	}
+
 	tests := []struct {
 		name string
 		args args
@@ -19,6 +20,7 @@ func TestLongestCommonSubsequence(t *testing.T) {
 		{name: "smoke 3", args: args{text1: "abc", text2: "def"}, want: 0},
 		{name: "test 14: wrong answer", args: args{text1: "hofubmnylkra", text2: "pqhgxgdofcvmr"}, want: 5},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := longestCommonSubsequence(tt.args.text1, tt.args.text2); got != tt.want {

@@ -24,7 +24,10 @@ func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 			return val
 		}
 
-		paths += dynamic(currMove-1, i-1, j, paths) + dynamic(currMove-1, i+1, j, paths) + dynamic(currMove-1, i, j-1, paths) + dynamic(currMove-1, i, j+1, paths)
+		paths += dynamic(currMove-1, i-1, j, paths) +
+			dynamic(currMove-1, i+1, j, paths) +
+			dynamic(currMove-1, i, j-1, paths) +
+			dynamic(currMove-1, i, j+1, paths)
 		paths %= structs.MOD
 
 		c.Save(paths, i, j, currMove)
