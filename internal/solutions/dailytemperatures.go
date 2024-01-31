@@ -9,6 +9,7 @@ func dailyTemperatures(temperatures []int) []int {
 	for i, temp := range temperatures {
 		for j, ok := stack.Peek(); ok && temperatures[j] < temp; j, ok = stack.Peek() {
 			days[j] = i - j
+
 			stack.Pop()
 		}
 

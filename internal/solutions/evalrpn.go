@@ -1,8 +1,9 @@
 package solutions
 
 import (
-	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 	"strconv"
+
+	"github.com/therenotomorrow/leetcode/pkg/datastruct"
 )
 
 func evalRPN(tokens []string) int {

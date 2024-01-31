@@ -4,6 +4,7 @@
 
 # caches
 cover.out
+__pycache__
 
 # hidden entities
 .ignore*

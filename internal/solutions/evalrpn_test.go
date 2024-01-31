@@ -14,7 +14,11 @@ func TestEvalRPN(t *testing.T) {
 	}{
 		{name: "smoke 1", args: args{tokens: []string{"2", "1", "+", "3", "*"}}, want: 9},
 		{name: "smoke 2", args: args{tokens: []string{"4", "13", "5", "/", "+"}}, want: 6},
-		{name: "smoke 3", args: args{tokens: []string{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}}, want: 22},
+		{
+			name: "smoke 3",
+			args: args{tokens: []string{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}},
+			want: 22,
+		},
 	}
 
 	for _, tt := range tests {
