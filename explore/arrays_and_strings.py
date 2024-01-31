@@ -1,3 +1,5 @@
+# ---- two pointers
+
 def reverse_string(s: list[str]) -> None:
     left = 0
     right = len(s) - 1
@@ -10,8 +12,8 @@ def reverse_string(s: list[str]) -> None:
 
 def sorted_squares(nums: list[int]) -> list[int]:
     left = 0
-    right = len(nums)-1
-    point = len(nums)-1
+    right = len(nums) - 1
+    point = len(nums) - 1
 
     ans = [0] * len(nums)
 
@@ -27,5 +29,37 @@ def sorted_squares(nums: list[int]) -> list[int]:
             right -= 1
 
         point -= 1
+
+    return ans
+
+
+# ---- sliding window
+
+def find_max_average(nums: list[int], k: int) -> float:
+    curr = sum(nums[:k])
+    ans = curr / k
+
+    for i in range(k, len(nums)):
+        curr += nums[i] - nums[i - k]
+
+        ans = max(ans, curr / k)
+
+    return ans
+
+
+def longest_ones(nums: list[int], k: int) -> int:
+    left = flips = ans = 0
+
+    for right in range(len(nums)):
+        if not nums[right]:
+            flips += 1
+
+        while flips > k:
+            if not nums[left]:
+                flips -= 1
+
+            left += 1
+
+        ans = max(ans, right - left + 1)
 
     return ans

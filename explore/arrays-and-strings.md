@@ -85,5 +85,54 @@ function fn(arr1, arr2):
 
 #### Notes
 
-Sometimes there will be "three pointers", sometimes the approach with the pointers (1) will not start from 0 or ends with last element. 
-Sometimes (2) will use only with one source. The basic idea is to use two pointers to traverse the data structure in a specific way to achieve a particular goal efficiently.
+Sometimes there will be "three pointers", sometimes the approach with the pointers (1) will not start from 0 or ends
+with last element.
+Sometimes (2) will use only with one source. The basic idea is to use two pointers to traverse the data structure in a
+specific way to achieve a particular goal efficiently.
+
+Sliding window
+--------------
+
+A sliding window is actually implemented using two pointers.
+Given an array, a subarray is a contiguous section of the array.
+A sliding window could be dynamic or fixed size.
+
+1. The problem will either define criteria that make a subarray "valid". A constraint metric and a numeric restriction
+   on the constraint metric.
+2. The problem will define what makes a subarray better than another or finding the number of valid subarrays.
+
+```python
+def sliding_window(nums: list[int], k: int) -> int:
+    left = curr = ans = 0
+
+    for right in range(len(nums)):
+        curr += nums[right]
+
+        while curr > k:
+            curr -= nums[left]
+            left += 1
+
+        ans = max(ans, right - left + 1)
+
+    return ans
+```
+
+```text
+function fn(arr):
+    left = 0
+    for (int right = 0; right < arr.length; right++):
+        Do some logic to "add" element at arr[right] to window
+
+        while WINDOW_IS_INVALID:
+            Do some logic to "remove" element at arr[left] from window
+            left++
+
+        Do some logic to update the answer
+```
+
+#### Notes
+
+The number of valid windows ending at index right is equal to the size of the window, which we know
+is `right - left + 1`.
+The sliding window approach addresses this inefficiency by intelligently moving a window across the input data, avoiding
+unnecessary re-computation of overlapping sub-problems.
