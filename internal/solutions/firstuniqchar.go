@@ -1,4 +1,4 @@
-package firstUniqChar
+package solutions
 
 func firstUniqChar(s string) int {
 	set := make(map[rune]int)
@@ -7,8 +7,7 @@ func firstUniqChar(s string) int {
 	}
 
 	for i, r := range s {
-		val := set[r]
-		if val == 1 {
+		if set[r] == 1 {
 			return i
 		}
 	}
