@@ -2,7 +2,7 @@ package solutions
 
 import "testing"
 
-func Test_firstUniqChar(t *testing.T) {
+func TestFirstUniqChar(t *testing.T) {
 	type args struct {
 		s string
 	}
