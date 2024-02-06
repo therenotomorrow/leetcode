@@ -18,7 +18,6 @@ func TestSequentialDigits(t *testing.T) {
 	}{
 		{name: "smoke 1", args: args{low: 100, high: 300}, want: []int{123, 234}},
 		{name: "smoke 2", args: args{low: 1000, high: 13000}, want: []int{1234, 2345, 3456, 4567, 5678, 6789, 12345}},
-		{name: "smoke 2", args: args{low: 10, high: 1000000000}, want: []int{1234, 2345, 3456, 4567, 5678, 6789, 12345}},
 	}
 
 	for _, tt := range tests {

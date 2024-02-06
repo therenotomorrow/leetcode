@@ -1,4 +1,4 @@
-package groupAnagrams
+package solutions
 
 import "sort"
 

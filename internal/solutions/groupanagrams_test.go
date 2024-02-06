@@ -1,4 +1,4 @@
-package groupAnagrams
+package solutions
 
 import (
 	"reflect"
@@ -6,19 +6,25 @@ import (
 	"testing"
 )
 
-func Test_groupAnagrams(t *testing.T) {
+func TestGroupAnagrams(t *testing.T) {
 	type args struct {
 		strs []string
 	}
+
 	tests := []struct {
 		name string
 		args args
 		want [][]string
 	}{
-		{args: args{strs: []string{"eat", "tea", "tan", "ate", "nat", "bat"}}, want: [][]string{{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}}},
-		{args: args{strs: []string{""}}, want: [][]string{{""}}},
-		{args: args{strs: []string{"a"}}, want: [][]string{{"a"}}},
+		{
+			name: "smoke 1",
+			args: args{strs: []string{"eat", "tea", "tan", "ate", "nat", "bat"}},
+			want: [][]string{{"bat"}, {"nat", "tan"}, {"ate", "eat", "tea"}},
+		},
+		{name: "smoke 2", args: args{strs: []string{""}}, want: [][]string{{""}}},
+		{name: "smoke 3", args: args{strs: []string{"a"}}, want: [][]string{{"a"}}},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := groupAnagrams(tt.args.strs)
@@ -45,7 +51,7 @@ func Test_groupAnagrams(t *testing.T) {
 			}
 
 			if !reflect.DeepEqual(gotSlice, wantSlice) {
-				t.Errorf("groupAnagrams() = %v, want %v", got, tt.want)
+				t.Errorf("groupAnagrams() = %v, want = %v", got, tt.want)
 			}
 		})
 	}
