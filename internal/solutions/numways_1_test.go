@@ -2,7 +2,7 @@ package solutions
 
 import "testing"
 
-func TestNumWays(t *testing.T) {
+func TestNumWays1(t *testing.T) {
 	type args struct {
 		steps  int
 		arrLen int
@@ -23,8 +23,8 @@ func TestNumWays(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := numWays(tt.args.steps, tt.args.arrLen); got != tt.want {
-				t.Errorf("numWays() = %v, want = %v", got, tt.want)
+			if got := numWays1(tt.args.steps, tt.args.arrLen); got != tt.want {
+				t.Errorf("numWays1() = %v, want = %v", got, tt.want)
 			}
 		})
 	}

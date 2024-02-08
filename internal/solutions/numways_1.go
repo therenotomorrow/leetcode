@@ -5,7 +5,7 @@ import (
 	"github.com/therenotomorrow/leetcode/pkg/cache"
 )
 
-func numWays(steps int, arrLen int) int {
+func numWays1(steps int, arrLen int) int {
 	var (
 		c       = cache.NewCache()
 		dynamic func(currPos int, stepsRemain int) int
