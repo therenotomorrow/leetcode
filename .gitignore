@@ -9,3 +9,6 @@ __pycache__
 # hidden entities
 .ignore*
 ignore*
+
+# test files
+*.txt
