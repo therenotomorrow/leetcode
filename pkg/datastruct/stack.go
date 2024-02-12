@@ -3,7 +3,7 @@ package datastruct
 import "github.com/therenotomorrow/leetcode/internal/structs"
 
 type Stackable interface {
-	~int | ~*structs.TreeNode
+	~int | ~rune | ~*structs.TreeNode
 }
 
 type Stack[T Stackable] interface {

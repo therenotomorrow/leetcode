@@ -34,6 +34,7 @@ linters-settings:
       - "5"
       - "7"
       - "10"
+      - "16"
       - "26"
       - "255"
   funlen:
