@@ -7,9 +7,11 @@ I [solved them](https://leetcode.com/therenotomorrow/).
 Structure
 ---------
 
+- [Explore](./explore) - useful technics shortcuts for learn
 - [Internal](./internal) - all solved and refactored problems
 - [Again](legacy/again) - need resolve because of loosing day streak or not enough knowledge
 - [Archive](legacy/arch) - all solved problems that in progress refactoring
+- [Package](./pkg) - generic math and data structures
 
 Development
 -----------
