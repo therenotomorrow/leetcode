@@ -136,3 +136,57 @@ The number of valid windows ending at index right is equal to the size of the wi
 is `right - left + 1`.
 The sliding window approach addresses this inefficiency by intelligently moving a window across the input data, avoiding
 unnecessary re-computation of overlapping sub-problems.
+
+Prefix sum
+----------
+
+Prefix sum is a technique that can be used on arrays (of numbers) - problem involves sums of a subarray.
+The idea is to create an array prefix where `prefix[i]` is the sum of all elements up to the index `i` (inclusive).
+Sum of subarray from `i` to `j` inclusive:
+
+1. `prefix[j] - prefix[i - 1]`
+2. `prefix[j] - prefix[i] + nums[i]`
+
+```python
+def prefix_sum(nums: list[int], queries: list[tuple[int, int]], limit: int) -> list[bool]:
+    prefix = [nums[0]]
+    for i in range(1, len(nums)):
+        prefix.append(nums[i] + prefix[i-1])
+
+    ans = []
+    for x, y in queries:
+        curr = prefix[y] - prefix[x] + nums[x]  # prefix[j] - prefix[i] + nums[i]
+        ans.append(curr < limit)
+
+    return ans
+```
+
+```text
+prefix = [nums[0]]
+for (int i = 1; i < nums.length; i++)
+    prefix.append(nums[i] + prefix[prefix.length - 1])
+```
+
+#### Notes
+
+Building a prefix sum is a form of pre-processing. Pre-processing is a useful 
+strategy in a variety of problems where we store pre-computed data in a data 
+structure before running the main logic of our algorithm.
+
+Definitions
+-----------
+
+#### Subarrays/substrings
+
+A subarray or substring is a contiguous section of an array or string. 
+
+#### Subsequences
+
+A subsequence is a set of elements of an array/string that 
+keeps the same relative order but doesn't need to be contiguous.
+
+#### Subsets
+
+A subset is any set of elements from the original array or string. 
+The order doesn't matter and neither do the elements being beside each other.
+Subsets that contain the same elements are considered the same.

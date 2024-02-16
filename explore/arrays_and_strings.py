@@ -63,3 +63,43 @@ def longest_ones(nums: list[int], k: int) -> int:
         ans = max(ans, right - left + 1)
 
     return ans
+
+
+# ---- prefix sum
+
+def running_sum(nums: list[int]) -> list[int]:
+    prefix = [0] * len(nums)
+    prefix[0] = nums[0]
+
+    for i in range(1, len(nums)):
+        prefix[i] = prefix[i - 1] + nums[i]
+
+    return prefix
+
+
+def min_start_value(nums: list[int]) -> int:
+    val = 0
+    prefix = 0
+
+    for num in nums:
+        prefix += num
+        val = min(prefix, val)
+
+    return abs(val) + 1
+
+
+def get_averages(nums: list[int], k: int) -> list[int]:
+    prefix = [nums[0]]
+
+    for num in nums[1:]:
+        prefix.append(prefix[-1] + num)
+
+    ans = []
+
+    for i in range(len(nums)):
+        if i < k or i + k >= len(nums):
+            ans.append(-1)
+        else:
+            ans.append((prefix[i + k] - prefix[i - k] + nums[i - k]) // (2 * k + 1))
+
+    return ans
