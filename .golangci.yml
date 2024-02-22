@@ -23,7 +23,7 @@ linters-settings:
     ignore-missing: true
   testpackage:
     allow-packages:
-      - solutions
+      - golang
   varnamelen:
     min-name-length: 1
   gomnd:

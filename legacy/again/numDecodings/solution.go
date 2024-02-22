@@ -1,14 +1,13 @@
 package numDecodings
 
 import (
+	"github.com/therenotomorrow/leetcode/solutions/golang"
 	"strconv"
-
-	"github.com/therenotomorrow/leetcode/pkg/cache"
 )
 
 func numDecodings(s string) int {
 	var (
-		c       = cache.NewCache()
+		c       = golang.NewCache()
 		dynamic func(idx int) (cnt int)
 	)
 

@@ -1,15 +1,13 @@
 package minDifficulty
 
 import (
+	"github.com/therenotomorrow/leetcode/solutions/golang"
 	"math"
-
-	"github.com/therenotomorrow/leetcode/pkg/cache"
-	"github.com/therenotomorrow/leetcode/pkg/mathfunc"
 )
 
 func minDifficulty(jobDifficulty []int, d int) int {
 	var (
-		c       = cache.NewCache()
+		c       = golang.NewCache()
 		dynamic func(curr int, remain int) (diff int)
 	)
 
@@ -23,15 +21,15 @@ func minDifficulty(jobDifficulty []int, d int) int {
 		}
 
 		if remain == 1 {
-			return mathfunc.Max(jobDifficulty[curr:]...)
+			return golang.Max(jobDifficulty[curr:]...)
 		}
 
 		diff = math.MaxInt
 		dailyMaxDiff := 0
 
 		for job := curr; job < len(jobDifficulty)-remain+1; job++ {
-			dailyMaxDiff = mathfunc.Max(dailyMaxDiff, jobDifficulty[job])
-			diff = mathfunc.Min(diff, dailyMaxDiff+dynamic(job+1, remain-1))
+			dailyMaxDiff = golang.Max(dailyMaxDiff, jobDifficulty[job])
+			diff = golang.Min(diff, dailyMaxDiff+dynamic(job+1, remain-1))
 		}
 
 		c.Save(diff, curr, remain)

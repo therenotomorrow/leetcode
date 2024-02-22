@@ -1,9 +1,8 @@
 package numFactoredBinaryTrees
 
 import (
+	"github.com/therenotomorrow/leetcode/solutions/golang"
 	"sort"
-
-	"github.com/therenotomorrow/leetcode/internal/structs"
 )
 
 func numFactoredBinaryTrees(arr []int) int {
@@ -40,5 +39,5 @@ func numFactoredBinaryTrees(arr []int) int {
 		sum += cntTrees
 	}
 
-	return sum % structs.MOD
+	return sum % golang.MOD
 }
