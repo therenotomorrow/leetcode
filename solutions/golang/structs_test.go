@@ -19,3 +19,8 @@ func TestTreeNode(_ *testing.T) {
 		Right: &golang.TreeNode{Val: 25, Left: nil, Right: nil},
 	}
 }
+
+func TestPairNode(_ *testing.T) {
+	// make sure about creation
+	_ = golang.PairNode{1, 2}
+}

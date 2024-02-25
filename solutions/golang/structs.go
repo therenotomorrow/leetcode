@@ -10,3 +10,5 @@ type TreeNode struct {
 	Left  *TreeNode
 	Right *TreeNode
 }
+
+type PairNode [2]int
