@@ -57,6 +57,7 @@ Completed problems
 |  70  | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/description/)                                                                                               | [`climbstairs.go`](solutions/golang/climbstairs.go)                                                                     |
 |  76  | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/description/)                                                                             | [`minwindow.go`](solutions/golang/minwindow.go)                                                                         |
 |  94  | [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)                                                                   | [`inordertraversal.go`](solutions/golang/inordertraversal.go)                                                           |
+| 100  | [Same Tree](https://leetcode.com/problems/same-tree/description/)                                                                                                           | [`issametree.go`](solutions/golang/issametree.go)                                                                       |
 | 110  | [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/)                                                                                     | [`isbalanced.go`](solutions/golang/isbalanced.go)                                                                       |
 | 118  | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/description/)                                                                                            | [`generate.go`](solutions/golang/generate.go)                                                                           |
 | 119  | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/description/)                                                                                      | [`getrow.go`](solutions/golang/getrow.go)                                                                               |
@@ -274,182 +275,181 @@ In revision
 22. Merge Sorted Array
 23. Reverse Linked List II
 24. Validate Binary Search Tree
-25. Same Tree
-26. Symmetric Tree
-27. Binary Tree Level Order Traversal
-28. Binary Tree Zigzag Level Order Traversal
-29. Maximum Depth of Binary Tree
-30. Convert Sorted Array to Binary Search Tree
-31. Minimum Depth of Binary Tree
-32. Path Sum
-33. Best Time to Buy and Sell Stock
-34. Best Time to Buy and Sell Stock II
-35. Valid Palindrome
-36. Single Number
-37. Linked List Cycle
-38. LRU Cache
-39. Reverse Words in a String
-40. Min Stack
-41. Find Peak Element
-42. Two Sum II - Input Array Is Sorted
-43. Rotate Array
-44. Reverse Bits
-45. Binary Tree Right Side View
-46. Remove Linked List Elements
-47. Count Primes
-48. Isomorphic Strings
-49. Reverse Linked List
-50. Minimum Size Subarray Sum
-51. Contains Duplicate
-52. Implement Stack using Queues
-53. Summary Ranges
-54. Majority Element II
-55. Palindrome Linked List
-56. Lowest Common Ancestor of a Binary Tree
-57. Delete Node in a Linked List
-58. Product of Array Except Self
-59. Sliding Window Maximum
-60. Closest Binary Search Tree Value
-61. First Bad Version
-62. Move Zeroes
-63. Find the Duplicate Number
-64. Word Pattern
-65. Range Sum Query - Immutable
-66. Power of Three
-67. Odd Even Linked List
-68. Increasing Triplet Subsequence
-69. Counting Bits
-70. Flatten Nested List Iterator
-71. Integer Break
-72. Reverse String
-73. Reverse Vowels of a String
-74. Intersection of Two Arrays II
-75. Guess Number Higher or Lower
-76. Ransom Note
-77. Shuffle an Array
-78. Find the Difference
-79. Is Subsequence
-80. Decode String
-81. Fizz Buzz
-82. Path Sum III
-83. Find All Anagrams in a String
-84. String Compression
-85. Delete Node in a BST
-86. Hamming Distance
-87. Next Greater Element I
-88. Diagonal Traverse
-89. Find Largest Value in Each Tree Row
-90. Minimum Absolute Difference in BST
-91. Diameter of Binary Tree
-92. Reverse Words in a String III
-93. Subarray Sum Equals K
-94. Array Partition
-95. Permutation in String
-96. Can Place Flowers
-97. Maximum Average Subarray I
-98. Dota2 Senate
-99. Search in a Binary Search Tree
-100. Insert into a Binary Search Tree
-101. Design HashMap
-102. Design Linked List
-103. Subarray Product Less Than K
-104. Find Pivot Index
-105. Asteroid Collision
-106. Find Smallest Letter Greater Than Target
-107. Largest Number At Least Twice of Others
-108. Jewels and Stones
-109. Minimum Distance Between BST Nodes
-110. Custom Sort String
-111. Bus Routes
-112. Binary Trees With Factors
-113. Peak Index in a Mountain Array
-114. Middle of the Linked List
-115. Online Stock Span
-116. Reverse Only Letters
-117. Binary Subarrays With Sum
-118. Number of Recent Calls
-119. Validate Stack Sequences
-120. Squares of a Sorted Array
-121. Max Consecutive Ones III
-122. Longest Arithmetic Subsequence
-123. Remove All Adjacent Duplicates In String
-124. Greatest Common Divisor of Strings
-125. Find in Mountain Array
-126. Print in Order
-127. Largest Unique Number
-128. Snapshot Array
-129. Maximum Level Sum of a Binary Tree
-130. Maximum Number of Balloons
-131. Get Equal Substrings Within Budget
-132. Count Vowels Permutation
-133. Check If It Is a Straight Line
-134. Count Number of Nice Subarrays
-135. Convert Binary Number in a Linked List to Integer
-136. Deepest Leaves Sum
-137. Number of Steps to Reduce a Number to Zero
-138. Count Negative Numbers in a Sorted Matrix
-139. Longest ZigZag Path in a Binary Tree
-140. Find Lucky Integer in an Array
-141. Minimum Value to Get Positive Step by Step Sum
-142. Build Array Where You Can Find The Maximum Exactly K Comparisons
-143. Constrained Subsequence Sum
-144. Counting Elements
-145. Kids With the Greatest Number of Candies
-146. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
-147. Count Good Nodes in Binary Tree
-148. Maximum Number of Vowels in a Substring of Given Length
-149. Max Dot Product of Two Subsequences
-150. Running Sum of 1d Array
-151. Longest Subarray of 1's After Deleting One Element
-152. Can Make Arithmetic Progression From Sequence
-153. Number of Good Pairs
-154. Make The String Great
-155. Richest Customer Wealth
-156. Max Number of K-Sum Pairs
-157. Maximum Erasure Value
-158. Swapping Nodes in a Linked List
-159. Find the Highest Altitude
-160. Sum of Unique Elements
-161. Merge Strings Alternately
-162. Maximum Score of a Good Subarray
-163. Check if the Sentence Is Pangram
-164. Check if All Characters Have Equal Number of Occurrences
-165. Reverse Prefix of Word
-166. Minimum Number of Operations to Make Array Continuous
-167. Remove Colored Pieces if Both Neighbors are the Same Color
-168. Parallel Courses III
-169. Reverse Nodes in Even Length Groups
-170. K Radius Subarray Averages
-171. Delete the Middle Node of a Linked List
-172. Maximum Twin Sum of a Linked List
-173. Find the Difference of Two Arrays
-174. Add Two Integers
-175. Intersection of Multiple Arrays
-176. Number of Flowers in Full Bloom
-177. Minimum Consecutive Cards to Pick Up
-178. Number of Ways to Split Array
-179. Successful Pairs of Spells and Potions
-180. Max Sum of a Pair With Equal Sum of Digits
-181. First Letter to Appear Twice
-182. Equal Row and Column Pairs
-183. Removing Stars From a String
-184. Using a Robot to Print the Lexicographically Smallest String
-185. Total Cost to Hire K Workers
-186. Design Graph With Shortest Path Calculator
-187. Painting the Walls
-188. Largest Submatrix With Rearrangements
-189. Number of Ways to Divide a Long Corridor
-190. Minimum One Bit Operations to Make Integers Zero
-191. Decode Ways
-192. String Compression II
-193. Minimum Difficulty of a Job Schedule
-194. Maximum Profit in Job Scheduling
-195. Arithmetic Slices II - Subsequence
-196. K Inverse Pairs Array
-197. Number of Submatrices That Sum to Target
-198. Partition Array for Maximum Sum
-199. Meeting Rooms III
-200. Tree Diameter
-201. Cheapest Flights Within K Stops
-202. Greatest Common Divisor Traversal
-203. Find All People With Secret
+25. Symmetric Tree
+26. Binary Tree Level Order Traversal
+27. Binary Tree Zigzag Level Order Traversal
+28. Maximum Depth of Binary Tree
+29. Convert Sorted Array to Binary Search Tree
+30. Minimum Depth of Binary Tree
+31. Path Sum
+32. Best Time to Buy and Sell Stock
+33. Best Time to Buy and Sell Stock II
+34. Valid Palindrome
+35. Single Number
+36. Linked List Cycle
+37. LRU Cache
+38. Reverse Words in a String
+39. Min Stack
+40. Find Peak Element
+41. Two Sum II - Input Array Is Sorted
+42. Rotate Array
+43. Reverse Bits
+44. Binary Tree Right Side View
+45. Remove Linked List Elements
+46. Count Primes
+47. Isomorphic Strings
+48. Reverse Linked List
+49. Minimum Size Subarray Sum
+50. Contains Duplicate
+51. Implement Stack using Queues
+52. Summary Ranges
+53. Majority Element II
+54. Palindrome Linked List
+55. Lowest Common Ancestor of a Binary Tree
+56. Delete Node in a Linked List
+57. Product of Array Except Self
+58. Sliding Window Maximum
+59. Closest Binary Search Tree Value
+60. First Bad Version
+61. Move Zeroes
+62. Find the Duplicate Number
+63. Word Pattern
+64. Range Sum Query - Immutable
+65. Power of Three
+66. Odd Even Linked List
+67. Increasing Triplet Subsequence
+68. Counting Bits
+69. Flatten Nested List Iterator
+70. Integer Break
+71. Reverse String
+72. Reverse Vowels of a String
+73. Intersection of Two Arrays II
+74. Guess Number Higher or Lower
+75. Ransom Note
+76. Shuffle an Array
+77. Find the Difference
+78. Is Subsequence
+79. Decode String
+80. Fizz Buzz
+81. Path Sum III
+82. Find All Anagrams in a String
+83. String Compression
+84. Delete Node in a BST
+85. Hamming Distance
+86. Next Greater Element I
+87. Diagonal Traverse
+88. Find Largest Value in Each Tree Row
+89. Minimum Absolute Difference in BST
+90. Diameter of Binary Tree
+91. Reverse Words in a String III
+92. Subarray Sum Equals K
+93. Array Partition
+94. Permutation in String
+95. Can Place Flowers
+96. Maximum Average Subarray I
+97. Dota2 Senate
+98. Search in a Binary Search Tree
+99. Insert into a Binary Search Tree
+100. Design HashMap
+101. Design Linked List
+102. Subarray Product Less Than K
+103. Find Pivot Index
+104. Asteroid Collision
+105. Find Smallest Letter Greater Than Target
+106. Largest Number At Least Twice of Others
+107. Jewels and Stones
+108. Minimum Distance Between BST Nodes
+109. Custom Sort String
+110. Bus Routes
+111. Binary Trees With Factors
+112. Peak Index in a Mountain Array
+113. Middle of the Linked List
+114. Online Stock Span
+115. Reverse Only Letters
+116. Binary Subarrays With Sum
+117. Number of Recent Calls
+118. Validate Stack Sequences
+119. Squares of a Sorted Array
+120. Max Consecutive Ones III
+121. Longest Arithmetic Subsequence
+122. Remove All Adjacent Duplicates In String
+123. Greatest Common Divisor of Strings
+124. Find in Mountain Array
+125. Print in Order
+126. Largest Unique Number
+127. Snapshot Array
+128. Maximum Level Sum of a Binary Tree
+129. Maximum Number of Balloons
+130. Get Equal Substrings Within Budget
+131. Count Vowels Permutation
+132. Check If It Is a Straight Line
+133. Count Number of Nice Subarrays
+134. Convert Binary Number in a Linked List to Integer
+135. Deepest Leaves Sum
+136. Number of Steps to Reduce a Number to Zero
+137. Count Negative Numbers in a Sorted Matrix
+138. Longest ZigZag Path in a Binary Tree
+139. Find Lucky Integer in an Array
+140. Minimum Value to Get Positive Step by Step Sum
+141. Build Array Where You Can Find The Maximum Exactly K Comparisons
+142. Constrained Subsequence Sum
+143. Counting Elements
+144. Kids With the Greatest Number of Candies
+145. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
+146. Count Good Nodes in Binary Tree
+147. Maximum Number of Vowels in a Substring of Given Length
+148. Max Dot Product of Two Subsequences
+149. Running Sum of 1d Array
+150. Longest Subarray of 1's After Deleting One Element
+151. Can Make Arithmetic Progression From Sequence
+152. Number of Good Pairs
+153. Make The String Great
+154. Richest Customer Wealth
+155. Max Number of K-Sum Pairs
+156. Maximum Erasure Value
+157. Swapping Nodes in a Linked List
+158. Find the Highest Altitude
+159. Sum of Unique Elements
+160. Merge Strings Alternately
+161. Maximum Score of a Good Subarray
+162. Check if the Sentence Is Pangram
+163. Check if All Characters Have Equal Number of Occurrences
+164. Reverse Prefix of Word
+165. Minimum Number of Operations to Make Array Continuous
+166. Remove Colored Pieces if Both Neighbors are the Same Color
+167. Parallel Courses III
+168. Reverse Nodes in Even Length Groups
+169. K Radius Subarray Averages
+170. Delete the Middle Node of a Linked List
+171. Maximum Twin Sum of a Linked List
+172. Find the Difference of Two Arrays
+173. Add Two Integers
+174. Intersection of Multiple Arrays
+175. Number of Flowers in Full Bloom
+176. Minimum Consecutive Cards to Pick Up
+177. Number of Ways to Split Array
+178. Successful Pairs of Spells and Potions
+179. Max Sum of a Pair With Equal Sum of Digits
+180. First Letter to Appear Twice
+181. Equal Row and Column Pairs
+182. Removing Stars From a String
+183. Using a Robot to Print the Lexicographically Smallest String
+184. Total Cost to Hire K Workers
+185. Design Graph With Shortest Path Calculator
+186. Painting the Walls
+187. Largest Submatrix With Rearrangements
+188. Number of Ways to Divide a Long Corridor
+189. Minimum One Bit Operations to Make Integers Zero
+190. Decode Ways
+191. String Compression II
+192. Minimum Difficulty of a Job Schedule
+193. Maximum Profit in Job Scheduling
+194. Arithmetic Slices II - Subsequence
+195. K Inverse Pairs Array
+196. Number of Submatrices That Sum to Target
+197. Partition Array for Maximum Sum
+198. Meeting Rooms III
+199. Tree Diameter
+200. Cheapest Flights Within K Stops
+201. Greatest Common Divisor Traversal
+202. Find All People With Secret
