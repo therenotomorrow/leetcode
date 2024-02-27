@@ -4,3 +4,9 @@ set -e
 
 gofmt -w -s .
 golangci-lint run ./solutions/golang/...
+
+isort .
+black .
+
+flake8 .
+mypy .
