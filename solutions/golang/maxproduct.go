@@ -1,8 +1,7 @@
 package golang
 
 func maxProduct(nums []int) int {
-	m1 := 0
-	m2 := 0
+	var m1, m2 int
 
 	for _, num := range nums {
 		if num > m1 {

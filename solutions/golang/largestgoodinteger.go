@@ -3,9 +3,10 @@ package golang
 import "strings"
 
 func largestGoodInteger(num string) string {
-	prev := rune(0)
-	curr := rune(0)
-	cnt := 0
+	var (
+		prev, curr rune
+		cnt        int
+	)
 
 	for _, r := range num {
 		if r != curr {

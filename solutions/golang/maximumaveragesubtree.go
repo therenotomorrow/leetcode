@@ -11,8 +11,7 @@ func inOrderCounter(root *TreeNode) (int, int, float64) {
 		return 0, 0, 0
 	}
 
-	sum := 0
-	cnt := 0
+	var sum, cnt int
 
 	// ---- left
 	sumL, cntL, avgL := inOrderCounter(root.Left)

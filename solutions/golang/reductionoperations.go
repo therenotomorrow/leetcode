@@ -5,8 +5,7 @@ import "sort"
 func reductionOperations(nums []int) int {
 	sort.Ints(nums)
 
-	ans := 0
-	inc := 0
+	var ans, inc int
 
 	for i := 1; i < len(nums); i++ {
 		if nums[i-1] != nums[i] {

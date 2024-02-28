@@ -1,9 +1,10 @@
 package golang
 
 func lengthOfLongestSubstring(s string) int {
-	maxLen := 0
-	left := 0
-	seen := make(map[rune]int)
+	var (
+		maxLen, left int
+		seen         = make(map[rune]int)
+	)
 
 	for right, r := range s {
 		left = Max(left, seen[r])

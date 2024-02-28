@@ -1,7 +1,7 @@
 package golang
 
 func numberOfBeams(bank []string) int {
-	ans, prevCnt := 0, 0
+	var ans, prevCnt int
 
 	for _, row := range bank {
 		currCnt := 0

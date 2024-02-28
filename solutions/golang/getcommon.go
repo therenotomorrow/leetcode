@@ -1,8 +1,7 @@
 package golang
 
 func getCommon(nums1 []int, nums2 []int) int {
-	i1 := 0
-	i2 := 0
+	var i1, i2 int
 
 	for i1 < len(nums1) && i2 < len(nums2) {
 		switch {

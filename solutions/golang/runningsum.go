@@ -1,4 +1,4 @@
-package runningSum
+package golang
 
 func runningSum(nums []int) []int {
 	for i := 1; i < len(nums); i++ {

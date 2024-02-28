@@ -5,8 +5,7 @@ import "sort"
 func maxFrequency(nums []int, k int) int {
 	sort.Ints(nums)
 
-	left := 0
-	curr := 0
+	var left, curr int
 
 	for right := range nums {
 		target := nums[right]

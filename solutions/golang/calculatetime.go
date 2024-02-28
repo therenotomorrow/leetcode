@@ -7,8 +7,7 @@ func calculateTime(keyboard string, word string) int {
 		keys[key] = i
 	}
 
-	time := 0
-	start := 0
+	var time, start int
 
 	for _, r := range word {
 		end := keys[r]

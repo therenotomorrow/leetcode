@@ -1,13 +1,10 @@
 package golang
 
 func minCost1(colors string, neededTime []int) int {
-	left := 0
-	right := 0
-	cost := 0
+	var left, right, cost int
 
 	for left < len(colors) && right < len(colors) {
-		totalWindowCost := 0
-		maxWindowCost := 0
+		var totalWindowCost, maxWindowCost int
 
 		for right < len(colors) && colors[left] == colors[right] {
 			totalWindowCost += neededTime[right]

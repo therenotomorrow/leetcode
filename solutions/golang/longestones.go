@@ -1,18 +1,17 @@
 package golang
 
-func findMaxConsecutiveOnes2(nums []int) int {
-	var ans, left, zeros int
+func longestOnes(nums []int, k int) int {
+	var curr, ans, left int
 
 	for right, num := range nums {
 		if num == 0 {
-			zeros++
+			curr++
 		}
 
-		for zeros == 2 {
+		for ; curr > k; left++ {
 			if nums[left] == 0 {
-				zeros--
+				curr--
 			}
-			left++
 		}
 
 		ans = Max(ans, right-left+1)

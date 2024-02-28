@@ -1,8 +1,7 @@
 package golang
 
 func findMaxConsecutiveOnes1(nums []int) int {
-	ans := 0
-	tmp := 0
+	var ans, tmp int
 
 	for _, num := range nums {
 		if num == 0 {

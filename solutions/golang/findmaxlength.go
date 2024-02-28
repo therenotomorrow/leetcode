@@ -1,9 +1,10 @@
 package golang
 
 func findMaxLength(nums []int) int {
-	ans := 0
-	sum := 0
-	count := make(map[int]int)
+	var (
+		ans, sum int
+		count    = make(map[int]int)
+	)
 
 	for i, num := range nums {
 		if num == 1 {

@@ -5,9 +5,7 @@ func findMode(root *TreeNode) []int {
 	// took from inordertraversal.go: https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 	values := inorderTraversal(root)
 
-	maxCnt := 0
-	currCnt := 0
-	currNum := 0
+	var maxCnt, currCnt, currNum int
 
 	for _, num := range values {
 		if num == currNum {
