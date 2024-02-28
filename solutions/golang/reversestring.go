@@ -1,4 +1,4 @@
-package reverseString
+package golang
 
 func reverseString(s []byte) {
 	i := 0

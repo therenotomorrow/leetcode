@@ -1,11 +1,4 @@
-package sortedSquares
-
-func abs(num int) int {
-	if num < 0 {
-		return -num
-	}
-	return num
-}
+package golang
 
 func sortedSquares(nums []int) []int {
 	res := make([]int, len(nums))
@@ -14,11 +7,14 @@ func sortedSquares(nums []int) []int {
 	j := len(nums) - 1
 
 	for k := len(nums) - 1; i <= j; k-- {
-		if abs(nums[i]) > abs(nums[j]) {
-			res[k] = nums[i] * nums[i]
+		iPow := nums[i] * nums[i]
+		jPow := nums[j] * nums[j]
+
+		if iPow > jPow {
+			res[k] = iPow
 			i++
 		} else {
-			res[k] = nums[j] * nums[j]
+			res[k] = jPow
 			j--
 		}
 	}
