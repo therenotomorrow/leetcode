@@ -259,6 +259,7 @@ Completed problems
 | 2870 | [Minimum Number of Operations to Make Array Empty](https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/description/)                             | [`minoperations_2.go`](solutions/golang/minoperations_2.go)                                                             |
 | 2966 | [Divide Array Into Arrays With Max Difference](https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/description/)                                     | [`dividearray.go`](solutions/golang/dividearray.go)                                                                     |
 | 2971 | [Find Polygon With the Largest Perimeter](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter/description/)                                               | [`largestperimeter.go`](solutions/golang/largestperimeter.go)                                                           |
+| 3062 | [Winner of the Linked List Game](https://leetcode.com/problems/winner-of-the-linked-list-game/description/)                                                                 | [`gameresult.go`](solutions/golang/gameresult.go)                                                                       |
 
 In revision
 -----------
