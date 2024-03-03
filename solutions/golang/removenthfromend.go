@@ -1,16 +1,8 @@
-package removeNthFromEnd
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+package golang
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-	if head.Next == nil {
-		return nil
-	}
-
-	slow, fast := head, head
+	slow := head
+	fast := head
 
 	for i := 0; i < n; i++ {
 		fast = fast.Next
