@@ -27,6 +27,7 @@ func TestTwoSum1(t *testing.T) {
 			got := twoSum1(tt.args.nums, tt.args.target)
 			// You can return the answer in any order.
 			sort.Ints(got)
+
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("twoSum1() = %v, want = %v", got, tt.want)
 			}

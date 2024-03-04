@@ -34,6 +34,7 @@ func TestGroupAnagrams(t *testing.T) {
 			})
 
 			gotSlice := make([]string, 0)
+
 			for _, group := range got {
 				sort.Strings(group)
 				gotSlice = append(gotSlice, group...)
@@ -44,6 +45,7 @@ func TestGroupAnagrams(t *testing.T) {
 			})
 
 			wantSlice := make([]string, 0)
+
 			for _, group := range tt.want {
 				sort.Strings(group)
 

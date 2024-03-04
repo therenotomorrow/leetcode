@@ -12,6 +12,7 @@ func findMaxConsecutiveOnes2(nums []int) int {
 			if nums[left] == 0 {
 				zeros--
 			}
+
 			left++
 		}
 

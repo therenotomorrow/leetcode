@@ -5,6 +5,7 @@ func countOnce(word string, chars []int) int {
 		if chars[r-'a'] < 1 {
 			return 0
 		}
+
 		chars[r-'a']--
 	}
 

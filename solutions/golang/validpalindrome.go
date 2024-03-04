@@ -9,6 +9,7 @@ func validPalindrome(s string) bool {
 			if s[left] != s[right] {
 				return false
 			}
+
 			left++
 			right--
 		}
