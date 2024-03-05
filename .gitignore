@@ -3,6 +3,7 @@
 .go-version
 .node-version
 .python-version
+/node_modules/
 
 # caches
 cover.out

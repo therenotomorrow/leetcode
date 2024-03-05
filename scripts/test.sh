@@ -2,6 +2,8 @@
 
 set -e
 
+npm run test
+
 case "$1" in
   -fast)
     go test ./...

@@ -1,7 +1,7 @@
 const createHelloWorld = function () {
     return function (..._) {
-        return 'Hello World';
+        return 'Hello World'
     }
-};
+}
 
-module.exports = {createHelloWorld};
+module.exports = createHelloWorld
