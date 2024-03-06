@@ -1,11 +1,7 @@
-package hasCycle
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+package golang
 
 func hasCycle(head *ListNode) bool {
+	// Floyd's Cycle Finding Algorithm
 	if head == nil {
 		return false
 	}

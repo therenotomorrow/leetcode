@@ -9,11 +9,6 @@
     "parserOptions": {
         "ecmaVersion": "latest"
     },
-    "rules": {
-        "indent": ["error", 4] // enforce 2-space indentation
-//        "quotes": ["error", "double"], // enforce single quotes
-//        "semi": ["error", "always"], // enforce semicolons
-//        "no-console": "off" // allow console.log
-    },
+    "rules": {},
     "plugins": ["jest"]
 }

@@ -3,7 +3,7 @@
 set -ex
 
 ./scripts/code.sh
-./scripts/test.sh -fast
+./scripts/test.sh
 
 git add .
 

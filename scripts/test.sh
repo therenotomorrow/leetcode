@@ -2,20 +2,8 @@
 
 set -e
 
-npm run test
+go test ./...
 
-case "$1" in
-  -fast)
-    go test ./...
-    ;;
-  -race)
-    go test -race ./...
-    ;;
-  -cover)
-    go test -race -coverprofile cover.out -cover ./...
-    go tool cover -func cover.out | grep total:
-    ;;
-  *)
-    echo "Usage: ./test.sh [-fast|-race|-cover]" && exit 1
-    ;;
-esac
+pytest solutions/python/
+
+npm run test

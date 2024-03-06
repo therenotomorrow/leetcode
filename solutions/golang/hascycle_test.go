@@ -1,69 +1,60 @@
-package hasCycle
+package golang
 
-import (
-	"testing"
-)
+import "testing"
 
-func Test_hasCycle(t *testing.T) {
+func TestHasCycle(t *testing.T) {
 	type args struct {
 		head *ListNode
 	}
+
 	tests := []struct {
 		name string
 		args args
 		want bool
 	}{
 		{
-			name: "1",
+			name: "smoke 1",
 			args: args{head: &ListNode{
 				Val: 3,
 				Next: &ListNode{
 					Val: 2,
 					Next: &ListNode{
-						Val: 0,
-						Next: &ListNode{
-							Val: -4,
-						},
+						Val:  0,
+						Next: &ListNode{Val: -4, Next: nil},
 					},
 				},
 			}},
 			want: true,
 		},
 		{
-			name: "2",
-			args: args{head: &ListNode{
-				Val: 1,
-				Next: &ListNode{
-					Val: 2,
-				},
-			}},
+			name: "smoke 2",
+			args: args{head: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}}},
 			want: true,
 		},
 		{
-			name: "3",
-			args: args{head: &ListNode{
-				Val: 1,
-			}},
+			name: "smoke 3",
+			args: args{head: &ListNode{Val: 1, Next: nil}},
 			want: false,
 		},
 		{
-			name: "4",
+			name: "test 3: runtime",
 			args: args{head: nil},
 			want: false,
 		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			switch tt.name {
-			case "1":
+			case "smoke 1":
 				tt.args.head.Next.Next.Next.Next = tt.args.head.Next
 
-			case "2":
+			case "smoke 2":
 				tt.args.head.Next = tt.args.head
 			}
 
 			if got := hasCycle(tt.args.head); got != tt.want {
-				t.Errorf("hasCycle() = %v, want %v", got, tt.want)
+				t.Errorf("hasCycle() = %v, want = %v", got, tt.want)
 			}
 		})
 	}
