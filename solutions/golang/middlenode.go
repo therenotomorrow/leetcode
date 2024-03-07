@@ -1,9 +1,4 @@
-package middleNode
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+package golang
 
 func middleNode(head *ListNode) *ListNode {
 	mid := head
