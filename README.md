@@ -271,6 +271,7 @@ Completed problems
 | 2877 | [Create a DataFrame from List](https://leetcode.com/problems/create-a-dataframe-from-list/description/)                                                                     | [`create_dataframe.py`](solutions/python/create_dataframe.py)                                                           |
 | 2966 | [Divide Array Into Arrays With Max Difference](https://leetcode.com/problems/divide-array-into-arrays-with-max-difference/description/)                                     | [`dividearray.go`](solutions/golang/dividearray.go)                                                                     |
 | 2971 | [Find Polygon With the Largest Perimeter](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter/description/)                                               | [`largestperimeter.go`](solutions/golang/largestperimeter.go)                                                           |
+| 3005 | [Count Elements With Maximum Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency/description/)                                                   | [`maxfrequencyelements.go`](solutions/golang/maxfrequencyelements.go)                                                   |
 | 3062 | [Winner of the Linked List Game](https://leetcode.com/problems/winner-of-the-linked-list-game/description/)                                                                 | [`gameresult.go`](solutions/golang/gameresult.go)                                                                       |
 
 In revision
