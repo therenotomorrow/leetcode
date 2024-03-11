@@ -273,6 +273,7 @@ Completed problems
 | 2971 | [Find Polygon With the Largest Perimeter](https://leetcode.com/problems/find-polygon-with-the-largest-perimeter/description/)                                               | [`largestperimeter.go`](solutions/golang/largestperimeter.go)                                                           |
 | 3005 | [Count Elements With Maximum Frequency](https://leetcode.com/problems/count-elements-with-maximum-frequency/description/)                                                   | [`maxfrequencyelements.go`](solutions/golang/maxfrequencyelements.go)                                                   |
 | 3062 | [Winner of the Linked List Game](https://leetcode.com/problems/winner-of-the-linked-list-game/description/)                                                                 | [`gameresult.go`](solutions/golang/gameresult.go)                                                                       |
+| 3063 | [Linked List Frequency](https://leetcode.com/problems/linked-list-frequency/description/)                                                                                   | [`frequenciesofelements.go`](solutions/golang/frequenciesofelements.go)                                                 |
 
 In revision
 -----------
