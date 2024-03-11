@@ -1,4 +1,4 @@
-package customSortString
+package golang
 
 import "strings"
 
@@ -9,6 +9,7 @@ func customSortString(order string, s string) string {
 	}
 
 	sb := strings.Builder{}
+
 	for _, r := range order {
 		cnt := m[r]
 
