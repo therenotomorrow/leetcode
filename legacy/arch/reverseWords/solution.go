@@ -2,38 +2,6 @@ package reverseWords
 
 import "strings"
 
-func reverse(s string) []byte {
-	n := len(s)
-	reversed := make([]byte, len(s))
-
-	for i := range s {
-		reversed[i] = s[n-i-1]
-	}
-
-	return reversed
-}
-
-func reverseWords(s string) string {
-	left := 0
-	right := 0
-
-	var sb strings.Builder
-	for i := range s {
-		if s[i] == ' ' {
-			sb.Write(reverse(s[left:right]))
-			sb.WriteByte(' ')
-			left = i + 1
-			right = left
-		} else {
-			right++
-		}
-	}
-
-	sb.Write(reverse(s[left:right]))
-
-	return sb.String()
-}
-
 func reverseWords2(s string) string {
 	var l, r int
 

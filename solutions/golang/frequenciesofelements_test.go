@@ -10,6 +10,7 @@ func TestFrequenciesOfElements(t *testing.T) {
 	type args struct {
 		head *ListNode
 	}
+
 	tests := []struct {
 		name string
 		args args
