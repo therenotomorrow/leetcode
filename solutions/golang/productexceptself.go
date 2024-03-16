@@ -1,4 +1,4 @@
-package productExceptSelf
+package golang
 
 func productExceptSelf(nums []int) []int {
 	lProd := make([]int, len(nums))

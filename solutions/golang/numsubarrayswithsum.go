@@ -1,4 +1,4 @@
-package numSubarraysWithSum
+package golang
 
 func numSubarraysWithSum(nums []int, goal int) int {
 	sums := make(map[int]int)
