@@ -3,9 +3,8 @@ package golang
 import "testing"
 
 func TestMyQueueSmoke1(t *testing.T) {
-	var want int
-
 	obj := MyQueueConstructor()
+	want := 0
 
 	obj.Push(1) // queue is: [1]
 	obj.Push(2) // queue is: [1, 2] (leftmost is front of the queue)

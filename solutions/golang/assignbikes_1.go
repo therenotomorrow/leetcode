@@ -13,7 +13,7 @@ func assignBikes1(workers [][]int, bikes [][]int) []int {
 		}
 	}
 
-	sort.Slice(distances, func(i, j int) bool {
+	sort.SliceStable(distances, func(i, j int) bool {
 		a := distances[i]
 		b := distances[j]
 

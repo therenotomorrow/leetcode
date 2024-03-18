@@ -8,7 +8,7 @@ func groupAnagrams(strs []string) [][]string {
 	for _, str := range strs {
 		key := []rune(str)
 
-		sort.Slice(key, func(i, j int) bool {
+		sort.SliceStable(key, func(i, j int) bool {
 			return key[i] < key[j]
 		})
 

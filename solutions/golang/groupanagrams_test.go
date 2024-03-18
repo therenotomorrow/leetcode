@@ -29,7 +29,7 @@ func TestGroupAnagrams(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			got := groupAnagrams(tt.args.strs)
 
-			sort.Slice(got, func(i, j int) bool {
+			sort.SliceStable(got, func(i, j int) bool {
 				return len(got[i]) < len(got[j])
 			})
 
@@ -40,7 +40,7 @@ func TestGroupAnagrams(t *testing.T) {
 				gotSlice = append(gotSlice, group...)
 			}
 
-			sort.Slice(tt.want, func(i, j int) bool {
+			sort.SliceStable(tt.want, func(i, j int) bool {
 				return len(tt.want[i]) < len(tt.want[j])
 			})
 

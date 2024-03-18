@@ -57,7 +57,7 @@ func jobScheduling(startTime []int, endTime []int, profit []int) int {
 		jobs = append(jobs, currJob)
 	}
 
-	sort.Slice(jobs, func(i, j int) bool {
+	sort.SliceStable(jobs, func(i, j int) bool {
 		return jobs[i][0] < jobs[j][0]
 	})
 
