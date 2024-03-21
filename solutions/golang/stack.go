@@ -1,7 +1,7 @@
 package golang
 
 type Stackable interface {
-	~int | ~rune | ~*TreeNode
+	~int | ~rune | ~*TreeNode | ~*ListNode
 }
 
 type Stack[T Stackable] interface {

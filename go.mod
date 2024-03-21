@@ -1,6 +1,6 @@
 module github.com/therenotomorrow/leetcode
 
-go 1.21.3
+go 1.22.1
 
 require (
 	4d63.com/gocheckcompilerdirectives v1.2.1 // indirect
