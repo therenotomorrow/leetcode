@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestIsPalindrome(t *testing.T) {
+func TestIsPalindrome1(t *testing.T) {
 	type args struct {
 		x int
 	}
@@ -19,8 +19,8 @@ func TestIsPalindrome(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := isPalindrome(tt.args.x); got != tt.want {
-				t.Errorf("isPalindrome() = %v, want = %v", got, tt.want)
+			if got := isPalindrome1(tt.args.x); got != tt.want {
+				t.Errorf("isPalindrome1() = %v, want = %v", got, tt.want)
 			}
 		})
 	}

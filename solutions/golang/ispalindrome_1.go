@@ -1,6 +1,6 @@
 package golang
 
-func isPalindrome(x int) bool {
+func isPalindrome1(x int) bool {
 	if x < 0 {
 		// negative values cannot be a palindrome
 		return false
