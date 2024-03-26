@@ -64,6 +64,7 @@ Completed problems
 | 118  | [Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/description/)                                                                                            | [`generate.go`](solutions/golang/generate.go)                                                                           |
 | 119  | [Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/description/)                                                                                      | [`getrow.go`](solutions/golang/getrow.go)                                                                               |
 | 141  | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)                                                                                           | [`hascycle.go`](solutions/golang/hascycle.go)                                                                           |
+| 143  | [Reorder List](https://leetcode.com/problems/reorder-list/description/)                                                                                                     | [`reorderlist.go`](solutions/golang/reorderlist.go)                                                                     |
 | 144  | [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/description/)                                                                 | [`preordertraversal.go`](solutions/golang/preordertraversal.go)                                                         |
 | 145  | [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/description/)                                                               | [`postordertraversal.go`](solutions/golang/postordertraversal.go)                                                       |
 | 150  | [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/description/)                                                             | [`evalrpn.go`](solutions/golang/evalrpn.go)                                                                             |
@@ -478,3 +479,5 @@ In revision
 174. Cheapest Flights Within K Stops
 175. Greatest Common Divisor Traversal
 176. Find All People With Secret
+177. Find All Duplicates in an Array
+178. First Missing Positive
