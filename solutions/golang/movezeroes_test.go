@@ -22,6 +22,7 @@ func TestMoveZeroes(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			moveZeroes(tt.args.nums)
+
 			if !reflect.DeepEqual(tt.args.nums, tt.want) {
 				t.Errorf("moveZeroes() = %v, want = %v", tt.args.nums, tt.want)
 			}
