@@ -1,4 +1,4 @@
-package numSubarrayProductLessThanK
+package golang
 
 func numSubarrayProductLessThanK(nums []int, k int) int {
 	var (
@@ -16,7 +16,7 @@ func numSubarrayProductLessThanK(nums []int, k int) int {
 		res += right - left + 1
 	}
 
-	if res < 0 {
+	if curr == 0 || res < 0 {
 		res = 0
 	}
 
