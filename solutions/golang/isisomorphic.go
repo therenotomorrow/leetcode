@@ -1,4 +1,4 @@
-package isIsomorphic
+package golang
 
 func isIsomorphic(s string, t string) bool {
 	ms := make(map[byte]byte)
@@ -11,6 +11,7 @@ func isIsomorphic(s string, t string) bool {
 		if !ok1 {
 			ms[s[i]] = t[i]
 		}
+
 		if !ok2 {
 			mt[t[i]] = s[i]
 		}
