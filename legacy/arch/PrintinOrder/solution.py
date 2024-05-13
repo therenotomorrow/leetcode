@@ -21,7 +21,7 @@ def wait(priority: int) -> Callable[[TM], TM]:
     return decorator
 
 
-class Foo(object):
+class Foo:
     def __init__(self) -> None:
         self.priority = 1
         self.done = [False, False, False]

@@ -1,4 +1,4 @@
-class NumArray(object):
+class NumArray:
     def __init__(self, nums: list[int]):
         self._prefixes = [0]
         for num in nums:

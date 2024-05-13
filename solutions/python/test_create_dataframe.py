@@ -4,7 +4,7 @@ import pytest
 from .create_dataframe import create_dataframe
 
 
-class TestCreateDataframe(object):
+class TestCreateDataframe:
     @pytest.mark.parametrize(
         'args, want',
         [

@@ -2,7 +2,7 @@ package golang
 
 import "math"
 
-func isEvenOddTree(root *TreeNode) bool { //nolint:cyclop
+func isEvenOddTree(root *TreeNode) bool {
 	q := NewQueue[*TreeNode]()
 	prev := &TreeNode{Val: 0, Left: nil, Right: nil}
 	isEven := true

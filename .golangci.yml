@@ -13,6 +13,10 @@ linters:
     - varcheck
     - nosnakecase
     - maligned
+    - execinquery
+    - gomnd
+    - copyloopvar
+    - intrange
     # don't need
     - ireturn
     - depguard
@@ -26,7 +30,7 @@ linters-settings:
       - golang
   varnamelen:
     min-name-length: 1
-  gomnd:
+  mnd:
     ignored-numbers:
       - "2"
       - "3"
@@ -37,6 +41,10 @@ linters-settings:
       - "16"
       - "26"
       - "255"
+  cyclop:
+    max-complexity: 12
+  goconst:
+    ignore-strings: 'smoke \d'
   funlen:
     lines: 150
   gosec:
@@ -48,7 +56,8 @@ run:
   allow-parallel-runners: true
 
 output:
-  format: colored-line-number
+  formats:
+    - format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
 

@@ -25,7 +25,7 @@ func toHex(num int) string {
 
 	for ; num > 0; num /= 16 {
 		switch val := num % 16; val {
-		case 10, 11, 12, 13, 14, 15: //nolint:gomnd
+		case 10, 11, 12, 13, 14, 15: //nolint:mnd
 			stack.Push(rune(alphaPrefix + val))
 		default:
 			stack.Push(rune(digitPrefix + val))
