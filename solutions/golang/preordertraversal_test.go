@@ -6,6 +6,8 @@ import (
 )
 
 func TestPreorderTraversal(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -41,10 +43,12 @@ func TestPreorderTraversal(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := preorderTraversal(tt.args.root); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("preorderTraversal() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := preorderTraversal(test.args.root); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("preorderTraversal() = %v, want = %v", got, test.want)
 			}
 		})
 	}

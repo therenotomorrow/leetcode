@@ -6,6 +6,8 @@ import (
 )
 
 func TestRemoveZeroSumSublists(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
@@ -68,10 +70,12 @@ func TestRemoveZeroSumSublists(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := removeZeroSumSublists(tt.args.head); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("removeZeroSumSublists() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := removeZeroSumSublists(test.args.head); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("removeZeroSumSublists() = %v, want = %v", got, test.want)
 			}
 		})
 	}

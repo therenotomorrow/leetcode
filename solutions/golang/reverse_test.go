@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestReverse(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		x int
 	}
@@ -18,10 +20,12 @@ func TestReverse(t *testing.T) {
 		{name: "test 1036: wrong answer", args: args{x: 1534236469}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := reverse(tt.args.x); got != tt.want {
-				t.Errorf("reverse() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := reverse(test.args.x); got != test.want {
+				t.Errorf("reverse() = %v, want = %v", got, test.want)
 			}
 		})
 	}

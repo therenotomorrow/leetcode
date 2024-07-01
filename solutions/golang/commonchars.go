@@ -1,19 +1,19 @@
 package golang
 
 func commonChars(words []string) []string {
-	origin := make([]rune, 26)
+	origin := make([]rune, Alphabet)
 	for _, r := range words[0] {
 		origin[r-'a']++
 	}
 
 	for _, word := range words[1:] {
-		tmp := make([]rune, 26)
+		tmp := make([]rune, Alphabet)
 
 		for _, r := range word {
 			tmp[r-'a']++
 		}
 
-		for i := 0; i < 26; i++ {
+		for i := range Alphabet {
 			if origin[i] >= tmp[i] {
 				origin[i] = tmp[i]
 			}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFindPaths(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		m           int
 		n           int
@@ -20,10 +22,14 @@ func TestFindPaths(t *testing.T) {
 		{name: "smoke 2", args: args{m: 1, n: 3, maxMove: 3, startRow: 0, startColumn: 1}, want: 12},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findPaths(tt.args.m, tt.args.n, tt.args.maxMove, tt.args.startRow, tt.args.startColumn); got != tt.want {
-				t.Errorf("findPaths() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := findPaths(test.args.m, test.args.n, test.args.maxMove, test.args.startRow, test.args.startColumn)
+
+			if got != test.want {
+				t.Errorf("findPaths() = %v, want = %v", got, test.want)
 			}
 		})
 	}

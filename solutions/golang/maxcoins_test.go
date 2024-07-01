@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaxCoins(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		piles []int
 	}
@@ -17,10 +19,12 @@ func TestMaxCoins(t *testing.T) {
 		{name: "smoke 3", args: args{piles: []int{9, 8, 7, 6, 5, 1, 2, 3, 4}}, want: 18},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maxCoins(tt.args.piles); got != tt.want {
-				t.Errorf("maxCoins() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maxCoins(test.args.piles); got != test.want {
+				t.Errorf("maxCoins() = %v, want = %v", got, test.want)
 			}
 		})
 	}

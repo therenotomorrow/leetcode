@@ -16,7 +16,7 @@ func (pq *SticksPQ) Swap(i, j int) {
 	(*pq)[i], (*pq)[j] = (*pq)[j], (*pq)[i]
 }
 
-func (pq *SticksPQ) Push(x interface{}) {
+func (pq *SticksPQ) Push(x any) {
 	val, ok := x.(int)
 
 	if !ok {
@@ -26,7 +26,7 @@ func (pq *SticksPQ) Push(x interface{}) {
 	*pq = append(*pq, val)
 }
 
-func (pq *SticksPQ) Pop() interface{} {
+func (pq *SticksPQ) Pop() any {
 	last := (*pq)[len(*pq)-1]
 	*pq = (*pq)[:len(*pq)-1]
 
@@ -34,25 +34,25 @@ func (pq *SticksPQ) Pop() interface{} {
 }
 
 func connectSticks(sticks []int) int {
-	pq := SticksPQ(sticks)
+	pQue := SticksPQ(sticks)
 	sum := 0
 
-	heap.Init(&pq)
+	heap.Init(&pQue)
 
-	for pq.Len() > 1 {
-		a, ok := heap.Pop(&pq).(int)
-		if !ok {
-			panic("wrong `a`")
+	for pQue.Len() > 1 {
+		one, exist := heap.Pop(&pQue).(int)
+		if !exist {
+			panic("wrong `one`")
 		}
 
-		b, ok := heap.Pop(&pq).(int)
-		if !ok {
-			panic("wrong `b`")
+		two, exist := heap.Pop(&pQue).(int)
+		if !exist {
+			panic("wrong `two`")
 		}
 
-		sum += a + b
+		sum += one + two
 
-		heap.Push(&pq, a+b)
+		heap.Push(&pQue, one+two)
 	}
 
 	return sum

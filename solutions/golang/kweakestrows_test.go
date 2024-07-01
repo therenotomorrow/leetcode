@@ -6,6 +6,8 @@ import (
 )
 
 func TestKWeakestRows(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		mat [][]int
 		k   int
@@ -39,10 +41,12 @@ func TestKWeakestRows(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := kWeakestRows(tt.args.mat, tt.args.k); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("kWeakestRows() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := kWeakestRows(test.args.mat, test.args.k); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("kWeakestRows() = %v, want = %v", got, test.want)
 			}
 		})
 	}

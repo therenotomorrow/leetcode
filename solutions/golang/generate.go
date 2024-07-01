@@ -3,7 +3,7 @@ package golang
 func generate(numRows int) [][]int {
 	triangle := make([][]int, numRows)
 
-	for row := 0; row < numRows; row++ {
+	for row := range numRows {
 		triangle[row] = make([]int, row+1)
 		triangle[row][0] = 1
 

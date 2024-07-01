@@ -6,6 +6,8 @@ import (
 )
 
 func TestDailyTemperatures(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		temperatures []int
 	}
@@ -24,10 +26,12 @@ func TestDailyTemperatures(t *testing.T) {
 		{name: "smoke 3", args: args{temperatures: []int{30, 60, 90}}, want: []int{1, 1, 0}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := dailyTemperatures(tt.args.temperatures); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("dailyTemperatures() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := dailyTemperatures(test.args.temperatures); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("dailyTemperatures() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -5,6 +5,8 @@ import (
 )
 
 func TestPseudoPalindromicPaths(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -59,10 +61,12 @@ func TestPseudoPalindromicPaths(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := pseudoPalindromicPaths(tt.args.root); got != tt.want {
-				t.Errorf("pseudoPalindromicPaths() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := pseudoPalindromicPaths(test.args.root); got != test.want {
+				t.Errorf("pseudoPalindromicPaths() = %v, want = %v", got, test.want)
 			}
 		})
 	}

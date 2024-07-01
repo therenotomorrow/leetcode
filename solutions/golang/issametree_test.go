@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsSameTree(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		p *TreeNode
 		q *TreeNode
@@ -63,10 +65,12 @@ func TestIsSameTree(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isSameTree(tt.args.p, tt.args.q); got != tt.want {
-				t.Errorf("isSameTree() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isSameTree(test.args.p, test.args.q); got != test.want {
+				t.Errorf("isSameTree() = %v, want = %v", got, test.want)
 			}
 		})
 	}

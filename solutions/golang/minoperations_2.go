@@ -3,6 +3,8 @@ package golang
 import "math"
 
 func minOperations2(nums []int) int {
+	const size = 3
+
 	cnt := make(map[int]int)
 
 	for _, num := range nums {
@@ -16,7 +18,7 @@ func minOperations2(nums []int) int {
 			return -1
 		}
 
-		ans += int(math.Ceil(float64(times) / 3))
+		ans += int(math.Ceil(float64(times) / size))
 	}
 
 	return ans

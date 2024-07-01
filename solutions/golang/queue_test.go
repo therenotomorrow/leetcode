@@ -7,74 +7,80 @@ import (
 )
 
 func TestQueueEnqueueDequeue(t *testing.T) {
-	queue := golang.NewQueue[int]()
+	t.Parallel()
 
-	queue.Enqueue(1)
-	queue.Enqueue(2)
-	queue.Enqueue(3)
+	que := golang.NewQueue[int]()
 
-	if got, ok := queue.Dequeue(); got != 1 || !ok {
+	que.Enqueue(1)
+	que.Enqueue(2)
+	que.Enqueue(3)
+
+	if got, ok := que.Dequeue(); got != 1 || !ok {
 		t.Errorf("Dequeue() = (%v, %v), want = (%v, %v)", got, ok, 1, true)
 	}
 
-	if got, ok := queue.Dequeue(); got != 2 || !ok {
+	if got, ok := que.Dequeue(); got != 2 || !ok {
 		t.Errorf("Dequeue() = (%v, %v), want = (%v, %v)", got, ok, 2, true)
 	}
 
-	if got, ok := queue.Dequeue(); got != 3 || !ok {
+	if got, ok := que.Dequeue(); got != 3 || !ok {
 		t.Errorf("Dequeue() = (%v, %v), want = (%v, %v)", got, ok, 3, true)
 	}
 
-	if got, ok := queue.Dequeue(); got != 0 || ok {
+	if got, ok := que.Dequeue(); got != 0 || ok {
 		t.Errorf("Dequeue() = (%v, %v), want = (%v, %v)", got, ok, 0, false)
 	}
 }
 
 func TestQueuePeek(t *testing.T) {
-	queue := golang.NewQueue[int]()
+	t.Parallel()
 
-	queue.Enqueue(42)
+	que := golang.NewQueue[int]()
 
-	if got, ok := queue.Peek(); got != 42 || !ok {
+	que.Enqueue(42)
+
+	if got, ok := que.Peek(); got != 42 || !ok {
 		t.Errorf("Peek() = (%v, %v), want = (%v, %v)", got, ok, 42, true)
 	}
 
-	queue.Dequeue()
+	que.Dequeue()
 
-	if got, ok := queue.Peek(); got != 0 || ok {
+	if got, ok := que.Peek(); got != 0 || ok {
 		t.Errorf("Peek() = (%v, %v), want = (%v, %v)", got, ok, 0, false)
 	}
 }
 
 func TestQueueIsEmptySize(t *testing.T) {
-	queue := golang.NewQueue[int]()
+	t.Parallel()
 
-	queue.Enqueue(1)
-	queue.Enqueue(2)
-	queue.Enqueue(3)
+	que := golang.NewQueue[int]()
 
-	if got := queue.Size(); got != 3 {
+	que.Enqueue(1)
+	que.Enqueue(2)
+	que.Enqueue(3)
+
+	if got := que.Size(); got != 3 {
 		t.Errorf("Size() = %v, want = %v", got, 3)
 	}
 
-	if got := queue.IsEmpty(); got {
+	if got := que.IsEmpty(); got {
 		t.Errorf("IsEmpty() = %v, want = %v", got, false)
 	}
 
-	queue.Dequeue()
+	que.Dequeue()
 
-	if got := queue.Size(); got != 2 {
+	if got := que.Size(); got != 2 {
 		t.Errorf("Size() = %v, want = %v", got, 2)
 	}
 
-	queue.Dequeue()
-	queue.Dequeue()
+	que.Dequeue()
+	que.Dequeue()
 
-	if got := queue.Size(); got != 0 {
+	if got := que.Size(); got != 0 {
 		t.Errorf("Size() = %v, want = %v", got, 0)
 	}
 
-	if got := queue.IsEmpty(); !got {
+	if got := que.IsEmpty(); !got {
 		t.Errorf("IsEmpty() = %v, want = %v", got, true)
 	}
 }

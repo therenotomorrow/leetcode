@@ -1,8 +1,9 @@
 package numFactoredBinaryTrees
 
 import (
-	"github.com/therenotomorrow/leetcode/solutions/golang"
 	"sort"
+
+	"github.com/therenotomorrow/leetcode/solutions/golang"
 )
 
 func numFactoredBinaryTrees(arr []int) int {

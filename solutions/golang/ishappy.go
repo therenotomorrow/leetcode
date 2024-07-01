@@ -4,9 +4,9 @@ func sumHappy(n int) int {
 	newN := 0
 
 	for n > 0 {
-		d := n % 10
+		d := n % Digits
 		newN += d * d
-		n /= 10
+		n /= Digits
 	}
 
 	return newN

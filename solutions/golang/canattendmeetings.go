@@ -3,7 +3,9 @@ package golang
 import "sort"
 
 func canAttendMeetings(intervals [][]int) bool {
-	if len(intervals) < 2 {
+	const minInterval = 2
+
+	if len(intervals) < minInterval {
 		return true
 	}
 
@@ -15,7 +17,7 @@ func canAttendMeetings(intervals [][]int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
 
-	for i := 0; i < len(intervals)-1; i++ {
+	for i := range len(intervals) - 1 {
 		if intervals[i][1] > intervals[i+1][0] {
 			return false
 		}

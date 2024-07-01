@@ -9,6 +9,8 @@ import (
 )
 
 func TestSetAddDelSizeContains(t *testing.T) {
+	t.Parallel()
+
 	set := golang.NewSet[int]()
 
 	// empty set
@@ -52,6 +54,8 @@ func TestSetAddDelSizeContains(t *testing.T) {
 }
 
 func TestSetLenPopulateValues(t *testing.T) {
+	t.Parallel()
+
 	set := golang.NewSet[int]()
 
 	set.Populate(1, 2, 3, 4, 5)

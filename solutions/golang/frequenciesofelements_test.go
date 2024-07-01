@@ -7,6 +7,8 @@ import (
 )
 
 func TestFrequenciesOfElements(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
@@ -90,16 +92,18 @@ func TestFrequenciesOfElements(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			head := frequenciesOfElements(tt.args.head)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			head := frequenciesOfElements(test.args.head)
 			got := make([]int, 0)
 
 			for ; head != nil; head = head.Next {
 				got = append(got, head.Val)
 			}
 
-			head = tt.want
+			head = test.want
 			want := make([]int, 0)
 
 			for ; head != nil; head = head.Next {

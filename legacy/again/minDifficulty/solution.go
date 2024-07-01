@@ -1,8 +1,9 @@
 package minDifficulty
 
 import (
-	"github.com/therenotomorrow/leetcode/solutions/golang"
 	"math"
+
+	"github.com/therenotomorrow/leetcode/solutions/golang"
 )
 
 func minDifficulty(jobDifficulty []int, d int) int {

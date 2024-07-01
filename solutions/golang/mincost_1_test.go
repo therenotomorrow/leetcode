@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinCost1(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		colors     string
 		neededTime []int
@@ -18,10 +20,12 @@ func TestMinCost1(t *testing.T) {
 		{name: "smoke 3", args: args{colors: "aabaa", neededTime: []int{1, 2, 3, 4, 1}}, want: 2},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minCost1(tt.args.colors, tt.args.neededTime); got != tt.want {
-				t.Errorf("minCost1() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minCost1(test.args.colors, test.args.neededTime); got != test.want {
+				t.Errorf("minCost1() = %v, want = %v", got, test.want)
 			}
 		})
 	}

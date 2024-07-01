@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestNumSpecial(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		mat [][]int
 	}
@@ -29,10 +31,12 @@ func TestNumSpecial(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := numSpecial(tt.args.mat); got != tt.want {
-				t.Errorf("numSpecial() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := numSpecial(test.args.mat); got != test.want {
+				t.Errorf("numSpecial() = %v, want = %v", got, test.want)
 			}
 		})
 	}

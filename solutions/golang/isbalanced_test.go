@@ -5,6 +5,8 @@ import (
 )
 
 func TestIsBalanced(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -93,10 +95,12 @@ func TestIsBalanced(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isBalanced(tt.args.root); got != tt.want {
-				t.Errorf("isBalanced() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isBalanced(test.args.root); got != test.want {
+				t.Errorf("isBalanced() = %v, want = %v", got, test.want)
 			}
 		})
 	}

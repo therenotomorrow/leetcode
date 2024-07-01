@@ -1,16 +1,16 @@
 package golang
 
-func lengthOfLastWord(s string) int {
-	c := 0
-	r := len(s) - 1
+func lengthOfLastWord(str string) int {
+	cnt := 0
+	right := len(str) - 1
 
-	for s[r] == ' ' {
-		r--
+	for str[right] == ' ' {
+		right--
 	}
 
-	for ; r >= 0 && s[r] != ' '; r-- {
-		c++
+	for ; right >= 0 && str[right] != ' '; right-- {
+		cnt++
 	}
 
-	return c
+	return cnt
 }

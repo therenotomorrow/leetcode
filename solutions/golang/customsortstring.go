@@ -2,29 +2,29 @@ package golang
 
 import "strings"
 
-func customSortString(order string, s string) string {
-	m := make(map[rune]int)
-	for _, r := range s {
-		m[r]++
+func customSortString(order string, str string) string {
+	cnt := make(map[rune]int)
+	for _, runa := range str {
+		cnt[runa]++
 	}
 
-	sb := strings.Builder{}
+	builder := strings.Builder{}
 
-	for _, r := range order {
-		cnt := m[r]
+	for _, runa := range order {
+		times := cnt[runa]
 
-		for i := 0; i < cnt; i++ {
-			sb.WriteRune(r)
+		for range times {
+			builder.WriteRune(runa)
 		}
 
-		delete(m, r)
+		delete(cnt, runa)
 	}
 
-	for r, cnt := range m {
-		for i := 0; i < cnt; i++ {
-			sb.WriteRune(r)
+	for runa, times := range cnt {
+		for range times {
+			builder.WriteRune(runa)
 		}
 	}
 
-	return sb.String()
+	return builder.String()
 }

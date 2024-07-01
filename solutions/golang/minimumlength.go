@@ -1,17 +1,17 @@
 package golang
 
-func minimumLength(s string) int {
+func minimumLength(str string) int {
 	left := 0
-	right := len(s) - 1
+	right := len(str) - 1
 
-	for left < right && s[left] == s[right] {
-		let := s[left]
+	for left < right && str[left] == str[right] {
+		let := str[left]
 
-		for left <= right && let == s[left] {
+		for left <= right && let == str[left] {
 			left++
 		}
 
-		for right > left && let == s[right] {
+		for right > left && let == str[right] {
 			right--
 		}
 	}

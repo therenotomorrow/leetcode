@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestContainsNearbyDuplicate(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 		k    int
@@ -18,10 +20,12 @@ func TestContainsNearbyDuplicate(t *testing.T) {
 		{name: "smoke 3", args: args{nums: []int{1, 2, 3, 1, 2, 3}, k: 2}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := containsNearbyDuplicate(tt.args.nums, tt.args.k); got != tt.want {
-				t.Errorf("containsNearbyDuplicate() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := containsNearbyDuplicate(test.args.nums, test.args.k); got != test.want {
+				t.Errorf("containsNearbyDuplicate() = %v, want = %v", got, test.want)
 			}
 		})
 	}

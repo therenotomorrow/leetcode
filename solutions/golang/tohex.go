@@ -21,23 +21,33 @@ func toHex(num int) string {
 		return "0"
 	}
 
+	const (
+		AHex = Digits + iota
+		BHex
+		CHex
+		DHex
+		EHex
+		FHex
+		Hex
+	)
+
 	stack := NewStack[rune]()
 
-	for ; num > 0; num /= 16 {
-		switch val := num % 16; val {
-		case 10, 11, 12, 13, 14, 15: //nolint:mnd
+	for ; num > 0; num /= Hex {
+		switch val := num % Hex; val {
+		case AHex, BHex, CHex, DHex, EHex, FHex:
 			stack.Push(rune(alphaPrefix + val))
 		default:
 			stack.Push(rune(digitPrefix + val))
 		}
 	}
 
-	var sb strings.Builder
+	var builder strings.Builder
 
 	for !stack.IsEmpty() {
 		val, _ := stack.Pop()
-		sb.WriteRune(val)
+		builder.WriteRune(val)
 	}
 
-	return sb.String()
+	return builder.String()
 }

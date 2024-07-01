@@ -28,7 +28,7 @@ func (pq *FoodItemsPQ) Swap(i, j int) {
 	pq.data[i], pq.data[j] = pq.data[j], pq.data[i]
 }
 
-func (pq *FoodItemsPQ) Push(x interface{}) {
+func (pq *FoodItemsPQ) Push(x any) {
 	val, ok := x.(*FoodItem)
 
 	if !ok {
@@ -38,7 +38,7 @@ func (pq *FoodItemsPQ) Push(x interface{}) {
 	pq.data = append(pq.data, val)
 }
 
-func (pq *FoodItemsPQ) Pop() interface{} {
+func (pq *FoodItemsPQ) Pop() any {
 	old := pq.data
 	n := len(old)
 	item := old[n-1]

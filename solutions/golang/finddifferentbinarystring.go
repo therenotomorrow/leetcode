@@ -1,8 +1,9 @@
 package golang
 
 import (
+	"crypto/rand"
 	"fmt"
-	"math/rand"
+	"math/big"
 	"strconv"
 )
 
@@ -17,7 +18,9 @@ func findDifferentBinaryString(nums []string) string {
 	var found int
 
 	for {
-		found = rand.Intn(len(nums) + 1)
+		idx, _ := rand.Int(rand.Reader, big.NewInt(int64(len(nums)+1)))
+
+		found = int(idx.Int64())
 		if !uniq.Contains(found) {
 			break
 		}

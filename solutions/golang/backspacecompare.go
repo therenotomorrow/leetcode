@@ -1,9 +1,9 @@
 package golang
 
-func backspace(s string, pos int) int {
+func backspace(str string, pos int) int {
 	for skip := 0; pos >= 0; pos-- {
 		switch {
-		case s[pos] == '#':
+		case str[pos] == '#':
 			skip++
 		case skip > 0:
 			skip--
@@ -16,19 +16,19 @@ func backspace(s string, pos int) int {
 	return -1
 }
 
-func backspaceCompare(s string, t string) bool {
-	i := len(s)
-	j := len(t)
+func backspaceCompare(str string, tpl string) bool {
+	i := len(str)
+	j := len(tpl)
 
 	for {
-		i = backspace(s, i-1)
-		j = backspace(t, j-1)
+		i = backspace(str, i-1)
+		j = backspace(tpl, j-1)
 
 		if i < 0 || j < 0 {
 			break
 		}
 
-		if s[i] != t[j] {
+		if str[i] != tpl[j] {
 			return false
 		}
 	}

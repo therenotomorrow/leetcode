@@ -13,7 +13,7 @@ func countOnce(word string, chars []int) int {
 }
 
 func countCharacters(words []string, chars string) int {
-	used := make([]int, 26)
+	used := make([]int, Alphabet)
 	for _, r := range chars {
 		used[r-'a']++
 	}
@@ -21,7 +21,7 @@ func countCharacters(words []string, chars string) int {
 	ans := 0
 
 	for _, word := range words {
-		tmp := make([]int, 26)
+		tmp := make([]int, Alphabet)
 		copy(tmp, used)
 		ans += countOnce(word, tmp)
 	}

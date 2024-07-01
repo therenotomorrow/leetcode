@@ -6,6 +6,8 @@ import (
 )
 
 func TestSortedSquares(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -19,10 +21,12 @@ func TestSortedSquares(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{-7, -3, 2, 3, 11}}, want: []int{4, 9, 9, 49, 121}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := sortedSquares(tt.args.nums); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("sortedSquares() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := sortedSquares(test.args.nums); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("sortedSquares() = %v, want = %v", got, test.want)
 			}
 		})
 	}

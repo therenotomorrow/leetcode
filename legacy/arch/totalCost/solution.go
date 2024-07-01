@@ -55,11 +55,11 @@ func (h *MinHeap) Less(i, j int) bool {
 
 func (h *MinHeap) Swap(i, j int) { (*h)[i], (*h)[j] = (*h)[j], (*h)[i] }
 
-func (h *MinHeap) Push(x interface{}) {
+func (h *MinHeap) Push(x any) {
 	*h = append(*h, x.(*Item))
 }
 
-func (h *MinHeap) Pop() interface{} {
+func (h *MinHeap) Pop() any {
 	x := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return x

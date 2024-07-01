@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestConnectSticks(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		sticks []int
 	}
@@ -17,10 +19,12 @@ func TestConnectSticks(t *testing.T) {
 		{name: "smoke 3", args: args{sticks: []int{5}}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := connectSticks(tt.args.sticks); got != tt.want {
-				t.Errorf("connectSticks() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := connectSticks(test.args.sticks); got != test.want {
+				t.Errorf("connectSticks() = %v, want = %v", got, test.want)
 			}
 		})
 	}

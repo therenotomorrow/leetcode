@@ -2,7 +2,7 @@ package golang
 
 func cherryPickup(grid [][]int) int {
 	var (
-		c       = NewCache()
+		cache   = NewCache()
 		dynamic func(i int, robot1 int, robot2 int) int
 	)
 
@@ -15,7 +15,7 @@ func cherryPickup(grid [][]int) int {
 			return -1
 		}
 
-		if val, ok := c.Load(i, robot1, robot2); ok {
+		if val, ok := cache.Load(i, robot1, robot2); ok {
 			return val
 		}
 
@@ -35,7 +35,7 @@ func cherryPickup(grid [][]int) int {
 
 		cherries += nextMove
 
-		c.Save(cherries, i, robot1, robot2)
+		cache.Save(cherries, i, robot1, robot2)
 
 		return cherries
 	}

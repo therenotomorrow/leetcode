@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinSubArrayLen(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		target int
 		nums   []int
@@ -19,10 +21,12 @@ func TestMinSubArrayLen(t *testing.T) {
 		{name: "test 11: wrong answer", args: args{target: 11, nums: []int{1, 2, 3, 4, 5}}, want: 3},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minSubArrayLen(tt.args.target, tt.args.nums); got != tt.want {
-				t.Errorf("minSubArrayLen() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minSubArrayLen(test.args.target, test.args.nums); got != test.want {
+				t.Errorf("minSubArrayLen() = %v, want = %v", got, test.want)
 			}
 		})
 	}

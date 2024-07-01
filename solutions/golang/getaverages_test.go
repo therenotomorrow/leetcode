@@ -6,6 +6,8 @@ import (
 )
 
 func TestGetAverages(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 		k    int
@@ -25,10 +27,12 @@ func TestGetAverages(t *testing.T) {
 		{name: "smoke 3", args: args{nums: []int{8}, k: 100000}, want: []int{-1}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := getAverages(tt.args.nums, tt.args.k); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("getAverages() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := getAverages(test.args.nums, test.args.k); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("getAverages() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFindMedianSortedArrays(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums1 []int
 		nums2 []int
@@ -17,10 +19,12 @@ func TestFindMedianSortedArrays(t *testing.T) {
 		{name: "smoke 2", args: args{nums1: []int{1, 2}, nums2: []int{3, 4}}, want: 2.5},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findMedianSortedArrays(tt.args.nums1, tt.args.nums2); got != tt.want {
-				t.Errorf("findMedianSortedArrays() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findMedianSortedArrays(test.args.nums1, test.args.nums2); got != test.want {
+				t.Errorf("findMedianSortedArrays() = %v, want = %v", got, test.want)
 			}
 		})
 	}

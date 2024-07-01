@@ -12,7 +12,7 @@ func Test_maxArea(t *testing.T) {
 		want int
 	}{
 		// {args: args{height: []int{1, 8, 6, 2, 5, 4, 8, 3, 7}}, want: 49},
-		//{args: args{height: []int{1, 1}}, want: 1},
+		// {args: args{height: []int{1, 1}}, want: 1},
 		{args: args{height: []int{1, 2}}, want: 1},
 	}
 	for _, tt := range tests {

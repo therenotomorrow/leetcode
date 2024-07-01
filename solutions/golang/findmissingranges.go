@@ -1,6 +1,8 @@
 package golang
 
 func findMissingRanges(nums []int, lower int, upper int) [][]int {
+	const diff = 2
+
 	if len(nums) == 0 {
 		return [][]int{{lower, upper}}
 	}
@@ -10,8 +12,8 @@ func findMissingRanges(nums []int, lower int, upper int) [][]int {
 		ranges = append(ranges, []int{lower, nums[0] - 1})
 	}
 
-	for i := 0; i < len(nums)-1; i++ {
-		if nums[i+1]-nums[i] < 2 {
+	for i := range len(nums) - 1 {
+		if nums[i+1]-nums[i] < diff {
 			continue
 		}
 

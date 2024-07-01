@@ -13,27 +13,27 @@ func tree2str(root *TreeNode) string {
 	return sb.String()[1 : sb.Len()-1]
 }
 
-func tree2strBuild(root *TreeNode, sb *strings.Builder) {
+func tree2strBuild(root *TreeNode, builder *strings.Builder) {
 	if root == nil {
 		return
 	}
 
-	sb.WriteString("(" + strconv.Itoa(root.Val))
+	builder.WriteString("(" + strconv.Itoa(root.Val))
 
 	if root.Left == nil && root.Right == nil {
-		sb.WriteString(")")
+		builder.WriteString(")")
 
 		return
 	}
 
-	tree2strBuild(root.Left, sb)
+	tree2strBuild(root.Left, builder)
 
 	if root.Left == nil {
 		// save one-to-one mapping
-		sb.WriteString("()")
+		builder.WriteString("()")
 	}
 
-	tree2strBuild(root.Right, sb)
+	tree2strBuild(root.Right, builder)
 
-	sb.WriteString(")")
+	builder.WriteString(")")
 }

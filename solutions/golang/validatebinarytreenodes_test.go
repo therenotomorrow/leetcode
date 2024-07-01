@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestValidateBinaryTreeNodes(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n          int
 		leftChild  []int
@@ -37,10 +39,12 @@ func TestValidateBinaryTreeNodes(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := validateBinaryTreeNodes(tt.args.n, tt.args.leftChild, tt.args.rightChild); got != tt.want {
-				t.Errorf("validateBinaryTreeNodes() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := validateBinaryTreeNodes(test.args.n, test.args.leftChild, test.args.rightChild); got != test.want {
+				t.Errorf("validateBinaryTreeNodes() = %v, want = %v", got, test.want)
 			}
 		})
 	}

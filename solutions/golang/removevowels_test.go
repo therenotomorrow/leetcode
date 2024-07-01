@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestRemoveVowels(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 	}
@@ -16,10 +18,12 @@ func TestRemoveVowels(t *testing.T) {
 		{name: "smoke 2", args: args{s: "aeiou"}, want: ""},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := removeVowels(tt.args.s); got != tt.want {
-				t.Errorf("removeVowels() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := removeVowels(test.args.s); got != test.want {
+				t.Errorf("removeVowels() = %v, want = %v", got, test.want)
 			}
 		})
 	}

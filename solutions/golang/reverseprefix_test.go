@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestReversePrefix(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		word string
 		ch   byte
@@ -18,10 +20,12 @@ func TestReversePrefix(t *testing.T) {
 		{name: "smoke 3", args: args{word: "abcd", ch: 'z'}, want: "abcd"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := reversePrefix(tt.args.word, tt.args.ch); got != tt.want {
-				t.Errorf("reversePrefix() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := reversePrefix(test.args.word, test.args.ch); got != test.want {
+				t.Errorf("reversePrefix() = %v, want = %v", got, test.want)
 			}
 		})
 	}

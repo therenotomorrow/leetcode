@@ -1,12 +1,12 @@
 package golang
 
-func countHomogenous(s string) int {
+func countHomogenous(str string) int {
 	var (
 		curr     rune
 		ans, cnt int
 	)
 
-	for _, r := range s {
+	for _, r := range str {
 		if r != curr {
 			curr = r
 			cnt = 0

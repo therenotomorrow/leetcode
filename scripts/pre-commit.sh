@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
-./scripts/code.sh
-./scripts/test.sh
+make code test/smoke
 
 git add .
 

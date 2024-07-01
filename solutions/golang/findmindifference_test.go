@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFindMinDifference(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		timePoints []string
 	}
@@ -18,10 +20,12 @@ func TestFindMinDifference(t *testing.T) {
 		{name: "test 109: wrong answer", args: args{timePoints: []string{"00:00", "04:00", "22:00"}}, want: 120},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findMinDifference(tt.args.timePoints); got != tt.want {
-				t.Errorf("findMinDifference() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findMinDifference(test.args.timePoints); got != test.want {
+				t.Errorf("findMinDifference() = %v, want = %v", got, test.want)
 			}
 		})
 	}

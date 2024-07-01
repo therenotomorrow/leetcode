@@ -2,7 +2,7 @@ package golang
 
 func numWays1(steps int, arrLen int) int {
 	var (
-		c       = NewCache()
+		cache   = NewCache()
 		dynamic func(currPos int, stepsRemain int) int
 	)
 
@@ -15,7 +15,7 @@ func numWays1(steps int, arrLen int) int {
 			return 0
 		}
 
-		if val, ok := c.Load(currPos, stepsRemain); ok {
+		if val, ok := cache.Load(currPos, stepsRemain); ok {
 			return val
 		}
 
@@ -29,7 +29,7 @@ func numWays1(steps int, arrLen int) int {
 			waysCnt = (waysCnt + dynamic(currPos+1, stepsRemain-1)) % MOD
 		}
 
-		c.Save(waysCnt, currPos, stepsRemain)
+		cache.Save(waysCnt, currPos, stepsRemain)
 
 		return waysCnt
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestLargestOddNumber(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		num string
 	}
@@ -17,10 +19,12 @@ func TestLargestOddNumber(t *testing.T) {
 		{name: "smoke 3", args: args{num: "35427"}, want: "35427"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := largestOddNumber(tt.args.num); got != tt.want {
-				t.Errorf("largestOddNumber() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := largestOddNumber(test.args.num); got != test.want {
+				t.Errorf("largestOddNumber() = %v, want = %v", got, test.want)
 			}
 		})
 	}

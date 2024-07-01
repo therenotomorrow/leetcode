@@ -6,6 +6,8 @@ import (
 )
 
 func TestDecrypt(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		code []int
 		k    int
@@ -21,10 +23,12 @@ func TestDecrypt(t *testing.T) {
 		{name: "smoke 3", args: args{code: []int{2, 4, 9, 3}, k: -2}, want: []int{12, 5, 6, 13}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := decrypt(tt.args.code, tt.args.k); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("decrypt() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := decrypt(test.args.code, test.args.k); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("decrypt() = %v, want = %v", got, test.want)
 			}
 		})
 	}

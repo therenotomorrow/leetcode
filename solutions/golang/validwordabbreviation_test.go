@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestValidWordAbbreviation(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		word string
 		abbr string
@@ -21,10 +23,12 @@ func TestValidWordAbbreviation(t *testing.T) {
 		{name: "test 12: runtime", args: args{word: "hi", abbr: "2i"}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := validWordAbbreviation(tt.args.word, tt.args.abbr); got != tt.want {
-				t.Errorf("validWordAbbreviation() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := validWordAbbreviation(test.args.word, test.args.abbr); got != test.want {
+				t.Errorf("validWordAbbreviation() = %v, want = %v", got, test.want)
 			}
 		})
 	}

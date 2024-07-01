@@ -1,15 +1,15 @@
 package golang
 
-func isReachableAtTime(sx int, sy int, fx int, fy int, t int) bool {
-	x := Abs(fx - sx)
-	y := Abs(fy - sy)
+func isReachableAtTime(sx int, sy int, fx int, fy int, tpl int) bool {
+	xLen := Abs(fx - sx)
+	yLen := Abs(fy - sy)
 
 	// we are at the same point
-	if x == 0 && y == 0 {
-		if t == 1 {
+	if xLen == 0 && yLen == 0 {
+		if tpl == 1 {
 			return false
 		}
 	}
 
-	return Max(x, y) <= t
+	return Max(xLen, yLen) <= tpl
 }

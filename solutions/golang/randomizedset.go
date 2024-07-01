@@ -1,6 +1,9 @@
 package golang
 
-import "math/rand"
+import (
+	"crypto/rand"
+	"math/big"
+)
 
 type RandomizedSet struct {
 	data    []int
@@ -23,8 +26,8 @@ func (rs *RandomizedSet) Insert(val int) bool {
 }
 
 func (rs *RandomizedSet) Remove(val int) bool {
-	idx, ok := rs.indexes[val]
-	if !ok {
+	idx, exist := rs.indexes[val]
+	if !exist {
 		return false
 	}
 
@@ -35,11 +38,11 @@ func (rs *RandomizedSet) Remove(val int) bool {
 	rs.data = rs.data[:len(rs.data)-1]
 	delete(rs.indexes, val)
 
-	return ok
+	return exist
 }
 
 func (rs *RandomizedSet) GetRandom() int {
-	idx := rand.Intn(len(rs.data))
+	idx, _ := rand.Int(rand.Reader, big.NewInt(int64(len(rs.data))))
 
-	return rs.data[idx]
+	return rs.data[int(idx.Int64())]
 }

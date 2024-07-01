@@ -1,24 +1,24 @@
 package golang
 
-func countSubstrings(s string) int {
+func countSubstrings(str string) int {
 	var (
-		visited = make([][]bool, len(s))
+		visited = make([][]bool, len(str))
 		dynamic func(i int, j int) int
 	)
 
 	for i := range visited {
-		visited[i] = make([]bool, len(s))
+		visited[i] = make([]bool, len(str))
 	}
 
 	dynamic = func(i int, j int) int {
-		if i > j || j < 0 || i >= len(s) || visited[i][j] {
+		if i > j || j < 0 || i >= len(str) || visited[i][j] {
 			return 0
 		}
 
 		palindrome := 1
 
 		for left, right := i, j; left <= right; left, right = left+1, right-1 {
-			if s[left] != s[right] {
+			if str[left] != str[right] {
 				palindrome = 0
 
 				break
@@ -32,5 +32,5 @@ func countSubstrings(s string) int {
 		return palindrome
 	}
 
-	return dynamic(0, len(s)-1)
+	return dynamic(0, len(str)-1)
 }

@@ -1,13 +1,13 @@
 package golang
 
-func equalSubstring(s string, t string, maxCost int) int {
+func equalSubstring(str string, tpl string, maxCost int) int {
 	var cost, maxLen, left int
 
-	for right := 0; right < len(s); right++ {
-		cost += Abs(int(s[right]) - int(t[right]))
+	for right := range len(str) {
+		cost += Abs(int(str[right]) - int(tpl[right]))
 
 		for cost > maxCost {
-			cost -= Abs(int(s[left]) - int(t[left]))
+			cost -= Abs(int(str[left]) - int(tpl[left]))
 			left++
 		}
 

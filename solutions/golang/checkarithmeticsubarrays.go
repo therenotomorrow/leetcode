@@ -27,7 +27,7 @@ func checkArithmeticSubarrays(nums []int, l []int, r []int) []bool {
 	size := len(l)
 	bools := make([]bool, size)
 
-	for i := 0; i < size; i++ {
+	for i := range size {
 		bools[i] = isArithmetic(nums[l[i] : r[i]+1])
 	}
 

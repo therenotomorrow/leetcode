@@ -1,11 +1,11 @@
 package golang
 
-func isPrefixString(s string, words []string) bool {
+func isPrefixString(str string, words []string) bool {
 	pnt := 0
 
 	for _, word := range words {
 		for j := range word {
-			if pnt >= len(s) || s[pnt] != word[j] {
+			if pnt >= len(str) || str[pnt] != word[j] {
 				return false
 			}
 
@@ -13,7 +13,7 @@ func isPrefixString(s string, words []string) bool {
 		}
 
 		// need the full word concatenation of `words`
-		if pnt == len(s) {
+		if pnt == len(str) {
 			return true
 		}
 	}

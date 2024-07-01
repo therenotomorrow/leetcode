@@ -10,6 +10,7 @@ func findCenter(edges [][]int) int {
 
 	center := 0
 	maxCnt := 0
+
 	for node, times := range cnt {
 		if times > maxCnt {
 			maxCnt = times

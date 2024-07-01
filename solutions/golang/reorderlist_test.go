@@ -6,6 +6,8 @@ import (
 )
 
 func TestReorderList(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
@@ -48,18 +50,20 @@ func TestReorderList(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
 			got := make([]int, 0)
 
-			reorderList(tt.args.head)
+			reorderList(test.args.head)
 
-			for curr := tt.args.head; curr != nil; curr = curr.Next {
+			for curr := test.args.head; curr != nil; curr = curr.Next {
 				got = append(got, curr.Val)
 			}
 
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("reorderList() = %v, want = %v", got, tt.want)
+			if !reflect.DeepEqual(got, test.want) {
+				t.Errorf("reorderList() = %v, want = %v", got, test.want)
 			}
 		})
 	}

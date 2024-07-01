@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestTribonacci(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 	}
@@ -19,10 +21,12 @@ func TestTribonacci(t *testing.T) {
 		{name: "own 3", args: args{n: 2}, want: 1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := tribonacci(tt.args.n); got != tt.want {
-				t.Errorf("tribonacci() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := tribonacci(test.args.n); got != test.want {
+				t.Errorf("tribonacci() = %v, want = %v", got, test.want)
 			}
 		})
 	}

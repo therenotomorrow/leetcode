@@ -10,7 +10,7 @@ func compareVersion(version1 string, version2 string) int {
 	versions2 := strings.Split(version2, ".")
 	limit := Max(len(versions1), len(versions2))
 
-	for part := 0; part < limit; part++ {
+	for part := range limit {
 		var subVer1, subVer2 int
 
 		if part < len(versions1) {

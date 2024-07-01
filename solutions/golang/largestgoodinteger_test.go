@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestLargestGoodInteger(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		num string
 	}
@@ -18,10 +20,12 @@ func TestLargestGoodInteger(t *testing.T) {
 		{name: "test 71: wrong answer", args: args{num: "3200014888"}, want: "888"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := largestGoodInteger(tt.args.num); got != tt.want {
-				t.Errorf("largestGoodInteger() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := largestGoodInteger(test.args.num); got != test.want {
+				t.Errorf("largestGoodInteger() = %v, want = %v", got, test.want)
 			}
 		})
 	}

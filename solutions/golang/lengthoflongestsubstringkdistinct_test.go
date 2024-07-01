@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestLengthOfLongestSubstringKDistinct(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 		k int
@@ -17,10 +19,12 @@ func TestLengthOfLongestSubstringKDistinct(t *testing.T) {
 		{name: "smoke 2", args: args{s: "aa", k: 1}, want: 2},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := lengthOfLongestSubstringKDistinct(tt.args.s, tt.args.k); got != tt.want {
-				t.Errorf("lengthOfLongestSubstringKDistinct() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := lengthOfLongestSubstringKDistinct(test.args.s, test.args.k); got != test.want {
+				t.Errorf("lengthOfLongestSubstringKDistinct() = %v, want = %v", got, test.want)
 			}
 		})
 	}

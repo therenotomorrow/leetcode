@@ -7,6 +7,8 @@ import (
 )
 
 func TestGroupAnagrams(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		strs []string
 	}
@@ -25,9 +27,11 @@ func TestGroupAnagrams(t *testing.T) {
 		{name: "smoke 3", args: args{strs: []string{"a"}}, want: [][]string{{"a"}}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := groupAnagrams(tt.args.strs)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := groupAnagrams(test.args.strs)
 
 			sort.SliceStable(got, func(i, j int) bool {
 				return len(got[i]) < len(got[j])
@@ -40,20 +44,20 @@ func TestGroupAnagrams(t *testing.T) {
 				gotSlice = append(gotSlice, group...)
 			}
 
-			sort.SliceStable(tt.want, func(i, j int) bool {
-				return len(tt.want[i]) < len(tt.want[j])
+			sort.SliceStable(test.want, func(i, j int) bool {
+				return len(test.want[i]) < len(test.want[j])
 			})
 
 			wantSlice := make([]string, 0)
 
-			for _, group := range tt.want {
+			for _, group := range test.want {
 				sort.Strings(group)
 
 				wantSlice = append(wantSlice, group...)
 			}
 
 			if !reflect.DeepEqual(gotSlice, wantSlice) {
-				t.Errorf("groupAnagrams() = %v, want = %v", got, tt.want)
+				t.Errorf("groupAnagrams() = %v, want = %v", got, test.want)
 			}
 		})
 	}

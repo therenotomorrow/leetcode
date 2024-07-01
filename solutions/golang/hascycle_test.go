@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestHasCycle(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
@@ -13,7 +15,7 @@ func TestHasCycle(t *testing.T) {
 		want bool
 	}{
 		{
-			name: "smoke 1",
+			name: Smoke1,
 			args: args{head: &ListNode{
 				Val: 3,
 				Next: &ListNode{
@@ -27,7 +29,7 @@ func TestHasCycle(t *testing.T) {
 			want: true,
 		},
 		{
-			name: "smoke 2",
+			name: Smoke2,
 			args: args{head: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: nil}}},
 			want: true,
 		},
@@ -43,18 +45,20 @@ func TestHasCycle(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			switch tt.name {
-			case "smoke 1":
-				tt.args.head.Next.Next.Next.Next = tt.args.head.Next
+	for _, test := range tests {
+		switch test.name {
+		case Smoke1:
+			test.args.head.Next.Next.Next.Next = test.args.head.Next
 
-			case "smoke 2":
-				tt.args.head.Next = tt.args.head
-			}
+		case Smoke2:
+			test.args.head.Next = test.args.head
+		}
 
-			if got := hasCycle(tt.args.head); got != tt.want {
-				t.Errorf("hasCycle() = %v, want = %v", got, tt.want)
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := hasCycle(test.args.head); got != test.want {
+				t.Errorf("hasCycle() = %v, want = %v", got, test.want)
 			}
 		})
 	}

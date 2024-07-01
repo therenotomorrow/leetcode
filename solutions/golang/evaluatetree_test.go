@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestEvaluateTree(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -36,10 +38,12 @@ func TestEvaluateTree(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := evaluateTree(tt.args.root); got != tt.want {
-				t.Errorf("evaluateTree() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := evaluateTree(test.args.root); got != test.want {
+				t.Errorf("evaluateTree() = %v, want = %v", got, test.want)
 			}
 		})
 	}

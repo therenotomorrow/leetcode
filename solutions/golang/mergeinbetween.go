@@ -1,18 +1,18 @@
 package golang
 
-func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
+func mergeInBetween(list1 *ListNode, aaa int, bbb int, list2 *ListNode) *ListNode {
 	idx := 0
 	head := list1
 	curr := &ListNode{Val: 0, Next: list1}
 
-	for idx != a {
+	for idx != aaa {
 		curr = curr.Next
 		idx++
 	}
 
 	tail := curr.Next
 
-	for idx != b {
+	for idx != bbb {
 		tail = tail.Next
 		idx++
 	}

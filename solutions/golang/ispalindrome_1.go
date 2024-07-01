@@ -1,19 +1,19 @@
 package golang
 
-func isPalindrome1(x int) bool {
-	if x < 0 {
+func isPalindrome1(num int) bool {
+	if num < 0 {
 		// negative values cannot be a palindrome
 		return false
 	}
 
-	y := 0
-	t := x
+	res := 0
+	tmp := num
 
-	for t > 0 {
-		y *= 10
-		y += t % 10
-		t /= 10
+	for tmp > 0 {
+		res *= Digits
+		res += tmp % Digits
+		tmp /= Digits
 	}
 
-	return x == y
+	return num == res
 }

@@ -6,12 +6,14 @@ import (
 	"github.com/therenotomorrow/leetcode/solutions/golang"
 )
 
-func TestListNode(_ *testing.T) {
+func TestListNode(t *testing.T) {
+	t.Parallel()
 	// make sure about creation
 	_ = golang.ListNode{Val: 42, Next: &golang.ListNode{Val: 36, Next: nil}}
 }
 
-func TestTreeNode(_ *testing.T) {
+func TestTreeNode(t *testing.T) {
+	t.Parallel()
 	// make sure about creation
 	_ = golang.TreeNode{
 		Val:   42,
@@ -20,7 +22,8 @@ func TestTreeNode(_ *testing.T) {
 	}
 }
 
-func TestPairNode(_ *testing.T) {
+func TestPairNode(t *testing.T) {
+	t.Parallel()
 	// make sure about creation
 	_ = golang.PairNode{1, 2}
 }

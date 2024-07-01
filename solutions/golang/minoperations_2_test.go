@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinOperations2(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -26,10 +28,12 @@ func TestMinOperations2(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minOperations2(tt.args.nums); got != tt.want {
-				t.Errorf("minOperations2() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minOperations2(test.args.nums); got != test.want {
+				t.Errorf("minOperations2() = %v, want = %v", got, test.want)
 			}
 		})
 	}

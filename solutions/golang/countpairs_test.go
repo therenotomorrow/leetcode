@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCountPairs(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums1 []int
 		nums2 []int
@@ -17,10 +19,12 @@ func TestCountPairs(t *testing.T) {
 		{name: "smoke 2", args: args{nums1: []int{1, 10, 6, 2}, nums2: []int{1, 4, 1, 5}}, want: 5},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := countPairs(tt.args.nums1, tt.args.nums2); got != tt.want {
-				t.Errorf("countPairs() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := countPairs(test.args.nums1, test.args.nums2); got != test.want {
+				t.Errorf("countPairs() = %v, want = %v", got, test.want)
 			}
 		})
 	}

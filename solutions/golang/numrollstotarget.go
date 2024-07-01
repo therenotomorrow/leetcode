@@ -2,7 +2,7 @@ package golang
 
 func numRollsToTarget(n int, k int, target int) int {
 	var (
-		c       = NewCache()
+		cache   = NewCache()
 		dynamic func(dice int, currSum int) int
 	)
 
@@ -15,7 +15,7 @@ func numRollsToTarget(n int, k int, target int) int {
 			return 0
 		}
 
-		if val, ok := c.Load(dice, currSum); ok {
+		if val, ok := cache.Load(dice, currSum); ok {
 			return val
 		}
 
@@ -27,7 +27,7 @@ func numRollsToTarget(n int, k int, target int) int {
 			rollsCnt %= MOD
 		}
 
-		c.Save(rollsCnt, dice, currSum)
+		cache.Save(rollsCnt, dice, currSum)
 
 		return rollsCnt
 	}

@@ -3,7 +3,7 @@ package golang
 func removeDigit(number string, digit byte) string {
 	ans := ""
 
-	for i := 0; i < len(number); i++ {
+	for i := range len(number) {
 		if number[i] != digit {
 			continue
 		}

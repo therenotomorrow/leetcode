@@ -6,6 +6,8 @@ import (
 )
 
 func TestCommonChars(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		words []string
 	}
@@ -19,10 +21,12 @@ func TestCommonChars(t *testing.T) {
 		{name: "smoke 2", args: args{words: []string{"cool", "lock", "cook"}}, want: []string{"c", "o"}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := commonChars(tt.args.words); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("commonChars() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := commonChars(test.args.words); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("commonChars() = %v, want = %v", got, test.want)
 			}
 		})
 	}

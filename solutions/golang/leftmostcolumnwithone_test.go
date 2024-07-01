@@ -15,6 +15,8 @@ func (mat *BinaryMatrixImpl) Dimensions() []int {
 }
 
 func TestLeftMostColumnWithOne(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		binaryMatrix BinaryMatrix
 	}
@@ -49,10 +51,12 @@ func TestLeftMostColumnWithOne(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := leftMostColumnWithOne(tt.args.binaryMatrix); got != tt.want {
-				t.Errorf("leftMostColumnWithOne() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := leftMostColumnWithOne(test.args.binaryMatrix); got != test.want {
+				t.Errorf("leftMostColumnWithOne() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -2,7 +2,7 @@ package golang
 
 func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 	var (
-		c       = NewCache()
+		cache   = NewCache()
 		dynamic func(currMove int, i int, j int, paths int) int
 	)
 
@@ -15,7 +15,7 @@ func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 			return 0
 		}
 
-		if val, ok := c.Load(i, j, currMove); ok {
+		if val, ok := cache.Load(i, j, currMove); ok {
 			return val
 		}
 
@@ -25,7 +25,7 @@ func findPaths(m int, n int, maxMove int, startRow int, startColumn int) int {
 			dynamic(currMove-1, i, j+1, paths)
 		paths %= MOD
 
-		c.Save(paths, i, j, currMove)
+		cache.Save(paths, i, j, currMove)
 
 		return paths
 	}

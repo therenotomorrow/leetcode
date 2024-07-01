@@ -6,6 +6,8 @@ import (
 )
 
 func TestRemoveLeafNodes(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root   *TreeNode
 		target int
@@ -90,10 +92,12 @@ func TestRemoveLeafNodes(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := removeLeafNodes(tt.args.root, tt.args.target); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("removeLeafNodes() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := removeLeafNodes(test.args.root, test.args.target); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("removeLeafNodes() = %v, want = %v", got, test.want)
 			}
 		})
 	}

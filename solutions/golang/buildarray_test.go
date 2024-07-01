@@ -6,6 +6,8 @@ import (
 )
 
 func TestBuildArray(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		target []int
 		n      int
@@ -21,10 +23,12 @@ func TestBuildArray(t *testing.T) {
 		{name: "smoke 3", args: args{target: []int{1, 2}, n: 4}, want: []string{"Push", "Push"}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := buildArray(tt.args.target, tt.args.n); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("buildArray() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := buildArray(test.args.target, test.args.n); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("buildArray() = %v, want = %v", got, test.want)
 			}
 		})
 	}

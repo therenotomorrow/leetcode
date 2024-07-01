@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsPerfectSquare(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		num int
 	}
@@ -16,10 +18,12 @@ func TestIsPerfectSquare(t *testing.T) {
 		{name: "smoke 2", args: args{num: 14}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isPerfectSquare(tt.args.num); got != tt.want {
-				t.Errorf("isPerfectSquare() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isPerfectSquare(test.args.num); got != test.want {
+				t.Errorf("isPerfectSquare() = %v, want = %v", got, test.want)
 			}
 		})
 	}

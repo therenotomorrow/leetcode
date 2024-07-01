@@ -6,6 +6,8 @@ import (
 )
 
 func TestDeleteNode(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		node *ListNode
 	}
@@ -17,7 +19,7 @@ func TestDeleteNode(t *testing.T) {
 		want *ListNode
 	}{
 		{
-			name: "smoke 1",
+			name: Smoke1,
 			args: args{node: &ListNode{
 				Val: 5,
 				Next: &ListNode{
@@ -35,7 +37,7 @@ func TestDeleteNode(t *testing.T) {
 			},
 		},
 		{
-			name: "smoke 2",
+			name: Smoke2,
 			args: args{node: &ListNode{
 				Val:  1,
 				Next: &ListNode{Val: 9, Next: nil},
@@ -54,20 +56,22 @@ func TestDeleteNode(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		switch tt.name {
-		case "smoke 1":
-			tt.list.Next = tt.args.node
+	for _, test := range tests {
+		switch test.name {
+		case Smoke1:
+			test.list.Next = test.args.node
 
-		case "smoke 2":
-			tt.list.Next.Next = tt.args.node
+		case Smoke2:
+			test.list.Next.Next = test.args.node
 		}
 
-		t.Run(tt.name, func(t *testing.T) {
-			deleteNode(tt.args.node)
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
 
-			if !reflect.DeepEqual(tt.list, tt.want) {
-				t.Errorf("deleteNode() = %v, want = %v", tt.list, tt.want)
+			deleteNode(test.args.node)
+
+			if !reflect.DeepEqual(test.list, test.want) {
+				t.Errorf("deleteNode() = %v, want = %v", test.list, test.want)
 			}
 		})
 	}

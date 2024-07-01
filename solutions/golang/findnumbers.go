@@ -4,7 +4,7 @@ func countDigits(num int) int {
 	cnt := 0
 
 	for num > 0 {
-		num /= 10
+		num /= Digits
 		cnt++
 	}
 

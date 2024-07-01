@@ -2,14 +2,14 @@ package golang
 
 import "sort"
 
-func findContentChildren(g []int, s []int) int {
-	sort.Ints(g)
-	sort.Ints(s)
+func findContentChildren(gArr []int, sArr []int) int {
+	sort.Ints(gArr)
+	sort.Ints(sArr)
 
 	i := 0
 
-	for j := 0; j < len(s) && i < len(g); j++ {
-		if s[j] >= g[i] {
+	for j := 0; j < len(sArr) && i < len(gArr); j++ {
+		if sArr[j] >= gArr[i] {
 			i++
 		}
 	}

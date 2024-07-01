@@ -13,7 +13,7 @@ func Test_nextGreatestLetter(t *testing.T) {
 		want byte
 	}{
 		// {args: args{letters: []byte{'c', 'f', 'j'}, target: 'a'}, want: 'c'},
-		//{args: args{letters: []byte{'c', 'f', 'j'}, target: 'c'}, want: 'f'},
+		// {args: args{letters: []byte{'c', 'f', 'j'}, target: 'c'}, want: 'f'},
 		{args: args{letters: []byte{'x', 'x', 'y', 'y'}, target: 'z'}, want: 'x'},
 	}
 	for _, tt := range tests {

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestGarbageCollection(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		garbage []string
 		travel  []int
@@ -17,10 +19,12 @@ func TestGarbageCollection(t *testing.T) {
 		{name: "smoke 2", args: args{garbage: []string{"MMM", "PGM", "GP"}, travel: []int{3, 10}}, want: 37},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := garbageCollection(tt.args.garbage, tt.args.travel); got != tt.want {
-				t.Errorf("garbageCollection() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := garbageCollection(test.args.garbage, test.args.travel); got != test.want {
+				t.Errorf("garbageCollection() = %v, want = %v", got, test.want)
 			}
 		})
 	}

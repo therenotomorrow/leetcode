@@ -3,6 +3,8 @@ package golang
 import "strings"
 
 func largestGoodInteger(num string) string {
+	const size = 3
+
 	var (
 		prev, curr rune
 		cnt        int
@@ -16,7 +18,7 @@ func largestGoodInteger(num string) string {
 			cnt++
 		}
 
-		if cnt == 3 {
+		if cnt == size {
 			if curr > prev {
 				prev = curr
 			}
@@ -27,5 +29,5 @@ func largestGoodInteger(num string) string {
 		return ""
 	}
 
-	return strings.Repeat(string(prev), 3)
+	return strings.Repeat(string(prev), size)
 }

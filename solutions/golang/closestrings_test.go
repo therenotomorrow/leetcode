@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCloseStrings(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		word1 string
 		word2 string
@@ -19,10 +21,12 @@ func TestCloseStrings(t *testing.T) {
 		{name: "test 131: wrong answer", args: args{word1: "uau", word2: "ssx"}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := closeStrings(tt.args.word1, tt.args.word2); got != tt.want {
-				t.Errorf("closeStrings() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := closeStrings(test.args.word1, test.args.word2); got != test.want {
+				t.Errorf("closeStrings() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -47,6 +47,7 @@ func treeDiameter(edges [][]int) int {
 
 	return diameter
 }
+
 func Max[T cmp.Ordered](nums ...T) T {
 	m := nums[0]
 

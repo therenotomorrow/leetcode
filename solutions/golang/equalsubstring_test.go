@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestEqualSubstring(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s       string
 		t       string
@@ -19,10 +21,12 @@ func TestEqualSubstring(t *testing.T) {
 		{name: "smoke 3", args: args{s: "abcd", t: "acde", maxCost: 0}, want: 1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := equalSubstring(tt.args.s, tt.args.t, tt.args.maxCost); got != tt.want {
-				t.Errorf("equalSubstring() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := equalSubstring(test.args.s, test.args.t, test.args.maxCost); got != test.want {
+				t.Errorf("equalSubstring() = %v, want = %v", got, test.want)
 			}
 		})
 	}

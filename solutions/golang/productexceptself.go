@@ -1,6 +1,8 @@
 package golang
 
 func productExceptSelf(nums []int) []int {
+	const magicTwo = 2
+
 	lProd := make([]int, len(nums))
 
 	lProd[0] = 1
@@ -11,7 +13,7 @@ func productExceptSelf(nums []int) []int {
 	rProd := make([]int, len(nums))
 
 	rProd[len(nums)-1] = 1
-	for i := len(nums) - 2; i >= 0; i-- {
+	for i := len(nums) - magicTwo; i >= 0; i-- {
 		rProd[i] = rProd[i+1] * nums[i+1]
 	}
 

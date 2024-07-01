@@ -1,25 +1,25 @@
 package golang
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers(ln1 *ListNode, ln2 *ListNode) *ListNode {
 	carry := 0
 	curr := new(ListNode)
 	head := curr
 
-	for sum := 0; l1 != nil || l2 != nil; sum = 0 {
-		if l1 != nil {
-			sum += l1.Val
-			l1 = l1.Next
+	for sum := 0; ln1 != nil || ln2 != nil; sum = 0 {
+		if ln1 != nil {
+			sum += ln1.Val
+			ln1 = ln1.Next
 		}
 
-		if l2 != nil {
-			sum += l2.Val
-			l2 = l2.Next
+		if ln2 != nil {
+			sum += ln2.Val
+			ln2 = ln2.Next
 		}
 
 		sum += carry
-		carry = sum / 10 // max = 1 + 9 + 9, so carry 0 or 1
+		carry = sum / Digits // max = 1 + 9 + 9, so carry 0 or 1
 
-		curr.Next = &ListNode{Val: sum % 10, Next: nil}
+		curr.Next = &ListNode{Val: sum % Digits, Next: nil}
 		curr = curr.Next
 	}
 

@@ -6,6 +6,8 @@ import (
 )
 
 func TestProductExceptSelf(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -19,10 +21,12 @@ func TestProductExceptSelf(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{-1, 1, 0, -3, 3}}, want: []int{0, 0, 9, 0, 0}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := productExceptSelf(tt.args.nums); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("productExceptSelf() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := productExceptSelf(test.args.nums); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("productExceptSelf() = %v, want = %v", got, test.want)
 			}
 		})
 	}

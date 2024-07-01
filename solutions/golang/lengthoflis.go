@@ -6,7 +6,7 @@ func lengthOfLIS(nums []int) int {
 	for i, num := range nums {
 		cnt[i]++
 
-		for j := 0; j < i; j++ {
+		for j := range i {
 			if num > nums[j] {
 				cnt[i] = Max(cnt[i], cnt[j]+1)
 			}

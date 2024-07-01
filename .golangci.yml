@@ -2,66 +2,50 @@ linters:
   fast: false
   enable-all: true
   disable:
-    # deprecated
-    - scopelint
-    - golint
-    - deadcode
-    - exhaustivestruct
-    - ifshort
-    - structcheck
-    - interfacer
-    - varcheck
-    - nosnakecase
-    - maligned
-    - execinquery
+    # deprecated: by golangci-lint
     - gomnd
-    - copyloopvar
-    - intrange
-    # don't need
-    - ireturn
+    - execinquery
+    # useless: we rule dependencies by ourselves
     - depguard
-    - dupl
 
 linters-settings:
-  paralleltest:
-    ignore-missing: true
   testpackage:
     allow-packages:
       - golang
+  ireturn:
+    allow:
+      - error
+      - empty
+      - generic
   varnamelen:
-    min-name-length: 1
-  mnd:
-    ignored-numbers:
-      - "2"
-      - "3"
-      - "4"
-      - "5"
-      - "7"
-      - "10"
-      - "16"
-      - "26"
-      - "255"
-  cyclop:
-    max-complexity: 12
-  goconst:
-    ignore-strings: 'smoke \d'
-  funlen:
-    lines: 150
-  gosec:
-    excludes:
-      - G404
+    ignore-names:
+      - i
+      - j
+      - k
+      - m
+      - n
 
 run:
-  go: "1.21"
+  go: "1.22"
   allow-parallel-runners: true
+  timeout: 5m
 
 output:
   formats:
-    - format: colored-line-number
+    - path: stdout
+      format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
+  show-stats: true
+  sort-results: true
 
 issues:
   fix: true
   max-same-issues: 0
   max-issues-per-linter: 0
+  exclude-rules:
+    # simple rules for tests
+    - path: _test\.go
+      linters:
+        - funlen
+        - dupl

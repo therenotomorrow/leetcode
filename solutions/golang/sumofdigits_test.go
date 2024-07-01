@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestSumOfDigits(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -16,10 +18,12 @@ func TestSumOfDigits(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{99, 77, 33, 66, 55}}, want: 1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := sumOfDigits(tt.args.nums); got != tt.want {
-				t.Errorf("sumOfDigits() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := sumOfDigits(test.args.nums); got != test.want {
+				t.Errorf("sumOfDigits() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestHeightChecker(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		heights []int
 	}
@@ -17,10 +19,12 @@ func TestHeightChecker(t *testing.T) {
 		{name: "smoke 3", args: args{heights: []int{1, 2, 3, 4, 5}}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := heightChecker(tt.args.heights); got != tt.want {
-				t.Errorf("heightChecker() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := heightChecker(test.args.heights); got != test.want {
+				t.Errorf("heightChecker() = %v, want = %v", got, test.want)
 			}
 		})
 	}

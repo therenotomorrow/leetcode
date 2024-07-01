@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestUniqueOccurrences(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		arr []int
 	}
@@ -17,10 +19,12 @@ func TestUniqueOccurrences(t *testing.T) {
 		{name: "smoke 3", args: args{[]int{-3, 0, 1, -3, 1, 1, 1, -3, 10, 0}}, want: true},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := uniqueOccurrences(tt.args.arr); got != tt.want {
-				t.Errorf("uniqueOccurrences() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := uniqueOccurrences(test.args.arr); got != test.want {
+				t.Errorf("uniqueOccurrences() = %v, want = %v", got, test.want)
 			}
 		})
 	}

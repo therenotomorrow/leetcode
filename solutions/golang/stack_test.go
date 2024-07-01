@@ -7,6 +7,8 @@ import (
 )
 
 func TestStackPushPop(t *testing.T) {
+	t.Parallel()
+
 	stack := golang.NewStack[int]()
 
 	stack.Push(1)
@@ -31,6 +33,8 @@ func TestStackPushPop(t *testing.T) {
 }
 
 func TestStackPeek(t *testing.T) {
+	t.Parallel()
+
 	stack := golang.NewStack[int]()
 
 	stack.Push(42)
@@ -47,6 +51,8 @@ func TestStackPeek(t *testing.T) {
 }
 
 func TestStackIsEmptySize(t *testing.T) {
+	t.Parallel()
+
 	stack := golang.NewStack[int]()
 
 	stack.Push(1)

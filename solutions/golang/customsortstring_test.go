@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCustomSortString(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		order string
 		s     string
@@ -17,10 +19,12 @@ func TestCustomSortString(t *testing.T) {
 		{name: "smoke 2", args: args{order: "cbafg", s: "abcd"}, want: "cbad"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := customSortString(tt.args.order, tt.args.s); got != tt.want {
-				t.Errorf("customSortString() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := customSortString(test.args.order, test.args.s); got != test.want {
+				t.Errorf("customSortString() = %v, want = %v", got, test.want)
 			}
 		})
 	}

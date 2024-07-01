@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCountHomogenous(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 	}
@@ -17,10 +19,12 @@ func TestCountHomogenous(t *testing.T) {
 		{name: "smoke 3", args: args{s: "zzzzz"}, want: 15},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := countHomogenous(tt.args.s); got != tt.want {
-				t.Errorf("countHomogenous() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := countHomogenous(test.args.s); got != test.want {
+				t.Errorf("countHomogenous() = %v, want = %v", got, test.want)
 			}
 		})
 	}

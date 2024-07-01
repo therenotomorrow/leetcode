@@ -8,13 +8,13 @@ func uniqueOccurrences(arr []int) bool {
 		occ[num]++
 	}
 
-	for _, v := range occ {
-		_, ok := uni[v]
+	for _, times := range occ {
+		_, ok := uni[times]
 		if ok {
 			return false
 		}
 
-		uni[v] = struct{}{}
+		uni[times] = struct{}{}
 	}
 
 	return true

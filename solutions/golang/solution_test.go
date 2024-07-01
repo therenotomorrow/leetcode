@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestSolution(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		file []byte
 		n    int
@@ -20,15 +22,17 @@ func TestSolution(t *testing.T) {
 		{name: "test 27: wrong answer", args: args{file: []byte("leetcode"), n: 5}, wantLen: 5, wantStr: "leetc"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
 			pnt := 0
 
 			readFunc := solution(func(bytes []byte) int {
 				var n int
 
-				for i := 0; i < 4 && pnt < len(tt.args.file); i++ {
-					bytes[i] = tt.args.file[pnt]
+				for i := 0; i < 4 && pnt < len(test.args.file); i++ {
+					bytes[i] = test.args.file[pnt]
 					pnt++
 					n++
 				}
@@ -36,19 +40,19 @@ func TestSolution(t *testing.T) {
 				return n
 			})
 
-			buf := make([]byte, tt.args.n)
-			if len(tt.args.file) < tt.args.n {
-				buf = make([]byte, len(tt.args.file))
+			buf := make([]byte, test.args.n)
+			if len(test.args.file) < test.args.n {
+				buf = make([]byte, len(test.args.file))
 			}
 
-			got := readFunc(buf, tt.args.n)
+			got := readFunc(buf, test.args.n)
 
-			if string(buf) != tt.wantStr {
-				t.Errorf("solution() = %v, want = %v", string(buf), tt.wantStr)
+			if string(buf) != test.wantStr {
+				t.Errorf("solution() = %v, want = %v", string(buf), test.wantStr)
 			}
 
-			if got != tt.wantLen {
-				t.Errorf("solution() = %v, want = %v", got, tt.wantLen)
+			if got != test.wantLen {
+				t.Errorf("solution() = %v, want = %v", got, test.wantLen)
 			}
 		})
 	}

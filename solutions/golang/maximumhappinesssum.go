@@ -7,7 +7,7 @@ func maximumHappinessSum(happiness []int, k int) int64 {
 
 	ans := 0
 
-	for cycle := 0; cycle < k; cycle++ {
+	for cycle := range k {
 		happy := happiness[cycle] - cycle
 		if happy < 0 {
 			happy = 0

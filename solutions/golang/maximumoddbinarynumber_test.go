@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaximumOddBinaryNumber(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 	}
@@ -16,10 +18,12 @@ func TestMaximumOddBinaryNumber(t *testing.T) {
 		{name: "smoke 2", args: args{s: "0101"}, want: "1001"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maximumOddBinaryNumber(tt.args.s); got != tt.want {
-				t.Errorf("maximumOddBinaryNumber() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maximumOddBinaryNumber(test.args.s); got != test.want {
+				t.Errorf("maximumOddBinaryNumber() = %v, want = %v", got, test.want)
 			}
 		})
 	}

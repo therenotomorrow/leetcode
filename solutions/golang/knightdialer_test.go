@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestKnightDialer(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 	}
@@ -17,10 +19,12 @@ func TestKnightDialer(t *testing.T) {
 		{name: "smoke 3", args: args{n: 3131}, want: 136006598},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := knightDialer(tt.args.n); got != tt.want {
-				t.Errorf("knightDialer() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := knightDialer(test.args.n); got != test.want {
+				t.Errorf("knightDialer() = %v, want = %v", got, test.want)
 			}
 		})
 	}

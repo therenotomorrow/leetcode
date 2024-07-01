@@ -8,9 +8,9 @@ func convertToTitle(columnNumber int) string {
 	for columnNumber > 0 {
 		columnNumber-- // to make number as true base 26
 
-		title = append(title, byte(columnNumber%26)+'A')
+		title = append(title, byte(columnNumber%Alphabet)+'A')
 
-		columnNumber /= 26
+		columnNumber /= Alphabet
 	}
 
 	slices.Reverse(title)

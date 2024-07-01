@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFindBottomLeftValue(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -44,10 +46,12 @@ func TestFindBottomLeftValue(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findBottomLeftValue(tt.args.root); got != tt.want {
-				t.Errorf("findBottomLeftValue() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findBottomLeftValue(test.args.root); got != test.want {
+				t.Errorf("findBottomLeftValue() = %v, want = %v", got, test.want)
 			}
 		})
 	}

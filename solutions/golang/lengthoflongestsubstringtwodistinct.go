@@ -1,13 +1,13 @@
 package golang
 
-func lengthOfLongestSubstringTwoDistinct(s string) int {
+func lengthOfLongestSubstringTwoDistinct(str string) int {
 	var (
 		maxLen, count int
-		alphabet      = make([]byte, 255)
+		alphabet      = make([]byte, Byte)
 	)
 
-	for l, r := 0, 0; r < len(s); r++ {
-		rChar := s[r] - 'a'
+	for left, right := 0, 0; right < len(str); right++ {
+		rChar := str[right] - 'a'
 
 		if alphabet[rChar] == 0 {
 			count++
@@ -16,17 +16,17 @@ func lengthOfLongestSubstringTwoDistinct(s string) int {
 		alphabet[rChar]++
 
 		for count > 2 {
-			lChar := s[l] - 'a'
+			lChar := str[left] - 'a'
 
 			alphabet[lChar]--
 			if alphabet[lChar] == 0 {
 				count--
 			}
 
-			l++
+			left++
 		}
 
-		maxLen = Max(maxLen, r-l+1)
+		maxLen = Max(maxLen, right-left+1)
 	}
 
 	return maxLen

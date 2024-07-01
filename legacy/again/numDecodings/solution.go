@@ -1,8 +1,9 @@
 package numDecodings
 
 import (
-	"github.com/therenotomorrow/leetcode/solutions/golang"
 	"strconv"
+
+	"github.com/therenotomorrow/leetcode/solutions/golang"
 )
 
 func numDecodings(s string) int {

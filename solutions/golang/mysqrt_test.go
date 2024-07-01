@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMySqrt(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		x int
 	}
@@ -17,10 +19,12 @@ func TestMySqrt(t *testing.T) {
 		{name: "test 1015: wrong answer", args: args{x: 0}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := mySqrt(tt.args.x); got != tt.want {
-				t.Errorf("mySqrt() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := mySqrt(test.args.x); got != test.want {
+				t.Errorf("mySqrt() = %v, want = %v", got, test.want)
 			}
 		})
 	}

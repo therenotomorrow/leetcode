@@ -7,7 +7,7 @@ func furthestBuilding(heights []int, bricks int, ladders int) int {
 
 	heap.Init(peeks)
 
-	for i := 0; i < len(heights)-1; i++ {
+	for i := range len(heights) - 1 {
 		diff := heights[i+1] - heights[i]
 
 		if diff <= 0 {

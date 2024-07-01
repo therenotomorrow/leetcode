@@ -1,22 +1,22 @@
 package golang
 
-func isIsomorphic(s string, t string) bool {
-	ms := make(map[byte]byte)
-	mt := make(map[byte]byte)
+func isIsomorphic(str string, tpl string) bool {
+	mStr := make(map[byte]byte)
+	mTpl := make(map[byte]byte)
 
-	for i := range s {
-		_, ok1 := ms[s[i]]
-		_, ok2 := mt[t[i]]
+	for i := range str {
+		_, ok1 := mStr[str[i]]
+		_, ok2 := mTpl[tpl[i]]
 
 		if !ok1 {
-			ms[s[i]] = t[i]
+			mStr[str[i]] = tpl[i]
 		}
 
 		if !ok2 {
-			mt[t[i]] = s[i]
+			mTpl[tpl[i]] = str[i]
 		}
 
-		if ms[s[i]] != t[i] || mt[t[i]] != s[i] {
+		if mStr[str[i]] != tpl[i] || mTpl[tpl[i]] != str[i] {
 			return false
 		}
 	}

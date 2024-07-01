@@ -19,15 +19,15 @@ func frequencySort(s string) string {
 		buckets[times] = append(buckets[times], r)
 	}
 
-	sb := strings.Builder{}
+	builder := strings.Builder{}
 
 	for i := maxCnt; i >= 0; i-- {
 		for _, r := range buckets[i] {
-			for j := 0; j < i; j++ {
-				sb.WriteRune(r)
+			for range i {
+				builder.WriteRune(r)
 			}
 		}
 	}
 
-	return sb.String()
+	return builder.String()
 }

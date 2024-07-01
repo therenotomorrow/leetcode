@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestKthGrammar(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 		k int
@@ -20,10 +22,12 @@ func TestKthGrammar(t *testing.T) {
 		{name: "test 32: wrong answer", args: args{n: 3, k: 3}, want: 1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := kthGrammar(tt.args.n, tt.args.k); got != tt.want {
-				t.Errorf("kthGrammar() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := kthGrammar(test.args.n, test.args.k); got != test.want {
+				t.Errorf("kthGrammar() = %v, want = %v", got, test.want)
 			}
 		})
 	}

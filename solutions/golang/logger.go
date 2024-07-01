@@ -12,7 +12,7 @@ func (l *Logger) ShouldPrintMessage(timestamp int, message string) bool {
 	allow, ok := l.data[message]
 
 	if !ok || timestamp >= allow {
-		l.data[message] = timestamp + 10
+		l.data[message] = timestamp + Digits
 
 		return true
 	}

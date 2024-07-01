@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestEqualToDescendants(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -45,10 +47,12 @@ func TestEqualToDescendants(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := equalToDescendants(tt.args.root); got != tt.want {
-				t.Errorf("equalToDescendants() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := equalToDescendants(test.args.root); got != test.want {
+				t.Errorf("equalToDescendants() = %v, want = %v", got, test.want)
 			}
 		})
 	}

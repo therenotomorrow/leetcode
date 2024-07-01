@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestNumRollsToTarget(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n      int
 		k      int
@@ -19,10 +21,12 @@ func TestNumRollsToTarget(t *testing.T) {
 		{name: "smoke 3", args: args{n: 30, k: 30, target: 500}, want: 222616187},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := numRollsToTarget(tt.args.n, tt.args.k, tt.args.target); got != tt.want {
-				t.Errorf("numRollsToTarget() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := numRollsToTarget(test.args.n, test.args.k, test.args.target); got != test.want {
+				t.Errorf("numRollsToTarget() = %v, want = %v", got, test.want)
 			}
 		})
 	}

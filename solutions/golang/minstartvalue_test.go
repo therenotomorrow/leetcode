@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinStartValue(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -17,10 +19,12 @@ func TestMinStartValue(t *testing.T) {
 		{name: "smoke 3", args: args{nums: []int{1, -2, -3}}, want: 5},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minStartValue(tt.args.nums); got != tt.want {
-				t.Errorf("minStartValue() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minStartValue(test.args.nums); got != test.want {
+				t.Errorf("minStartValue() = %v, want = %v", got, test.want)
 			}
 		})
 	}

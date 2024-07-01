@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaxWidthOfVerticalArea(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		points [][]int
 	}
@@ -16,10 +18,12 @@ func TestMaxWidthOfVerticalArea(t *testing.T) {
 		{name: "smoke 2", args: args{points: [][]int{{3, 1}, {9, 0}, {1, 0}, {1, 4}, {5, 3}, {8, 8}}}, want: 3},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maxWidthOfVerticalArea(tt.args.points); got != tt.want {
-				t.Errorf("maxWidthOfVerticalArea() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maxWidthOfVerticalArea(test.args.points); got != test.want {
+				t.Errorf("maxWidthOfVerticalArea() = %v, want = %v", got, test.want)
 			}
 		})
 	}

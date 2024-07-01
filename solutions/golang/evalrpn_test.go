@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestEvalRPN(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		tokens []string
 	}
@@ -21,10 +23,12 @@ func TestEvalRPN(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := evalRPN(tt.args.tokens); got != tt.want {
-				t.Errorf("evalRPN() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := evalRPN(test.args.tokens); got != test.want {
+				t.Errorf("evalRPN() = %v, want = %v", got, test.want)
 			}
 		})
 	}

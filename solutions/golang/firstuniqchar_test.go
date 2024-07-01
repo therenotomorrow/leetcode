@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFirstUniqChar(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 	}
@@ -17,10 +19,12 @@ func TestFirstUniqChar(t *testing.T) {
 		{name: "smoke 3", args: args{s: "aabb"}, want: -1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := firstUniqChar(tt.args.s); got != tt.want {
-				t.Errorf("firstUniqChar() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := firstUniqChar(test.args.s); got != test.want {
+				t.Errorf("firstUniqChar() = %v, want = %v", got, test.want)
 			}
 		})
 	}

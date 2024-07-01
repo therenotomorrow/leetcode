@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestRemoveDigit(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		number string
 		digit  byte
@@ -18,10 +20,12 @@ func TestRemoveDigit(t *testing.T) {
 		{name: "smoke 3", args: args{number: "551", digit: '5'}, want: "51"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := removeDigit(tt.args.number, tt.args.digit); got != tt.want {
-				t.Errorf("removeDigit() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := removeDigit(test.args.number, test.args.digit); got != test.want {
+				t.Errorf("removeDigit() = %v, want = %v", got, test.want)
 			}
 		})
 	}

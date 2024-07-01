@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinDistance(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		height   int
 		width    int
@@ -40,10 +42,14 @@ func TestMinDistance(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minDistance(tt.args.height, tt.args.width, tt.args.tree, tt.args.squirrel, tt.args.nuts); got != tt.want {
-				t.Errorf("minDistance() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := minDistance(test.args.height, test.args.width, test.args.tree, test.args.squirrel, test.args.nuts)
+
+			if got != test.want {
+				t.Errorf("minDistance() = %v, want = %v", got, test.want)
 			}
 		})
 	}

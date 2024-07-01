@@ -1,9 +1,11 @@
 package golang
 
-func distinctIntegers(n int) int {
-	if n < 2 {
+func distinctIntegers(num int) int {
+	const two = 2
+
+	if num < two {
 		return 1
 	}
 
-	return n - 1
+	return num - 1
 }

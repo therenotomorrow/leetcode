@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsAnagram(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 		t string
@@ -16,10 +18,12 @@ func TestIsAnagram(t *testing.T) {
 		{name: "smoke 1", args: args{s: "anagram", t: "nagaram"}, want: true},
 		{name: "smoke 2", args: args{s: "rat", t: "car"}, want: false},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isAnagram(tt.args.s, tt.args.t); got != tt.want {
-				t.Errorf("isAnagram() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isAnagram(test.args.s, test.args.t); got != test.want {
+				t.Errorf("isAnagram() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -15,7 +15,7 @@ func findMinDifference(timePoints []string) int {
 
 	diff := totalMin
 
-	for i := 0; i < len(timePoints)-1; i++ {
+	for i := range len(timePoints) - 1 {
 		prev, _ := time.Parse(format, timePoints[i])
 		curr, _ := time.Parse(format, timePoints[i+1])
 

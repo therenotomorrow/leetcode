@@ -5,6 +5,8 @@ import (
 )
 
 func TestRangeSumBST(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 		low  int
@@ -68,10 +70,12 @@ func TestRangeSumBST(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := rangeSumBST(tt.args.root, tt.args.low, tt.args.high); got != tt.want {
-				t.Errorf("rangeSumBST() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := rangeSumBST(test.args.root, test.args.low, test.args.high); got != test.want {
+				t.Errorf("rangeSumBST() = %v, want = %v", got, test.want)
 			}
 		})
 	}

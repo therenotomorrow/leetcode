@@ -6,8 +6,8 @@ func sumOfDigits(nums []int) int {
 	sum := 0
 
 	for minNum > 0 {
-		sum += minNum % 10
-		minNum /= 10
+		sum += minNum % Digits
+		minNum /= Digits
 	}
 
 	return sum%2 ^ 1

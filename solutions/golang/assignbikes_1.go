@@ -14,20 +14,20 @@ func assignBikes1(workers [][]int, bikes [][]int) []int {
 	}
 
 	sort.SliceStable(distances, func(i, j int) bool {
-		a := distances[i]
-		b := distances[j]
+		one := distances[i]
+		two := distances[j]
 
 		// sort by distance
-		if a[0] != b[0] {
-			return a[0] < b[0]
+		if one[0] != two[0] {
+			return one[0] < two[0]
 		}
 
 		// sort by worker number
-		if a[1] != b[1] {
-			return a[1] < b[1]
+		if one[1] != two[1] {
+			return one[1] < two[1]
 		}
 
-		return a[2] < b[2]
+		return one[2] < two[2]
 	})
 
 	assigned := make([]int, len(workers))

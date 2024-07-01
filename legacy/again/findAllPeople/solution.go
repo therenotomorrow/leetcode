@@ -1,8 +1,9 @@
 package findAllPeople
 
 import (
-	"github.com/therenotomorrow/leetcode/solutions/golang"
 	"math"
+
+	"github.com/therenotomorrow/leetcode/solutions/golang"
 )
 
 func findAllPeople(n int, meetings [][]int, firstPerson int) []int {

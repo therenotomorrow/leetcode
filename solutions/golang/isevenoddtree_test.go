@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsEvenOddTree(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -77,10 +79,12 @@ func TestIsEvenOddTree(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isEvenOddTree(tt.args.root); got != tt.want {
-				t.Errorf("isEvenOddTree() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isEvenOddTree(test.args.root); got != test.want {
+				t.Errorf("isEvenOddTree() = %v, want = %v", got, test.want)
 			}
 		})
 	}

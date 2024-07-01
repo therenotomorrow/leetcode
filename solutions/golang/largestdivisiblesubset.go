@@ -10,7 +10,7 @@ func largestDivisibleSubset(nums []int) []int {
 	for i, num := range nums {
 		maxSet := make([]int, 0)
 
-		for j := 0; j < i; j++ {
+		for j := range i {
 			if num%nums[j] == 0 {
 				if len(dynamic[j]) > len(maxSet) {
 					maxSet = make([]int, len(dynamic[j]))

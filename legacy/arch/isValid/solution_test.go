@@ -12,7 +12,7 @@ func Test_isValid(t *testing.T) {
 		want bool
 	}{
 		// {args: args{s: "()"}, want: true},
-		//{args: args{s: "()[]{}"}, want: true},
+		// {args: args{s: "()[]{}"}, want: true},
 		//{args: args{s: "(]"}, want: false},
 		{args: args{s: "([)]"}, want: false},
 	}

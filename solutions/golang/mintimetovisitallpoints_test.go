@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinTimeToVisitAllPoints(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		points [][]int
 	}
@@ -16,10 +18,12 @@ func TestMinTimeToVisitAllPoints(t *testing.T) {
 		{name: "smoke 2", args: args{points: [][]int{{3, 2}, {-2, 2}}}, want: 5},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minTimeToVisitAllPoints(tt.args.points); got != tt.want {
-				t.Errorf("minTimeToVisitAllPoints() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minTimeToVisitAllPoints(test.args.points); got != test.want {
+				t.Errorf("minTimeToVisitAllPoints() = %v, want = %v", got, test.want)
 			}
 		})
 	}

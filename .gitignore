@@ -6,8 +6,8 @@
 /node_modules/
 
 # caches
-cover.out
 __pycache__
+coverage.out
 
 # hidden entities
 .ignore*

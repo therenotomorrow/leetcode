@@ -1,5 +1,13 @@
 package golang
 
+func notExist(board [][]byte, word string, row int, col int, idx int) bool {
+	if row < 0 || col < 0 || row >= len(board) || col >= len(board[0]) || board[row][col] != word[idx] {
+		return false
+	}
+
+	return true
+}
+
 func exist(board [][]byte, word string) bool {
 	var (
 		rowDirs   = []int{1, 0, -1, 0}
@@ -12,7 +20,7 @@ func exist(board [][]byte, word string) bool {
 			return true
 		}
 
-		if row < 0 || col < 0 || row >= len(board) || col >= len(board[0]) || board[row][col] != word[idx] {
+		if !notExist(board, word, row, col, idx) {
 			return false
 		}
 

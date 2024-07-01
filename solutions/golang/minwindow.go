@@ -2,7 +2,7 @@ package golang
 
 import "math"
 
-func minWindow(s string, t string) string {
+func minWindow(str string, tpl string) string {
 	var (
 		cntT                  = make(map[byte]int)
 		cntS                  = make(map[byte]int)
@@ -10,17 +10,17 @@ func minWindow(s string, t string) string {
 		foundL, foundR, match int
 	)
 
-	for i := range t {
-		cntT[t[i]]++
+	for i := range tpl {
+		cntT[tpl[i]]++
 	}
 
 	match = len(cntT)
 
-	for left, right := 0, 0; right < len(s); right++ {
-		cntS[s[right]]++
+	for left, right := 0, 0; right < len(str); right++ {
+		cntS[str[right]]++
 
 		// because we go from left to right - each match will cost
-		if cntS[s[right]] == cntT[s[right]] {
+		if cntS[str[right]] == cntT[str[right]] {
 			match--
 		}
 
@@ -31,7 +31,7 @@ func minWindow(s string, t string) string {
 				foundL = left
 			}
 
-			unused := s[left]
+			unused := str[left]
 
 			if cntS[unused] > cntT[unused] {
 				cntS[unused]--
@@ -53,5 +53,5 @@ func minWindow(s string, t string) string {
 		return ""
 	}
 
-	return s[foundL:foundR]
+	return str[foundL:foundR]
 }

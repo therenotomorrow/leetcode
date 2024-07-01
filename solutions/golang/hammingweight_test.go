@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestHammingWeight(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		num uint32
 	}
@@ -17,10 +19,12 @@ func TestHammingWeight(t *testing.T) {
 		{name: "smoke 3", args: args{num: 0o0000000000000000000010000100101}, want: 4},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := hammingWeight(tt.args.num); got != tt.want {
-				t.Errorf("hammingWeight() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := hammingWeight(test.args.num); got != test.want {
+				t.Errorf("hammingWeight() = %v, want = %v", got, test.want)
 			}
 		})
 	}

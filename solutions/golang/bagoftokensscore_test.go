@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestBagOfTokensScore(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		tokens []int
 		power  int
@@ -19,10 +21,12 @@ func TestBagOfTokensScore(t *testing.T) {
 		{name: "test 6: wrong answer", args: args{tokens: []int{26}, power: 51}, want: 1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := bagOfTokensScore(tt.args.tokens, tt.args.power); got != tt.want {
-				t.Errorf("bagOfTokensScore() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := bagOfTokensScore(test.args.tokens, test.args.power); got != test.want {
+				t.Errorf("bagOfTokensScore() = %v, want = %v", got, test.want)
 			}
 		})
 	}

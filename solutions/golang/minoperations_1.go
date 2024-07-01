@@ -1,9 +1,9 @@
 package golang
 
-func minOperations1(s string) int {
+func minOperations1(str string) int {
 	cnt := 0 // will count '1'
 
-	for i, digit := range s {
+	for i, digit := range str {
 		if i%2 == 0 {
 			if digit == '0' {
 				cnt++
@@ -16,5 +16,5 @@ func minOperations1(s string) int {
 	}
 
 	// lees correct '1' or '0'
-	return Min(cnt, len(s)-cnt)
+	return Min(cnt, len(str)-cnt)
 }

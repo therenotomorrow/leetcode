@@ -1,18 +1,18 @@
 package golang
 
-func reverse(x int) int {
-	y := 0
+func reverse(num int) int {
+	res := 0
 
-	for x != 0 {
-		digit := x % 10
+	for num != 0 {
+		digit := num % Digits
 
-		if y > MaxInt32Overflow || y < MinInt32Overflow {
+		if res > MaxInt32Overflow || res < MinInt32Overflow {
 			return 0
 		}
 
-		x /= 10
-		y = y*10 + digit
+		num /= Digits
+		res = res*Digits + digit
 	}
 
-	return y
+	return res
 }

@@ -6,6 +6,8 @@ import (
 )
 
 func TestFindArray(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		pref []int
 	}
@@ -19,10 +21,12 @@ func TestFindArray(t *testing.T) {
 		{name: "smoke 2", args: args{pref: []int{13}}, want: []int{13}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findArray(tt.args.pref); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("findArray() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findArray(test.args.pref); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("findArray() = %v, want = %v", got, test.want)
 			}
 		})
 	}

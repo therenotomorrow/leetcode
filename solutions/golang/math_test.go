@@ -7,6 +7,8 @@ import (
 )
 
 func TestMax(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -22,16 +24,20 @@ func TestMax(t *testing.T) {
 		{name: "single", args: args{nums: []int{0}}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := golang.Max(tt.args.nums...); got != tt.want {
-				t.Errorf("Max() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := golang.Max(test.args.nums...); got != test.want {
+				t.Errorf("Max() = %v, want = %v", got, test.want)
 			}
 		})
 	}
 }
 
 func TestMin(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -47,16 +53,20 @@ func TestMin(t *testing.T) {
 		{name: "single", args: args{nums: []int{0}}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := golang.Min(tt.args.nums...); got != tt.want {
-				t.Errorf("Min() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := golang.Min(test.args.nums...); got != test.want {
+				t.Errorf("Min() = %v, want = %v", got, test.want)
 			}
 		})
 	}
 }
 
 func TestAbs(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		num int
 	}
@@ -70,16 +80,20 @@ func TestAbs(t *testing.T) {
 		{name: "negative", args: args{num: -5}, want: 5},
 		{name: "zero", args: args{num: 0}, want: 0},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := golang.Abs(tt.args.num); got != tt.want {
-				t.Errorf("Abs() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := golang.Abs(test.args.num); got != test.want {
+				t.Errorf("Abs() = %v, want = %v", got, test.want)
 			}
 		})
 	}
 }
 
 func TestSum(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -96,16 +110,20 @@ func TestSum(t *testing.T) {
 		{name: "zero", args: args{nums: []int{}}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := golang.Sum(tt.args.nums...); got != tt.want {
-				t.Errorf("Sum() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := golang.Sum(test.args.nums...); got != test.want {
+				t.Errorf("Sum() = %v, want = %v", got, test.want)
 			}
 		})
 	}
 }
 
 func TestManhattan(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		x1 int
 		y1 int
@@ -126,10 +144,12 @@ func TestManhattan(t *testing.T) {
 		{name: "vertical", args: args{x1: 0, y1: 0, x2: 0, y2: 8}, want: 8},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := golang.Manhattan(tt.args.x1, tt.args.y1, tt.args.x2, tt.args.y2); got != tt.want {
-				t.Errorf("Manhattan() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := golang.Manhattan(test.args.x1, test.args.y1, test.args.x2, test.args.y2); got != test.want {
+				t.Errorf("Manhattan() = %v, want = %v", got, test.want)
 			}
 		})
 	}

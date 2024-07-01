@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinWindow(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 		t string
@@ -21,10 +23,12 @@ func TestMinWindow(t *testing.T) {
 		{name: "test 207: wrong answer", args: args{s: "cabwefgewcwaefgcf", t: "cae"}, want: "cwae"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minWindow(tt.args.s, tt.args.t); got != tt.want {
-				t.Errorf("minWindow() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minWindow(test.args.s, test.args.t); got != test.want {
+				t.Errorf("minWindow() = %v, want = %v", got, test.want)
 			}
 		})
 	}

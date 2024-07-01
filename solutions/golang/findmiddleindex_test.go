@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFindMiddleIndex(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -17,10 +19,12 @@ func TestFindMiddleIndex(t *testing.T) {
 		{name: "smoke 3", args: args{nums: []int{2, 5}}, want: -1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findMiddleIndex(tt.args.nums); got != tt.want {
-				t.Errorf("findMiddleIndex() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findMiddleIndex(test.args.nums); got != test.want {
+				t.Errorf("findMiddleIndex() = %v, want = %v", got, test.want)
 			}
 		})
 	}

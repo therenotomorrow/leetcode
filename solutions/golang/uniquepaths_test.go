@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestUniquePaths(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		m int
 		n int
@@ -18,10 +20,12 @@ func TestUniquePaths(t *testing.T) {
 		{name: "test 37: wrong answer", args: args{m: 23, n: 12}, want: 193536720},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := uniquePaths(tt.args.m, tt.args.n); got != tt.want {
-				t.Errorf("uniquePaths() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := uniquePaths(test.args.m, test.args.n); got != test.want {
+				t.Errorf("uniquePaths() = %v, want = %v", got, test.want)
 			}
 		})
 	}

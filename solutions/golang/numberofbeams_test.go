@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestNumberOfBeams(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		bank []string
 	}
@@ -16,10 +18,12 @@ func TestNumberOfBeams(t *testing.T) {
 		{name: "smoke 2", args: args{bank: []string{"000", "111", "000"}}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := numberOfBeams(tt.args.bank); got != tt.want {
-				t.Errorf("numberOfBeams() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := numberOfBeams(test.args.bank); got != test.want {
+				t.Errorf("numberOfBeams() = %v, want = %v", got, test.want)
 			}
 		})
 	}

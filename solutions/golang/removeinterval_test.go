@@ -6,6 +6,8 @@ import (
 )
 
 func TestRemoveInterval(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		intervals   [][]int
 		toBeRemoved []int
@@ -36,10 +38,12 @@ func TestRemoveInterval(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := removeInterval(tt.args.intervals, tt.args.toBeRemoved); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("removeInterval() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := removeInterval(test.args.intervals, test.args.toBeRemoved); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("removeInterval() = %v, want = %v", got, test.want)
 			}
 		})
 	}

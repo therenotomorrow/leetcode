@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaxLength(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		arr []string
 	}
@@ -18,10 +20,12 @@ func TestMaxLength(t *testing.T) {
 		{name: "test 29: wrong answer", args: args{arr: []string{"a", "abc", "d", "de", "def"}}, want: 6},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maxLength(tt.args.arr); got != tt.want {
-				t.Errorf("maxLength() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maxLength(test.args.arr); got != test.want {
+				t.Errorf("maxLength() = %v, want = %v", got, test.want)
 			}
 		})
 	}

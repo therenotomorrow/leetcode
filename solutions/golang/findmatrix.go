@@ -10,7 +10,7 @@ func findMatrix(nums []int) [][]int {
 	matrix := make([][]int, 0)
 
 	for num, times := range cnt {
-		for i := 0; i < times; i++ {
+		for i := range times {
 			if len(matrix) < i+1 {
 				matrix = append(matrix, make([]int, 0))
 			}

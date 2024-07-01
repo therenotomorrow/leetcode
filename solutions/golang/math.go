@@ -5,29 +5,29 @@ import "cmp"
 // Max returns maximum of `nums` of type `T` and have more friendly interface then build-in `max()`.
 // Panics if `nums` have zero elements.
 func Max[T cmp.Ordered](nums ...T) T {
-	m := nums[0]
+	maxVal := nums[0]
 
 	for _, n := range nums {
-		if n > m {
-			m = n
+		if n > maxVal {
+			maxVal = n
 		}
 	}
 
-	return m
+	return maxVal
 }
 
 // Min returns minimum of `nums` of type `T` and have more friendly interface then build-in `min()`.
 // Panics if `nums` have zero elements.
 func Min[T cmp.Ordered](nums ...T) T {
-	m := nums[0]
+	minVal := nums[0]
 
 	for _, n := range nums {
-		if n < m {
-			m = n
+		if n < minVal {
+			minVal = n
 		}
 	}
 
-	return m
+	return minVal
 }
 
 func Abs(num int) int {
@@ -39,13 +39,13 @@ func Abs(num int) int {
 }
 
 func Sum(nums ...int) int {
-	s := 0
+	sum := 0
 
 	for _, n := range nums {
-		s += n
+		sum += n
 	}
 
-	return s
+	return sum
 }
 
 func Manhattan(x1 int, y1 int, x2 int, y2 int) int {

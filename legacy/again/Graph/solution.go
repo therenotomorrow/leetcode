@@ -26,11 +26,11 @@ func (piq *PriorityQueue) Swap(i, j int) {
 	piq.data[i], piq.data[j] = piq.data[j], piq.data[i]
 }
 
-func (piq *PriorityQueue) Push(x interface{}) {
+func (piq *PriorityQueue) Push(x any) {
 	piq.data = append(piq.data, x.(item))
 }
 
-func (piq *PriorityQueue) Pop() interface{} {
+func (piq *PriorityQueue) Pop() any {
 	old := piq.data
 	n := len(old)
 	item := old[n-1]

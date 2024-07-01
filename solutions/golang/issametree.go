@@ -1,13 +1,13 @@
 package golang
 
-func isSameTree(p *TreeNode, q *TreeNode) bool {
-	if p == nil && q == nil {
+func isSameTree(left *TreeNode, right *TreeNode) bool {
+	if left == nil && right == nil {
 		return true
 	}
 
-	if p == nil || q == nil || p.Val != q.Val {
+	if left == nil || right == nil || left.Val != right.Val {
 		return false
 	}
 
-	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
+	return isSameTree(left.Left, right.Left) && isSameTree(left.Right, right.Right)
 }

@@ -1,12 +1,12 @@
 package golang
 
-func minSteps(s string, t string) int {
+func minSteps(str string, tpl string) int {
 	cnt := make(map[byte]int)
 
-	// les(s) == len(t) by description
-	for i := 0; i < len(s); i++ {
-		cnt[s[i]]++
-		cnt[t[i]]--
+	// les(str) == len(tpl) by description
+	for i := range len(str) {
+		cnt[str[i]]++
+		cnt[tpl[i]]--
 	}
 
 	steps := 0

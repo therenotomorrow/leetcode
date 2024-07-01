@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsPathCrossing(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		path string
 	}
@@ -16,10 +18,12 @@ func TestIsPathCrossing(t *testing.T) {
 		{name: "smoke 2", args: args{path: "NESWW"}, want: true},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isPathCrossing(tt.args.path); got != tt.want {
-				t.Errorf("isPathCrossing() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isPathCrossing(test.args.path); got != test.want {
+				t.Errorf("isPathCrossing() = %v, want = %v", got, test.want)
 			}
 		})
 	}

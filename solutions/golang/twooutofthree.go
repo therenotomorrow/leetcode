@@ -20,7 +20,7 @@ func twoOutOfThree(nums1 []int, nums2 []int, nums3 []int) []int {
 
 	ans := make([]int, 0)
 
-	for i := 0; i < limit; i++ {
+	for i := range limit {
 		cnt := Sum(arr1[i], arr2[i], arr3[i])
 		if cnt > 1 {
 			ans = append(ans, i)

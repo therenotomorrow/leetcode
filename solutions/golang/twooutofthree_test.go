@@ -6,6 +6,8 @@ import (
 )
 
 func TestTwoOutOfThree(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums1 []int
 		nums2 []int
@@ -22,10 +24,12 @@ func TestTwoOutOfThree(t *testing.T) {
 		{name: "smoke 3", args: args{nums1: []int{1, 2, 2}, nums2: []int{4, 3, 3}, nums3: []int{5}}, want: []int{}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := twoOutOfThree(tt.args.nums1, tt.args.nums2, tt.args.nums3); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("twoOutOfThree() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := twoOutOfThree(test.args.nums1, test.args.nums2, test.args.nums3); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("twoOutOfThree() = %v, want = %v", got, test.want)
 			}
 		})
 	}

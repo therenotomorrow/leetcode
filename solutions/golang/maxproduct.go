@@ -1,16 +1,16 @@
 package golang
 
 func maxProduct(nums []int) int {
-	var m1, m2 int
+	var max1, max2 int
 
 	for _, num := range nums {
-		if num > m1 {
-			m2 = m1
-			m1 = num
-		} else if num > m2 {
-			m2 = num
+		if num > max1 {
+			max2 = max1
+			max1 = num
+		} else if num > max2 {
+			max2 = num
 		}
 	}
 
-	return (m1 - 1) * (m2 - 1)
+	return (max1 - 1) * (max2 - 1)
 }

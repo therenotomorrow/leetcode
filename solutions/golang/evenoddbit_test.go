@@ -6,6 +6,8 @@ import (
 )
 
 func TestEvenOddBit(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 	}
@@ -19,10 +21,12 @@ func TestEvenOddBit(t *testing.T) {
 		{name: "smoke 2", args: args{n: 2}, want: []int{0, 1}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := evenOddBit(tt.args.n); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("evenOddBit() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := evenOddBit(test.args.n); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("evenOddBit() = %v, want = %v", got, test.want)
 			}
 		})
 	}

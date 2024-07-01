@@ -2,7 +2,7 @@ package golang
 
 func knightDialer(n int) int {
 	var (
-		c       = NewCache()
+		cache   = NewCache()
 		dynamic func(remain int, currDigit int) int
 	)
 
@@ -24,7 +24,7 @@ func knightDialer(n int) int {
 			return 1
 		}
 
-		if val, ok := c.Load(remain, digit); ok {
+		if val, ok := cache.Load(remain, digit); ok {
 			return val
 		}
 
@@ -33,13 +33,13 @@ func knightDialer(n int) int {
 			numsCnt = (numsCnt + dynamic(remain-1, nextDigit)) % MOD
 		}
 
-		c.Save(numsCnt, remain, digit)
+		cache.Save(numsCnt, remain, digit)
 
 		return numsCnt
 	}
 
 	numsCnt := 0
-	for digit := 0; digit < 10; digit++ {
+	for digit := range Digits {
 		numsCnt = (numsCnt + dynamic(n-1, digit)) % MOD
 	}
 

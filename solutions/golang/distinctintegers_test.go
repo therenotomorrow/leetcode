@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestDistinctIntegers(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 	}
@@ -16,10 +18,12 @@ func TestDistinctIntegers(t *testing.T) {
 		{name: "smoke 2", args: args{n: 3}, want: 2},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := distinctIntegers(tt.args.n); got != tt.want {
-				t.Errorf("distinctIntegers() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := distinctIntegers(test.args.n); got != test.want {
+				t.Errorf("distinctIntegers() = %v, want = %v", got, test.want)
 			}
 		})
 	}

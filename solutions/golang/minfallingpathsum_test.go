@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinFallingPathSum(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		matrix [][]int
 	}
@@ -16,10 +18,12 @@ func TestMinFallingPathSum(t *testing.T) {
 		{name: "smoke 2", args: args{matrix: [][]int{{-19, 57}, {-40, -5}}}, want: -59},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minFallingPathSum(tt.args.matrix); got != tt.want {
-				t.Errorf("minFallingPathSum() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minFallingPathSum(test.args.matrix); got != test.want {
+				t.Errorf("minFallingPathSum() = %v, want = %v", got, test.want)
 			}
 		})
 	}

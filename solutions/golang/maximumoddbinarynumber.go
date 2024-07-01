@@ -2,21 +2,21 @@ package golang
 
 import "strings"
 
-func maximumOddBinaryNumber(s string) string {
+func maximumOddBinaryNumber(str string) string {
 	cnt := 0
 
-	for _, r := range s {
+	for _, r := range str {
 		if r == '1' {
 			cnt++
 		}
 	}
 
-	var sb strings.Builder
+	var builder strings.Builder
 
 	// look at the structure of max odd numbers
-	sb.WriteString(strings.Repeat("1", cnt-1))
-	sb.WriteString(strings.Repeat("0", len(s)-cnt))
-	sb.WriteString("1")
+	builder.WriteString(strings.Repeat("1", cnt-1))
+	builder.WriteString(strings.Repeat("0", len(str)-cnt))
+	builder.WriteString("1")
 
-	return sb.String()
+	return builder.String()
 }

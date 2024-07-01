@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCanAttendMeetings(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		intervals [][]int
 	}
@@ -16,10 +18,12 @@ func TestCanAttendMeetings(t *testing.T) {
 		{name: "smoke 2", args: args{intervals: [][]int{{7, 10}, {2, 4}}}, want: true},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := canAttendMeetings(tt.args.intervals); got != tt.want {
-				t.Errorf("canAttendMeetings() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := canAttendMeetings(test.args.intervals); got != test.want {
+				t.Errorf("canAttendMeetings() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMinSteps(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 		t string
@@ -18,10 +20,12 @@ func TestMinSteps(t *testing.T) {
 		{name: "smoke 3", args: args{s: "anagram", t: "mangaar"}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := minSteps(tt.args.s, tt.args.t); got != tt.want {
-				t.Errorf("minSteps() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := minSteps(test.args.s, test.args.t); got != test.want {
+				t.Errorf("minSteps() = %v, want = %v", got, test.want)
 			}
 		})
 	}

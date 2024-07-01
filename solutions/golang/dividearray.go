@@ -3,16 +3,18 @@ package golang
 import "sort"
 
 func divideArray(nums []int, k int) [][]int {
-	ans := make([][]int, len(nums)/3)
+	const size = 3
+
+	ans := make([][]int, len(nums)/size)
 
 	sort.Ints(nums)
 
-	for i, j := 0, 0; i < len(nums); i += 3 {
+	for i, j := 0, 0; i < len(nums); i += size {
 		if nums[i+2]-nums[i] > k {
 			return [][]int{}
 		}
 
-		ans[j] = nums[i : i+3]
+		ans[j] = nums[i : i+size]
 		j++
 	}
 

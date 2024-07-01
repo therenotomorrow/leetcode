@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestDiameterOfBinaryTree(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -40,10 +42,12 @@ func TestDiameterOfBinaryTree(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := diameterOfBinaryTree(tt.args.root); got != tt.want {
-				t.Errorf("diameterOfBinaryTree() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := diameterOfBinaryTree(test.args.root); got != test.want {
+				t.Errorf("diameterOfBinaryTree() = %v, want = %v", got, test.want)
 			}
 		})
 	}

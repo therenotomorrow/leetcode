@@ -6,6 +6,8 @@ import (
 )
 
 func TestDivideArray(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 		k    int
@@ -24,10 +26,12 @@ func TestDivideArray(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{1, 3, 3, 2, 7, 3}, k: 3}, want: [][]int{}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := divideArray(tt.args.nums, tt.args.k); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("divideArray() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := divideArray(test.args.nums, test.args.k); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("divideArray() = %v, want = %v", got, test.want)
 			}
 		})
 	}

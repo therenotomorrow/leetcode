@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestNumWays2(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 		k int
@@ -18,10 +20,12 @@ func TestNumWays2(t *testing.T) {
 		{name: "smoke 3", args: args{n: 7, k: 2}, want: 42},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := numWays2(tt.args.n, tt.args.k); got != tt.want {
-				t.Errorf("numWays2() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := numWays2(test.args.n, test.args.k); got != test.want {
+				t.Errorf("numWays2() = %v, want = %v", got, test.want)
 			}
 		})
 	}

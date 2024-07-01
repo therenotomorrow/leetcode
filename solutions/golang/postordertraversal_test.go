@@ -6,6 +6,8 @@ import (
 )
 
 func TestPostorderTraversal(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -32,10 +34,12 @@ func TestPostorderTraversal(t *testing.T) {
 		{name: "smoke 3", args: args{root: &TreeNode{Val: 1, Left: nil, Right: nil}}, want: []int{1}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := postorderTraversal(tt.args.root); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("postorderTraversal() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := postorderTraversal(test.args.root); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("postorderTraversal() = %v, want = %v", got, test.want)
 			}
 		})
 	}

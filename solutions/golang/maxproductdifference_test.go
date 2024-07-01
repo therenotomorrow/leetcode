@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaxProductDifference(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -16,10 +18,12 @@ func TestMaxProductDifference(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{4, 2, 5, 9, 7, 4, 8}}, want: 64},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maxProductDifference(tt.args.nums); got != tt.want {
-				t.Errorf("maxProductDifference() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maxProductDifference(test.args.nums); got != test.want {
+				t.Errorf("maxProductDifference() = %v, want = %v", got, test.want)
 			}
 		})
 	}

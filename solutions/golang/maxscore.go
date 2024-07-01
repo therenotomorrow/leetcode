@@ -1,15 +1,15 @@
 package golang
 
-func maxScore(s string) int {
+func maxScore(str string) int {
 	var ones, zeros, score int
 
-	for _, r := range s {
+	for _, r := range str {
 		if r == '1' {
 			ones++
 		}
 	}
 
-	for _, r := range s[:len(s)-1] {
+	for _, r := range str[:len(str)-1] {
 		switch r {
 		case '0':
 			zeros++

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFirstPalindrome(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		words []string
 	}
@@ -17,10 +19,12 @@ func TestFirstPalindrome(t *testing.T) {
 		{name: "smoke 3", args: args{words: []string{"def", "ghi"}}, want: ""},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := firstPalindrome(tt.args.words); got != tt.want {
-				t.Errorf("firstPalindrome() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := firstPalindrome(test.args.words); got != test.want {
+				t.Errorf("firstPalindrome() = %v, want = %v", got, test.want)
 			}
 		})
 	}

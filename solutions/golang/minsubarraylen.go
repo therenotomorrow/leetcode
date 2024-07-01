@@ -5,7 +5,7 @@ func minSubArrayLen(target int, nums []int) int {
 	curSum := 0
 	minLen := len(nums) + 1
 
-	for j := 0; j < len(nums); j++ {
+	for j := range len(nums) {
 		curSum += nums[j]
 
 		for ; curSum >= target; i++ {

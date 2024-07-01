@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaxDistance(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		arrays [][]int
 	}
@@ -16,10 +18,12 @@ func TestMaxDistance(t *testing.T) {
 		{name: "smoke 2", args: args{arrays: [][]int{{1}, {1}}}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maxDistance(tt.args.arrays); got != tt.want {
-				t.Errorf("maxDistance() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maxDistance(test.args.arrays); got != test.want {
+				t.Errorf("maxDistance() = %v, want = %v", got, test.want)
 			}
 		})
 	}

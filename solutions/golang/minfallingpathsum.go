@@ -6,7 +6,7 @@ import (
 
 func minFallingPathSum(matrix [][]int) int {
 	var (
-		c       = NewCache()
+		cache   = NewCache()
 		dynamic func(curr int, step int) int
 		minSum  = math.MaxInt
 	)
@@ -20,13 +20,13 @@ func minFallingPathSum(matrix [][]int) int {
 			return math.MaxInt
 		}
 
-		if val, ok := c.Load(curr, step); ok {
+		if val, ok := cache.Load(curr, step); ok {
 			return val
 		}
 
 		sum := matrix[curr][step] + Min(dynamic(curr+1, step-1), dynamic(curr+1, step), dynamic(curr+1, step+1))
 
-		c.Save(sum, curr, step)
+		cache.Save(sum, curr, step)
 
 		return sum
 	}

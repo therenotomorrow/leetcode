@@ -2,9 +2,11 @@ package golang
 
 // var solution = func(read4 func([]byte) int) func([]byte, int) int.
 func solution(read4 func([]byte) int) func([]byte, int) int {
+	const bufSize = 4
+
 	return func(buf []byte, n int) int {
 		pnt := 0
-		buf4 := make([]byte, 4)
+		buf4 := make([]byte, bufSize)
 
 		for pnt < n {
 			// read4 will override exist buffer and signal about how much read
@@ -18,7 +20,7 @@ func solution(read4 func([]byte) int) func([]byte, int) int {
 				read = n - pnt
 			}
 
-			for j := 0; j < read; j++ {
+			for j := range read {
 				buf[pnt] = buf4[j]
 				pnt++
 			}

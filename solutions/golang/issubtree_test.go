@@ -5,6 +5,8 @@ import (
 )
 
 func TestIsSubtree(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root    *TreeNode
 		subRoot *TreeNode
@@ -93,10 +95,12 @@ func TestIsSubtree(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isSubtree(tt.args.root, tt.args.subRoot); got != tt.want {
-				t.Errorf("isSubtree() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isSubtree(test.args.root, test.args.subRoot); got != test.want {
+				t.Errorf("isSubtree() = %v, want = %v", got, test.want)
 			}
 		})
 	}

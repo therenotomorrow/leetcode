@@ -1,15 +1,15 @@
 package golang
 
-func removeVowels(s string) string {
+func removeVowels(str string) string {
 	runes := make([]rune, 0)
 
-	for _, r := range s {
-		switch r {
+	for _, runa := range str {
+		switch runa {
 		case 'a', 'e', 'i', 'o', 'u':
 			continue
 		}
 
-		runes = append(runes, r)
+		runes = append(runes, runa)
 	}
 
 	return string(runes)

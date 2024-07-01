@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestRob(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -18,10 +20,12 @@ func TestRob(t *testing.T) {
 		{name: "own 2", args: args{nums: []int{1, 4, 2}}, want: 4},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := rob(tt.args.nums); got != tt.want {
-				t.Errorf("rob() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := rob(test.args.nums); got != test.want {
+				t.Errorf("rob() = %v, want = %v", got, test.want)
 			}
 		})
 	}

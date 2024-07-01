@@ -6,6 +6,8 @@ import (
 )
 
 func TestReverseString(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s []byte
 	}
@@ -19,11 +21,14 @@ func TestReverseString(t *testing.T) {
 		{name: "smoke 2", args: args{[]byte{'H', 'a', 'n', 'n', 'a', 'h'}}, want: []byte{'h', 'a', 'n', 'n', 'a', 'H'}},
 	}
 
-	for _, tt := range tests {
-		reverseString(tt.args.s)
-		t.Run(tt.name, func(t *testing.T) {
-			if !reflect.DeepEqual(tt.args.s, tt.want) {
-				t.Errorf("reverseString() = %v, want = %v", tt.args.s, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			reverseString(test.args.s)
+
+			if !reflect.DeepEqual(test.args.s, test.want) {
+				t.Errorf("reverseString() = %v, want = %v", test.args.s, test.want)
 			}
 		})
 	}

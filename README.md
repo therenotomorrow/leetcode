@@ -18,7 +18,7 @@ Development
 After adding some code samples run [`code.sh`](./scripts/code.sh)
 
 ```shell
-./scripts/code.sh
+make code
 ```
 
 You can automate this action by calling [`pre-commit.sh`](./scripts/pre-commit.sh)
@@ -27,7 +27,12 @@ Testing
 -------
 
 ```shell
-./scripts/test.sh
+# fast unit tests to be sure that no regression was 
+make test/smoke
+# same as test/smoke but with -race condition check
+make test/unit
+# same as test/smoke but with creation local coverage report in HTML for golang
+make test/coverage
 ```
 
 Completed explores
@@ -229,6 +234,7 @@ Completed problems
 | 1496 | [Path Crossing](https://leetcode.com/problems/path-crossing/description/)                                                                                                   | [`ispathcrossing.go`](solutions/golang/ispathcrossing.go)                                                               |
 | 1503 | [Last Moment Before All Ants Fall Out of a Plank](https://leetcode.com/problems/last-moment-before-all-ants-fall-out-of-a-plank/description/)                               | [`getlastmoment.go`](solutions/golang/getlastmoment.go)                                                                 |
 | 1535 | [Find the Winner of an Array Game](https://leetcode.com/problems/find-the-winner-of-an-array-game/description/)                                                             | [`getwinner.go`](solutions/golang/getwinner.go)                                                                         |
+| 1550 | [Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds/description/)                                                                                 | [`threeconsecutiveodds.go`](solutions/golang/threeconsecutiveodds.go)                                                   |
 | 1561 | [Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/description/)                                                       | [`maxcoins.go`](solutions/golang/maxcoins.go)                                                                           |
 | 1578 | [Minimum Time to Make Rope Colorful](https://leetcode.com/problems/minimum-time-to-make-rope-colorful/description/)                                                         | [`mincost_1.go`](solutions/golang/mincost_1.go)                                                                         |
 | 1581 | [Customer Who Visited but Did Not Make Any Transactions](https://leetcode.com/problems/customer-who-visited-but-did-not-make-any-transactions/description/)                 | [`1581.sql`](solutions/sql/1581.sql)                                                                                    |

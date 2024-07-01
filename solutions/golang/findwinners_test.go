@@ -6,6 +6,8 @@ import (
 )
 
 func TestFindWinners(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		matches [][]int
 	}
@@ -31,10 +33,12 @@ func TestFindWinners(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findWinners(tt.args.matches); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("findWinners() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findWinners(test.args.matches); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("findWinners() = %v, want = %v", got, test.want)
 			}
 		})
 	}

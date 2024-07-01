@@ -5,6 +5,8 @@ import (
 )
 
 func TestLongestCommonSubsequence(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		text1 string
 		text2 string
@@ -21,10 +23,12 @@ func TestLongestCommonSubsequence(t *testing.T) {
 		{name: "test 14: wrong answer", args: args{text1: "hofubmnylkra", text2: "pqhgxgdofcvmr"}, want: 5},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := longestCommonSubsequence(tt.args.text1, tt.args.text2); got != tt.want {
-				t.Errorf("longestCommonSubsequence() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := longestCommonSubsequence(test.args.text1, test.args.text2); got != test.want {
+				t.Errorf("longestCommonSubsequence() = %v, want = %v", got, test.want)
 			}
 		})
 	}

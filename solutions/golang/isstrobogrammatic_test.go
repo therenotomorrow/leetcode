@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsStrobogrammatic(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		num string
 	}
@@ -19,10 +21,12 @@ func TestIsStrobogrammatic(t *testing.T) {
 		{name: "test 38: wrong answer", args: args{num: "3"}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isStrobogrammatic(tt.args.num); got != tt.want {
-				t.Errorf("isStrobogrammatic() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isStrobogrammatic(test.args.num); got != test.want {
+				t.Errorf("isStrobogrammatic() = %v, want = %v", got, test.want)
 			}
 		})
 	}

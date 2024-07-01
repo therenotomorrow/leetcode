@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsHappy(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 	}
@@ -17,10 +19,12 @@ func TestIsHappy(t *testing.T) {
 		{name: "test 10: wrong answer", args: args{n: 7}, want: true},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isHappy(tt.args.n); got != tt.want {
-				t.Errorf("isHappy() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isHappy(test.args.n); got != test.want {
+				t.Errorf("isHappy() = %v, want = %v", got, test.want)
 			}
 		})
 	}

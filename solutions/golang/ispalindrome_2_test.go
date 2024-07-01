@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsPalindrome2(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
@@ -56,10 +58,12 @@ func TestIsPalindrome2(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isPalindrome2(tt.args.head); got != tt.want {
-				t.Errorf("isPalindrome2() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isPalindrome2(test.args.head); got != test.want {
+				t.Errorf("isPalindrome2() = %v, want = %v", got, test.want)
 			}
 		})
 	}

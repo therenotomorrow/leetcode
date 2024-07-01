@@ -3,7 +3,7 @@ package golang
 func minTimeToVisitAllPoints(points [][]int) int {
 	minTime := 0
 
-	for i := 0; i < len(points)-1; i++ {
+	for i := range len(points) - 1 {
 		fromX := points[i][0]
 		fromY := points[i][1]
 

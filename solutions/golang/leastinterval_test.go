@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestLeastInterval(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		tasks []byte
 		n     int
@@ -18,10 +20,12 @@ func TestLeastInterval(t *testing.T) {
 		{name: "smoke 3", args: args{tasks: []byte{'A', 'A', 'A', 'B', 'B', 'B'}, n: 3}, want: 10},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := leastInterval(tt.args.tasks, tt.args.n); got != tt.want {
-				t.Errorf("leastInterval() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := leastInterval(test.args.tasks, test.args.n); got != test.want {
+				t.Errorf("leastInterval() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaximumHappinessSum(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		happiness []int
 		k         int
@@ -18,10 +20,12 @@ func TestMaximumHappinessSum(t *testing.T) {
 		{name: "smoke 3", args: args{happiness: []int{2, 3, 4, 5}, k: 1}, want: 5},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maximumHappinessSum(tt.args.happiness, tt.args.k); got != tt.want {
-				t.Errorf("maximumHappinessSum() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maximumHappinessSum(test.args.happiness, test.args.k); got != test.want {
+				t.Errorf("maximumHappinessSum() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestBackspaceCompare(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 		t string
@@ -21,10 +23,12 @@ func TestBackspaceCompare(t *testing.T) {
 		{name: "test 106: wrong answer", args: args{s: "bxj##tw", t: "bxj###tw"}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := backspaceCompare(tt.args.s, tt.args.t); got != tt.want {
-				t.Errorf("backspaceCompare() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := backspaceCompare(test.args.s, test.args.t); got != test.want {
+				t.Errorf("backspaceCompare() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestDaysBetweenDates(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		date1 string
 		date2 string
@@ -17,10 +19,12 @@ func TestDaysBetweenDates(t *testing.T) {
 		{name: "smoke 2", args: args{date1: "2020-01-15", date2: "2019-12-31"}, want: 15},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := daysBetweenDates(tt.args.date1, tt.args.date2); got != tt.want {
-				t.Errorf("daysBetweenDates() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := daysBetweenDates(test.args.date1, test.args.date2); got != test.want {
+				t.Errorf("daysBetweenDates() = %v, want = %v", got, test.want)
 			}
 		})
 	}

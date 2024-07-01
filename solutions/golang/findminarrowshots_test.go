@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFindMinArrowShots(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		points [][]int
 	}
@@ -17,10 +19,12 @@ func TestFindMinArrowShots(t *testing.T) {
 		{name: "smoke 3", args: args{points: [][]int{{1, 2}, {2, 3}, {3, 4}, {4, 5}}}, want: 2},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findMinArrowShots(tt.args.points); got != tt.want {
-				t.Errorf("findMinArrowShots() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findMinArrowShots(test.args.points); got != test.want {
+				t.Errorf("findMinArrowShots() = %v, want = %v", got, test.want)
 			}
 		})
 	}

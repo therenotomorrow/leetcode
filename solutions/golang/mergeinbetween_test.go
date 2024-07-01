@@ -6,6 +6,8 @@ import (
 )
 
 func TestMergeInBetween(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		list1 *ListNode
 		a     int
@@ -128,10 +130,14 @@ func TestMergeInBetween(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := mergeInBetween(tt.args.list1, tt.args.a, tt.args.b, tt.args.list2); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("mergeInBetween() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := mergeInBetween(test.args.list1, test.args.a, test.args.b, test.args.list2)
+
+			if !reflect.DeepEqual(got, test.want) {
+				t.Errorf("mergeInBetween() = %v, want = %v", got, test.want)
 			}
 		})
 	}

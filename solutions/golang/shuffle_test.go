@@ -6,6 +6,8 @@ import (
 )
 
 func TestShuffle(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 		n    int
@@ -21,10 +23,12 @@ func TestShuffle(t *testing.T) {
 		{name: "smoke 3", args: args{nums: []int{1, 1, 2, 2}, n: 2}, want: []int{1, 2, 1, 2}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := shuffle(tt.args.nums, tt.args.n); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("shuffle() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := shuffle(test.args.nums, test.args.n); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("shuffle() = %v, want = %v", got, test.want)
 			}
 		})
 	}

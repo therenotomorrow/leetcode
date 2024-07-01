@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestSortVowels(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 	}
@@ -16,10 +18,12 @@ func TestSortVowels(t *testing.T) {
 		{name: "smoke 2", args: args{s: "lYmpH"}, want: "lYmpH"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := sortVowels(tt.args.s); got != tt.want {
-				t.Errorf("sortVowels() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := sortVowels(test.args.s); got != test.want {
+				t.Errorf("sortVowels() = %v, want = %v", got, test.want)
 			}
 		})
 	}

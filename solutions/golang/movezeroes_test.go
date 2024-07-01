@@ -6,6 +6,8 @@ import (
 )
 
 func TestMoveZeroes(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -19,12 +21,14 @@ func TestMoveZeroes(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{0}}, want: []int{0}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			moveZeroes(tt.args.nums)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
 
-			if !reflect.DeepEqual(tt.args.nums, tt.want) {
-				t.Errorf("moveZeroes() = %v, want = %v", tt.args.nums, tt.want)
+			moveZeroes(test.args.nums)
+
+			if !reflect.DeepEqual(test.args.nums, test.want) {
+				t.Errorf("moveZeroes() = %v, want = %v", test.args.nums, test.want)
 			}
 		})
 	}

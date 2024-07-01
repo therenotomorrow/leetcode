@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFurthestBuilding(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		heights []int
 		bricks  int
@@ -31,10 +33,12 @@ func TestFurthestBuilding(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := furthestBuilding(tt.args.heights, tt.args.bricks, tt.args.ladders); got != tt.want {
-				t.Errorf("furthestBuilding() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := furthestBuilding(test.args.heights, test.args.bricks, test.args.ladders); got != test.want {
+				t.Errorf("furthestBuilding() = %v, want = %v", got, test.want)
 			}
 		})
 	}

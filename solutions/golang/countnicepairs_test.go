@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCountNicePairs(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -30,10 +32,12 @@ func TestCountNicePairs(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := countNicePairs(tt.args.nums); got != tt.want {
-				t.Errorf("countNicePairs() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := countNicePairs(test.args.nums); got != test.want {
+				t.Errorf("countNicePairs() = %v, want = %v", got, test.want)
 			}
 		})
 	}

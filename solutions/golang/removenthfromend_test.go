@@ -6,6 +6,8 @@ import (
 )
 
 func TestRemoveNthFromEnd(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 		n    int
@@ -62,10 +64,12 @@ func TestRemoveNthFromEnd(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := removeNthFromEnd(tt.args.head, tt.args.n); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("removeNthFromEnd() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := removeNthFromEnd(test.args.head, test.args.n); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("removeNthFromEnd() = %v, want = %v", got, test.want)
 			}
 		})
 	}

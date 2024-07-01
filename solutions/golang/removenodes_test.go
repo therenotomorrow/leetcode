@@ -6,6 +6,8 @@ import (
 )
 
 func TestRemoveNodes(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
@@ -72,9 +74,11 @@ func TestRemoveNodes(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := removeNodes(tt.args.head)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := removeNodes(test.args.head)
 
 			gotInts := make([]int, 0)
 			for curr := got; curr != nil; curr = curr.Next {
@@ -82,7 +86,7 @@ func TestRemoveNodes(t *testing.T) {
 			}
 
 			wantInts := make([]int, 0)
-			for curr := tt.want; curr != nil; curr = curr.Next {
+			for curr := test.want; curr != nil; curr = curr.Next {
 				wantInts = append(wantInts, curr.Val)
 			}
 

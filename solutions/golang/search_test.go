@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestSearch(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums   []int
 		target int
@@ -18,10 +20,12 @@ func TestSearch(t *testing.T) {
 		{name: "test 24: wrong answer", args: args{nums: []int{5}, target: 5}, want: 0},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := search(tt.args.nums, tt.args.target); got != tt.want {
-				t.Errorf("search() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := search(test.args.nums, test.args.target); got != test.want {
+				t.Errorf("search() = %v, want = %v", got, test.want)
 			}
 		})
 	}

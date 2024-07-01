@@ -6,6 +6,8 @@ import (
 )
 
 func TestBinaryTreePaths(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -35,10 +37,12 @@ func TestBinaryTreePaths(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := binaryTreePaths(tt.args.root); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("binaryTreePaths() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := binaryTreePaths(test.args.root); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("binaryTreePaths() = %v, want = %v", got, test.want)
 			}
 		})
 	}

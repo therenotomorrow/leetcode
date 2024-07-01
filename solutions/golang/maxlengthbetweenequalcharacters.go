@@ -1,16 +1,16 @@
 package golang
 
-func maxLengthBetweenEqualCharacters(s string) int {
+func maxLengthBetweenEqualCharacters(str string) int {
 	indexes := make(map[rune]int)
 	maxLen := -1
 
-	for i, r := range s {
-		j, ok := indexes[r]
+	for idx, runa := range str {
+		j, ok := indexes[runa]
 
 		if ok {
-			maxLen = Max(maxLen, i-j-1)
+			maxLen = Max(maxLen, idx-j-1)
 		} else {
-			indexes[r] = i
+			indexes[runa] = idx
 		}
 	}
 

@@ -6,6 +6,8 @@ import (
 )
 
 func TestCheckArithmeticSubarrays(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 		l    []int
@@ -37,10 +39,12 @@ func TestCheckArithmeticSubarrays(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := checkArithmeticSubarrays(tt.args.nums, tt.args.l, tt.args.r); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("checkArithmeticSubarrays() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := checkArithmeticSubarrays(test.args.nums, test.args.l, test.args.r); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("checkArithmeticSubarrays() = %v, want = %v", got, test.want)
 			}
 		})
 	}

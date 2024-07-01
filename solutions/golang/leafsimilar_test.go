@@ -5,6 +5,8 @@ import (
 )
 
 func TestLeafSimilar(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root1 *TreeNode
 		root2 *TreeNode
@@ -137,10 +139,12 @@ func TestLeafSimilar(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := leafSimilar(tt.args.root1, tt.args.root2); got != tt.want {
-				t.Errorf("leafSimilar() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := leafSimilar(test.args.root1, test.args.root2); got != test.want {
+				t.Errorf("leafSimilar() = %v, want = %v", got, test.want)
 			}
 		})
 	}

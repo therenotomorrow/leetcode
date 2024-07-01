@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsPrefixString(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s     string
 		words []string
@@ -25,10 +27,12 @@ func TestIsPrefixString(t *testing.T) {
 		{name: "test 340: wrong answer", args: args{s: "ccccccccc", words: []string{"c", "cc"}}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isPrefixString(tt.args.s, tt.args.words); got != tt.want {
-				t.Errorf("isPrefixString() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isPrefixString(test.args.s, test.args.words); got != test.want {
+				t.Errorf("isPrefixString() = %v, want = %v", got, test.want)
 			}
 		})
 	}

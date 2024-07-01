@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestLargestPerimeter(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -17,10 +19,12 @@ func TestLargestPerimeter(t *testing.T) {
 		{name: "smoke 3", args: args{nums: []int{5, 5, 50}}, want: -1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := largestPerimeter(tt.args.nums); got != tt.want {
-				t.Errorf("largestPerimeter() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := largestPerimeter(test.args.nums); got != test.want {
+				t.Errorf("largestPerimeter() = %v, want = %v", got, test.want)
 			}
 		})
 	}

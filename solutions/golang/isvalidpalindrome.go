@@ -1,13 +1,13 @@
 package golang
 
-func isValidPalindrome(s string, k int) bool {
+func isValidPalindrome(str string, remove int) bool {
 	var (
-		c       = NewCache()
+		cache   = NewCache()
 		dynamic func(left int, right int) int
 	)
 
 	dynamic = func(left int, right int) int {
-		if val, ok := c.Load(left, right); ok {
+		if val, ok := cache.Load(left, right); ok {
 			return val
 		}
 
@@ -15,21 +15,21 @@ func isValidPalindrome(s string, k int) bool {
 		case left == right:
 			return 0
 		case right-left == 1:
-			if s[left] != s[right] {
+			if str[left] != str[right] {
 				return 1
 			} else {
 				return 0
 			}
-		case s[left] == s[right]:
+		case str[left] == str[right]:
 			return dynamic(left+1, right-1)
 		}
 
 		removesCnt := 1 + Min(dynamic(left+1, right), dynamic(left, right-1))
 
-		c.Save(removesCnt, left, right)
+		cache.Save(removesCnt, left, right)
 
 		return removesCnt
 	}
 
-	return dynamic(0, len(s)-1) <= k
+	return dynamic(0, len(str)-1) <= remove
 }

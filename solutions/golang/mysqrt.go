@@ -1,21 +1,23 @@
 package golang
 
-func mySqrt(x int) int {
-	if x <= 1 {
-		return x
+func mySqrt(num int) int {
+	const half = 2
+
+	if num <= 1 {
+		return num
 	}
 
 	left := 0
-	right := x / 2
+	right := num / half
 
 	for left <= right {
-		mid := (right + left) / 2
+		mid := (right + left) / half
 
-		if mid*mid == x {
+		if mid*mid == num {
 			return mid
 		}
 
-		if mid*mid > x {
+		if mid*mid > num {
 			right = mid - 1
 		} else {
 			left = mid + 1

@@ -32,14 +32,14 @@ func getMaximumGold(grid [][]int) int {
 
 		visited[currI][currJ] = true
 
-		up := backtrack(grid, currI-1, currJ)
+		upe := backtrack(grid, currI-1, currJ)
 		down := backtrack(grid, currI+1, currJ)
 		left := backtrack(grid, currI, currJ-1)
 		right := backtrack(grid, currI, currJ+1)
 
 		visited[currI][currJ] = false
 
-		return Max(left, right, up, down) + grid[currI][currJ]
+		return Max(left, right, upe, down) + grid[currI][currJ]
 	}
 
 	for i, row := range grid {

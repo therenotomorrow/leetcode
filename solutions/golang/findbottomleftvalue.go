@@ -1,23 +1,23 @@
 package golang
 
 func findBottomLeftValue(root *TreeNode) int {
-	q := NewQueue[*TreeNode]()
+	que := NewQueue[*TreeNode]()
 	ans := 0
 
-	for q.Enqueue(root); !q.IsEmpty(); {
-		size := q.Size()
-		peek, _ := q.Peek()
+	for que.Enqueue(root); !que.IsEmpty(); {
+		size := que.Size()
+		peek, _ := que.Peek()
 		ans = peek.Val
 
-		for i := 0; i < size; i++ {
-			node, _ := q.Dequeue()
+		for range size {
+			node, _ := que.Dequeue()
 
 			if node.Left != nil {
-				q.Enqueue(node.Left)
+				que.Enqueue(node.Left)
 			}
 
 			if node.Right != nil {
-				q.Enqueue(node.Right)
+				que.Enqueue(node.Right)
 			}
 		}
 	}

@@ -8,7 +8,7 @@ func validateBinaryTreeNodes(n int, leftChild []int, rightChild []int) bool {
 
 	root := -1
 
-	for node := 0; node < n; node++ {
+	for node := range n {
 		// root cannot be a child node
 		if !children.Contains(node) {
 			root = node

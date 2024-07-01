@@ -6,6 +6,8 @@ import (
 )
 
 func TestAssignBikes1(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		workers [][]int
 		bikes   [][]int
@@ -34,10 +36,12 @@ func TestAssignBikes1(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := assignBikes1(tt.args.workers, tt.args.bikes); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("assignBikes1() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := assignBikes1(test.args.workers, test.args.bikes); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("assignBikes1() = %v, want = %v", got, test.want)
 			}
 		})
 	}

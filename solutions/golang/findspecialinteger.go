@@ -1,9 +1,11 @@
 package golang
 
 func findSpecialInteger(arr []int) int {
-	window := len(arr) / 4
+	const size = 4
 
-	for i := 0; i < len(arr)-window; i++ {
+	window := len(arr) / size
+
+	for i := range len(arr) - window {
 		// because array is sorted and exactly one answer
 		if arr[i] == arr[i+window] {
 			return arr[i]

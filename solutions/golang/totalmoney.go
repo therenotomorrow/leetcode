@@ -1,9 +1,15 @@
 package golang
 
 func totalMoney(n int) int {
-	a := n / 7 // cycles
-	b := n % 7 // rest days
+	const (
+		days   = 7
+		double = 2
+		half   = double
+	)
+
+	a := n / days // cycles
+	b := n % days // rest days
 
 	// arithmetic sequence reorganized
-	return (7*a*(a+7) + 2*a*b + b*(b+1)) / 2
+	return (days*a*(a+days) + double*a*b + b*(b+1)) / half
 }

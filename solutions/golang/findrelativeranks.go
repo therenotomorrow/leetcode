@@ -6,6 +6,12 @@ import (
 )
 
 func findRelativeRanks(score []int) []string {
+	const (
+		gold = iota
+		silver
+		bronze
+	)
+
 	indexed := make([][2]int, len(score))
 
 	for i, s := range score {
@@ -23,11 +29,11 @@ func findRelativeRanks(score []int) []string {
 		pos := pair[1]
 
 		switch top {
-		case 0:
+		case gold:
 			ans[pos] = "Gold Medal"
-		case 1:
+		case silver:
 			ans[pos] = "Silver Medal"
-		case 2:
+		case bronze:
 			ans[pos] = "Bronze Medal"
 		default:
 			ans[pos] = strconv.Itoa(top + 1)

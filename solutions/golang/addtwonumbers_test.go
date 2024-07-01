@@ -6,6 +6,8 @@ import (
 )
 
 func TestAddTwoNumbers(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		l1 *ListNode
 		l2 *ListNode
@@ -107,10 +109,12 @@ func TestAddTwoNumbers(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := addTwoNumbers(tt.args.l1, tt.args.l2); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("addTwoNumbers() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := addTwoNumbers(test.args.l1, test.args.l2); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("addTwoNumbers() = %v, want = %v", got, test.want)
 			}
 		})
 	}

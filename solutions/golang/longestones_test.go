@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestLongestOnes(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 		k    int
@@ -17,10 +19,12 @@ func TestLongestOnes(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, k: 3}, want: 10},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := longestOnes(tt.args.nums, tt.args.k); got != tt.want {
-				t.Errorf("longestOnes() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := longestOnes(test.args.nums, test.args.k); got != test.want {
+				t.Errorf("longestOnes() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFindDifferentBinaryString(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []string
 	}
@@ -18,18 +20,20 @@ func TestFindDifferentBinaryString(t *testing.T) {
 		{name: "test 4: runtime", args: args{nums: []string{"1"}}, want: []string{"0"}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := findDifferentBinaryString(tt.args.nums)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := findDifferentBinaryString(test.args.nums)
 
 			// check any of possible solutions
-			for _, w := range tt.want {
+			for _, w := range test.want {
 				if got == w {
 					return
 				}
 			}
 
-			t.Errorf("findDifferentBinaryString() = %v, want = %v", got, tt.want)
+			t.Errorf("findDifferentBinaryString() = %v, want = %v", got, test.want)
 		})
 	}
 }

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestFrequencySort(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 	}
@@ -17,17 +19,19 @@ func TestFrequencySort(t *testing.T) {
 		{name: "smoke 3", args: args{s: "Aabb"}, want: []string{"bbAa", "bbaA"}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := frequencySort(tt.args.s)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
 
-			for _, w := range tt.want {
+			got := frequencySort(test.args.s)
+
+			for _, w := range test.want {
 				if got == w {
 					return
 				}
 			}
 
-			t.Errorf("frequencySort() = %v, want = %v", got, tt.want)
+			t.Errorf("frequencySort() = %v, want = %v", got, test.want)
 		})
 	}
 }

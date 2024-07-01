@@ -6,6 +6,8 @@ import (
 )
 
 func TestOnesMinusZeros(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		grid [][]int
 	}
@@ -27,10 +29,12 @@ func TestOnesMinusZeros(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := onesMinusZeros(tt.args.grid); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("onesMinusZeros() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := onesMinusZeros(test.args.grid); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("onesMinusZeros() = %v, want = %v", got, test.want)
 			}
 		})
 	}

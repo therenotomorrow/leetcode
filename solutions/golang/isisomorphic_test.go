@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsIsomorphic(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 		t string
@@ -20,10 +22,12 @@ func TestIsIsomorphic(t *testing.T) {
 		{name: "test 42: wrong answer", args: args{s: "bbbaaaba", t: "aaabbbba"}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isIsomorphic(tt.args.s, tt.args.t); got != tt.want {
-				t.Errorf("isIsomorphic() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isIsomorphic(test.args.s, test.args.t); got != test.want {
+				t.Errorf("isIsomorphic() = %v, want = %v", got, test.want)
 			}
 		})
 	}

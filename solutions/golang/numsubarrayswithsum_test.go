@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestNumSubarraysWithSum(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 		goal int
@@ -17,10 +19,12 @@ func TestNumSubarraysWithSum(t *testing.T) {
 		{name: "smoke 2", args: args{nums: []int{0, 0, 0, 0, 0}, goal: 0}, want: 15},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := numSubarraysWithSum(tt.args.nums, tt.args.goal); got != tt.want {
-				t.Errorf("numSubarraysWithSum() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := numSubarraysWithSum(test.args.nums, test.args.goal); got != test.want {
+				t.Errorf("numSubarraysWithSum() = %v, want = %v", got, test.want)
 			}
 		})
 	}

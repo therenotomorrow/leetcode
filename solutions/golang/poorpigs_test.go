@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestPoorPigs(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		buckets       int
 		minutesToDie  int
@@ -20,10 +22,12 @@ func TestPoorPigs(t *testing.T) {
 		{name: "test 17: wrong answer", args: args{buckets: 125, minutesToDie: 1, minutesToTest: 4}, want: 3},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := poorPigs(tt.args.buckets, tt.args.minutesToDie, tt.args.minutesToTest); got != tt.want {
-				t.Errorf("poorPigs() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := poorPigs(test.args.buckets, test.args.minutesToDie, test.args.minutesToTest); got != test.want {
+				t.Errorf("poorPigs() = %v, want = %v", got, test.want)
 			}
 		})
 	}

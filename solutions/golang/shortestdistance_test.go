@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestShortestDistance(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		wordsDict []string
 		word1     string
@@ -34,10 +36,12 @@ func TestShortestDistance(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := shortestDistance(tt.args.wordsDict, tt.args.word1, tt.args.word2); got != tt.want {
-				t.Errorf("shortestDistance() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := shortestDistance(test.args.wordsDict, test.args.word1, test.args.word2); got != test.want {
+				t.Errorf("shortestDistance() = %v, want = %v", got, test.want)
 			}
 		})
 	}

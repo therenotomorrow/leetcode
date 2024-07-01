@@ -7,6 +7,8 @@ import (
 )
 
 func TestRestoreArray(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		adjacentPairs [][]int
 	}
@@ -21,17 +23,19 @@ func TestRestoreArray(t *testing.T) {
 		{name: "smoke 3", args: args{adjacentPairs: [][]int{{100000, -100000}}}, want: []int{100000, -100000}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got := restoreArray(tt.args.adjacentPairs)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			got := restoreArray(test.args.adjacentPairs)
 
 			// because there could be different order of traversal
-			if got[0] != tt.want[0] {
-				slices.Reverse(tt.want)
+			if got[0] != test.want[0] {
+				slices.Reverse(test.want)
 			}
 
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("restoreArray() = %v, want = %v", got, tt.want)
+			if !reflect.DeepEqual(got, test.want) {
+				t.Errorf("restoreArray() = %v, want = %v", got, test.want)
 			}
 		})
 	}

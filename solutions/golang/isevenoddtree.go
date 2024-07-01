@@ -2,22 +2,25 @@ package golang
 
 import "math"
 
+func getValue(isEven bool) int {
+	if isEven {
+		return math.MinInt
+	}
+
+	return math.MaxInt
+}
+
 func isEvenOddTree(root *TreeNode) bool {
-	q := NewQueue[*TreeNode]()
+	que := NewQueue[*TreeNode]()
 	prev := &TreeNode{Val: 0, Left: nil, Right: nil}
 	isEven := true
 
-	for q.Enqueue(root); !q.IsEmpty(); {
-		size := q.Size()
+	for que.Enqueue(root); !que.IsEmpty(); {
+		prev.Val = getValue(isEven)
+		size := que.Size()
 
-		if isEven {
-			prev.Val = math.MinInt
-		} else {
-			prev.Val = math.MaxInt
-		}
-
-		for i := 0; i < size; i++ {
-			curr, _ := q.Dequeue()
+		for range size {
+			curr, _ := que.Dequeue()
 
 			if isEven == (curr.Val%2 == 0) {
 				return false
@@ -32,11 +35,11 @@ func isEvenOddTree(root *TreeNode) bool {
 			}
 
 			if curr.Left != nil {
-				q.Enqueue(curr.Left)
+				que.Enqueue(curr.Left)
 			}
 
 			if curr.Right != nil {
-				q.Enqueue(curr.Right)
+				que.Enqueue(curr.Right)
 			}
 
 			prev = curr

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestLengthOfLIS(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -18,10 +20,12 @@ func TestLengthOfLIS(t *testing.T) {
 		{name: "test 35: wrong answer", args: args{nums: []int{1, 3, 6, 7, 9, 4, 10, 5, 6}}, want: 6},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := lengthOfLIS(tt.args.nums); got != tt.want {
-				t.Errorf("lengthOfLIS() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := lengthOfLIS(test.args.nums); got != test.want {
+				t.Errorf("lengthOfLIS() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCountCharacters(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		words []string
 		chars string
@@ -17,10 +19,12 @@ func TestCountCharacters(t *testing.T) {
 		{name: "smoke 2", args: args{words: []string{"hello", "world", "leetcode"}, chars: "welldonehoneyr"}, want: 10},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := countCharacters(tt.args.words, tt.args.chars); got != tt.want {
-				t.Errorf("countCharacters() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := countCharacters(test.args.words, test.args.chars); got != test.want {
+				t.Errorf("countCharacters() = %v, want = %v", got, test.want)
 			}
 		})
 	}

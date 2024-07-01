@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestMaxVowels(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 		k int
@@ -18,10 +20,12 @@ func TestMaxVowels(t *testing.T) {
 		{name: "smoke 3", args: args{s: "leetcode", k: 3}, want: 2},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := maxVowels(tt.args.s, tt.args.k); got != tt.want {
-				t.Errorf("maxVowels() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := maxVowels(test.args.s, test.args.k); got != test.want {
+				t.Errorf("maxVowels() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestCanPermutePalindrome(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		s string
 	}
@@ -17,10 +19,12 @@ func TestCanPermutePalindrome(t *testing.T) {
 		{name: "smoke 3", args: args{s: "carerac"}, want: true},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := canPermutePalindrome(tt.args.s); got != tt.want {
-				t.Errorf("canPermutePalindrome() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := canPermutePalindrome(test.args.s); got != test.want {
+				t.Errorf("canPermutePalindrome() = %v, want = %v", got, test.want)
 			}
 		})
 	}

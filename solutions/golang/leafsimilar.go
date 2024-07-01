@@ -4,13 +4,15 @@ func collectTree(root *TreeNode) []int {
 	stack := NewStack[*TreeNode]()
 	arr := make([]int, 0)
 
-	for ok := true; ok; {
+	for {
 		if root != nil {
 			stack.Push(root)
 			root = root.Left
 		} else {
-			root, ok = stack.Pop()
-			if !ok {
+			var has bool
+
+			root, has = stack.Pop()
+			if !has {
 				break
 			}
 
@@ -33,7 +35,7 @@ func leafSimilar(root1 *TreeNode, root2 *TreeNode) bool {
 		return false
 	}
 
-	for i := 0; i < len(arr1); i++ {
+	for i := range len(arr1) {
 		if arr1[i] != arr2[i] {
 			return false
 		}

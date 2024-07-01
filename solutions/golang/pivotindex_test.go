@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestPivotIndex(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums []int
 	}
@@ -18,10 +20,12 @@ func TestPivotIndex(t *testing.T) {
 		{name: "test 686: wrong answer", args: args{[]int{-1, -1, 0, 1, 1, 0}}, want: 5},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := pivotIndex(tt.args.nums); got != tt.want {
-				t.Errorf("pivotIndex() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := pivotIndex(test.args.nums); got != test.want {
+				t.Errorf("pivotIndex() = %v, want = %v", got, test.want)
 			}
 		})
 	}

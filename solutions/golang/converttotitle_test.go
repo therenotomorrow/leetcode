@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestConvertToTitle(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		columnNumber int
 	}
@@ -17,10 +19,12 @@ func TestConvertToTitle(t *testing.T) {
 		{name: "smoke 3", args: args{columnNumber: 701}, want: "ZY"},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := convertToTitle(tt.args.columnNumber); got != tt.want {
-				t.Errorf("convertToTitle() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := convertToTitle(test.args.columnNumber); got != test.want {
+				t.Errorf("convertToTitle() = %v, want = %v", got, test.want)
 			}
 		})
 	}

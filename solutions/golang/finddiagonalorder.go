@@ -15,7 +15,7 @@ func findDiagonalOrder(nums [][]int) []int {
 
 	travers := make([]int, 0, size)
 
-	for curr := 0; curr < len(diag); curr++ {
+	for curr := range len(diag) {
 		travers = append(travers, diag[curr]...)
 	}
 

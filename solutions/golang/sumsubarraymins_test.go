@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestSumSubarrayMins(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		arr []int
 	}
@@ -16,10 +18,12 @@ func TestSumSubarrayMins(t *testing.T) {
 		{name: "smoke 2", args: args{arr: []int{11, 81, 94, 43, 3}}, want: 444},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := sumSubarrayMins(tt.args.arr); got != tt.want {
-				t.Errorf("sumSubarrayMins() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := sumSubarrayMins(test.args.arr); got != test.want {
+				t.Errorf("sumSubarrayMins() = %v, want = %v", got, test.want)
 			}
 		})
 	}

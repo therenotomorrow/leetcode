@@ -6,6 +6,8 @@ import (
 )
 
 func TestDoubleIt(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
@@ -66,10 +68,12 @@ func TestDoubleIt(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := doubleIt(tt.args.head); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("doubleIt() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := doubleIt(test.args.head); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("doubleIt() = %v, want = %v", got, test.want)
 			}
 		})
 	}

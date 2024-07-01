@@ -6,6 +6,8 @@ import (
 )
 
 func TestFindMode(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		root *TreeNode
 	}
@@ -32,10 +34,12 @@ func TestFindMode(t *testing.T) {
 		{name: "smoke 2", args: args{root: &TreeNode{Val: 0, Left: nil, Right: nil}}, want: []int{0}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findMode(tt.args.root); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("findMode() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findMode(test.args.root); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("findMode() = %v, want = %v", got, test.want)
 			}
 		})
 	}

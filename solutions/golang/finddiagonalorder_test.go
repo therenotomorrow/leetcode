@@ -6,6 +6,8 @@ import (
 )
 
 func TestFindDiagonalOrder(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		nums [][]int
 	}
@@ -27,10 +29,12 @@ func TestFindDiagonalOrder(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := findDiagonalOrder(tt.args.nums); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("findDiagonalOrder() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := findDiagonalOrder(test.args.nums); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("findDiagonalOrder() = %v, want = %v", got, test.want)
 			}
 		})
 	}

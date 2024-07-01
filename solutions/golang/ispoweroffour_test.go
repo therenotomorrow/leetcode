@@ -3,6 +3,8 @@ package golang
 import "testing"
 
 func TestIsPowerOfFour(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		n int
 	}
@@ -18,10 +20,12 @@ func TestIsPowerOfFour(t *testing.T) {
 		{name: "test 1045: wrong answer", args: args{n: 0}, want: false},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := isPowerOfFour(tt.args.n); got != tt.want {
-				t.Errorf("isPowerOfFour() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := isPowerOfFour(test.args.n); got != test.want {
+				t.Errorf("isPowerOfFour() = %v, want = %v", got, test.want)
 			}
 		})
 	}

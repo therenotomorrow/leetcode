@@ -6,8 +6,8 @@ import (
 
 func evalRPN(tokens []string) int {
 	var (
-		a, b, res int
-		stack     = NewStack[int]()
+		one, two, res int
+		stack         = NewStack[int]()
 	)
 
 	for _, token := range tokens {
@@ -17,18 +17,18 @@ func evalRPN(tokens []string) int {
 			continue
 		}
 
-		a, _ = stack.Pop()
-		b, _ = stack.Pop()
+		one, _ = stack.Pop()
+		two, _ = stack.Pop()
 
 		switch token {
 		case "+":
-			res = b + a
+			res = two + one
 		case "-":
-			res = b - a
+			res = two - one
 		case "*":
-			res = b * a
+			res = two * one
 		case "/":
-			res = b / a
+			res = two / one
 		}
 
 		stack.Push(res)

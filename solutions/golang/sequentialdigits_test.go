@@ -6,6 +6,8 @@ import (
 )
 
 func TestSequentialDigits(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		low  int
 		high int
@@ -20,10 +22,12 @@ func TestSequentialDigits(t *testing.T) {
 		{name: "smoke 2", args: args{low: 1000, high: 13000}, want: []int{1234, 2345, 3456, 4567, 5678, 6789, 12345}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := sequentialDigits(tt.args.low, tt.args.high); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("sequentialDigits() = %v, want = %v", got, tt.want)
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := sequentialDigits(test.args.low, test.args.high); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("sequentialDigits() = %v, want = %v", got, test.want)
 			}
 		})
 	}
