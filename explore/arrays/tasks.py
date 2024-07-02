@@ -1,4 +1,6 @@
 # ---- two pointers
+
+
 def reverse_string(chars: list[str]) -> None:
     left = 0
     right = len(chars) - 1

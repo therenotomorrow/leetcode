@@ -222,6 +222,7 @@ Completed problems
 | 1413 | [Minimum Value to Get Positive Step by Step Sum](https://leetcode.com/problems/minimum-value-to-get-positive-step-by-step-sum/description/)                                 | [`minstartvalue.go`](solutions/golang/minstartvalue.go)                                                                 |
 | 1422 | [Maximum Score After Splitting a String](https://leetcode.com/problems/maximum-score-after-splitting-a-string/description/)                                                 | [`maxscore.go`](solutions/golang/maxscore.go)                                                                           |
 | 1424 | [Diagonal Traverse II](https://leetcode.com/problems/diagonal-traverse-ii/description/)                                                                                     | [`finddiagonalorder.go`](solutions/golang/finddiagonalorder.go)                                                         |
+| 1426 | [Counting Elements](https://leetcode.com/problems/counting-elements/description/)                                                                                           | [`countelements.go`](solutions/golang/countelements.go)                                                                 |
 | 1428 | [Leftmost Column with at Least a One](https://leetcode.com/problems/leftmost-column-with-at-least-a-one/description/)                                                       | [`leftmostcolumnwithone.go`](solutions/golang/leftmostcolumnwithone.go)                                                 |
 | 1436 | [Destination City](https://leetcode.com/problems/destination-city/description/)                                                                                             | [`destcity.go`](solutions/golang/destcity.go)                                                                           |
 | 1441 | [Build an Array With Stack Operations](https://leetcode.com/problems/build-an-array-with-stack-operations/description/)                                                     | [`buildarray.go`](solutions/golang/buildarray.go)                                                                       |
@@ -267,6 +268,7 @@ Completed problems
 | 1791 | [Find Center of Star Graph](\https://leetcode.com/problems/find-center-of-star-graph/description/)                                                                          | [`findcenter.go`](solutions/golang/findcenter.go)                                                                       |
 | 1814 | [Count Nice Pairs in an Array](https://leetcode.com/problems/count-nice-pairs-in-an-array/description/)                                                                     | [`countnicepairs.go`](solutions/golang/countnicepairs.go)                                                               |
 | 1822 | [Sign of the Product of an Array](https://leetcode.com/problems/sign-of-the-product-of-an-array/description/)                                                               | [`arraysign.go`](solutions/golang/arraysign.go)                                                                         |
+| 1832 | [Check if the Sentence Is Pangram](https://leetcode.com/problems/check-if-the-sentence-is-pangram/description/)                                                             | [`checkifpangram.go`](solutions/golang/checkifpangram.go)                                                               |
 | 1838 | [Frequency of the Most Frequent Element](https://leetcode.com/problems/frequency-of-the-most-frequent-element/description/)                                                 | [`maxfrequency.go`](solutions/golang/maxfrequency.go)                                                                   |
 | 1845 | [Seat Reservation Manager](https://leetcode.com/problems/seat-reservation-manager/description/)                                                                             | [`seatmanager.go`](solutions/golang/seatmanager.go)                                                                     |
 | 1846 | [Maximum Element After Decreasing and Rearranging](https://leetcode.com/problems/maximum-element-after-decreasing-and-rearranging/description/)                             | [`maximumelementafterdecrementingandrearranging.go`](solutions/golang/maximumelementafterdecrementingandrearranging.go) |
@@ -446,60 +448,58 @@ In revision
 115. Find Lucky Integer in an Array
 116. Build Array Where You Can Find The Maximum Exactly K Comparisons
 117. Constrained Subsequence Sum
-118. Counting Elements
-119. Kids With the Greatest Number of Candies
-120. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
-121. Count Good Nodes in Binary Tree
-122. Max Dot Product of Two Subsequences
-123. Longest Subarray of 1's After Deleting One Element
-124. Can Make Arithmetic Progression From Sequence
-125. Number of Good Pairs
-126. Make The String Great
-127. Richest Customer Wealth
-128. Max Number of K-Sum Pairs
-129. Maximum Erasure Value
-130. Swapping Nodes in a Linked List
-131. Sum of Unique Elements
-132. Merge Strings Alternately
-133. Maximum Score of a Good Subarray
-134. Check if the Sentence Is Pangram
-135. Check if All Characters Have Equal Number of Occurrences
-136. Minimum Number of Operations to Make Array Continuous
-137. Remove Colored Pieces if Both Neighbors are the Same Color
-138. Parallel Courses III
-139. Reverse Nodes in Even Length Groups
-140. Delete the Middle Node of a Linked List
-141. Maximum Twin Sum of a Linked List
-142. Find the Difference of Two Arrays
-143. Add Two Integers
-144. Intersection of Multiple Arrays
-145. Number of Flowers in Full Bloom
-146. Minimum Consecutive Cards to Pick Up
-147. Number of Ways to Split Array
-148. Successful Pairs of Spells and Potions
-149. Max Sum of a Pair With Equal Sum of Digits
-150. First Letter to Appear Twice
-151. Equal Row and Column Pairs
-152. Removing Stars From a String
-153. Using a Robot to Print the Lexicographically Smallest String
-154. Total Cost to Hire K Workers
-155. Design Graph With Shortest Path Calculator
-156. Painting the Walls
-157. Largest Submatrix With Rearrangements
-158. Number of Ways to Divide a Long Corridor
-159. Minimum One Bit Operations to Make Integers Zero
-160. Decode Ways
-161. String Compression II
-162. Minimum Difficulty of a Job Schedule
-163. Maximum Profit in Job Scheduling
-164. Arithmetic Slices II - Subsequence
-165. K Inverse Pairs Array
-166. Number of Submatrices That Sum to Target
-167. Partition Array for Maximum Sum
-168. Meeting Rooms III
-169. Tree Diameter
-170. Cheapest Flights Within K Stops
-171. Greatest Common Divisor Traversal
-172. Find All People With Secret
-173. Find All Duplicates in an Array
-174. First Missing Positive
+118. Kids With the Greatest Number of Candies
+119. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
+120. Count Good Nodes in Binary Tree
+121. Max Dot Product of Two Subsequences
+122. Longest Subarray of 1's After Deleting One Element
+123. Can Make Arithmetic Progression From Sequence
+124. Number of Good Pairs
+125. Make The String Great
+126. Richest Customer Wealth
+127. Max Number of K-Sum Pairs
+128. Maximum Erasure Value
+129. Swapping Nodes in a Linked List
+130. Sum of Unique Elements
+131. Merge Strings Alternately
+132. Maximum Score of a Good Subarray
+133. Check if All Characters Have Equal Number of Occurrences
+134. Minimum Number of Operations to Make Array Continuous
+135. Remove Colored Pieces if Both Neighbors are the Same Color
+136. Parallel Courses III
+137. Reverse Nodes in Even Length Groups
+138. Delete the Middle Node of a Linked List
+139. Maximum Twin Sum of a Linked List
+140. Find the Difference of Two Arrays
+141. Add Two Integers
+142. Intersection of Multiple Arrays
+143. Number of Flowers in Full Bloom
+144. Minimum Consecutive Cards to Pick Up
+145. Number of Ways to Split Array
+146. Successful Pairs of Spells and Potions
+147. Max Sum of a Pair With Equal Sum of Digits
+148. First Letter to Appear Twice
+149. Equal Row and Column Pairs
+150. Removing Stars From a String
+151. Using a Robot to Print the Lexicographically Smallest String
+152. Total Cost to Hire K Workers
+153. Design Graph With Shortest Path Calculator
+154. Painting the Walls
+155. Largest Submatrix With Rearrangements
+156. Number of Ways to Divide a Long Corridor
+157. Minimum One Bit Operations to Make Integers Zero
+158. Decode Ways
+159. String Compression II
+160. Minimum Difficulty of a Job Schedule
+161. Maximum Profit in Job Scheduling
+162. Arithmetic Slices II - Subsequence
+163. K Inverse Pairs Array
+164. Number of Submatrices That Sum to Target
+165. Partition Array for Maximum Sum
+166. Meeting Rooms III
+167. Tree Diameter
+168. Cheapest Flights Within K Stops
+169. Greatest Common Divisor Traversal
+170. Find All People With Secret
+171. Find All Duplicates in an Array
+172. First Missing Positive

@@ -23,12 +23,12 @@ func TestIntersect(t *testing.T) {
 		{name: "test 33: wrong answer", args: args{nums1: []int{3, 1, 2}, nums2: []int{1, 1}}, want: []int{1}},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := intersect(tt.args.nums1, tt.args.nums2); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("intersect() = %v, want = %v", got, tt.want)
+			if got := intersect(test.args.nums1, test.args.nums2); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("intersect() = %v, want = %v", got, test.want)
 			}
 		})
 	}

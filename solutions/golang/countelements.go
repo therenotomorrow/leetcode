@@ -1,14 +1,15 @@
-package countElements
+package golang
 
 func countElements(arr []int) int {
-	set := make(map[int]bool)
+	cnt := 0
+	set := NewSet[int]()
+
 	for _, num := range arr {
-		set[num] = true
+		set.Add(num)
 	}
 
-	cnt := 0
 	for _, num := range arr {
-		if set[num+1] {
+		if set.Contains(num + 1) {
 			cnt++
 		}
 	}
