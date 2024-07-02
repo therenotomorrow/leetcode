@@ -127,6 +127,7 @@ Completed problems
 | 344  | [Reverse String](https://leetcode.com/problems/reverse-string/description/)                                                                                                 | [`reversestring.go`](solutions/golang/reversestring.go)                                                                 |
 | 346  | [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/description/)                                                               | [`movingaverage.go`](solutions/golang/movingaverage.go)                                                                 |
 | 349  | [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/description/)                                                                         | [`intersection.go`](solutions/golang/intersection.go)                                                                   |
+| 350  | [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/description/)                                                                   | [`intersect.go`](solutions/golang/intersect.go)                                                                         |
 | 359  | [Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter/description/)                                                                                       | [`logger.go`](solutions/golang/logger.go)                                                                               |
 | 367  | [Valid Perfect Square](https://leetcode.com/problems/valid-perfect-square/description/)                                                                                     | [`isperfectsquare.go`](solutions/golang/isperfectsquare.go)                                                             |
 | 368  | [Largest Divisible Subset](https://leetcode.com/problems/largest-divisible-subset/description/)                                                                             | [`largestdivisiblesubset.go`](solutions/golang/largestdivisiblesubset.go)                                               |
@@ -389,117 +390,116 @@ In revision
 59. Flatten Nested List Iterator
 60. Integer Break
 61. Reverse Vowels of a String
-62. Intersection of Two Arrays II
-63. Guess Number Higher or Lower
-64. Ransom Note
-65. Shuffle an Array
-66. Find the Difference
-67. Is Subsequence
-68. Decode String
-69. Fizz Buzz
-70. Path Sum III
-71. Find All Anagrams in a String
-72. String Compression
-73. Delete Node in a BST
-74. Hamming Distance
-75. Next Greater Element I
-76. Diagonal Traverse
-77. Find Largest Value in Each Tree Row
-78. Minimum Absolute Difference in BST
-79. Subarray Sum Equals K
-80. Array Partition
-81. Permutation in String
-82. Can Place Flowers
-83. Dota2 Senate
-84. Search in a Binary Search Tree
-85. Insert into a Binary Search Tree
-86. Design HashMap
-87. Design Linked List
-88. Asteroid Collision
-89. Find Smallest Letter Greater Than Target
-90. Largest Number At Least Twice of Others
-91. Jewels and Stones
-92. Minimum Distance Between BST Nodes
-93. Bus Routes
-94. Binary Trees With Factors
-95. Peak Index in a Mountain Array
-96. Online Stock Span
-97. Number of Recent Calls
-98. Validate Stack Sequences
-99. Longest Arithmetic Subsequence
-100. Remove All Adjacent Duplicates In String
-101. Greatest Common Divisor of Strings
-102. Find in Mountain Array
-103. Print in Order
-104. Largest Unique Number
-105. Snapshot Array
-106. Maximum Level Sum of a Binary Tree
-107. Maximum Number of Balloons
-108. Count Vowels Permutation
-109. Check If It Is a Straight Line
-110. Count Number of Nice Subarrays
-111. Convert Binary Number in a Linked List to Integer
-112. Deepest Leaves Sum
-113. Number of Steps to Reduce a Number to Zero
-114. Count Negative Numbers in a Sorted Matrix
-115. Longest ZigZag Path in a Binary Tree
-116. Find Lucky Integer in an Array
-117. Build Array Where You Can Find The Maximum Exactly K Comparisons
-118. Constrained Subsequence Sum
-119. Counting Elements
-120. Kids With the Greatest Number of Candies
-121. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
-122. Count Good Nodes in Binary Tree
-123. Max Dot Product of Two Subsequences
-124. Longest Subarray of 1's After Deleting One Element
-125. Can Make Arithmetic Progression From Sequence
-126. Number of Good Pairs
-127. Make The String Great
-128. Richest Customer Wealth
-129. Max Number of K-Sum Pairs
-130. Maximum Erasure Value
-131. Swapping Nodes in a Linked List
-132. Sum of Unique Elements
-133. Merge Strings Alternately
-134. Maximum Score of a Good Subarray
-135. Check if the Sentence Is Pangram
-136. Check if All Characters Have Equal Number of Occurrences
-137. Minimum Number of Operations to Make Array Continuous
-138. Remove Colored Pieces if Both Neighbors are the Same Color
-139. Parallel Courses III
-140. Reverse Nodes in Even Length Groups
-141. Delete the Middle Node of a Linked List
-142. Maximum Twin Sum of a Linked List
-143. Find the Difference of Two Arrays
-144. Add Two Integers
-145. Intersection of Multiple Arrays
-146. Number of Flowers in Full Bloom
-147. Minimum Consecutive Cards to Pick Up
-148. Number of Ways to Split Array
-149. Successful Pairs of Spells and Potions
-150. Max Sum of a Pair With Equal Sum of Digits
-151. First Letter to Appear Twice
-152. Equal Row and Column Pairs
-153. Removing Stars From a String
-154. Using a Robot to Print the Lexicographically Smallest String
-155. Total Cost to Hire K Workers
-156. Design Graph With Shortest Path Calculator
-157. Painting the Walls
-158. Largest Submatrix With Rearrangements
-159. Number of Ways to Divide a Long Corridor
-160. Minimum One Bit Operations to Make Integers Zero
-161. Decode Ways
-162. String Compression II
-163. Minimum Difficulty of a Job Schedule
-164. Maximum Profit in Job Scheduling
-165. Arithmetic Slices II - Subsequence
-166. K Inverse Pairs Array
-167. Number of Submatrices That Sum to Target
-168. Partition Array for Maximum Sum
-169. Meeting Rooms III
-170. Tree Diameter
-171. Cheapest Flights Within K Stops
-172. Greatest Common Divisor Traversal
-173. Find All People With Secret
-174. Find All Duplicates in an Array
-175. First Missing Positive
+62. Guess Number Higher or Lower
+63. Ransom Note
+64. Shuffle an Array
+65. Find the Difference
+66. Is Subsequence
+67. Decode String
+68. Fizz Buzz
+69. Path Sum III
+70. Find All Anagrams in a String
+71. String Compression
+72. Delete Node in a BST
+73. Hamming Distance
+74. Next Greater Element I
+75. Diagonal Traverse
+76. Find Largest Value in Each Tree Row
+77. Minimum Absolute Difference in BST
+78. Subarray Sum Equals K
+79. Array Partition
+80. Permutation in String
+81. Can Place Flowers
+82. Dota2 Senate
+83. Search in a Binary Search Tree
+84. Insert into a Binary Search Tree
+85. Design HashMap
+86. Design Linked List
+87. Asteroid Collision
+88. Find Smallest Letter Greater Than Target
+89. Largest Number At Least Twice of Others
+90. Jewels and Stones
+91. Minimum Distance Between BST Nodes
+92. Bus Routes
+93. Binary Trees With Factors
+94. Peak Index in a Mountain Array
+95. Online Stock Span
+96. Number of Recent Calls
+97. Validate Stack Sequences
+98. Longest Arithmetic Subsequence
+99. Remove All Adjacent Duplicates In String
+100. Greatest Common Divisor of Strings
+101. Find in Mountain Array
+102. Print in Order
+103. Largest Unique Number
+104. Snapshot Array
+105. Maximum Level Sum of a Binary Tree
+106. Maximum Number of Balloons
+107. Count Vowels Permutation
+108. Check If It Is a Straight Line
+109. Count Number of Nice Subarrays
+110. Convert Binary Number in a Linked List to Integer
+111. Deepest Leaves Sum
+112. Number of Steps to Reduce a Number to Zero
+113. Count Negative Numbers in a Sorted Matrix
+114. Longest ZigZag Path in a Binary Tree
+115. Find Lucky Integer in an Array
+116. Build Array Where You Can Find The Maximum Exactly K Comparisons
+117. Constrained Subsequence Sum
+118. Counting Elements
+119. Kids With the Greatest Number of Candies
+120. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
+121. Count Good Nodes in Binary Tree
+122. Max Dot Product of Two Subsequences
+123. Longest Subarray of 1's After Deleting One Element
+124. Can Make Arithmetic Progression From Sequence
+125. Number of Good Pairs
+126. Make The String Great
+127. Richest Customer Wealth
+128. Max Number of K-Sum Pairs
+129. Maximum Erasure Value
+130. Swapping Nodes in a Linked List
+131. Sum of Unique Elements
+132. Merge Strings Alternately
+133. Maximum Score of a Good Subarray
+134. Check if the Sentence Is Pangram
+135. Check if All Characters Have Equal Number of Occurrences
+136. Minimum Number of Operations to Make Array Continuous
+137. Remove Colored Pieces if Both Neighbors are the Same Color
+138. Parallel Courses III
+139. Reverse Nodes in Even Length Groups
+140. Delete the Middle Node of a Linked List
+141. Maximum Twin Sum of a Linked List
+142. Find the Difference of Two Arrays
+143. Add Two Integers
+144. Intersection of Multiple Arrays
+145. Number of Flowers in Full Bloom
+146. Minimum Consecutive Cards to Pick Up
+147. Number of Ways to Split Array
+148. Successful Pairs of Spells and Potions
+149. Max Sum of a Pair With Equal Sum of Digits
+150. First Letter to Appear Twice
+151. Equal Row and Column Pairs
+152. Removing Stars From a String
+153. Using a Robot to Print the Lexicographically Smallest String
+154. Total Cost to Hire K Workers
+155. Design Graph With Shortest Path Calculator
+156. Painting the Walls
+157. Largest Submatrix With Rearrangements
+158. Number of Ways to Divide a Long Corridor
+159. Minimum One Bit Operations to Make Integers Zero
+160. Decode Ways
+161. String Compression II
+162. Minimum Difficulty of a Job Schedule
+163. Maximum Profit in Job Scheduling
+164. Arithmetic Slices II - Subsequence
+165. K Inverse Pairs Array
+166. Number of Submatrices That Sum to Target
+167. Partition Array for Maximum Sum
+168. Meeting Rooms III
+169. Tree Diameter
+170. Cheapest Flights Within K Stops
+171. Greatest Common Divisor Traversal
+172. Find All People With Secret
+173. Find All Duplicates in an Array
+174. First Missing Positive
