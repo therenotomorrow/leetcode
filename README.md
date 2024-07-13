@@ -522,3 +522,4 @@ In revision
 169. Find All People With Secret
 170. Find All Duplicates in an Array
 171. First Missing Positive
+172. Robot Collisions
