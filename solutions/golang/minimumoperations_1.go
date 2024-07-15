@@ -2,7 +2,7 @@ package golang
 
 import "sort"
 
-func minimumOperations(nums []int) int {
+func minimumOperations1(nums []int) int {
 	sort.Ints(nums)
 
 	ans := 0

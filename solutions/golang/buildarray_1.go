@@ -1,6 +1,6 @@
 package golang
 
-func buildArray(target []int, _ int) []string {
+func buildArray1(target []int, _ int) []string {
 	ops := make([]string, 0)
 	stream := 1
 

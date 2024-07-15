@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestBuildArray(t *testing.T) {
+func TestBuildArray1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -27,8 +27,8 @@ func TestBuildArray(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := buildArray(test.args.target, test.args.n); !reflect.DeepEqual(got, test.want) {
-				t.Errorf("buildArray() = %v, want = %v", got, test.want)
+			if got := buildArray1(test.args.target, test.args.n); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("buildArray1() = %v, want = %v", got, test.want)
 			}
 		})
 	}

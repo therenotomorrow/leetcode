@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func Test_maxNumberOfBalloons(t *testing.T) {
+func TestMaxNumberOfBalloons(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -24,7 +24,7 @@ func Test_maxNumberOfBalloons(t *testing.T) {
 			t.Parallel()
 
 			if got := maxNumberOfBalloons(test.args.text); got != test.want {
-				t.Errorf("maxNumberOfBalloons() = %v, want %v", got, test.want)
+				t.Errorf("maxNumberOfBalloons() = %v, want = %v", got, test.want)
 			}
 		})
 	}
