@@ -108,6 +108,7 @@ Completed problems
 | 242  | [Valid Anagram](https://leetcode.com/problems/valid-anagram/description/)                                                                                                               | [`isanagram.go`](solutions/golang/isanagram.go)                                                                         |
 | 243  | [Shortest Word Distance](https://leetcode.com/problems/shortest-word-distance/description/)                                                                                             | [`shortestdistance.go`](solutions/golang/shortestdistance.go)                                                           |
 | 246  | [Strobogrammatic Number](https://leetcode.com/problems/strobogrammatic-number/description/)                                                                                             | [`isstrobogrammatic.go`](solutions/golang/isstrobogrammatic.go)                                                         |
+| 249  | [Group Shifted Strings](https://leetcode.com/problems/group-shifted-strings/description/)                                                                                               | [`groupstrings.go`](solutions/golang/groupstrings.go)                                                                   |
 | 252  | [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/description/)                                                                                                               | [`canattendmeetings.go`](solutions/golang/canattendmeetings.go)                                                         |
 | 253  | [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/description/)                                                                                                         | [`minmeetingrooms.go`](solutions/golang/minmeetingrooms.go)                                                             |
 | 256  | [Paint House](https://leetcode.com/problems/paint-house/description/)                                                                                                                   | [`mincost_2.go`](solutions/golang/mincost_2.go)                                                                         |
@@ -158,6 +159,7 @@ Completed problems
 | 572  | [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/description/)                                                                                           | [`issubtree.go`](solutions/golang/issubtree.go)                                                                         |
 | 573  | [Squirrel Simulation](https://leetcode.com/problems/squirrel-simulation/description/)                                                                                                   | [`mindistance.go`](solutions/golang/mindistance.go)                                                                     |
 | 576  | [Out of Boundary Paths](https://leetcode.com/problems/out-of-boundary-paths/description/)                                                                                               | [`findpaths.go`](solutions/golang/findpaths.go)                                                                         |
+| 599  | [Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists/description/)                                                                             | [`findrestaurant.go`](solutions/golang/findrestaurant.go)                                                               |
 | 606  | [Construct String from Binary Tree](https://leetcode.com/problems/construct-string-from-binary-tree/description/)                                                                       | [`tree2str.go`](solutions/golang/tree2str.go)                                                                           |
 | 621  | [Task Scheduler](https://leetcode.com/problems/task-scheduler/description/)                                                                                                             | [`leastinterval.go`](solutions/golang/leastinterval.go)                                                                 |
 | 624  | [Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/description/)                                                                                     | [`maxdistance.go`](solutions/golang/maxdistance.go)                                                                     |
@@ -167,6 +169,8 @@ Completed problems
 | 661  | [Image Smoother](https://leetcode.com/problems/image-smoother/description/)                                                                                                             | [`imagesmoother.go`](solutions/golang/imagesmoother.go)                                                                 |
 | 680  | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/description/)                                                                                                   | [`validpalindrome.go`](solutions/golang/validpalindrome.go)                                                             |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search/description/)                                                                                                               | [`search.go`](solutions/golang/search.go)                                                                               |
+| 705  | [Design HashSet](https://leetcode.com/problems/design-hashset/description/)                                                                                                             | [`myhashset.go`](solutions/golang/myhashset.go)                                                                         |
+| 706  | [Design HashMap](https://leetcode.com/problems/design-hashmap/description/)                                                                                                             | [`myhashmap.go`](solutions/golang/myhashmap.go)                                                                         |
 | 713  | [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/description/)                                                                                 | [`numsubarrayproductlessthank.go`](solutions/golang/numsubarrayproductlessthank.go)                                     |
 | 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/description/)                                                                                                         | [`pivotindex.go`](solutions/golang/pivotindex.go)                                                                       |
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)                                                                                                     | [`dailytemperatures.go`](solutions/golang/dailytemperatures.go)                                                         |
@@ -310,6 +314,7 @@ Completed problems
 | 2032 | [Two Out of Three](https://leetcode.com/problems/two-out-of-three/description/)                                                                                                         | [`twooutofthree.go`](solutions/golang/twooutofthree.go)                                                                 |
 | 2058 | [Find the Minimum and Maximum Number of Nodes Between Critical Points](https://leetcode.com/problems/find-the-minimum-and-maximum-number-of-nodes-between-critical-points/description/) | [`nodesbetweencriticalpoints.go`](solutions/golang/nodesbetweencriticalpoints.go)                                       |
 | 2090 | [K Radius Subarray Averages](https://leetcode.com/problems/k-radius-subarray-averages/description/)                                                                                     | [`getaverages.go`](solutions/golang/getaverages.go)                                                                     |
+| 2096 | [Step-By-Step Directions From a Binary Tree Node to Another](https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/description/)                     | [`getdirections.go`](solutions/golang/getdirections.go)                                                                 |
 | 2108 | [Find First Palindromic String in the Array](https://leetcode.com/problems/find-first-palindromic-string-in-the-array/description/)                                                     | [`firstpalindrome.go`](solutions/golang/firstpalindrome.go)                                                             |
 | 2125 | [Number of Laser Beams in a Bank](https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/)                                                                           | [`numberofbeams.go`](solutions/golang/numberofbeams.go)                                                                 |
 | 2149 | [Rearrange Array Elements by Sign](https://leetcode.com/problems/rearrange-array-elements-by-sign/description/)                                                                         | [`rearrangearray.go`](solutions/golang/rearrangearray.go)                                                               |
@@ -451,92 +456,91 @@ In revision
 82. Dota2 Senate
 83. Search in a Binary Search Tree
 84. Insert into a Binary Search Tree
-85. Design HashMap
-86. Design Linked List
-87. Asteroid Collision
-88. Find Smallest Letter Greater Than Target
-89. Largest Number At Least Twice of Others
-90. Jewels and Stones
-91. Minimum Distance Between BST Nodes
-92. Bus Routes
-93. Binary Trees With Factors
-94. Peak Index in a Mountain Array
-95. Online Stock Span
-96. Number of Recent Calls
-97. Validate Stack Sequences
-98. Longest Arithmetic Subsequence
-99. Remove All Adjacent Duplicates In String
-100. Greatest Common Divisor of Strings
-101. Find in Mountain Array
-102. Print in Order
-103. Largest Unique Number
-104. Snapshot Array
-105. Maximum Level Sum of a Binary Tree
-106. Count Vowels Permutation
-107. Check If It Is a Straight Line
-108. Count Number of Nice Subarrays
-109. Convert Binary Number in a Linked List to Integer
-110. Deepest Leaves Sum
-111. Number of Steps to Reduce a Number to Zero
-112. Count Negative Numbers in a Sorted Matrix
-113. Longest ZigZag Path in a Binary Tree
-114. Find Lucky Integer in an Array
-115. Build Array Where You Can Find The Maximum Exactly K Comparisons
-116. Constrained Subsequence Sum
-117. Kids With the Greatest Number of Candies
-118. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
-119. Count Good Nodes in Binary Tree
-120. Max Dot Product of Two Subsequences
-121. Longest Subarray of 1's After Deleting One Element
-122. Can Make Arithmetic Progression From Sequence
-123. Number of Good Pairs
-124. Make The String Great
-125. Richest Customer Wealth
-126. Max Number of K-Sum Pairs
-127. Maximum Erasure Value
-128. Swapping Nodes in a Linked List
-129. Sum of Unique Elements
-130. Merge Strings Alternately
-131. Maximum Score of a Good Subarray
-132. Check if All Characters Have Equal Number of Occurrences
-133. Minimum Number of Operations to Make Array Continuous
-134. Remove Colored Pieces if Both Neighbors are the Same Color
-135. Parallel Courses III
-136. Reverse Nodes in Even Length Groups
-137. Delete the Middle Node of a Linked List
-138. Maximum Twin Sum of a Linked List
-139. Find the Difference of Two Arrays
-140. Add Two Integers
-141. Intersection of Multiple Arrays
-142. Number of Flowers in Full Bloom
-143. Minimum Consecutive Cards to Pick Up
-144. Number of Ways to Split Array
-145. Successful Pairs of Spells and Potions
-146. Max Sum of a Pair With Equal Sum of Digits
-147. First Letter to Appear Twice
-148. Equal Row and Column Pairs
-149. Removing Stars From a String
-150. Using a Robot to Print the Lexicographically Smallest String
-151. Total Cost to Hire K Workers
-152. Design Graph With Shortest Path Calculator
-153. Painting the Walls
-154. Largest Submatrix With Rearrangements
-155. Number of Ways to Divide a Long Corridor
-156. Minimum One Bit Operations to Make Integers Zero
-157. Decode Ways
-158. String Compression II
-159. Minimum Difficulty of a Job Schedule
-160. Maximum Profit in Job Scheduling
-161. Arithmetic Slices II - Subsequence
-162. K Inverse Pairs Array
-163. Number of Submatrices That Sum to Target
-164. Partition Array for Maximum Sum
-165. Meeting Rooms III
-166. Tree Diameter
-167. Cheapest Flights Within K Stops
-168. Greatest Common Divisor Traversal
-169. Find All People With Secret
-170. Find All Duplicates in an Array
-171. First Missing Positive
-172. Robot Collisions
-173. Number of Atoms
+85. Design Linked List
+86. Asteroid Collision
+87. Find Smallest Letter Greater Than Target
+88. Largest Number At Least Twice of Others
+89. Jewels and Stones
+90. Minimum Distance Between BST Nodes
+91. Bus Routes
+92. Binary Trees With Factors
+93. Peak Index in a Mountain Array
+94. Online Stock Span
+95. Number of Recent Calls
+96. Validate Stack Sequences
+97. Longest Arithmetic Subsequence
+98. Remove All Adjacent Duplicates In String
+99. Greatest Common Divisor of Strings
+100. Find in Mountain Array
+101. Print in Order
+102. Largest Unique Number
+103. Snapshot Array
+104. Maximum Level Sum of a Binary Tree
+105. Count Vowels Permutation
+106. Check If It Is a Straight Line
+107. Count Number of Nice Subarrays
+108. Convert Binary Number in a Linked List to Integer
+109. Deepest Leaves Sum
+110. Number of Steps to Reduce a Number to Zero
+111. Count Negative Numbers in a Sorted Matrix
+112. Longest ZigZag Path in a Binary Tree
+113. Find Lucky Integer in an Array
+114. Build Array Where You Can Find The Maximum Exactly K Comparisons
+115. Constrained Subsequence Sum
+116. Kids With the Greatest Number of Candies
+117. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
+118. Count Good Nodes in Binary Tree
+119. Max Dot Product of Two Subsequences
+120. Longest Subarray of 1's After Deleting One Element
+121. Can Make Arithmetic Progression From Sequence
+122. Number of Good Pairs
+123. Make The String Great
+124. Richest Customer Wealth
+125. Max Number of K-Sum Pairs
+126. Maximum Erasure Value
+127. Swapping Nodes in a Linked List
+128. Sum of Unique Elements
+129. Merge Strings Alternately
+130. Maximum Score of a Good Subarray
+131. Check if All Characters Have Equal Number of Occurrences
+132. Minimum Number of Operations to Make Array Continuous
+133. Remove Colored Pieces if Both Neighbors are the Same Color
+134. Parallel Courses III
+135. Reverse Nodes in Even Length Groups
+136. Delete the Middle Node of a Linked List
+137. Maximum Twin Sum of a Linked List
+138. Find the Difference of Two Arrays
+139. Add Two Integers
+140. Intersection of Multiple Arrays
+141. Number of Flowers in Full Bloom
+142. Minimum Consecutive Cards to Pick Up
+143. Number of Ways to Split Array
+144. Successful Pairs of Spells and Potions
+145. Max Sum of a Pair With Equal Sum of Digits
+146. First Letter to Appear Twice
+147. Equal Row and Column Pairs
+148. Removing Stars From a String
+149. Using a Robot to Print the Lexicographically Smallest String
+150. Total Cost to Hire K Workers
+151. Design Graph With Shortest Path Calculator
+152. Painting the Walls
+153. Largest Submatrix With Rearrangements
+154. Number of Ways to Divide a Long Corridor
+155. Minimum One Bit Operations to Make Integers Zero
+156. Decode Ways
+157. String Compression II
+158. Minimum Difficulty of a Job Schedule
+159. Maximum Profit in Job Scheduling
+160. Arithmetic Slices II - Subsequence
+161. K Inverse Pairs Array
+162. Number of Submatrices That Sum to Target
+163. Partition Array for Maximum Sum
+164. Meeting Rooms III
+165. Tree Diameter
+166. Cheapest Flights Within K Stops
+167. Greatest Common Divisor Traversal
+168. Find All People With Secret
+169. Find All Duplicates in an Array
+170. First Missing Positive
+171. Robot Collisions
+172. Number of Atoms

@@ -1,14 +1,13 @@
-package MyHashMap
+package golang
 
 type MyHashMap struct {
 	data []int
 }
 
-const MapSize = 1_000_001
+func MyHashMapConstructor() MyHashMap {
+	const maxSize = 1_000_001
 
-func Constructor() MyHashMap {
-	data := make([]int, MapSize)
-
+	data := make([]int, maxSize)
 	for k := range data {
 		data[k] = -1
 	}
