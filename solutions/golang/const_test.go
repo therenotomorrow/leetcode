@@ -31,6 +31,10 @@ func TestConst(t *testing.T) {
 		t.Errorf("Smoke2() = %v, want = %v", golang.Smoke2, want)
 	}
 
+	if want := "smoke 3"; golang.Smoke3 != want {
+		t.Errorf("Smoke3() = %v, want = %v", golang.Smoke3, want)
+	}
+
 	if want := 10; golang.Digits != want {
 		t.Errorf("Digits() = %v, want = %v", golang.Digits, want)
 	}

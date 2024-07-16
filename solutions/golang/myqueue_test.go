@@ -12,15 +12,15 @@ func TestMyQueueSmoke1(t *testing.T) {
 
 	want := 1
 	if got := obj.Peek(); got != want {
-		t.Errorf(" obj.Peek() = %v, want = %v", got, want)
+		t.Errorf("obj.Peek() = %v, want = %v", got, want)
 	}
 
 	want = 1
 	if got := obj.Pop(); got != want {
-		t.Errorf(" obj.Pop() = %v, want = %v", got, want)
+		t.Errorf("obj.Pop() = %v, want = %v", got, want)
 	}
 
 	if got := obj.Empty(); got {
-		t.Errorf(" obj.Empty() = %v, want = %v", got, false)
+		t.Errorf("obj.Empty() = %v, want = %v", got, false)
 	}
 }

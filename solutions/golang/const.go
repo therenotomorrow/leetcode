@@ -8,6 +8,7 @@ const (
 	MinInt32Overflow     = math.MinInt32 / Digits
 	Smoke1               = "smoke 1"
 	Smoke2               = "smoke 2"
+	Smoke3               = "smoke 3"
 	Digits               = 10
 	Alphabet             = 26
 	Byte                 = 255

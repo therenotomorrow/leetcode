@@ -11,14 +11,14 @@ func TestSolution(t *testing.T) {
 	want = 6
 	t.Run("", func(t *testing.T) {
 		if got := obj.ShortestPath(3, 2); got != want {
-			t.Errorf(" obj.ShortestPath() = %v, want = %v", got, want)
+			t.Errorf("obj.ShortestPath() = %v, want = %v", got, want)
 		}
 	})
 
 	want = -1
 	t.Run("", func(t *testing.T) {
 		if got := obj.ShortestPath(0, 3); got != want {
-			t.Errorf(" obj.ShortestPath() = %v, want = %v", got, want)
+			t.Errorf("obj.ShortestPath() = %v, want = %v", got, want)
 		}
 	})
 
@@ -27,7 +27,7 @@ func TestSolution(t *testing.T) {
 	want = 6
 	t.Run("", func(t *testing.T) {
 		if got := obj.ShortestPath(0, 3); got != want {
-			t.Errorf(" obj.ShortestPath() = %v, want = %v", got, want)
+			t.Errorf("obj.ShortestPath() = %v, want = %v", got, want)
 		}
 	})
 }

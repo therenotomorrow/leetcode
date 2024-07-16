@@ -15,7 +15,7 @@ func TestSolution(t *testing.T) {
 	want = -3
 	t.Run("", func(t *testing.T) {
 		if got := obj.GetMin(); got != want {
-			t.Errorf(" obj.GetMin() = %v, want %v", got, want)
+			t.Errorf("obj.GetMin() = %v, want %v", got, want)
 		}
 	})
 
@@ -24,14 +24,14 @@ func TestSolution(t *testing.T) {
 	want = 0
 	t.Run("", func(t *testing.T) {
 		if got := obj.Top(); got != want {
-			t.Errorf(" obj.Top() = %v, want %v", got, want)
+			t.Errorf("obj.Top() = %v, want %v", got, want)
 		}
 	})
 
 	want = -2
 	t.Run("", func(t *testing.T) {
 		if got := obj.GetMin(); got != want {
-			t.Errorf(" obj.GetMin() = %v, want %v", got, want)
+			t.Errorf("obj.GetMin() = %v, want %v", got, want)
 		}
 	})
 
@@ -45,14 +45,14 @@ func TestSolution(t *testing.T) {
 	want = -2
 	t.Run("", func(t *testing.T) {
 		if got := obj2.GetMin(); got != want {
-			t.Errorf(" obj2.GetMin() = %v, want %v", got, want)
+			t.Errorf("obj2.GetMin() = %v, want %v", got, want)
 		}
 	})
 
 	want = -1
 	t.Run("", func(t *testing.T) {
 		if got := obj2.Top(); got != want {
-			t.Errorf(" obj2.Top() = %v, want %v", got, want)
+			t.Errorf("obj2.Top() = %v, want %v", got, want)
 		}
 	})
 
@@ -61,7 +61,7 @@ func TestSolution(t *testing.T) {
 	want = -2
 	t.Run("", func(t *testing.T) {
 		if got := obj2.GetMin(); got != want {
-			t.Errorf(" obj2.GetMin() = %v, want %v", got, want)
+			t.Errorf("obj2.GetMin() = %v, want %v", got, want)
 		}
 	})
 }

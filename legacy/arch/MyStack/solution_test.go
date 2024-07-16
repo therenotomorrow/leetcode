@@ -14,20 +14,20 @@ func TestSolution(t *testing.T) {
 	want = 2
 	t.Run("", func(t *testing.T) {
 		if got := obj1.Top(); got != want {
-			t.Errorf(" obj.Top() = %v, want %v", got, want)
+			t.Errorf("obj.Top() = %v, want %v", got, want)
 		}
 	})
 
 	want = 2
 	t.Run("", func(t *testing.T) {
 		if got := obj1.Pop(); got != want {
-			t.Errorf(" obj.Pop() = %v, want %v", got, want)
+			t.Errorf("obj.Pop() = %v, want %v", got, want)
 		}
 	})
 
 	t.Run("", func(t *testing.T) {
 		if got := obj1.Empty(); got != false {
-			t.Errorf(" obj.Pop() = %v, want %v", got, false)
+			t.Errorf("obj.Pop() = %v, want %v", got, false)
 		}
 	})
 }

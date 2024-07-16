@@ -15,7 +15,7 @@ func TestSolution(t *testing.T) {
 	want = 1
 	t.Run("", func(t *testing.T) {
 		if got := obj.Get(1); got != want {
-			t.Errorf(" obj.Get() = %v, want %v", got, want)
+			t.Errorf("obj.Get() = %v, want %v", got, want)
 		}
 	})
 
@@ -24,7 +24,7 @@ func TestSolution(t *testing.T) {
 	want = -1
 	t.Run("", func(t *testing.T) {
 		if got := obj.Get(2); got != want {
-			t.Errorf(" obj.Get() = %v, want %v", got, want)
+			t.Errorf("obj.Get() = %v, want %v", got, want)
 		}
 	})
 
@@ -33,21 +33,21 @@ func TestSolution(t *testing.T) {
 	want = -1
 	t.Run("", func(t *testing.T) {
 		if got := obj.Get(1); got != want {
-			t.Errorf(" obj.Get() = %v, want %v", got, want)
+			t.Errorf("obj.Get() = %v, want %v", got, want)
 		}
 	})
 
 	want = 3
 	t.Run("", func(t *testing.T) {
 		if got := obj.Get(3); got != want {
-			t.Errorf(" obj.Get() = %v, want %v", got, want)
+			t.Errorf("obj.Get() = %v, want %v", got, want)
 		}
 	})
 
 	want = 4
 	t.Run("", func(t *testing.T) {
 		if got := obj.Get(4); got != want {
-			t.Errorf(" obj.Get() = %v, want %v", got, want)
+			t.Errorf("obj.Get() = %v, want %v", got, want)
 		}
 	})
 }

@@ -9,16 +9,16 @@ func TestNumArraySmoke1(t *testing.T) {
 
 	want := 1
 	if got := obj.SumRange(0, 2); got != want {
-		t.Errorf(" obj.SumRange() = %v, want = %v", got, want)
+		t.Errorf("obj.SumRange() = %v, want = %v", got, want)
 	}
 
 	want = -1
 	if got := obj.SumRange(2, 5); got != want {
-		t.Errorf(" obj.SumRange() = %v, want = %v", got, want)
+		t.Errorf("obj.SumRange() = %v, want = %v", got, want)
 	}
 
 	want = -3
 	if got := obj.SumRange(0, 5); got != want {
-		t.Errorf(" obj.SumRange() = %v, want = %v", got, want)
+		t.Errorf("obj.SumRange() = %v, want = %v", got, want)
 	}
 }
