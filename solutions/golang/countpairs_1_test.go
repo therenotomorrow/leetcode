@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestCountPairs(t *testing.T) {
+func TestCountPairs1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -23,8 +23,8 @@ func TestCountPairs(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := countPairs(test.args.nums1, test.args.nums2); got != test.want {
-				t.Errorf("countPairs() = %v, want = %v", got, test.want)
+			if got := countPairs1(test.args.nums1, test.args.nums2); got != test.want {
+				t.Errorf("countPairs1() = %v, want = %v", got, test.want)
 			}
 		})
 	}
