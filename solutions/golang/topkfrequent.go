@@ -17,7 +17,7 @@ func topKFrequent(nums []int, k int) []int {
 		order = append(order, times)
 	}
 
-	sort.Sort(sort.Reverse(sort.IntSlice(order)))
+	sort.Stable(sort.Reverse(sort.IntSlice(order)))
 
 	for i := 0; i < k; {
 		for _, num := range maxes[order[i]] {

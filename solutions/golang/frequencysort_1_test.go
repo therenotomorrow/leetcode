@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestFrequencySort(t *testing.T) {
+func TestFrequencySort1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -23,7 +23,7 @@ func TestFrequencySort(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			got := frequencySort(test.args.s)
+			got := frequencySort1(test.args.s)
 
 			for _, w := range test.want {
 				if got == w {
@@ -31,7 +31,7 @@ func TestFrequencySort(t *testing.T) {
 				}
 			}
 
-			t.Errorf("frequencySort() = %v, want = %v", got, test.want)
+			t.Errorf("frequencySort1() = %v, want = %v", got, test.want)
 		})
 	}
 }

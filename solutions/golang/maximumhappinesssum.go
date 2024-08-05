@@ -3,7 +3,7 @@ package golang
 import "sort"
 
 func maximumHappinessSum(happiness []int, k int) int64 {
-	sort.Sort(sort.Reverse(sort.IntSlice(happiness)))
+	sort.Stable(sort.Reverse(sort.IntSlice(happiness)))
 
 	ans := 0
 

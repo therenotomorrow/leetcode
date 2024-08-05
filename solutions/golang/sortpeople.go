@@ -9,7 +9,7 @@ func sortPeople(names []string, heights []int) []string {
 		heightMap[height] = names[i]
 	}
 
-	sort.Sort(sort.Reverse(sort.IntSlice(heights)))
+	sort.Stable(sort.Reverse(sort.IntSlice(heights)))
 
 	for i, height := range heights {
 		names[i] = heightMap[height]

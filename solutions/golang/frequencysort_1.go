@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-func frequencySort(s string) string {
+func frequencySort1(s string) string {
 	maxCnt := 0
 	cnt := make(map[rune]int)
 
