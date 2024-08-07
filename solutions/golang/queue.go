@@ -1,7 +1,7 @@
 package golang
 
 type Queueable interface {
-	~int | ~*TreeNode | PairNode
+	~int | ~*TreeNode | PairNode | ~[]int
 }
 
 type Queue[T Queueable] interface {

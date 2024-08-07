@@ -118,6 +118,7 @@ Completed problems
 | 263  | [Ugly Number](https://leetcode.com/problems/ugly-number/description/)                                                                                                                   | [`isugly.go`](solutions/golang/isugly.go)                                                                               |
 | 266  | [Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/description/)                                                                                             | [`canpermutepalindrome.go`](solutions/golang/canpermutepalindrome.go)                                                   |
 | 268  | [Missing Number](https://leetcode.com/problems/missing-number/description/)                                                                                                             | [`missingnumber.go`](solutions/golang/missingnumber.go)                                                                 |
+| 273  | [Integer to English Words](https://leetcode.com/problems/integer-to-english-words/description/)                                                                                         | [`numbertowords.go`](solutions/golang/numbertowords.go)                                                                 |
 | 276  | [Paint Fence](https://leetcode.com/problems/paint-fence/description/)                                                                                                                   | [`numways_2.go`](solutions/golang/numways_2.go)                                                                         |
 | 279  | [Perfect Squares](https://leetcode.com/problems/perfect-squares/description/)                                                                                                           | [`numsquares.go`](solutions/golang/numsquares.go)                                                                       |
 | 283  | [Move Zeroes](https://leetcode.com/problems/move-zeroes/description/)                                                                                                                   | [`movezeroes.go`](solutions/golang/movezeroes.go)                                                                       |
@@ -571,3 +572,7 @@ In revision
 171. Robot Collisions
 172. Number of Atoms
 173. Build a Matrix With Conditions
+174. Second Minimum Time to Reach Destination
+175. Find the City With the Smallest Number of Neighbors at a Threshold Distance
+176. Minimum Cost to Reach City With Discounts
+177. Minimum Cost to Convert String I
