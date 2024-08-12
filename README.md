@@ -176,6 +176,7 @@ Completed problems
 | 652  | [Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/description/)                                                                                           | [`findduplicatesubtrees.go`](solutions/golang/findduplicatesubtrees.go)                                                 |
 | 661  | [Image Smoother](https://leetcode.com/problems/image-smoother/description/)                                                                                                             | [`imagesmoother.go`](solutions/golang/imagesmoother.go)                                                                 |
 | 680  | [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/description/)                                                                                                   | [`validpalindrome.go`](solutions/golang/validpalindrome.go)                                                             |
+| 703  | [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/description/)                                                                           | [`kthlargest.go`](solutions/golang/kthlargest.go)                                                                       |
 | 704  | [Binary Search](https://leetcode.com/problems/binary-search/description/)                                                                                                               | [`search.go`](solutions/golang/search.go)                                                                               |
 | 705  | [Design HashSet](https://leetcode.com/problems/design-hashset/description/)                                                                                                             | [`myhashset.go`](solutions/golang/myhashset.go)                                                                         |
 | 706  | [Design HashMap](https://leetcode.com/problems/design-hashmap/description/)                                                                                                             | [`myhashmap.go`](solutions/golang/myhashmap.go)                                                                         |
@@ -579,3 +580,5 @@ In revision
 175. Find the City With the Smallest Number of Neighbors at a Threshold Distance
 176. Minimum Cost to Reach City With Discounts
 177. Minimum Cost to Convert String I
+178. Regions Cut By Slashes
+179. Minimum Number of Days to Disconnect Island
