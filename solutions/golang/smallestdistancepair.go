@@ -3,13 +3,15 @@ package golang
 import "sort"
 
 func smallestDistancePair(nums []int, k int) int {
+	const half = 2
+
 	sort.Ints(nums)
 
 	minDist := 0
 	maxDist := nums[len(nums)-1] - nums[0]
 
 	for minDist < maxDist {
-		midDist := (maxDist + minDist) / 2
+		midDist := (maxDist + minDist) / half
 		cntDist := 0
 		leftIdx := 0
 
