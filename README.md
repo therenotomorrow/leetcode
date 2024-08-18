@@ -226,6 +226,7 @@ Completed problems
 | 1110 | [Delete Nodes And Return Forest](https://leetcode.com/problems/delete-nodes-and-return-forest/description/)                                                                             | [`delnodes.go`](solutions/golang/delnodes.go)                                                                           |
 | 1119 | [Remove Vowels from a String](https://leetcode.com/problems/remove-vowels-from-a-string/description/)                                                                                   | [`removevowels.go`](solutions/golang/removevowels.go)                                                                   |
 | 1120 | [Maximum Average Subtree](https://leetcode.com/problems/maximum-average-subtree/description/)                                                                                           | [`maximumaveragesubtree.go`](solutions/golang/maximumaveragesubtree.go)                                                 |
+| 1134 | [Armstrong Number](https://leetcode.com/problems/armstrong-number/)                                                                                                                     | [`isarmstrong.go`](solutions/golang/isarmstrong.go)                                                                     |
 | 1137 | [N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/description/)                                                                                             | [`tribonacci.go`](solutions/golang/tribonacci.go)                                                                       |
 | 1143 | [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/description/)                                                                                     | [`longestcommonsubsequence.go`](solutions/golang/longestcommonsubsequence.go)                                           |
 | 1155 | [Number of Dice Rolls With Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/description/)                                                                 | [`numrollstotarget.go`](solutions/golang/numrollstotarget.go)                                                           |
@@ -588,3 +589,4 @@ In revision
 177. Minimum Cost to Convert String I
 178. Regions Cut By Slashes
 179. Minimum Number of Days to Disconnect Island
+180. Maximum Number of Points with Cost
