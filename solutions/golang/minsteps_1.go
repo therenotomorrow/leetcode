@@ -1,6 +1,6 @@
 package golang
 
-func minSteps(str string, tpl string) int {
+func minSteps1(str string, tpl string) int {
 	cnt := make(map[byte]int)
 
 	// les(str) == len(tpl) by description

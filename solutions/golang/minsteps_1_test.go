@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestMinSteps(t *testing.T) {
+func TestMinSteps1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -24,8 +24,8 @@ func TestMinSteps(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := minSteps(test.args.s, test.args.t); got != test.want {
-				t.Errorf("minSteps() = %v, want = %v", got, test.want)
+			if got := minSteps1(test.args.s, test.args.t); got != test.want {
+				t.Errorf("minSteps1() = %v, want = %v", got, test.want)
 			}
 		})
 	}
