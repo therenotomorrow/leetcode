@@ -12,3 +12,8 @@ type TreeNode struct {
 }
 
 type PairNode [2]int
+
+type Node struct {
+	Val      int
+	Children []*Node
+}
