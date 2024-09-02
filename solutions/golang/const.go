@@ -12,4 +12,5 @@ const (
 	Digits               = 10
 	Alphabet             = 26
 	Byte                 = 255
+	Base7                = 7
 )

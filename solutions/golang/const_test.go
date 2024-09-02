@@ -7,7 +7,7 @@ import (
 )
 
 //goland:noinspection GoBoolExpressions
-func TestConst(t *testing.T) {
+func TestConst(t *testing.T) { //nolint:cyclop
 	t.Parallel()
 
 	// make sure about values
@@ -45,5 +45,9 @@ func TestConst(t *testing.T) {
 
 	if want := 255; golang.Byte != want {
 		t.Errorf("Byte() = %v, want = %v", golang.Byte, want)
+	}
+
+	if want := 7; golang.Base7 != want {
+		t.Errorf("Base7() = %v, want = %v", golang.Base7, want)
 	}
 }
