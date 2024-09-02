@@ -11,6 +11,7 @@ func findTheWinner(n int, k int) int {
 			val, _ := que.Dequeue()
 			que.Enqueue(val)
 		}
+
 		que.Dequeue()
 	}
 

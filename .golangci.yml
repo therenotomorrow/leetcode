@@ -5,6 +5,7 @@ linters:
     # deprecated: by golangci-lint
     - gomnd
     - execinquery
+    - exportloopref
     # useless: we rule dependencies by ourselves
     - depguard
 

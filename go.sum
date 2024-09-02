@@ -1,4 +1,3 @@
-github.com/golangci/golangci-lint v1.58.0 h1:r8duFARMJ0VdSM9tDXAdt2+f57dfZQmagvYX6kmkUKQ=
-github.com/golangci/golangci-lint v1.58.0/go.mod h1:WAY3BnSLvTUEv41Q0v3ZFzNybLRF+a7Vd9Da8Jx9Eqo=
-github.com/golangci/golangci-lint v1.59.1 h1:CRRLu1JbhK5avLABFJ/OHVSQ0Ie5c4ulsOId1h3TTks=
 github.com/golangci/golangci-lint v1.59.1/go.mod h1:jX5Oif4C7P0j9++YB2MMJmoNrb01NJ8ITqKWNLewThg=
+github.com/golangci/golangci-lint v1.60.3 h1:l38A5de24ZeDlcFF+EB7m3W5joPD99/hS5SIHJPyZa0=
+github.com/golangci/golangci-lint v1.60.3/go.mod h1:J4vOpcjzRI+lDL2DKNGBZVB3EQSBfCBCMpaydWLtJNo=

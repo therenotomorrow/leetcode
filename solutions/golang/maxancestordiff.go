@@ -4,16 +4,16 @@ func maxAncestorDiff(root *TreeNode) int {
 	return maxAncestorDiffCalc(root, root.Val, root.Val)
 }
 
-func maxAncestorDiffCalc(node *TreeNode, min int, max int) int {
+func maxAncestorDiffCalc(node *TreeNode, mini int, maxi int) int {
 	if node == nil {
-		return max - min
+		return maxi - mini
 	}
 
-	min = Min(min, node.Val)
-	max = Max(max, node.Val)
+	mini = Min(mini, node.Val)
+	maxi = Max(maxi, node.Val)
 
-	lDiff := maxAncestorDiffCalc(node.Left, min, max)
-	rDiff := maxAncestorDiffCalc(node.Right, min, max)
+	lDiff := maxAncestorDiffCalc(node.Left, mini, maxi)
+	rDiff := maxAncestorDiffCalc(node.Right, mini, maxi)
 
 	return Max(lDiff, rDiff)
 }
