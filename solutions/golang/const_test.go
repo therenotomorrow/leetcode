@@ -50,4 +50,8 @@ func TestConst(t *testing.T) { //nolint:cyclop
 	if want := 7; golang.Base7 != want {
 		t.Errorf("Base7() = %v, want = %v", golang.Base7, want)
 	}
+
+	if want := 2; golang.Base2 != want {
+		t.Errorf("Base2() = %v, want = %v", golang.Base2, want)
+	}
 }

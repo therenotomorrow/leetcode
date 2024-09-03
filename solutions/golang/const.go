@@ -13,4 +13,5 @@ const (
 	Alphabet             = 26
 	Byte                 = 255
 	Base7                = 7
+	Base2                = 2
 )
