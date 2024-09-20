@@ -6,6 +6,7 @@ func insertGreatestCommonDivisors(head *ListNode) *ListNode {
 		for b != 0 {
 			a, b = b, a%b
 		}
+
 		return a
 	}
 

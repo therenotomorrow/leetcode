@@ -47,7 +47,7 @@ func numTeams(rating []int) int {
 
 		numOfTeams := 0
 
-		for curr := range len(rating) {
+		for curr := range rating {
 			numOfTeams += dynamic(curr, 1, cmp)
 		}
 

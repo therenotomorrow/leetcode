@@ -3,7 +3,7 @@ package golang
 func findLengthOfLCIS(nums []int) int {
 	maxLen := 1
 
-	for i := range len(nums) {
+	for i := range nums {
 		cntLen := 1
 		prev := nums[i]
 

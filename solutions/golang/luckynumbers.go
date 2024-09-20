@@ -11,7 +11,7 @@ func luckyNumbers(matrix [][]int) []int {
 	for j := range len(matrix[0]) {
 		tmp := make([]int, len(matrix))
 
-		for i := range len(matrix) {
+		for i := range matrix {
 			tmp[i] = matrix[i][j]
 		}
 
