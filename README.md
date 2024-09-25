@@ -632,3 +632,4 @@ In revision
 179. Minimum Number of Days to Disconnect Island
 180. Maximum Number of Points with Cost
 181. Modify Graph Edge Weights
+182. Sum of Prefix Scores of Strings
