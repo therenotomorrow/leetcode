@@ -2,6 +2,7 @@ package golang
 
 import (
 	"reflect"
+	"sort"
 	"testing"
 )
 
@@ -21,7 +22,7 @@ func TestUncommonFromSentences(t *testing.T) {
 		{
 			name: "smoke 1",
 			args: args{s1: "this apple is sweet", s2: "this apple is sour"},
-			want: []string{"sweet", "sour"},
+			want: []string{"sour", "sweet"},
 		},
 		{
 			name: "smoke 2",
@@ -34,7 +35,11 @@ func TestUncommonFromSentences(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := uncommonFromSentences(test.args.s1, test.args.s2); !reflect.DeepEqual(got, test.want) {
+			got := uncommonFromSentences(test.args.s1, test.args.s2)
+
+			sort.Strings(got)
+
+			if !reflect.DeepEqual(got, test.want) {
 				t.Errorf("uncommonFromSentences() = %v, want = %v", got, test.want)
 			}
 		})
