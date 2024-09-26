@@ -204,6 +204,8 @@ Completed problems
 | 713  | [Subarray Product Less Than K](https://leetcode.com/problems/subarray-product-less-than-k/description/)                                                                                 | [`numsubarrayproductlessthank.go`](solutions/golang/numsubarrayproductlessthank.go)                                     |
 | 719  | [Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance/description/)                                                                         | [`smallestdistancepair.go`](solutions/golang/smallestdistancepair.go)                                                   |
 | 724  | [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/description/)                                                                                                         | [`pivotindex.go`](solutions/golang/pivotindex.go)                                                                       |
+| 725  | [Split Linked List in Parts](https://leetcode.com/problems/split-linked-list-in-parts/description/)                                                                                     | [`splitlisttoparts.go`](solutions/golang/splitlisttoparts.go)                                                           |
+| 729  | [My Calendar I](https://leetcode.com/problems/my-calendar-i/description/)                                                                                                               | [`mycalendar.go`](solutions/golang/mycalendar.go)                                                                       |
 | 739  | [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/description/)                                                                                                     | [`dailytemperatures.go`](solutions/golang/dailytemperatures.go)                                                         |
 | 746  | [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/description/)                                                                                         | [`mincostclimbingstairs.go`](solutions/golang/mincostclimbingstairs.go)                                                 |
 | 779  | [K-th Symbol in Grammar](https://leetcode.com/problems/k-th-symbol-in-grammar/description/)                                                                                             | [`kthgrammar.go`](solutions/golang/kthgrammar.go)                                                                       |
@@ -633,3 +635,4 @@ In revision
 180. Maximum Number of Points with Cost
 181. Modify Graph Edge Weights
 182. Sum of Prefix Scores of Strings
+183. Shortest Palindrome
