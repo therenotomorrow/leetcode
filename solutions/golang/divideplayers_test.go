@@ -20,12 +20,12 @@ func TestDividePlayers(t *testing.T) {
 		{name: "test 80: wrong answer", args: args{skill: []int{2, 1, 5, 2}}, want: -1},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := dividePlayers(tt.args.skill); got != tt.want {
-				t.Errorf("dividePlayers() = %v, want = %v", got, tt.want)
+			if got := dividePlayers(test.args.skill); got != test.want {
+				t.Errorf("dividePlayers() = %v, want = %v", got, test.want)
 			}
 		})
 	}

@@ -20,12 +20,12 @@ func TestCheckInclusion(t *testing.T) {
 		{name: "test 81: wrong answer", args: args{s1: "adc", s2: "dcda"}, want: true},
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := checkInclusion(tt.args.s1, tt.args.s2); got != tt.want {
-				t.Errorf("checkInclusion() = %v, want = %v", got, tt.want)
+			if got := checkInclusion(test.args.s1, test.args.s2); got != test.want {
+				t.Errorf("checkInclusion() = %v, want = %v", got, test.want)
 			}
 		})
 	}
