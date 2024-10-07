@@ -1,7 +1,6 @@
 - https://leetcode.com/problems/meeting-scheduler/description/
 - https://leetcode.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/description/
 - https://leetcode.com/problems/different-ways-to-add-parentheses/description/
-- https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/description/
 - https://leetcode.com/problems/smallest-common-region/description/
 - https://leetcode.com/problems/longest-word-with-all-prefixes/description/
 - https://leetcode.com/problems/extra-characters-in-a-string/description/
