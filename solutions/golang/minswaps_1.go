@@ -2,7 +2,7 @@ package golang
 
 import "math"
 
-func minSwaps(nums []int) int {
+func minSwaps1(nums []int) int {
 	cnt := math.MaxInt
 	currSum := nums[0]
 	windowSize := Sum(nums...)

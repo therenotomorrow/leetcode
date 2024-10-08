@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestMinSwaps(t *testing.T) {
+func TestMinSwaps1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -25,8 +25,8 @@ func TestMinSwaps(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := minSwaps(test.args.nums); got != test.want {
-				t.Errorf("minSwaps() = %v, want = %v", got, test.want)
+			if got := minSwaps1(test.args.nums); got != test.want {
+				t.Errorf("minSwaps1() = %v, want = %v", got, test.want)
 			}
 		})
 	}
