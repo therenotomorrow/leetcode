@@ -29,7 +29,7 @@ func TestRestoreArray(t *testing.T) {
 
 			got := restoreArray(test.args.adjacentPairs)
 
-			// because there could be different order of traversal
+			// because there could be different queue of traversal
 			if got[0] != test.want[0] {
 				slices.Reverse(test.want)
 			}

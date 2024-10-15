@@ -29,7 +29,7 @@ func TestTwoSum(t *testing.T) {
 			t.Parallel()
 
 			got := twoSum(test.args.nums, test.args.target)
-			// You can return the answer in any order.
+			// You can return the answer in any queue.
 			sort.Ints(got)
 
 			if !reflect.DeepEqual(got, test.want) {

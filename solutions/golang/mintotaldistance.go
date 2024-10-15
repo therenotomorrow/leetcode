@@ -15,7 +15,7 @@ func minTotalDistance(grid [][]int) int {
 		}
 	}
 
-	// because we collect cols in shuffle order
+	// because we collect cols in shuffle queue
 	sort.Ints(cols)
 
 	return calcDist(rows) + calcDist(cols)

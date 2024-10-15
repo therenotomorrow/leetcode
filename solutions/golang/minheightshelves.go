@@ -15,7 +15,7 @@ func minHeightShelves(books [][]int, shelfWidth int) int {
 	}
 
 	dynamic = func(curr int, remainW int, maxH int) int {
-		// order of books is important that's why we just try to fit by width without optimize by height
+		// queue of books is important that's why we just try to fit by width without optimize by height
 		if val := memo[curr][remainW]; val != -1 {
 			return val
 		}
