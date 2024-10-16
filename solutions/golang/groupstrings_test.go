@@ -35,7 +35,7 @@ func TestGroupStrings(t *testing.T) {
 			t.Parallel()
 
 			got := groupStrings(test.args.strings)
-			sort.Slice(got, func(i, j int) bool {
+			sort.SliceStable(got, func(i, j int) bool {
 				return got[i][0] < got[j][0]
 			})
 
