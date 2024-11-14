@@ -183,3 +183,4 @@
 - Shortest Subarray With OR at Least K II
 - Prime Subtraction Operation
 - Most Beautiful Item for Each Query
+- Minimized Maximum of Products Distributed to Any Store
