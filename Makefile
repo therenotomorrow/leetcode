@@ -1,4 +1,4 @@
-.PHONY: code database test/smoke test/race test/integration test/coverage image/build image/latest
+.PHONY: code database test/smoke test/race test/coverage
 
 code:
 	@"$(CURDIR)/scripts/code.sh"

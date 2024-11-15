@@ -13,7 +13,7 @@ func isArmstrong(n int) bool {
 	for _, digit := range digits {
 		num := 1
 
-		for range len(digits) {
+		for range digits {
 			num *= digit
 		}
 

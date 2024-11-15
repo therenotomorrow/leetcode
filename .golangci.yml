@@ -3,8 +3,6 @@ linters:
   enable-all: true
   disable:
     # deprecated: by golangci-lint
-    - gomnd
-    - execinquery
     - exportloopref
     # useless: we rule dependencies by ourselves
     - depguard
@@ -27,7 +25,7 @@ linters-settings:
       - n
 
 run:
-  go: "1.22"
+  go: "1.23"
   allow-parallel-runners: true
   timeout: 5m
 
