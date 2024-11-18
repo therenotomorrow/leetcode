@@ -4,6 +4,7 @@
 - 632: https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/description/
 - 670: https://leetcode.com/problems/maximum-swap/description/
 - 731: https://leetcode.com/problems/my-calendar-ii/description/
+- 862: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/description/
 - 951: https://leetcode.com/problems/flip-equivalent-binary-trees/description/
 - 1106: https://leetcode.com/problems/parsing-a-boolean-expression/description/
 - 1229: https://leetcode.com/problems/meeting-scheduler/description/
@@ -32,3 +33,4 @@
 - 2955: https://leetcode.com/problems/number-of-same-end-substrings/description/
 - 3043: https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/description/
 - 3163: https://leetcode.com/problems/string-compression-iii/description/
+- 3254: https://leetcode.com/problems/find-the-power-of-k-size-subarrays-i/description/
