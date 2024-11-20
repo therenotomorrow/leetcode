@@ -21,6 +21,7 @@
 - 2044: https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/description/
 - 2406: https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/description/
 - 2458: https://leetcode.com/problems/height-of-binary-tree-after-subtree-removal-queries/description/
+- 2461: https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
 - 2463: https://leetcode.com/problems/minimum-total-distance-traveled/description/
 - 2501: https://leetcode.com/problems/longest-square-streak-in-an-array/description/
 - 2530: https://leetcode.com/problems/maximal-score-after-applying-k-operations/description/
