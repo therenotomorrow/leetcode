@@ -184,3 +184,4 @@
 - Prime Subtraction Operation
 - Most Beautiful Item for Each Query
 - Minimized Maximum of Products Distributed to Any Store
+- Minimize Maximum Value in a Grid
