@@ -16,6 +16,7 @@
 - 1671: https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/description/
 - 1804: https://leetcode.com/problems/implement-trie-ii-prefix-tree/description/
 - 1858: https://leetcode.com/problems/longest-word-with-all-prefixes/description/
+- 1861: https://leetcode.com/problems/rotating-the-box/description/
 - 1942: https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/description/
 - 1957: https://leetcode.com/problems/delete-characters-to-make-fancy-string/description/
 - 2044: https://leetcode.com/problems/count-number-of-maximum-bitwise-or-subsets/description/

@@ -1,4 +1,4 @@
-.PHONY: code database test/smoke test/race test/coverage
+.PHONY: code database test/smoke test/race test/coverage count
 
 code:
 	@"$(CURDIR)/scripts/code.sh"
@@ -14,3 +14,6 @@ test/race:
 
 test/coverage:
 	@"$(CURDIR)/scripts/test.sh" coverage
+
+count:
+	@"$(CURDIR)/scripts/count.sh"
