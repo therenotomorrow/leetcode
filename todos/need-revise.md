@@ -186,3 +186,4 @@
 - Minimized Maximum of Products Distributed to Any Store
 - Minimize Maximum Value in a Grid
 - Sliding Puzzle
+- Find Champion II
