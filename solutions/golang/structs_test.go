@@ -27,3 +27,22 @@ func TestPairNode(t *testing.T) {
 	// make sure about creation
 	_ = golang.PairNode{1, 2}
 }
+
+func TestNode(t *testing.T) {
+	t.Parallel()
+	// make sure about creation
+	_ = golang.Node{
+		Val:      1,
+		Children: []*golang.Node{{Val: 123, Children: nil}, {Val: 321, Children: nil}, {Val: 33, Children: nil}},
+	}
+}
+
+func TestDoubleListNode(t *testing.T) {
+	t.Parallel()
+	// make sure about creation
+	_ = golang.DoubleListNode{
+		Val:  1,
+		Next: &golang.DoubleListNode{Val: 2, Next: nil, Prev: nil},
+		Prev: &golang.DoubleListNode{Val: 3, Next: nil, Prev: nil},
+	}
+}

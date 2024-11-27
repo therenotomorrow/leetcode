@@ -10,8 +10,9 @@ class TestCreateDataframe:
         [
             (
                 [[1, 15], [2, 11], [3, 11], [4, 20]],
-                pandas.DataFrame.from_dict(
-                    {'student_id': [1, 2, 3, 4], 'age': [15, 11, 11, 20]},
+                pandas.DataFrame.from_records(
+                    data=[(1, 15), (2, 11), (3, 11), (4, 20)],
+                    columns=('student_id', 'age'),
                 ),
             ),
         ],

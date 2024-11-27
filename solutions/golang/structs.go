@@ -17,3 +17,9 @@ type Node struct {
 	Val      int
 	Children []*Node
 }
+
+type DoubleListNode struct {
+	Val  int
+	Next *DoubleListNode
+	Prev *DoubleListNode
+}
