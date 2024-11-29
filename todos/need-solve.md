@@ -27,6 +27,7 @@
 - 2463: https://leetcode.com/problems/minimum-total-distance-traveled/description/
 - 2501: https://leetcode.com/problems/longest-square-streak-in-an-array/description/
 - 2530: https://leetcode.com/problems/maximal-score-after-applying-k-operations/description/
+- 2577: https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/description/
 - 2583: https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree/description/
 - 2641: https://leetcode.com/problems/cousins-in-binary-tree-ii/description/
 - 2664: https://leetcode.com/problems/the-knights-tour/description/

@@ -2,7 +2,7 @@ package golang
 
 import (
 	"reflect"
-	"slices"
+	"sort"
 	"testing"
 )
 
@@ -65,8 +65,8 @@ func TestDelNodes(t *testing.T) {
 
 			got := delNodes(test.args.root, test.args.toDelete)
 
-			slices.SortStableFunc(got, func(a, b *TreeNode) int {
-				return a.Val - b.Val
+			sort.SliceStable(got, func(i, j int) bool {
+				return got[i].Val < got[j].Val
 			})
 
 			if !reflect.DeepEqual(got, test.want) {
