@@ -18,6 +18,6 @@ case "$1" in
     ;;
 esac
 
-pytest solutions/python/
+pytest .
 
 npm run test
