@@ -1,7 +1,6 @@
 package golang
 
-// var solution = func(read4 func([]byte) int) func([]byte, int) int.
-func solution(read4 func([]byte) int) func([]byte, int) int {
+func solution1(read4 func([]byte) int) func([]byte, int) int {
 	const bufSize = 4
 
 	return func(buf []byte, n int) int {

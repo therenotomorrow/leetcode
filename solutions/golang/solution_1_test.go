@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestSolution(t *testing.T) {
+func TestSolution1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -28,7 +28,7 @@ func TestSolution(t *testing.T) {
 
 			pnt := 0
 
-			readFunc := solution(func(bytes []byte) int {
+			readFunc := solution1(func(bytes []byte) int {
 				var n int
 
 				for i := 0; i < 4 && pnt < len(test.args.file); i++ {
@@ -48,11 +48,11 @@ func TestSolution(t *testing.T) {
 			got := readFunc(buf, test.args.n)
 
 			if string(buf) != test.wantStr {
-				t.Errorf("solution() = %v, want = %v", string(buf), test.wantStr)
+				t.Errorf("solution1() = %v, want = %v", string(buf), test.wantStr)
 			}
 
 			if got != test.wantLen {
-				t.Errorf("solution() = %v, want = %v", got, test.wantLen)
+				t.Errorf("solution1() = %v, want = %v", got, test.wantLen)
 			}
 		})
 	}
