@@ -1027,7 +1027,7 @@ def parse(indata: str) -> list[list[int]]:
     return reports
 
 
-class TestDay01:
+class TestDay02:
     @pytest.mark.parametrize(
         'indata, want',
         [(_example, 2), (_input, 379)],
