@@ -14,16 +14,6 @@ def _check_valid_rounds(rounds: Rounds) -> bool:
     return valid
 
 
-def first_star(games: dict[int, Rounds]) -> int:
-    score = 0
-
-    for game_id, rounds in games.items():
-        if _check_valid_rounds(rounds):
-            score += game_id
-
-    return score
-
-
 def _find_cubes_power(rounds: Rounds) -> int:
     total: dict[str, int] = collections.defaultdict(int)
 
@@ -37,6 +27,16 @@ def _find_cubes_power(rounds: Rounds) -> int:
         mul *= cubes
 
     return mul
+
+
+def first_star(games: dict[int, Rounds]) -> int:
+    score = 0
+
+    for game_id, rounds in games.items():
+        if _check_valid_rounds(rounds):
+            score += game_id
+
+    return score
 
 
 def second_star(games: dict[int, Rounds]) -> int:
