@@ -18,6 +18,6 @@ case "$1" in
     ;;
 esac
 
-pytest .
+pytest -n auto .
 
 npm run test

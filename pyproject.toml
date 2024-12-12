@@ -15,6 +15,7 @@ black = "^24.8.0"
 mypy = "^1.11.2"
 wemake-python-styleguide = "^0.19.2"
 pytest = "^8.3.2"
+pytest-xdist = "^3.6.1"
 
 [build-system]
 requires = ["poetry-core"]
