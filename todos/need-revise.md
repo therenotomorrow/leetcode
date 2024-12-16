@@ -190,3 +190,5 @@
 - Shortest Distance After Road Addition Queries I
 - Distance to a Cycle in Undirected Graph
 - Special Array II
+- Find Score of an Array After Marking All Elements
+- Cutting Ribbons

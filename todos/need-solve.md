@@ -14,6 +14,7 @@
 - 1545: https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/description/
 - 1593: https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/description/
 - 1671: https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/description/
+- 1792: https://leetcode.com/problems/maximum-average-pass-ratio/description/
 - 1804: https://leetcode.com/problems/implement-trie-ii-prefix-tree/description/
 - 1858: https://leetcode.com/problems/longest-word-with-all-prefixes/description/
 - 1861: https://leetcode.com/problems/rotating-the-box/description/
@@ -35,6 +36,8 @@
 - 2664: https://leetcode.com/problems/the-knights-tour/description/
 - 2684: https://leetcode.com/problems/maximum-number-of-moves-in-a-grid/description/
 - 2707: https://leetcode.com/problems/extra-characters-in-a-string/description/
+- 2762: https://leetcode.com/problems/continuous-subarrays/description/
+- 2832: https://leetcode.com/problems/maximal-range-that-each-element-is-maximum-in-it/description/
 - 2838: https://leetcode.com/problems/maximum-coins-heroes-can-collect/description/
 - 2955: https://leetcode.com/problems/number-of-same-end-substrings/description/
 - 3043: https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/description/
