@@ -200,7 +200,7 @@ class Day04(days.Day):
         return self._find_mas_pattern_main_diag(start) and self._find_mas_pattern_sub_diag(start)
 
 
-Update: typing.TypeAlias = list[int]
+Update: typing.TypeAlias = datatypes.Ints
 Updates: typing.TypeAlias = list[Update]
 Ruleset: typing.TypeAlias = dict[int, set[int]]
 
@@ -364,3 +364,65 @@ class Day06(days.Day):
             visited.add(point)
 
         return visited
+
+
+Combination = tuple[int, datatypes.Ints]
+
+
+@dataclasses.dataclass
+class Day07(days.Day):
+    def parse(self) -> list[Combination]:
+        calibration = []
+
+        for line in funcs.split(self.indata):
+            part1, part2 = line.split(': ')
+            numbers = list(map(int, part2.split()))
+            calibration.append((int(part1), numbers))
+
+        return calibration
+
+    def first_star(self) -> int:
+        calibration = self.parse()
+        total = 0
+
+        for ans, numbers in calibration:
+            if self._is_equal_first(ans, numbers[0], numbers):
+                total += ans
+
+        return total
+
+    def second_star(self) -> int:
+        calibration = self.parse()
+        total = 0
+
+        for ans, numbers in calibration:
+            if self._is_equal_second(ans, numbers[0], numbers):
+                total += ans
+
+        return total
+
+    @classmethod
+    def _is_equal_first(cls, ans: int, curr: int, numbers: datatypes.Ints) -> bool:
+        if len(numbers) == 1:
+            return ans == curr
+
+        other = numbers[1]
+
+        is_sum = cls._is_equal_first(ans, curr + other, numbers[1:])
+        is_mul = cls._is_equal_first(ans, curr * other, numbers[1:])
+
+        return is_sum or is_mul
+
+    @classmethod
+    def _is_equal_second(cls, ans: int, curr: int, numbers: datatypes.Ints) -> bool:
+        if len(numbers) == 1:
+            return ans == curr
+
+        other = numbers[1]
+        another = int(str(curr) + str(other))
+
+        is_con = cls._is_equal_second(ans, another, numbers[1:])
+        is_sum = cls._is_equal_second(ans, curr + other, numbers[1:])
+        is_mul = cls._is_equal_second(ans, curr * other, numbers[1:])
+
+        return is_con or is_sum or is_mul
