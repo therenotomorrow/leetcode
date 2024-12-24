@@ -56,14 +56,8 @@ def _find_right(text: str, *, skipper: bool) -> int:
 
 
 def first_star(document: list[str]) -> int:
-    return sum(
-        10 * _find_left(line, skipper=True) + _find_right(line, skipper=True)
-        for line in document
-    )
+    return sum(10 * _find_left(line, skipper=True) + _find_right(line, skipper=True) for line in document)
 
 
 def second_star(document: list[str]) -> int:
-    return sum(
-        10 * _find_left(line, skipper=False) + _find_right(line, skipper=False)
-        for line in document
-    )
+    return sum(10 * _find_left(line, skipper=False) + _find_right(line, skipper=False) for line in document)

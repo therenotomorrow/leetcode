@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestIsBalanced(t *testing.T) {
+func TestIsBalanced1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -99,8 +99,8 @@ func TestIsBalanced(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := isBalanced(test.args.root); got != test.want {
-				t.Errorf("isBalanced() = %v, want = %v", got, test.want)
+			if got := isBalanced1(test.args.root); got != test.want {
+				t.Errorf("isBalanced1() = %v, want = %v", got, test.want)
 			}
 		})
 	}

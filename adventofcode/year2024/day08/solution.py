@@ -52,12 +52,7 @@ def _yield_antennas(
     freq: Freq,
 ) -> typing.Generator[tuple[Point, Point], None, None]:
     for antennas in freq.values():
-        yield from (
-            (antenna1, antenna2)
-            for antenna1 in antennas
-            for antenna2 in antennas
-            if antenna1 != antenna2
-        )
+        yield from ((antenna1, antenna2) for antenna1 in antennas for antenna2 in antennas if antenna1 != antenna2)
 
 
 def first_star(grid: Grid, freq: Freq) -> int:

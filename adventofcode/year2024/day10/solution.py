@@ -66,10 +66,7 @@ def _count_map(topomap: list[list[Point]], point: Point) -> int:
     if point.height == 9:
         return 1
 
-    return sum(
-        _count_map(topomap, next_point)
-        for next_point in _find_next_moves(topomap, point)
-    )
+    return sum(_count_map(topomap, next_point) for next_point in _find_next_moves(topomap, point))
 
 
 def first_star(topomap: list[list[Point]]) -> int:

@@ -11,7 +11,7 @@ func treeHeight(root *TreeNode) int {
 	return 1 + Max(left, right)
 }
 
-func isBalanced(root *TreeNode) bool {
+func isBalanced1(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
@@ -19,7 +19,7 @@ func isBalanced(root *TreeNode) bool {
 	lh := treeHeight(root.Left)
 	rh := treeHeight(root.Right)
 
-	if Abs(rh-lh) < 2 && isBalanced(root.Left) && isBalanced(root.Right) {
+	if Abs(rh-lh) < 2 && isBalanced1(root.Left) && isBalanced1(root.Right) {
 		return true
 	}
 
