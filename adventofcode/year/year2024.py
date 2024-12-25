@@ -1,5 +1,6 @@
 import collections
 import dataclasses
+import functools
 import re
 import typing
 
@@ -129,7 +130,7 @@ class Day03(days.Day):
 class Day04(days.Day):
     xmas_pattern = 'XMAS'
     mas_pattern = {'MAS', 'SAM'}
-    directions = [
+    directions = {
         datatypes.Direction.up(),
         datatypes.Direction.down(),
         datatypes.Direction.left(),
@@ -138,7 +139,7 @@ class Day04(days.Day):
         datatypes.Direction.up_right(),
         datatypes.Direction.down_left(),
         datatypes.Direction.down_right(),
-    ]
+    }
 
     def parse(self) -> datatypes.Grid:
         raw = []
@@ -171,9 +172,9 @@ class Day04(days.Day):
 
         for direct in self.directions:
             for idx, _ in enumerate(self.xmas_pattern):
-                point, is_ok = start.move(direct.increase(idx))
+                point = start.next(direct.increase(idx))
 
-                if not is_ok or point != self.xmas_pattern[idx]:
+                if point.outside or point != self.xmas_pattern[idx]:
                     break
             else:
                 count += 1
@@ -181,20 +182,20 @@ class Day04(days.Day):
         return count
 
     def _find_mas_pattern_main_diag(self, point: datatypes.Point) -> bool:
-        up_left, ok_left = point.move(datatypes.Direction.up_left())
-        down_right, ok_right = point.move(datatypes.Direction.down_right())
+        up_left = point.next(datatypes.Direction.up_left())
+        down_right = point.next(datatypes.Direction.down_right())
 
         line = ''.join(map(str, (up_left, point, down_right)))
 
-        return ok_left and ok_right and line in self.mas_pattern
+        return up_left.inside and down_right.inside and line in self.mas_pattern
 
     def _find_mas_pattern_sub_diag(self, point: datatypes.Point) -> bool:
-        up_right, ok_right = point.move(datatypes.Direction.up_right())
-        down_left, ok_left = point.move(datatypes.Direction.down_left())
+        up_right = point.next(datatypes.Direction.up_right())
+        down_left = point.next(datatypes.Direction.down_left())
 
         line = ''.join(map(str, (up_right, point, down_left)))
 
-        return ok_right and ok_left and line in self.mas_pattern
+        return up_right.inside and down_left.inside and line in self.mas_pattern
 
     def _find_mas_pattern(self, start: datatypes.Point) -> bool:
         return self._find_mas_pattern_main_diag(start) and self._find_mas_pattern_sub_diag(start)
@@ -307,9 +308,9 @@ class Day06(days.Day):
             if start == point:
                 continue
 
-            point.mark = '#'
+            grid[point] = '#'
             ans += self._detect_cycle(start, direction, grid.size)
-            point.mark = '.'
+            grid[point] = '.'
 
         return ans
 
@@ -318,9 +319,9 @@ class Day06(days.Day):
         while tries > 0:
             tries -= 1
 
-            next_point, is_ok = point.move(direct)
+            next_point = point.next(direct)
 
-            if not is_ok:
+            if next_point.outside:
                 break
 
             if next_point == '#':
@@ -344,13 +345,13 @@ class Day06(days.Day):
         return start
 
     @classmethod
-    def _travel(cls, point: datatypes.Point, direct: datatypes.Direction) -> set[datatypes.Point]:
+    def _travel(cls, point: datatypes.Point, direct: datatypes.Direction) -> datatypes.UniqPoints:
         visited = set()
 
         while True:
-            next_point, is_ok = point.move(direct)
+            next_point = point.next(direct)
 
-            if not is_ok:
+            if next_point.outside:
                 break
 
             if next_point == '#':
@@ -454,7 +455,7 @@ class Day08(days.Day):
 
     def second_star(self) -> int:
         grid = self.parse()
-        anti_nodes: set[datatypes.Point] = set()
+        anti_nodes: datatypes.UniqPoints = set()
 
         for antenna1, antenna2 in self._yield_antennas(grid):
             anti_nodes.update((antenna1, antenna2))
@@ -624,7 +625,7 @@ class Day09(days.Day):
         allowed: int,
         end: int,
         want: int,
-    ) -> list[str]:
+    ) -> datatypes.Strs:
         right1 = end + 1
         right2 = right1 + want
 
@@ -637,3 +638,430 @@ class Day09(days.Day):
         )
 
         return fragments
+
+
+@dataclasses.dataclass
+class Day10(days.Day):
+    directions = {
+        datatypes.Direction.up(),
+        datatypes.Direction.down(),
+        datatypes.Direction.left(),
+        datatypes.Direction.right(),
+    }
+
+    def parse(self) -> datatypes.Grid:
+        raw = []
+
+        for line in funcs.split(self.indata):
+            raw.append(list(line))
+
+        return datatypes.Grid(raw)
+
+    def first_star(self) -> int:
+        grid = self.parse()
+        ans = 0
+
+        for line in grid:
+            for point in line:
+                if point != '0':
+                    continue
+
+                ans += len(self._travel_map(point))
+
+        return ans
+
+    def second_star(self) -> int:
+        grid = self.parse()
+        ans = 0
+
+        for line in grid:
+            for point in line:
+                if point != '0':
+                    continue
+
+                ans += self._count_map(point)
+
+        return ans
+
+    @classmethod
+    def _can_move(cls, from_point: datatypes.Point, to_point: datatypes.Point) -> bool:
+        return int(to_point.mark) - int(from_point.mark) == 1
+
+    def _find_next_moves(self, point: datatypes.Point) -> list[datatypes.Point]:
+        points = []
+
+        for direct in self.directions:
+            next_point = point.next(direct)
+
+            if next_point.outside:
+                continue
+
+            if self._can_move(point, next_point):
+                points.append(next_point)
+
+        return points
+
+    def _travel_map(self, point: datatypes.Point) -> datatypes.UniqPoints:
+        if point == '9':
+            return {point}
+
+        ans = set()
+
+        for next_point in self._find_next_moves(point):
+            ans.update(self._travel_map(next_point))
+
+        return ans
+
+    def _count_map(self, point: datatypes.Point) -> int:
+        if point == '9':
+            return 1
+
+        return sum(self._count_map(next_point) for next_point in self._find_next_moves(point))
+
+
+@dataclasses.dataclass
+class Day11(days.Day):
+    def parse(self) -> datatypes.Ints:
+        stones: datatypes.Ints = []
+
+        for line in funcs.split(self.indata):
+            stones.extend(map(int, line.split()))
+
+        return stones
+
+    def first_star(self) -> int:
+        stones = self.parse()
+        blinks = 25
+
+        return self._blink(tuple(stones), blinks)
+
+    def second_star(self) -> int:
+        stones = self.parse()
+        blinks = 75
+
+        return self._blink(tuple(stones), blinks)
+
+    @classmethod
+    @functools.cache
+    def _transform_stone(cls, stone: int) -> datatypes.IntsTuple:
+        if stone == 0:
+            return (1,)
+
+        as_str = str(stone)
+        lstr = len(as_str)
+        year = 2024
+
+        if lstr % 2 == 0:
+            half = lstr // 2
+            return int(as_str[:half]), int(as_str[half:])
+
+        return (stone * year,)
+
+    @classmethod
+    @functools.cache
+    def _blink(cls, stones: datatypes.IntsTuple, blink: int) -> int:
+        if blink == 0:
+            return len(stones)
+
+        if len(stones) == 1:
+            stones = cls._transform_stone(stones[0])
+
+            return cls._blink(stones, blink - 1)
+
+        return sum(cls._blink((stone,), blink) for stone in stones)
+
+
+@dataclasses.dataclass
+class Day12(days.Day):
+    directions = {
+        datatypes.Direction.up(),
+        datatypes.Direction.down(),
+        datatypes.Direction.left(),
+        datatypes.Direction.right(),
+    }
+    _checks = {
+        (datatypes.Direction.up(), datatypes.Direction.left()),
+        (datatypes.Direction.right(), datatypes.Direction.up()),
+        (datatypes.Direction.down(), datatypes.Direction.right()),
+        (datatypes.Direction.left(), datatypes.Direction.down()),
+    }
+
+    def parse(self) -> datatypes.Grid:
+        raw = []
+
+        for line in funcs.split(self.indata):
+            raw.append(list(line))
+
+        return datatypes.Grid(raw)
+
+    def first_star(self) -> int:
+        ans = 0
+
+        for region in self._collect_regions(self.parse()):
+            perimeter = 0
+
+            for point in region:
+                for direct in self.directions:
+                    if point.next(direct) not in region:
+                        perimeter += 1
+
+            ans += len(region) * perimeter
+
+        return ans
+
+    def second_star(self) -> int:  # noqa:WPS210,WPS231
+        grid = self.parse()
+        ans = 0
+
+        for region in self._collect_regions(grid):
+            num_sides = 0
+
+            for point in region:
+                for direct in self._checks:
+                    point_a = point.next(direct[0])
+                    point_b = point.next(direct[1])
+                    point_ab = point_a.next(direct[1])
+
+                    a_ok = point_a in region
+                    b_ok = point_b in region
+                    ab_ok = point_ab in region
+
+                    both_outside = not a_ok and not b_ok
+                    forms_corner = a_ok and b_ok and not ab_ok
+
+                    if both_outside or forms_corner:
+                        num_sides += 1
+
+            ans += len(region) * num_sides
+
+        return ans
+
+    def _travel(self, point: datatypes.Point) -> typing.Iterator[datatypes.Point]:
+        for direct in self.directions:
+            next_point = point.next(direct)
+
+            if next_point.outside:
+                continue
+
+            yield next_point
+
+    def _collect_region(self, visited: datatypes.UniqPoints, start: datatypes.Point) -> datatypes.UniqPoints:
+        if start in visited:
+            return set()
+
+        visited.add(start)
+        region = {start}
+
+        for next_point in self._travel(start):
+            if next_point.mark != start.mark:
+                continue
+
+            region.update(self._collect_region(visited, next_point))
+
+        return region
+
+    def _collect_regions(self, grid: datatypes.Grid) -> typing.Iterator[datatypes.UniqPoints]:
+        visited: datatypes.UniqPoints = set()
+
+        for row in grid:
+            for point in row:
+                if point in visited:
+                    continue
+
+                region = self._collect_region(visited, point)
+                if region:
+                    yield region
+
+
+@dataclasses.dataclass(slots=True)
+class Button:
+    cost_x: int
+    cost_y: int
+
+
+@dataclasses.dataclass(slots=True)
+class Prize:
+    value_x: int
+    value_y: int
+
+
+NumPair: typing.TypeAlias = tuple[int, int]
+Game = tuple[Button, Button, Prize]
+
+
+@dataclasses.dataclass
+class Day13(days.Day):
+
+    def parse(self) -> list[Game]:  # noqa:WPS210
+        button_a = Button(cost_x=0, cost_y=0)
+        button_b = Button(cost_x=0, cost_y=0)
+        prize = Prize(value_x=0, value_y=0)
+
+        games = []
+        times = 1
+
+        for line in funcs.split(self.indata):
+            match times:
+                case 1:
+                    button_a = Button(*self._parse_nums(line.split('+')))
+                case 2:
+                    button_b = Button(*self._parse_nums(line.split('+')))
+                case 3:
+                    prize = Prize(*self._parse_nums(line.split('=')))
+
+            times += 1
+            if times > 3:
+                games.append((button_a, button_b, prize))
+                times = 1
+
+        return games
+
+    def first_star(self) -> int:
+        games = self.parse()
+        shift = 0
+
+        return sum(self._resolve(*game, shift=shift) for game in games)
+
+    def second_star(self) -> int:
+        games = self.parse()
+        shift = 10000000000000
+
+        return sum(self._resolve(*game, shift=shift) for game in games)
+
+    @classmethod
+    def _parse_nums(cls, parts: datatypes.Strs) -> NumPair:
+        left = int(parts[-2].split(',')[0])
+        right = int(parts[-1])
+
+        return left, right
+
+    @classmethod
+    def _calc(cls, left: Button, right: Button, prize: Prize) -> tuple[int, bool]:
+        divider = right.cost_x * left.cost_y - left.cost_x * right.cost_y
+        dividend = prize.value_x * left.cost_y - prize.value_y * left.cost_x
+
+        if divider == 0:
+            return 0, False
+
+        ans = dividend / divider
+
+        return int(ans), ans == int(ans)
+
+    @classmethod
+    def _resolve(cls, button_a: Button, button_b: Button, prize: Prize, *, shift: int) -> int:
+        prize.value_x += shift
+        prize.value_y += shift
+
+        times_a, ok_a = cls._calc(button_b, button_a, prize)
+        times_b, ok_b = cls._calc(button_a, button_b, prize)
+
+        return 3 * times_a + times_b if ok_a and ok_b else 0
+
+
+@dataclasses.dataclass(slots=True)
+class Position:
+    row: int
+    col: int
+
+
+@dataclasses.dataclass(slots=True)
+class Velocity:
+    row: int
+    col: int
+
+
+@dataclasses.dataclass(slots=True)
+class Robot:
+    pos: Position
+    vel: Velocity
+
+
+Tiles: typing.TypeAlias = list[datatypes.Ints]
+
+
+@dataclasses.dataclass
+class Day14(days.Day):
+    rows: int
+    cols: int
+
+    def parse(self) -> list[Robot]:  # noqa:WPS210
+        robots = []
+
+        for line in funcs.split(self.indata):
+            parts: datatypes.Strs = line.split()
+
+            col, row = map(int, parts[0].lstrip('p=').split(','))
+            v_col, v_row = map(int, parts[1].lstrip('v=').split(','))
+
+            robots.append(Robot(pos=Position(row=row, col=col), vel=Velocity(row=v_row, col=v_col)))
+
+        return robots
+
+    def first_star(self) -> int:
+        robots = self.parse()
+        seconds = 100
+
+        return self._run(robots, seconds)
+
+    def second_star(self) -> int:
+        robots = self.parse()
+        seconds = 10000
+        tree_fact = 69552000  # empirically
+
+        while seconds > 0:
+            fact = self._run(robots, seconds)
+            if fact == tree_fact:
+                return seconds
+
+            seconds -= 1
+
+        return seconds
+
+    def _run(self, robots: list[Robot], seconds: int) -> int:
+        tiles = [[0 for _ in range(self.cols)] for _ in range(self.rows)]
+
+        for robot in robots:
+            tiles = self._move(tiles, robot, seconds)
+
+        return self._calc_safety_factor(tiles)
+
+    def _move(self, tiles: Tiles, robot: Robot, seconds: int) -> Tiles:
+        new_row = robot.pos.row + seconds * robot.vel.row
+        new_col = robot.pos.col + seconds * robot.vel.col
+
+        new_row = new_row % self.rows
+        new_col = new_col % self.cols
+
+        tiles[new_row][new_col] += 1
+
+        return tiles
+
+    def _calc_first_squad(self, tiles: Tiles) -> int:
+        return sum(tiles[row][col] for col in range(self.cols // 2) for row in range(self.rows // 2))
+
+    def _calc_second_squad(self, tiles: Tiles) -> int:
+        return sum(tiles[row][col] for col in range(self.cols // 2) for row in range(self.rows // 2 + 1, len(tiles)))
+
+    def _calc_third_squad(self, tiles: Tiles) -> int:
+        return sum(tiles[row][col] for col in range(self.cols // 2 + 1, len(tiles[0])) for row in range(self.rows // 2))
+
+    def _calc_fourth_squad(self, tiles: Tiles) -> int:
+        return sum(
+            tiles[row][col]
+            for col in range(self.cols // 2 + 1, len(tiles[0]))
+            for row in range(self.rows // 2 + 1, len(tiles))
+        )
+
+    def _calc_safety_factor(self, tiles: Tiles) -> int:
+        robots = {
+            self._calc_first_squad(tiles),
+            self._calc_second_squad(tiles),
+            self._calc_third_squad(tiles),
+            self._calc_fourth_squad(tiles),
+        }
+
+        mul = 1
+        for num in robots:
+            mul *= num
+
+        return mul

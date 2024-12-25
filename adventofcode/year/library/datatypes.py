@@ -3,9 +3,10 @@ import typing
 
 Ints: typing.TypeAlias = list[int]
 Strs: typing.TypeAlias = list[str]
+IntsTuple: typing.TypeAlias = tuple[int, ...]
 
 
-@dataclasses.dataclass(slots=True, kw_only=True)
+@dataclasses.dataclass(slots=True, kw_only=True, frozen=True)
 class Point:
     row: int
     col: int
@@ -31,13 +32,17 @@ class Point:
     def inside(self) -> bool:
         return 0 <= self.row < self.grid.rows and 0 <= self.col < self.grid.cols
 
-    def move(self, direct: 'Direction') -> tuple['Point', bool]:
+    @property
+    def outside(self) -> bool:
+        return not self.inside
+
+    def next(self, direct: 'Direction') -> 'Point':
         next_point = Point(row=self.row + direct.row, col=self.col + direct.col, mark='', grid=self.grid)
 
         if next_point.inside:
-            return self.grid[next_point], True
+            return self.grid[next_point]
 
-        return self, False
+        return next_point
 
 
 _up = '^'
@@ -51,6 +56,15 @@ class Direction:  # noqa:WPS214
     row: int = 0
     col: int = 0
     name: str = ''
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Direction):
+            return NotImplemented
+
+        return (self.row, self.col, self.name) == (other.row, other.col, other.name)
+
+    def __hash__(self) -> int:
+        return hash((self.row, self.col, self.name))
 
     def increase(self, mul: int) -> 'Direction':
         mul_row = mul * self.row
@@ -139,5 +153,11 @@ class Grid:
     def __getitem__(self, point: Point) -> Point:
         return self.points[point.row][point.col]
 
-    def point(self, row: int, col: int, mark: str = '') -> Point:
-        return Point(row=row, col=col, mark=mark, grid=self)
+    def __setitem__(self, point: Point, mark: str) -> None:
+        self.points[point.row][point.col] = Point(row=point.row, col=point.col, mark=mark, grid=self)
+
+    def point(self, row: int, col: int) -> Point:
+        return Point(row=row, col=col, mark='', grid=self)
+
+
+UniqPoints: typing.TypeAlias = set[Point]

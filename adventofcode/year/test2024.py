@@ -211,3 +211,113 @@ class TestDay09:
         got = year2024.Day09(indata).second_star()
 
         _assert(got, want, star=2)
+
+
+class TestDay10:
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day10_example, 36), (data2024.day10_input, 820)],
+        ids=_ids(),
+    )
+    def test_first_star(self, indata: str, want: int) -> None:
+        got = year2024.Day10(indata).first_star()
+
+        _assert(got, want, star=1)
+
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day10_example, 81), (data2024.day10_input, 1786)],
+        ids=_ids(),
+    )
+    def test_second_star(self, indata: str, want: int) -> None:
+        got = year2024.Day10(indata).second_star()
+
+        _assert(got, want, star=2)
+
+
+class TestDay11:
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day11_example, 55312), (data2024.day11_input, 183484)],
+        ids=_ids(),
+    )
+    def test_first_star(self, indata: str, want: int) -> None:
+        got = year2024.Day11(indata).first_star()
+
+        _assert(got, want, star=1)
+
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day11_example, 65601038650482), (data2024.day11_input, 218817038947400)],
+        ids=_ids(),
+    )
+    def test_second_star(self, indata: str, want: int) -> None:
+        got = year2024.Day11(indata).second_star()
+
+        _assert(got, want, star=2)
+
+
+class TestDay12:
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day12_example, 1930), (data2024.day12_input, 1396298)],
+        ids=_ids(),
+    )
+    def test_first_star(self, indata: str, want: int) -> None:
+        got = year2024.Day12(indata).first_star()
+
+        _assert(got, want, star=1)
+
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day12_example, 1206), (data2024.day12_input, 853588)],
+        ids=_ids(),
+    )
+    def test_second_star(self, indata: str, want: int) -> None:
+        got = year2024.Day12(indata).second_star()
+
+        _assert(got, want, star=2)
+
+
+class TestDay13:
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day13_example, 480), (data2024.day13_input, 36838)],
+        ids=_ids(),
+    )
+    def test_first_star(self, indata: str, want: int) -> None:
+        got = year2024.Day13(indata).first_star()
+
+        _assert(got, want, star=1)
+
+    @pytest.mark.parametrize(
+        _test_params,
+        [(data2024.day13_example, 875318608908), (data2024.day13_input, 83029436920891)],
+        ids=_ids(),
+    )
+    def test_second_star(self, indata: str, want: int) -> None:
+        got = year2024.Day13(indata).second_star()
+
+        _assert(got, want, star=2)
+
+
+class TestDay14:
+    @pytest.mark.parametrize(
+        f'{_test_params}, rows, cols',
+        [(data2024.day14_example, 12, 7, 11), (data2024.day14_input, 214400550, 103, 101)],
+        ids=_ids(),
+    )
+    def test_first_star(self, indata: str, want: int, rows: int, cols: int) -> None:
+        got = year2024.Day14(indata, rows, cols).first_star()
+
+        _assert(got, want, star=1)
+
+    @pytest.mark.parametrize(
+        f'{_test_params}, rows, cols',
+        [(data2024.day14_example, 0, 7, 11), (data2024.day14_input, 8149, 103, 101)],
+        ids=_ids(),
+    )
+    def test_second_star(self, indata: str, want: int, rows: int, cols: int) -> None:
+        got = year2024.Day14(indata, rows, cols).second_star()
+
+        _assert(got, want, star=2)
