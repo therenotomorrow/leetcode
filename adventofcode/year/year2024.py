@@ -26,7 +26,7 @@ class Day01(days.Day):
         left_list.sort()
         right_list.sort()
 
-        return sum(abs(right - left) for right, left in zip(right_list, left_list))  # noqa: WPS221
+        return sum(abs(right - left) for right, left in zip(right_list, left_list))
 
     def second_star(self) -> int:
         left_list, right_list = self.parse()
@@ -88,7 +88,7 @@ class Day03(days.Day):
         return self.indata.strip()
 
     def first_star(self) -> int:
-        return sum(int(num1) * int(num2) for num1, num2 in self.mul_pattern.findall(self.parse()))  # noqa: WPS221
+        return sum(int(num1) * int(num2) for num1, num2 in self.mul_pattern.findall(self.parse()))
 
     def second_star(self) -> int:
         mul = self._find_mul(self.parse())
@@ -154,7 +154,7 @@ class Day04(days.Day):
 
         for line in puzzle:
             for point in line:
-                if point.mark != 'X':
+                if point != 'X':
                     continue
 
                 count += self._find_xmas_pattern(point)
@@ -173,7 +173,7 @@ class Day04(days.Day):
             for idx, _ in enumerate(self.xmas_pattern):
                 point, is_ok = start.move(direct.increase(idx))
 
-                if not is_ok or point.mark != self.xmas_pattern[idx]:
+                if not is_ok or point != self.xmas_pattern[idx]:
                     break
             else:
                 count += 1
@@ -184,7 +184,7 @@ class Day04(days.Day):
         up_left, ok_left = point.move(datatypes.Direction.up_left())
         down_right, ok_right = point.move(datatypes.Direction.down_right())
 
-        line = ''.join((up_left.mark, point.mark, down_right.mark))
+        line = ''.join(map(str, (up_left, point, down_right)))
 
         return ok_left and ok_right and line in self.mas_pattern
 
@@ -192,7 +192,7 @@ class Day04(days.Day):
         up_right, ok_right = point.move(datatypes.Direction.up_right())
         down_left, ok_left = point.move(datatypes.Direction.down_left())
 
-        line = ''.join((up_right.mark, point.mark, down_left.mark))
+        line = ''.join(map(str, (up_right, point, down_left)))
 
         return ok_right and ok_left and line in self.mas_pattern
 
@@ -274,7 +274,7 @@ class Day05(days.Day):
     def _sort_update(cls, update: Update, rules: Ruleset) -> Update:
         return sorted(
             update,
-            key=lambda rule: sum(rule in rules.get(num, set()) for num in update),  # noqa: WPS221
+            key=lambda rule: sum(rule in rules.get(num, set()) for num in update),
             reverse=True,
         )
 
@@ -292,14 +292,14 @@ class Day06(days.Day):
     def first_star(self) -> int:
         grid = self.parse()
         start = self._find_start(grid)
-        direction = datatypes.Direction(name=start.mark)
+        direction = datatypes.Direction.new(start.mark)
 
         return len(self._travel(start, direction))
 
     def second_star(self) -> int:
         grid = self.parse()
         start = self._find_start(grid)
-        direction = datatypes.Direction(name=start.mark)
+        direction = datatypes.Direction.new(start.mark)
 
         ans = 0
 
@@ -314,20 +314,19 @@ class Day06(days.Day):
         return ans
 
     @classmethod
-    def _detect_cycle(cls, start: datatypes.Point, direct: datatypes.Direction, tries: int) -> bool:
-        point = start.clone
-
+    def _detect_cycle(cls, point: datatypes.Point, direct: datatypes.Direction, tries: int) -> bool:
         while tries > 0:
             tries -= 1
 
-            point, is_ok = point.move(direct)
+            next_point, is_ok = point.move(direct)
 
             if not is_ok:
                 break
 
-            if point.mark == '#':
-                point, _ = point.back(direct)
+            if next_point == '#':
                 direct = direct.turn_right
+            else:
+                point = next_point
 
         return tries == 0
 
@@ -335,8 +334,8 @@ class Day06(days.Day):
     def _find_start(cls, grid: datatypes.Grid) -> datatypes.Point:
         start = datatypes.Point(row=0, col=0, mark='', grid=grid)
 
-        for line in grid:
-            for point in line:
+        for row in grid:
+            for point in row:
                 if point.mark in {'<', '>', '^', 'v'}:
                     start = point
 
@@ -345,22 +344,20 @@ class Day06(days.Day):
         return start
 
     @classmethod
-    def _travel(cls, start: datatypes.Point, direct: datatypes.Direction) -> set[datatypes.Point]:
-        point = start.clone
+    def _travel(cls, point: datatypes.Point, direct: datatypes.Direction) -> set[datatypes.Point]:
         visited = set()
 
         while True:
-            point, is_ok = point.move(direct)
+            next_point, is_ok = point.move(direct)
 
             if not is_ok:
                 break
 
-            if point.mark == '#':
-                point, _ = point.back(direct)
+            if next_point == '#':
                 direct = direct.turn_right
-
                 continue
 
+            point = next_point
             visited.add(point)
 
         return visited
@@ -426,3 +423,217 @@ class Day07(days.Day):
         is_mul = cls._is_equal_second(ans, curr * other, numbers[1:])
 
         return is_con or is_sum or is_mul
+
+
+Frequencies = dict[str, list[datatypes.Point]]
+
+
+@dataclasses.dataclass
+class Day08(days.Day):
+    def parse(self) -> datatypes.Grid:
+        raw = []
+
+        for line in funcs.split(self.indata):
+            raw.append(list(line))
+
+        return datatypes.Grid(raw)
+
+    def first_star(self) -> int:
+        grid = self.parse()
+        anti_nodes = set()
+
+        for antenna1, antenna2 in self._yield_antennas(grid):
+            point = grid.point(row=2 * antenna1.row - antenna2.row, col=2 * antenna1.col - antenna2.col)
+
+            if not point.inside:
+                continue
+
+            anti_nodes.add(point)
+
+        return len(anti_nodes)
+
+    def second_star(self) -> int:
+        grid = self.parse()
+        anti_nodes: set[datatypes.Point] = set()
+
+        for antenna1, antenna2 in self._yield_antennas(grid):
+            anti_nodes.update((antenna1, antenna2))
+            diagonal = self._create_diagonal(grid, antenna1, antenna2)
+            anti_nodes.update(diagonal)
+
+        return len(anti_nodes)
+
+    @classmethod
+    def _collect_frequencies(cls, grid: datatypes.Grid) -> Frequencies:
+        frequencies = collections.defaultdict(list)
+
+        for row in grid:
+            for point in row:
+                if point == '.':
+                    continue
+
+                frequencies[point.mark].append(point)
+
+        return frequencies
+
+    @classmethod
+    def _yield_antennas(cls, grid: datatypes.Grid) -> typing.Iterable[tuple[datatypes.Point, datatypes.Point]]:
+        frequencies = cls._collect_frequencies(grid)
+
+        for antennas in frequencies.values():
+            yield from ((antenna1, antenna2) for antenna1 in antennas for antenna2 in antennas if antenna1 != antenna2)
+
+    @classmethod
+    def _create_diagonal(
+        cls,
+        grid: datatypes.Grid,
+        antenna1: datatypes.Point,
+        antenna2: datatypes.Point,
+    ) -> list[datatypes.Point]:
+        diagonal = []
+
+        diff_row = antenna1.row - antenna2.row
+        diff_col = antenna1.col - antenna2.col
+
+        point = grid.point(row=antenna1.row + diff_row, col=antenna1.col + diff_col)
+
+        while point.inside:
+            diagonal.append(point)
+
+            point = grid.point(row=point.row + diff_row, col=point.col + diff_col)
+
+        return diagonal
+
+
+IdxSize: typing.TypeAlias = tuple[int, int]
+
+
+@dataclasses.dataclass
+class Day09(days.Day):
+    def parse(self) -> datatypes.Strs:
+        fragments = []
+        ident = 0
+
+        for idx, char in enumerate(map(int, self.indata.strip())):
+            if idx % 2 == 0:
+                fill = str(ident)
+                ident += 1
+            else:
+                fill = '.'
+
+            fragments.extend([fill for _ in range(char)])
+
+        return fragments
+
+    def first_star(self) -> int:
+        fragments = self.parse()
+        left = 0
+        right = len(fragments) - 1
+
+        while left < right:
+            if fragments[left] != '.':
+                left += 1
+                continue
+
+            if fragments[right] == '.':
+                right -= 1
+                continue
+
+            fragments[left], fragments[right] = fragments[right], fragments[left]  # noqa:WPS414
+            left += 1
+            right -= 1
+
+        return self._calc_checksum(fragments)
+
+    def second_star(self) -> int:  # noqa:WPS231
+        fragments = self.parse()
+
+        left = 0
+        right = len(fragments) - 1
+
+        while right >= 0:
+            if fragments[left] != '.':
+                left += 1
+                continue
+
+            if fragments[right] == '.':
+                right -= 1
+                continue
+
+            right, want_size = self._find_desired_size(fragments, right)
+
+            if left >= right:
+                left = 0
+                continue
+
+            left, allowed_size = self._find_allowed_size(fragments, left)
+
+            if want_size > allowed_size:
+                right += want_size
+                continue
+
+            fragments = self._swap_fragments(
+                fragments,
+                left,
+                allowed_size,
+                right,
+                want_size,
+            )
+            left = 0
+
+        return self._calc_checksum(fragments)
+
+    @classmethod
+    def _calc_checksum(cls, fragments: datatypes.Strs) -> int:
+        ans = 0
+
+        for ident, num in enumerate(fragments):
+            if num == '.':
+                continue
+
+            ans += ident * int(num)
+
+        return ans
+
+    @classmethod
+    def _find_desired_size(cls, fragments: datatypes.Strs, idx: int) -> IdxSize:
+        want = 0
+        fragment = fragments[idx]
+
+        while fragments[idx] == fragment:
+            idx -= 1
+            want += 1
+
+        return idx, want
+
+    @classmethod
+    def _find_allowed_size(cls, fragments: datatypes.Strs, idx: int) -> IdxSize:
+        allowed = 0
+
+        while fragments[idx] == '.':
+            idx += 1
+            allowed += 1
+
+        return idx, allowed
+
+    @classmethod
+    def _swap_fragments(  # noqa:WPS211
+        cls,
+        fragments: datatypes.Strs,
+        start: int,
+        allowed: int,
+        end: int,
+        want: int,
+    ) -> list[str]:
+        right1 = end + 1
+        right2 = right1 + want
+
+        left1 = start - allowed
+        left2 = left1 + want
+
+        fragments[left1:left2], fragments[right1:right2] = (  # noqa:WPS362,WPS414
+            fragments[right1:right2],
+            fragments[left1:left2],
+        )
+
+        return fragments

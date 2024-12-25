@@ -2,7 +2,7 @@ import dataclasses
 import typing
 
 Ints: typing.TypeAlias = list[int]
-PointTuple: typing.TypeAlias = tuple[int, int]
+Strs: typing.TypeAlias = list[str]
 
 
 @dataclasses.dataclass(slots=True, kw_only=True)
@@ -13,6 +13,9 @@ class Point:
     grid: 'Grid'
 
     def __eq__(self, other: object) -> bool:
+        if isinstance(other, str):
+            return self.mark == other
+
         if not isinstance(other, Point):
             return NotImplemented
 
@@ -21,21 +24,20 @@ class Point:
     def __hash__(self) -> int:
         return hash((self.row, self.col))
 
-    def move(self, direct: 'Direction') -> tuple['Point', bool]:
-        next_row = self.row + direct.row
-        next_col = self.col + direct.col
-
-        if 0 <= next_row < self.grid.rows and 0 <= next_col < self.grid.cols:
-            return self.grid[next_row][next_col], True
-
-        return self, False
-
-    def back(self, direct: 'Direction') -> tuple['Point', bool]:
-        return self.move(direct.opposite)
+    def __str__(self) -> str:
+        return self.mark
 
     @property
-    def clone(self) -> 'Point':
-        return Point(row=self.row, col=self.col, mark=self.mark, grid=self.grid)
+    def inside(self) -> bool:
+        return 0 <= self.row < self.grid.rows and 0 <= self.col < self.grid.cols
+
+    def move(self, direct: 'Direction') -> tuple['Point', bool]:
+        next_point = Point(row=self.row + direct.row, col=self.col + direct.col, mark='', grid=self.grid)
+
+        if next_point.inside:
+            return self.grid[next_point], True
+
+        return self, False
 
 
 _up = '^'
@@ -44,44 +46,28 @@ _left = '<'
 _right = '>'
 
 
-class Direction:  # noqa: WPS214
-    def __init__(self, *, row: int = 0, col: int = 0, name: str = ''):
-        self.name = name
-        self.row = row
-        self.col = col
-
-        if self.name == _up:
-            self.row = -1
-            self.col = 0
-        elif self.name == _down:
-            self.row = 1
-            self.col = 0
-        elif self.name == _left:
-            self.row = 0
-            self.col = -1
-        elif self.name == _right:
-            self.row = 0
-            self.col = 1
+@dataclasses.dataclass(slots=True, kw_only=True, frozen=True)
+class Direction:  # noqa:WPS214
+    row: int = 0
+    col: int = 0
+    name: str = ''
 
     def increase(self, mul: int) -> 'Direction':
         mul_row = mul * self.row
         mul_col = mul * self.col
 
-        direct = Direction(row=mul_row, col=mul_col)
-        direct.name = self.name
+        return Direction(row=mul_row, col=mul_col, name=self.name)
 
-        return direct
-
-    @property
-    def opposite(self) -> 'Direction':
-        if self.name == _up:
-            return self.down()
-        if self.name == _down:
-            return self.up()
-        if self.name == _left:
-            return self.right()
-        if self.name == _right:
-            return self.left()
+    @classmethod
+    def new(cls, name: str) -> 'Direction':
+        if name == _up:
+            return cls.up()
+        if name == _down:
+            return cls.down()
+        if name == _left:
+            return cls.left()
+        if name == _right:
+            return cls.right()
 
         raise NotImplementedError()
 
@@ -100,19 +86,19 @@ class Direction:  # noqa: WPS214
 
     @classmethod
     def up(cls) -> 'Direction':
-        return cls(name=_up)
+        return cls(row=-1, name=_up)
 
     @classmethod
     def down(cls) -> 'Direction':
-        return cls(name=_down)
+        return cls(row=1, name=_down)
 
     @classmethod
     def left(cls) -> 'Direction':
-        return cls(name=_left)
+        return cls(col=-1, name=_left)
 
     @classmethod
     def right(cls) -> 'Direction':
-        return cls(name=_right)
+        return cls(col=1, name=_right)
 
     @classmethod
     def up_left(cls) -> 'Direction':
@@ -131,11 +117,8 @@ class Direction:  # noqa: WPS214
         return cls(row=1, col=1)
 
 
-GridRaw: typing.TypeAlias = list[list[str]]
-
-
 class Grid:
-    def __init__(self, grid: GridRaw):
+    def __init__(self, grid: list[Strs]):
         self.points = []
 
         for row, line in enumerate(grid):
@@ -153,5 +136,8 @@ class Grid:
     def __iter__(self) -> typing.Iterator[list[Point]]:
         return iter(self.points)
 
-    def __getitem__(self, idx: int) -> list[Point]:
-        return self.points[idx]
+    def __getitem__(self, point: Point) -> Point:
+        return self.points[point.row][point.col]
+
+    def point(self, row: int, col: int, mark: str = '') -> Point:
+        return Point(row=row, col=col, mark=mark, grid=self)
