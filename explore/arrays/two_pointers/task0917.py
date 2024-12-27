@@ -12,7 +12,7 @@ def reverse_only_letters(text: str) -> str:
             right -= 1
             continue
 
-        chars[left], chars[right] = chars[right], chars[left]
+        chars[left], chars[right] = chars[right], chars[left]  # noqa:WPS414
         left += 1
         right -= 1
 

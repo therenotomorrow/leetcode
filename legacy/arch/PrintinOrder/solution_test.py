@@ -7,9 +7,8 @@ import unittest
 from solution import Foo
 
 
-def printer(pos: str) -> None:
+def printer(_: str) -> None:
     time.sleep(random.randint(1, 3))
-    print(pos)
 
 
 class TestFoo(unittest.TestCase):
@@ -18,15 +17,15 @@ class TestFoo(unittest.TestCase):
         threads = [
             threading.Thread(
                 target=foo.third,
-                args=(functools.partial(printer, pos='third'),),
+                args=(functools.partial(printer, 'third'),),
             ),
             threading.Thread(
                 target=foo.second,
-                args=(functools.partial(printer, pos='second'),),
+                args=(functools.partial(printer, 'second'),),
             ),
             threading.Thread(
                 target=foo.first,
-                args=(functools.partial(printer, pos='first'),),
+                args=(functools.partial(printer, 'first'),),
             ),
         ]
 

@@ -8,7 +8,7 @@ def reverse_words(text: str) -> str:
             end = idx - 1
 
             while start < end:
-                chars[start], chars[end] = chars[end], chars[start]
+                chars[start], chars[end] = chars[end], chars[start]  # noqa:WPS414
                 start += 1
                 end -= 1
 

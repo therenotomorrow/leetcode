@@ -6,7 +6,7 @@ def reverse_string(chars: list[str]) -> None:
     right = len(chars) - 1
 
     while left < right:
-        chars[left], chars[right] = chars[right], chars[left]
+        chars[left], chars[right] = chars[right], chars[left]  # noqa:WPS414
         left += 1
         right -= 1
 

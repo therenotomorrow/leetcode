@@ -102,6 +102,7 @@ class TestAddPoly:
         while got:
             want = typing.cast(PolyNode, want)
 
-            assert got.coefficient == want.coefficient and got.power == want.power, f'add_poly() = {got}, want = {want}'
+            assert got.coefficient == want.coefficient, f'add_poly() = {got}, want = {want}'
+            assert got.power == want.power, f'add_poly() = {got}, want = {want}'
 
             got, want = got.next, want.next

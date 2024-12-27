@@ -1,11 +1,13 @@
 - 241: https://leetcode.com/problems/different-ways-to-add-parentheses/description/
 - 265: https://leetcode.com/problems/paint-house-ii/description/
 - 432: https://leetcode.com/problems/all-oone-data-structure/description/
+- 494: https://leetcode.com/problems/target-sum/description/
 - 632: https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/description/
 - 670: https://leetcode.com/problems/maximum-swap/description/
 - 731: https://leetcode.com/problems/my-calendar-ii/description/
 - 862: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/description/
 - 951: https://leetcode.com/problems/flip-equivalent-binary-trees/description/
+- 1014: https://leetcode.com/problems/best-sightseeing-pair/description/
 - 1106: https://leetcode.com/problems/parsing-a-boolean-expression/description/
 - 1229: https://leetcode.com/problems/meeting-scheduler/description/
 - 1233: https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/description/
@@ -13,6 +15,7 @@
 - 1277: https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/
 - 1545: https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/description/
 - 1593: https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/description/
+- 1644: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/
 - 1671: https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/description/
 - 1792: https://leetcode.com/problems/maximum-average-pass-ratio/description/
 - 1804: https://leetcode.com/problems/implement-trie-ii-prefix-tree/description/
@@ -28,6 +31,7 @@
 - 2458: https://leetcode.com/problems/height-of-binary-tree-after-subtree-removal-queries/description/
 - 2461: https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
 - 2463: https://leetcode.com/problems/minimum-total-distance-traveled/description/
+- 2471: https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/description/
 - 2501: https://leetcode.com/problems/longest-square-streak-in-an-array/description/
 - 2530: https://leetcode.com/problems/maximal-score-after-applying-k-operations/description/
 - 2577: https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid/description/
@@ -39,7 +43,10 @@
 - 2762: https://leetcode.com/problems/continuous-subarrays/description/
 - 2832: https://leetcode.com/problems/maximal-range-that-each-element-is-maximum-in-it/description/
 - 2838: https://leetcode.com/problems/maximum-coins-heroes-can-collect/description/
+- 2872: https://leetcode.com/problems/maximum-number-of-k-divisible-components/description/
+- 2940: https://leetcode.com/problems/find-building-where-alice-and-bob-can-meet/description/
 - 2955: https://leetcode.com/problems/number-of-same-end-substrings/description/
 - 3043: https://leetcode.com/problems/find-the-length-of-the-longest-common-prefix/description/
 - 3163: https://leetcode.com/problems/string-compression-iii/description/
+- 3203: https://leetcode.com/problems/find-minimum-diameter-after-merging-two-trees/description/
 - 3254: https://leetcode.com/problems/find-the-power-of-k-size-subarrays-i/description/
