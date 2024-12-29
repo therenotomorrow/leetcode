@@ -4,6 +4,7 @@
 - 494: https://leetcode.com/problems/target-sum/description/
 - 632: https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/description/
 - 670: https://leetcode.com/problems/maximum-swap/description/
+- 689: https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/description/
 - 731: https://leetcode.com/problems/my-calendar-ii/description/
 - 862: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/description/
 - 951: https://leetcode.com/problems/flip-equivalent-binary-trees/description/
@@ -15,7 +16,8 @@
 - 1277: https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/
 - 1545: https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/description/
 - 1593: https://leetcode.com/problems/split-a-string-into-the-max-number-of-unique-substrings/description/
-- 1644: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/
+- 1639: https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary/description/
+- 1644: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/description/
 - 1671: https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/description/
 - 1792: https://leetcode.com/problems/maximum-average-pass-ratio/description/
 - 1804: https://leetcode.com/problems/implement-trie-ii-prefix-tree/description/
