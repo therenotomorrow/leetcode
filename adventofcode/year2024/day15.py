@@ -10,7 +10,7 @@ _big_o = 'O'
 
 @dataclasses.dataclass
 class Day(datatypes.Day):
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         parts = funcs.parts(self.indata)
 
         grid = _parse_grid(parts[0])
@@ -21,7 +21,7 @@ class Day(datatypes.Day):
 
         return _calc_gps(grid, _big_o)
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         parts = funcs.parts(self.indata)
 
         grid = _parse_wide(parts[0])
@@ -174,7 +174,10 @@ def _move_horizontal(
     return point.next(direct)
 
 
-def _is_possible_move(point: datatypes.Point, direct: datatypes.Direction) -> dict[int, datatypes.IntsSet]:
+def _is_possible_move(  # noqa:WPS231
+    point: datatypes.Point,
+    direct: datatypes.Direction,
+) -> dict[int, datatypes.IntsSet]:
     queue = collections.deque[datatypes.Point]()
     rows: dict[int, datatypes.IntsSet] = collections.defaultdict(set)
 

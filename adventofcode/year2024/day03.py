@@ -12,10 +12,10 @@ class Day(datatypes.Day):
     def parse(self) -> str:
         return self.indata.strip()
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         return sum(int(num1) * int(num2) for num1, num2 in self.mul_pattern.findall(self.parse()))
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         mul = self._find_mul(self.parse())
         doe = self._find_do(self.parse())
 

@@ -17,7 +17,7 @@ class Day(datatypes.Day):
 
         return datatypes.Grid(raw)
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         grid = self.parse()
         anti_nodes = set()
 
@@ -31,7 +31,7 @@ class Day(datatypes.Day):
 
         return len(anti_nodes)
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         grid = self.parse()
         anti_nodes: datatypes.UniqPoints = set()
 

@@ -78,7 +78,7 @@ def largest_unique_number(nums: list[int]) -> int:
     return ans
 
 
-def max_number_of_balloons(text: str) -> int:
+def max_number_of_balloons(text: str) -> int:  # noqa:WPS231
     cnt: dict[str, int] = collections.defaultdict(int)
 
     for char in text:

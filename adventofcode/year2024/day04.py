@@ -26,7 +26,7 @@ class Day(datatypes.Day):
 
         return datatypes.Grid(raw)
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         puzzle = self.parse()
         count = 0
 
@@ -39,7 +39,7 @@ class Day(datatypes.Day):
 
         return count
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         puzzle = self.parse()
 
         return sum(self._find_mas_pattern(point) for line in puzzle for point in line)

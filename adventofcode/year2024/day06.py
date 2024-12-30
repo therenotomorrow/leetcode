@@ -16,13 +16,13 @@ class Day(datatypes.Day):
 
         return grid, start
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         grid, start = self.parse()
         direction = datatypes.Direction.new(start.mark)
 
         return len(_travel(start, direction))
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         grid, start = self.parse()
         direction = datatypes.Direction.new(start.mark)
 

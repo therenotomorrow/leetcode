@@ -27,7 +27,7 @@ class Day(datatypes.Day):
 
         return datatypes.Grid(raw)
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         ans = 0
 
         for region in self._collect_regions(self.parse()):
@@ -42,7 +42,7 @@ class Day(datatypes.Day):
 
         return ans
 
-    def second_star(self) -> int:  # noqa:WPS210,WPS231
+    def second_star(self) -> datatypes.DayResult:  # noqa:WPS210,WPS231
         grid = self.parse()
         ans = 0
 

@@ -20,7 +20,7 @@ class Day(datatypes.Day):
 
         return datatypes.Grid(raw)
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         grid = self.parse()
         ans = 0
 
@@ -33,7 +33,7 @@ class Day(datatypes.Day):
 
         return ans
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         grid = self.parse()
         ans = 0
 

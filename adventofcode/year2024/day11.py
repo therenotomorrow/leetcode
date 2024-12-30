@@ -14,13 +14,13 @@ class Day(datatypes.Day):
 
         return stones
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         stones = self.parse()
         blinks = 25
 
         return _blink(tuple(stones), blinks)
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         stones = self.parse()
         blinks = 75
 

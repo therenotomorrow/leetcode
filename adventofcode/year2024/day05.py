@@ -19,7 +19,7 @@ class Day(datatypes.Day):
 
         return updates, ruleset
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         updates, ruleset = self.parse()
         total = 0
 
@@ -29,7 +29,7 @@ class Day(datatypes.Day):
 
         return total
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         updates, ruleset = self.parse()
         total = 0
 

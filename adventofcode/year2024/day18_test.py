@@ -3495,8 +3495,8 @@ class TestDay:
 
     @pytest.mark.parametrize(
         'indata, want, size, corrupted',
-        [(example, 601, 7, 12), (answer, 4312, 71, 1024)],
+        [(example, '6,1', 7, 12), (answer, '43,12', 71, 1024)],
         ids=testit.ids(),
     )
-    def test_second_star(self, indata: str, want: int, size: int, corrupted: int) -> None:
+    def test_second_star(self, indata: str, want: str, size: int, corrupted: int) -> None:
         testit.second_star(day18.Day(indata, size, corrupted), want)

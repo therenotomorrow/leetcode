@@ -33,6 +33,7 @@
 - 2458: https://leetcode.com/problems/height-of-binary-tree-after-subtree-removal-queries/description/
 - 2461: https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
 - 2463: https://leetcode.com/problems/minimum-total-distance-traveled/description/
+- 2466: https://leetcode.com/problems/count-ways-to-build-good-strings/description/
 - 2471: https://leetcode.com/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/description/
 - 2501: https://leetcode.com/problems/longest-square-streak-in-an-array/description/
 - 2530: https://leetcode.com/problems/maximal-score-after-applying-k-operations/description/

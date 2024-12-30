@@ -4,7 +4,7 @@ import typing
 Ints: typing.TypeAlias = list[int]
 Strs: typing.TypeAlias = list[str]
 IntsTuple: typing.TypeAlias = tuple[int, ...]
-StrsTuple: typing.TypeAlias = tuple[str, str]
+StrsTuple: typing.TypeAlias = tuple[str, ...]
 IntsSet: typing.TypeAlias = set[int]
 
 
@@ -216,14 +216,15 @@ class Grid:
 
 UniqPoints: typing.TypeAlias = set[Point]
 Directions: typing.TypeAlias = list[Direction]
+DayResult: typing.TypeAlias = int | str
 
 
 @dataclasses.dataclass
 class Day:
     indata: str
 
-    def first_star(self) -> int:
+    def first_star(self) -> DayResult:
         raise NotImplementedError()
 
-    def second_star(self) -> int:
+    def second_star(self) -> DayResult:
         raise NotImplementedError()

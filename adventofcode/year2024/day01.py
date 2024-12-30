@@ -18,7 +18,7 @@ class Day(datatypes.Day):
 
         return left_list, right_list
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         left_list, right_list = self.parse()
 
         left_list.sort()
@@ -26,7 +26,7 @@ class Day(datatypes.Day):
 
         return sum(abs(right - left) for right, left in zip(right_list, left_list))
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         left_list, right_list = self.parse()
 
         count = collections.Counter(right_list)

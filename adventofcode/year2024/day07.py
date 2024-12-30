@@ -17,7 +17,7 @@ class Day(datatypes.Day):
 
         return calibration
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         calibration = self.parse()
         total = 0
 
@@ -27,7 +27,7 @@ class Day(datatypes.Day):
 
         return total
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         calibration = self.parse()
         total = 0
 

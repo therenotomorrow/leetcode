@@ -4,19 +4,19 @@ import typing
 from adventofcode.library import datatypes, funcs
 
 
-@dataclasses.dataclass(slots=True)
+@dataclasses.dataclass(slots=True, kw_only=True, frozen=True)
 class Position:
     row: int
     col: int
 
 
-@dataclasses.dataclass(slots=True)
+@dataclasses.dataclass(slots=True, kw_only=True, frozen=True)
 class Velocity:
     row: int
     col: int
 
 
-@dataclasses.dataclass(slots=True)
+@dataclasses.dataclass(slots=True, kw_only=True, frozen=True)
 class Robot:
     pos: Position
     vel: Velocity
@@ -43,13 +43,13 @@ class Day(datatypes.Day):
 
         return robots
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         robots = self.parse()
         seconds = 100
 
         return self._run(robots, seconds)
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         robots = self.parse()
         seconds = 10000
         tree_fact = 69552000  # empirically

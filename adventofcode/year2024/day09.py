@@ -23,7 +23,7 @@ class Day(datatypes.Day):
 
         return fragments
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         fragments = self.parse()
         left = 0
         right = len(fragments) - 1
@@ -43,7 +43,7 @@ class Day(datatypes.Day):
 
         return _calc_checksum(fragments)
 
-    def second_star(self) -> int:  # noqa:WPS231
+    def second_star(self) -> datatypes.DayResult:  # noqa:WPS231
         fragments = self.parse()
 
         left = 0

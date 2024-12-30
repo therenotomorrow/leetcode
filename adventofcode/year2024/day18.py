@@ -35,12 +35,12 @@ class Day(datatypes.Day):
 
         return grid, points
 
-    def first_star(self) -> int:
+    def first_star(self) -> datatypes.DayResult:
         grid, points = self.parse()
 
         return self._travel(grid.point(0, 0), grid.point(self.size - 1, self.size - 1))
 
-    def second_star(self) -> int:
+    def second_star(self) -> datatypes.DayResult:
         grid, points = self.parse()
         left, right = self.corrupted, len(points) - 1
 
@@ -57,8 +57,10 @@ class Day(datatypes.Day):
             else:
                 right = mid - 1
 
-        # should be a string 'col,row' as an answer
-        return 100 * points[left].col + points[left].row
+        col = points[left].col
+        row = points[left].row
+
+        return f'{col},{row}'
 
     def _travel(self, start: datatypes.Point, finish: datatypes.Point) -> int:  # noqa:WPS210,WPS231
         score = 0
