@@ -8,6 +8,7 @@
 - 731: https://leetcode.com/problems/my-calendar-ii/description/
 - 862: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/description/
 - 951: https://leetcode.com/problems/flip-equivalent-binary-trees/description/
+- 983: https://leetcode.com/problems/minimum-cost-for-tickets/description/
 - 1014: https://leetcode.com/problems/best-sightseeing-pair/description/
 - 1106: https://leetcode.com/problems/parsing-a-boolean-expression/description/
 - 1229: https://leetcode.com/problems/meeting-scheduler/description/
