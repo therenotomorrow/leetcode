@@ -138,7 +138,6 @@
 - Intersection of Multiple Arrays
 - Number of Flowers in Full Bloom
 - Minimum Consecutive Cards to Pick Up
-- Number of Ways to Split Array
 - Successful Pairs of Spells and Potions
 - Max Sum of a Pair With Equal Sum of Digits
 - First Letter to Appear Twice
