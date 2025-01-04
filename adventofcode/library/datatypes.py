@@ -52,6 +52,9 @@ class Point:
     def prev(self, direct: 'Direction') -> 'Point':
         return self.next(direct.opposite)
 
+    def distance(self, other: 'Point') -> int:
+        return abs(self.row - other.row) + abs(self.col - other.col)
+
 
 _up = '^'
 _down = 'v'
