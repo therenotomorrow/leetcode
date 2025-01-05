@@ -69,7 +69,7 @@ class Day(datatypes.Day):
 
         return ans
 
-    def _travel(self, point: datatypes.Point) -> typing.Iterator[datatypes.Point]:
+    def _travel(self, point: datatypes.Point) -> typing.Iterable[datatypes.Point]:
         for direct in self.directions:
             next_point = point.next(direct)
 
@@ -93,7 +93,7 @@ class Day(datatypes.Day):
 
         return region
 
-    def _collect_regions(self, grid: datatypes.Grid) -> typing.Iterator[datatypes.UniqPoints]:
+    def _collect_regions(self, grid: datatypes.Grid) -> typing.Iterable[datatypes.UniqPoints]:
         visited: datatypes.UniqPoints = set()
 
         for row in grid:

@@ -12,7 +12,7 @@ class Day(datatypes.Day):
             raw.append(list(line))
 
         grid = datatypes.Grid(raw)
-        start = grid.start({'<', '>', '^', 'v'})
+        start = grid.find({'<', '>', '^', 'v'})
 
         return grid, start
 

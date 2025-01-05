@@ -15,7 +15,7 @@ class Day(datatypes.Day):
 
         grid = _parse_grid(parts[0])
         dirs = _parse_dirs(parts[1])
-        start = grid.start({'@'})
+        start = grid.find({'@'})
 
         grid = _travel(grid, start, dirs)
 
@@ -26,7 +26,7 @@ class Day(datatypes.Day):
 
         grid = _parse_wide(parts[0])
         dirs = _parse_dirs(parts[1])
-        start = grid.start({'@'})
+        start = grid.find({'@'})
 
         for direct in dirs:
             if direct.name in {'<', '>'}:

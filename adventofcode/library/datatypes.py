@@ -6,6 +6,7 @@ Strs: typing.TypeAlias = list[str]
 IntsTuple: typing.TypeAlias = tuple[int, ...]
 StrsTuple: typing.TypeAlias = tuple[str, ...]
 IntsSet: typing.TypeAlias = set[int]
+StrsSet: typing.TypeAlias = set[str]
 
 
 @dataclasses.dataclass(slots=True, kw_only=True, frozen=True)
@@ -34,6 +35,9 @@ class Point:
         return hash((self.row, self.col))
 
     def __str__(self) -> str:
+        return self.mark
+
+    def __repr__(self) -> str:
         return self.mark
 
     @property
@@ -206,7 +210,7 @@ class Grid:
 
         return self[point] if point.inside else point
 
-    def start(self, marks: set[str]) -> Point:
+    def find(self, marks: set[str]) -> Point:
         for row in self:
             for point in row:
                 if point.mark in marks:
@@ -216,8 +220,14 @@ class Grid:
 
         return self.point(0, 0)
 
+    def points(self) -> typing.Iterable[Point]:
+        for row in self._points:
+            yield from row
+
 
 UniqPoints: typing.TypeAlias = set[Point]
+PointPair: typing.TypeAlias = tuple[Point, Point]
+PointTuple: typing.TypeAlias = tuple[Point, ...]
 Directions: typing.TypeAlias = list[Direction]
 DayResult: typing.TypeAlias = int | str
 

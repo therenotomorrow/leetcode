@@ -25,7 +25,7 @@ class Day(datatypes.Day):
             raw.append(list(line))
 
         grid = datatypes.Grid(raw)
-        start = grid.start({'S'})
+        start = grid.find({'S'})
 
         return grid, start
 

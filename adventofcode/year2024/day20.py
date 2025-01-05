@@ -29,7 +29,7 @@ class Day(datatypes.Day):
 
     def first_star(self) -> datatypes.DayResult:
         grid = self.parse()
-        visited = self._travel(grid.start({'S'}))
+        visited = self._travel(grid.find({'S'}))
 
         cheats = 0
         for point, time in visited.items():
@@ -42,7 +42,7 @@ class Day(datatypes.Day):
 
     def second_star(self) -> datatypes.DayResult:
         grid = self.parse()
-        visited = self._travel(grid.start({'S'}))
+        visited = self._travel(grid.find({'S'}))
 
         cheats = 0
 
