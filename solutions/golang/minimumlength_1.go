@@ -1,6 +1,6 @@
 package golang
 
-func minimumLength(str string) int {
+func minimumLength1(str string) int {
 	left := 0
 	right := len(str) - 1
 

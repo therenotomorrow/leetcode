@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestMinimumLength(t *testing.T) {
+func TestMinimumLength1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -23,8 +23,8 @@ func TestMinimumLength(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := minimumLength(test.args.s); got != test.want {
-				t.Errorf("minimumLength() = %v, want = %v", got, test.want)
+			if got := minimumLength1(test.args.s); got != test.want {
+				t.Errorf("minimumLength1() = %v, want = %v", got, test.want)
 			}
 		})
 	}
