@@ -1,4 +1,4 @@
-const createCounter2 = require('./createCounter2')
+import { createCounter2 } from './createCounter2'
 
 test('smoke 1', () => {
   const counter = createCounter2(5)

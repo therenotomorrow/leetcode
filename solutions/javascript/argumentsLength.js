@@ -1,5 +1,3 @@
-const argumentsLength = function (...args) {
+export const argumentsLength = function (...args) {
   return args.length
 }
-
-module.exports = argumentsLength

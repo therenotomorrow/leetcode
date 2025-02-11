@@ -11,4 +11,4 @@ black .
 flake8 .
 mypy .
 
-npm run lint
+yarn lint

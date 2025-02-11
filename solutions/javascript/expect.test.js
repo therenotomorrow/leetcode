@@ -1,4 +1,4 @@
-const expectFunc = require('./expect')
+import { expect as expectFunc } from './expect'
 
 describe('Expect function tests', () => {
   test('smoke 1', () => {

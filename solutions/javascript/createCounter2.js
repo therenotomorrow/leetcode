@@ -1,4 +1,4 @@
-const createCounter2 = function (n) {
+export const createCounter2 = function (n) {
   let curr = n
 
   return {
@@ -13,8 +13,6 @@ const createCounter2 = function (n) {
     reset: () => {
       curr = n
       return curr
-    }
+    },
   }
 }
-
-module.exports = createCounter2

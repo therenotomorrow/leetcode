@@ -1,4 +1,4 @@
-const expect = function (val) {
+export const expect = function (val) {
   return {
     toBe: function (other) {
       if (val !== other) {
@@ -14,8 +14,6 @@ const expect = function (val) {
       }
 
       return true
-    }
+    },
   }
 }
-
-module.exports = expect

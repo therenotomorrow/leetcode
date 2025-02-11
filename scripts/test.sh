@@ -20,4 +20,4 @@ esac
 
 pytest -n auto .
 
-npm run test
+yarn test
