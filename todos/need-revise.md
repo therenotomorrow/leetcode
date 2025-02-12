@@ -139,7 +139,6 @@
 - Number of Flowers in Full Bloom
 - Minimum Consecutive Cards to Pick Up
 - Successful Pairs of Spells and Potions
-- Max Sum of a Pair With Equal Sum of Digits
 - First Letter to Appear Twice
 - Equal Row and Column Pairs
 - Removing Stars From a String
