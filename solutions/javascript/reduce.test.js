@@ -1,6 +1,6 @@
 import { reduce } from './reduce'
 
-describe('map', () => {
+describe('reduce', () => {
   test.each([
     [
       'smoke 1',

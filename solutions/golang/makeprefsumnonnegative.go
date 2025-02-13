@@ -5,6 +5,7 @@ import "container/heap"
 func makePrefSumNonNegative(nums []int) int {
 	sum := 0
 	cnt := 0
+	// took from kthlargest.go: https://leetcode.com/problems/kth-largest-element-in-a-stream/description/
 	slice := new(IntSlice)
 
 	for _, num := range nums {
