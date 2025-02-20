@@ -2,6 +2,7 @@ import js from '@eslint/js'
 import prettier from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
 import jest from 'eslint-plugin-jest'
+import globals from 'globals'
 
 export default [
   js.configs.recommended,
@@ -11,9 +12,9 @@ export default [
       sourceType: 'module',
       ecmaVersion: 'latest',
       globals: {
-        describe: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
+        ...globals.browser,
+        ...globals.node,
+        ...globals.jest,
       },
     },
     plugins: {
