@@ -1,4 +1,4 @@
-export const cancellable = function (fn, args, t) {
+export const cancellable1 = function (fn, args, t) {
   const timeId = setTimeout(function () {
     return fn(...args)
   }, t)

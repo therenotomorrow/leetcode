@@ -1,10 +1,10 @@
-import { cancellable } from './cancellable'
+import { cancellable1 } from './cancellable1'
 
 test('smoke 1', async () => {
   let got = -1
 
   const cancelTimeMs = 50
-  const cancelFn = cancellable(
+  const cancelFn = cancellable1(
     (x) => {
       got = x * 5
       return got
@@ -23,7 +23,7 @@ test('smoke 2', async () => {
   let got = -1
 
   const cancelTimeMs = 50
-  const cancelFn = cancellable(
+  const cancelFn = cancellable1(
     (x) => {
       got = x ** 2
       return got
@@ -43,7 +43,7 @@ test('smoke 3', async () => {
   let got = -1
 
   const cancelTimeMs = 100
-  const cancelFn = cancellable(
+  const cancelFn = cancellable1(
     (x1, x2) => {
       got = x1 * x2
       return got
