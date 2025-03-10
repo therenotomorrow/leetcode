@@ -16,7 +16,7 @@ test('smoke 1', async () => {
 
   await new Promise((resolve) => setTimeout(resolve, 30))
 
-  expect(got).toBe(10)
+  expect(got).toEqual(10)
 })
 
 test('smoke 2', async () => {

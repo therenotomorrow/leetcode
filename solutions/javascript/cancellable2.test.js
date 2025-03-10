@@ -16,7 +16,7 @@ test('smoke 1', async () => {
 
   await new Promise((resolve) => setTimeout(resolve, 200))
 
-  expect(calls).toBe(6)
+  expect(calls).toEqual(6)
 })
 
 test('smoke 2', async () => {
@@ -35,7 +35,7 @@ test('smoke 2', async () => {
 
   await new Promise((resolve) => setTimeout(resolve, 200))
 
-  expect(calls).toBe(6)
+  expect(calls).toEqual(6)
 })
 
 test('smoke 3', async () => {
@@ -54,5 +54,5 @@ test('smoke 3', async () => {
 
   await new Promise((resolve) => setTimeout(resolve, 200))
 
-  expect(calls).toBe(4)
+  expect(calls).toEqual(4)
 })
