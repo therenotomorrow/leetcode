@@ -12,7 +12,7 @@ func search(nums []int, target int) int {
 		switch curr := nums[mid]; {
 		case curr < target:
 			left = mid + 1
-		case nums[mid] > target:
+		case curr > target:
 			right = mid - 1
 		default:
 			return mid
