@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestDivideArray(t *testing.T) {
+func TestDivideArray1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -30,8 +30,8 @@ func TestDivideArray(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := divideArray(test.args.nums, test.args.k); !reflect.DeepEqual(got, test.want) {
-				t.Errorf("divideArray() = %v, want = %v", got, test.want)
+			if got := divideArray1(test.args.nums, test.args.k); !reflect.DeepEqual(got, test.want) {
+				t.Errorf("divideArray1() = %v, want = %v", got, test.want)
 			}
 		})
 	}

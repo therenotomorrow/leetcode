@@ -2,7 +2,7 @@ package golang
 
 import "sort"
 
-func divideArray(nums []int, k int) [][]int {
+func divideArray1(nums []int, k int) [][]int {
 	const size = 3
 
 	ans := make([][]int, len(nums)/size)
