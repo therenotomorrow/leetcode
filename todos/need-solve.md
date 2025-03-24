@@ -44,6 +44,7 @@
 - 2664: https://leetcode.com/problems/the-knights-tour/description/
 - 2684: https://leetcode.com/problems/maximum-number-of-moves-in-a-grid/description/
 - 2707: https://leetcode.com/problems/extra-characters-in-a-string/description/
+- 2737: https://leetcode.com/problems/find-the-closest-marked-node/description/
 - 2762: https://leetcode.com/problems/continuous-subarrays/description/
 - 2832: https://leetcode.com/problems/maximal-range-that-each-element-is-maximum-in-it/description/
 - 2838: https://leetcode.com/problems/maximum-coins-heroes-can-collect/description/
