@@ -1,5 +1,6 @@
 - 241: https://leetcode.com/problems/different-ways-to-add-parentheses/description/
 - 265: https://leetcode.com/problems/paint-house-ii/description/
+- 317: https://leetcode.com/problems/shortest-distance-from-all-buildings/description/
 - 432: https://leetcode.com/problems/all-oone-data-structure/description/
 - 494: https://leetcode.com/problems/target-sum/description/
 - 632: https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/description/
