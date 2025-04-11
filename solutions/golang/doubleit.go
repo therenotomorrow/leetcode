@@ -1,8 +1,6 @@
 package golang
 
 func doubleIt(head *ListNode) *ListNode {
-	const double = 2
-
 	var dynamic func(curr *ListNode) int
 
 	dynamic = func(curr *ListNode) int {
@@ -10,7 +8,7 @@ func doubleIt(head *ListNode) *ListNode {
 			return 0
 		}
 
-		val := double*curr.Val + dynamic(curr.Next)
+		val := Double*curr.Val + dynamic(curr.Next)
 
 		curr.Val = val % Digits
 

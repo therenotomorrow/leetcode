@@ -5,8 +5,6 @@ type FindElements struct {
 }
 
 func FindElementsConstructor(root *TreeNode) FindElements {
-	const double = 2
-
 	var (
 		set = NewSet[int]()
 		dfs func(node *TreeNode) Set[int]
@@ -20,12 +18,12 @@ func FindElementsConstructor(root *TreeNode) FindElements {
 		set.Add(node.Val)
 
 		if node.Left != nil {
-			node.Left.Val = double*node.Val + 1
+			node.Left.Val = Double*node.Val + 1
 			dfs(node.Left)
 		}
 
 		if node.Right != nil {
-			node.Right.Val = double*node.Val + double
+			node.Right.Val = Double*node.Val + Double
 			dfs(node.Right)
 		}
 

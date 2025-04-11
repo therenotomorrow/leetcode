@@ -1,8 +1,6 @@
 package golang
 
 func kthGrammar(_ int, k int) int {
-	const half = 2
-
 	numBits := 0
 
 	for k--; k > 0; {
@@ -10,5 +8,5 @@ func kthGrammar(_ int, k int) int {
 		k >>= 1
 	}
 
-	return numBits % half
+	return numBits % Half
 }

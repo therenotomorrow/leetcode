@@ -1,8 +1,6 @@
 package golang
 
 func pathSum(nums []int) int {
-	const double = 2
-
 	if len(nums) == 0 {
 		return 0
 	}
@@ -17,8 +15,8 @@ func pathSum(nums []int) int {
 		position := coordinate % Digits
 
 		// 2 * position is a known because each level doubles coordinates
-		leftCoordinate := (level+1)*Digits + double*position - 1
-		rightCoordinate := (level+1)*Digits + double*position
+		leftCoordinate := (level+1)*Digits + Double*position - 1
+		rightCoordinate := (level+1)*Digits + Double*position
 		currSum := prevSum + coordinates[coordinate]
 
 		// we don't have these nodes - they are leafs

@@ -1,9 +1,7 @@
 package golang
 
 func majorityElement(nums []int) int {
-	const half = 2
-
-	times := len(nums) / half
+	times := len(nums) / Half
 	count := make(map[int]int)
 
 	for _, num := range nums {

@@ -1,17 +1,15 @@
 package golang
 
 func mySqrt(num int) int {
-	const half = 2
-
 	if num <= 1 {
 		return num
 	}
 
 	left := 0
-	right := num / half
+	right := num / Half
 
 	for left <= right {
-		mid := (right + left) / half
+		mid := (right + left) / Half
 
 		if mid*mid == num {
 			return mid

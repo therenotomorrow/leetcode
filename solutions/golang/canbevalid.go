@@ -1,11 +1,9 @@
 package golang
 
 func canBeValid(brackets string, locked string) bool {
-	const half = 2
-
 	var balance int
 
-	if len(brackets)%half != 0 {
+	if len(brackets)%Half != 0 {
 		return false
 	}
 

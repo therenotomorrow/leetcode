@@ -1,14 +1,12 @@
 package golang
 
 func numberOfMatches(n int) int {
-	const half = 2
-
 	// with simulation
 	matches := 0
 
 	for n > 1 {
-		matches += (n - n%half) / half
-		n = (n + n%half) / half
+		matches += (n - n%Half) / Half
+		n = (n + n%Half) / Half
 	}
 
 	// with logic: because the winner will only one - that's why `n - 1`

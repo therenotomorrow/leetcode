@@ -1,10 +1,7 @@
 package golang
 
 func tupleSameProduct(nums []int) int {
-	const (
-		half         = 2
-		combinations = 8
-	)
+	const combinations = 8
 
 	var (
 		ans int
@@ -18,7 +15,7 @@ func tupleSameProduct(nums []int) int {
 	}
 
 	for _, pairs := range cnt {
-		ans += combinations * (pairs * (pairs - 1) / half)
+		ans += combinations * (pairs * (pairs - 1) / Half)
 	}
 
 	return ans

@@ -6,10 +6,7 @@ import (
 )
 
 func nearestPalindromic(n string) string {
-	const (
-		half       = 2
-		maxVal int = 1e18 - 1
-	)
+	const maxVal int = 1e18 - 1
 
 	newPalindrome := func(num int) (int, error) {
 		runes := []rune(strconv.Itoa(num))
@@ -32,7 +29,7 @@ func nearestPalindromic(n string) string {
 	prev := math.MinInt
 
 	for left <= right {
-		mid := (right-left)/half + left
+		mid := (right-left)/Half + left
 		curr, _ = newPalindrome(mid)
 
 		if curr < num {
@@ -48,7 +45,7 @@ func nearestPalindromic(n string) string {
 	next := math.MinInt
 
 	for left <= right {
-		mid := (right-left)/half + left
+		mid := (right-left)/Half + left
 		curr, _ = newPalindrome(mid)
 
 		if curr > num {

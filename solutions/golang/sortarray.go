@@ -1,19 +1,17 @@
 package golang
 
 func sortArray(nums []int) []int {
-	const half = 2
-
 	var (
 		sort  func(arr []int) []int
 		merge func(left []int, right []int) []int
 	)
 
 	sort = func(arr []int) []int {
-		if len(arr) < half {
+		if len(arr) < Half {
 			return arr
 		}
 
-		if len(arr) == half {
+		if len(arr) == Half {
 			if arr[0] > arr[1] {
 				return []int{arr[1], arr[0]}
 			}
@@ -21,7 +19,7 @@ func sortArray(nums []int) []int {
 			return []int{arr[0], arr[1]}
 		}
 
-		mid := len(arr) / half
+		mid := len(arr) / Half
 
 		return merge(sort(arr[:mid]), sort(arr[mid:]))
 	}

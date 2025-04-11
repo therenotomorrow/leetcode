@@ -1,8 +1,6 @@
 package golang
 
 func minSwaps2(s string) int {
-	const half = 2
-
 	stack := NewStack[rune]()
 
 	for _, runa := range s {
@@ -14,5 +12,5 @@ func minSwaps2(s string) int {
 		}
 	}
 
-	return (stack.Size() + 1) / half
+	return (stack.Size() + 1) / Half
 }

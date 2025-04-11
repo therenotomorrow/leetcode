@@ -1,11 +1,9 @@
 package golang
 
 func canPartition(nums []int) bool {
-	const half = 2
-
 	sum := Sum(nums...)
 
-	if sum%half != 0 {
+	if sum%Half != 0 {
 		return false
 	}
 
@@ -38,5 +36,5 @@ func canPartition(nums []int) bool {
 		return res
 	}
 
-	return dynamic(0, sum/half)
+	return dynamic(0, sum/Half)
 }

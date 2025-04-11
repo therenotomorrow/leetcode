@@ -1,13 +1,11 @@
 package golang
 
 func search(nums []int, target int) int {
-	const half = 2
-
 	left := 0
 	right := len(nums) - 1
 
 	for left <= right {
-		mid := (right + left) / half
+		mid := (right + left) / Half
 
 		switch curr := nums[mid]; {
 		case curr < target:

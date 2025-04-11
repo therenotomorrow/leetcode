@@ -14,4 +14,6 @@ const (
 	Byte                 = 255
 	Base7                = 7
 	Base2                = 2
+	Half                 = 2
+	Double               = 2
 )

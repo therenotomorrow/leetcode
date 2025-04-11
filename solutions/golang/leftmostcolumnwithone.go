@@ -6,8 +6,6 @@ type BinaryMatrix interface {
 }
 
 func leftMostColumnWithOne(binaryMatrix BinaryMatrix) int {
-	const half = 2
-
 	dims := binaryMatrix.Dimensions()
 	leftMost := dims[1]
 
@@ -16,7 +14,7 @@ func leftMostColumnWithOne(binaryMatrix BinaryMatrix) int {
 		right := dims[1] - 1
 
 		for left <= right {
-			mid := (right + left) / half
+			mid := (right + left) / Half
 
 			if binaryMatrix.Get(row, mid) == 0 {
 				left = mid + 1

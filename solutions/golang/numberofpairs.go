@@ -1,8 +1,6 @@
 package golang
 
 func numberOfPairs(nums []int) []int {
-	const half = 2
-
 	cnt := make(map[int]int)
 	for _, num := range nums {
 		cnt[num]++
@@ -15,7 +13,7 @@ func numberOfPairs(nums []int) []int {
 			not++
 		}
 
-		yes += times / half
+		yes += times / Half
 	}
 
 	return []int{yes, not}

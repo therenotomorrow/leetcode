@@ -54,4 +54,12 @@ func TestConst(t *testing.T) { //nolint:cyclop
 	if want := 2; golang.Base2 != want {
 		t.Errorf("Base2() = %v, want = %v", golang.Base2, want)
 	}
+
+	if want := 2; golang.Half != want {
+		t.Errorf("Half() = %v, want = %v", golang.Half, want)
+	}
+
+	if want := 2; golang.Double != want {
+		t.Errorf("Double() = %v, want = %v", golang.Double, want)
+	}
 }

@@ -1,14 +1,12 @@
 package golang
 
 func maximumCount(nums []int) int {
-	const half = 2
-
 	binarySearch := func(nums []int, cmp func(curr int) bool) int {
 		left := 0
 		right := len(nums) - 1
 
 		for left <= right {
-			mid := (right + left) / half
+			mid := (right + left) / Half
 
 			switch curr := nums[mid]; {
 			case cmp(curr):

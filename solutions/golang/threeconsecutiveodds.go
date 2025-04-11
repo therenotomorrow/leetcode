@@ -1,10 +1,7 @@
 package golang
 
 func threeConsecutiveOdds(arr []int) bool {
-	const (
-		size = 3
-		half = 2
-	)
+	const size = 3
 
 	if len(arr) < size {
 		return false
@@ -13,7 +10,7 @@ func threeConsecutiveOdds(arr []int) bool {
 	cnt := 0
 
 	for _, num := range arr {
-		if num%half != 0 {
+		if num%Half != 0 {
 			cnt++
 		} else {
 			cnt = 0

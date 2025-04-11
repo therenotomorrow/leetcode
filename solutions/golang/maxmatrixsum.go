@@ -5,8 +5,6 @@ import (
 )
 
 func maxMatrixSum(matrix [][]int) int64 {
-	const double = 2
-
 	var (
 		totalSum = 0
 		negative = 0
@@ -27,8 +25,8 @@ func maxMatrixSum(matrix [][]int) int64 {
 		}
 	}
 
-	if negative%double != 0 {
-		totalSum -= double * minValue
+	if negative%Double != 0 {
+		totalSum -= Double * minValue
 	}
 
 	return int64(totalSum)

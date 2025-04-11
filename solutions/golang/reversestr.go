@@ -1,11 +1,9 @@
 package golang
 
 func reverseStr(s string, k int) string {
-	const double = 2
-
 	runes := []rune(s)
 
-	for group := 0; group < len(runes); group += double * k {
+	for group := 0; group < len(runes); group += Double * k {
 		i := group
 		j := Min(group+k, len(runes)) - 1
 

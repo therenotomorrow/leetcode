@@ -1,8 +1,6 @@
 package golang
 
 func reverseOddLevels(root *TreeNode) *TreeNode {
-	const half = 2
-
 	if root == nil {
 		return root
 	}
@@ -32,7 +30,7 @@ func reverseOddLevels(root *TreeNode) *TreeNode {
 			nodes = append(nodes, curr)
 		}
 
-		if level%half == 0 {
+		if level%Half == 0 {
 			continue
 		}
 

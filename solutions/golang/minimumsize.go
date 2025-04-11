@@ -1,8 +1,6 @@
 package golang
 
 func minimumSize(nums []int, maxOperations int) int {
-	const half = 2
-
 	divide := func(capacity int) bool {
 		operations := 0
 
@@ -21,7 +19,7 @@ func minimumSize(nums []int, maxOperations int) int {
 	right := Max(nums...)
 
 	for left < right {
-		mid := left + (right-left)/half
+		mid := left + (right-left)/Half
 
 		if divide(mid) {
 			right = mid

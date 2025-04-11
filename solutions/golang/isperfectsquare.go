@@ -1,18 +1,16 @@
 package golang
 
 func isPerfectSquare(num int) bool {
-	const half = 2
-
 	// also Newton's method could be used there
 	if num <= 1 {
 		return true
 	}
 
 	left := 0
-	right := num / half
+	right := num / Half
 
 	for left <= right {
-		mid := (right + left) / half
+		mid := (right + left) / Half
 
 		if mid*mid == num {
 			return true

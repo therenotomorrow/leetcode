@@ -22,8 +22,6 @@ func minRight(part int, nums []int) int {
 }
 
 func findMedianSortedArrays(nums1, nums2 []int) float64 {
-	const half = 2
-
 	len1 := len(nums1)
 	len2 := len(nums2)
 
@@ -36,7 +34,7 @@ func findMedianSortedArrays(nums1, nums2 []int) float64 {
 		// nums1: [ 1 3 8 | 9 15 ]
 		//              ^   ^
 		//             ml1 mr1
-		part1 := (high + low) / half
+		part1 := (high + low) / Half
 		ml1 := maxLeft(part1, nums1)
 		mr1 := minRight(part1, nums1)
 
@@ -44,14 +42,14 @@ func findMedianSortedArrays(nums1, nums2 []int) float64 {
 		// nums2: [ 7 11 | 19 21 22 25 ]
 		//            ^    ^
 		//           ml2  mr2
-		part2 := (len1+len2+1)/half - part1 // +1 for both odds and evens lengths
+		part2 := (len1+len2+1)/Half - part1 // +1 for both odds and evens lengths
 		ml2 := maxLeft(part2, nums2)
 		mr2 := minRight(part2, nums2)
 
 		switch {
 		case ml1 <= mr2 && ml2 <= mr1:
-			if (len1+len2)%half == 0 {
-				return float64(Max(ml1, ml2)+Min(mr1, mr2)) / half
+			if (len1+len2)%Half == 0 {
+				return float64(Max(ml1, ml2)+Min(mr1, mr2)) / Half
 			}
 
 			return float64(Max(ml1, ml2))
