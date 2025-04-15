@@ -6,18 +6,18 @@ func garbageCollection(garbage []string, travel []int) int {
 		'P': {0, 0},
 		'G': {0, 0},
 	}
-	prefixSums := make([]int, len(travel)+1)
+	prefix := make([]int, len(travel)+1)
 
 	for i, house := range garbage {
 		if i == 0 {
-			prefixSums[0] = 0
+			prefix[0] = 0
 		} else {
-			prefixSums[i] = prefixSums[i-1] + travel[i-1]
+			prefix[i] = prefix[i-1] + travel[i-1]
 		}
 
 		for _, g := range house {
 			trucks[g][1]++
-			trucks[g][0] = prefixSums[i]
+			trucks[g][0] = prefix[i]
 		}
 	}
 

@@ -1,14 +1,14 @@
 package golang
 
 func numOfSubarrays(arr []int) int {
-	var cnt, prefixSum, odds, evens int
+	var cnt, prefix, odds, evens int
 
 	evens = 1 // because 0 is the even number
 
 	for _, num := range arr {
-		prefixSum += num
+		prefix += num
 
-		if prefixSum%2 == 0 {
+		if prefix%2 == 0 {
 			cnt += odds
 			evens++
 		} else {
