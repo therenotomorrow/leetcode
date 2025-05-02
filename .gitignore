@@ -4,6 +4,7 @@
 .node-version
 .python-version
 /node_modules/
+/bin/
 
 # caches
 __pycache__

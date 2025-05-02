@@ -3,7 +3,7 @@
 set -e
 
 gofmt -w -s .
-golangci-lint run ./solutions/golang/...
+./bin/golangci-lint run ./solutions/golang/...
 
 isort .
 black .

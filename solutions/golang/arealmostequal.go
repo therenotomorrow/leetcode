@@ -15,10 +15,10 @@ func areAlmostEqual(text1 string, text2 string) bool {
 
 		cnt++
 
-		switch {
-		case cnt == 1:
+		switch cnt {
+		case 1:
 			diff[0] = i
-		case cnt == size:
+		case size:
 			diff[1] = i
 		default:
 			return false

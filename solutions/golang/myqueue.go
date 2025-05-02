@@ -12,13 +12,6 @@ func MyQueueConstructor() MyQueue {
 	}
 }
 
-func (q *MyQueue) swap() {
-	for !q.tail.IsEmpty() {
-		val, _ := q.tail.Pop()
-		q.head.Push(val)
-	}
-}
-
 func (q *MyQueue) Push(x int) {
 	q.tail.Push(x)
 }
@@ -53,4 +46,11 @@ func (q *MyQueue) Peek() int {
 
 func (q *MyQueue) Empty() bool {
 	return q.head.IsEmpty() && q.tail.IsEmpty()
+}
+
+func (q *MyQueue) swap() {
+	for !q.tail.IsEmpty() {
+		val, _ := q.tail.Pop()
+		q.head.Push(val)
+	}
 }

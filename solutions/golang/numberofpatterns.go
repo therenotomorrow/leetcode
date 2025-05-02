@@ -36,7 +36,7 @@ func numberOfPatterns(minPass int, maxPass int) int { //nolint:funlen,cyclop
 			return 0
 		}
 
-		if !(0 <= i && i < gridSize && 0 <= j && j < gridSize && !grid[i][j]) {
+		if 0 > i || i >= gridSize || 0 > j || j >= gridSize || grid[i][j] {
 			return 0
 		}
 

@@ -15,10 +15,6 @@ func NewCache() *Cache {
 	return &Cache{data: make(map[string]int)}
 }
 
-func (c *Cache) makeKey(parts []int) string {
-	return fmt.Sprintf("%v", parts)
-}
-
 func (c *Cache) Load(keys ...int) (int, bool) {
 	val, ok := c.data[c.makeKey(keys)]
 
@@ -27,4 +23,8 @@ func (c *Cache) Load(keys ...int) (int, bool) {
 
 func (c *Cache) Save(val int, keys ...int) {
 	c.data[c.makeKey(keys)] = val
+}
+
+func (c *Cache) makeKey(parts []int) string {
+	return fmt.Sprintf("%v", parts)
 }

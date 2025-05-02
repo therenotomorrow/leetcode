@@ -3,7 +3,7 @@ package golang
 func missingRolls(rolls []int, mean int, n int) []int {
 	missingSum := mean*(len(rolls)+n) - Sum(rolls...)
 
-	if !(n <= missingSum && missingSum <= 6*n) {
+	if n > missingSum || missingSum > 6*n {
 		return []int{}
 	}
 

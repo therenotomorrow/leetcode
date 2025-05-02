@@ -28,7 +28,6 @@ func longestDiverseString(wantA int, wantB int, wantC int) string { //nolint:cyc
 			zeroing(&currA, &currB)
 			addsub(&currC, &wantC)
 		default:
-			break
 		}
 	}
 
