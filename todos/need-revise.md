@@ -142,7 +142,6 @@
 - First Letter to Appear Twice
 - Equal Row and Column Pairs
 - Removing Stars From a String
-- Using a Robot to Print the Lexicographically Smallest String
 - Total Cost to Hire K Workers
 - Design Graph With Shortest Path Calculator
 - Painting the Walls

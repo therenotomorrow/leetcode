@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-func maxDistance(arrays [][]int) int {
+func maxDistance1(arrays [][]int) int {
 	lastMin := math.MaxInt
 	currMin := math.MaxInt
 	minIdx := 0

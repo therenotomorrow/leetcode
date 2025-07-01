@@ -2,7 +2,7 @@ package golang
 
 import "testing"
 
-func TestMaxDistance(t *testing.T) {
+func TestMaxDistance1(t *testing.T) {
 	t.Parallel()
 
 	type args struct {
@@ -22,8 +22,8 @@ func TestMaxDistance(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := maxDistance(test.args.arrays); got != test.want {
-				t.Errorf("maxDistance() = %v, want = %v", got, test.want)
+			if got := maxDistance1(test.args.arrays); got != test.want {
+				t.Errorf("maxDistance1() = %v, want = %v", got, test.want)
 			}
 		})
 	}

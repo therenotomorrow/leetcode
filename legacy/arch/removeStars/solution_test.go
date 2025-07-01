@@ -17,7 +17,7 @@ func Test_removeStars(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := removeStars(tt.args.s); got != tt.want {
-				t.Errorf("robotWithString() = %v, want %v", got, tt.want)
+				t.Errorf("removeStars() = %v, want %v", got, tt.want)
 			}
 		})
 	}
