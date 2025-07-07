@@ -27,6 +27,7 @@
 - 1233: https://leetcode.com/problems/remove-sub-folders-from-the-filesystem/description/
 - 1257: https://leetcode.com/problems/smallest-common-region/description/
 - 1277: https://leetcode.com/problems/count-square-submatrices-with-all-ones/description/
+- 1353: https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/description/
 - 1399: https://leetcode.com/problems/count-largest-group/description/
 - 1474: https://leetcode.com/problems/delete-n-nodes-after-m-nodes-of-a-linked-list/description/
 - 1545: https://leetcode.com/problems/find-kth-bit-in-nth-binary-string/description/
