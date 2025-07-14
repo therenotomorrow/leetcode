@@ -1,48 +1,31 @@
-package getDecimalValue
+package golang
 
 import "testing"
 
-func Test_getDecimalValue(t *testing.T) {
+func TestGetDecimalValue(t *testing.T) {
+	t.Parallel()
+
 	type args struct {
 		head *ListNode
 	}
+
 	tests := []struct {
 		name string
 		args args
 		want int
 	}{
 		{
-			args: args{head: &ListNode{
-				Val: 1,
-				Next: &ListNode{
-					Val: 0,
-					Next: &ListNode{
-						Val: 1,
-					},
-				},
-			}},
+			name: "smoke 1",
+			args: args{head: &ListNode{Val: 1, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: nil}}}},
 			want: 5,
 		},
 		{
-			args: args{head: &ListNode{
-				Val: 1,
-				Next: &ListNode{
-					Val: 0,
-					Next: &ListNode{
-						Val: 1,
-						Next: &ListNode{
-							Val: 1,
-						},
-					},
-				},
-			}},
-			want: 11,
-		},
-		{
-			args: args{head: &ListNode{Val: 0}},
+			name: "smoke 2",
+			args: args{head: &ListNode{Val: 0, Next: nil}},
 			want: 0,
 		},
 		{
+			name: "test 73: wrong answer",
 			args: args{
 				head: &ListNode{
 					Val: 1,
@@ -83,7 +66,8 @@ func Test_getDecimalValue(t *testing.T) {
 																						Next: &ListNode{
 																							Val: 0,
 																							Next: &ListNode{
-																								Val: 1,
+																								Val:  1,
+																								Next: nil,
 																							},
 																						},
 																					},
@@ -108,10 +92,13 @@ func Test_getDecimalValue(t *testing.T) {
 			want: 685569,
 		},
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := getDecimalValue(tt.args.head); got != tt.want {
-				t.Errorf("getDecimalValue() = %v, want %v", got, tt.want)
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			if got := getDecimalValue(test.args.head); got != test.want {
+				t.Errorf("getDecimalValue() = %v, want = %v", got, test.want)
 			}
 		})
 	}

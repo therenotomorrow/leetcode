@@ -103,7 +103,6 @@
 - Count Vowels Permutation
 - Check If It Is a Straight Line
 - Count Number of Nice Subarrays
-- Convert Binary Number in a Linked List to Integer
 - Deepest Leaves Sum
 - Number of Steps to Reduce a Number to Zero
 - Count Negative Numbers in a Sorted Matrix
