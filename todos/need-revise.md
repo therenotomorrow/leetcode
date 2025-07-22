@@ -120,7 +120,6 @@
 - Make The String Great
 - Richest Customer Wealth
 - Max Number of K-Sum Pairs
-- Maximum Erasure Value
 - Swapping Nodes in a Linked List
 - Sum of Unique Elements
 - Merge Strings Alternately
