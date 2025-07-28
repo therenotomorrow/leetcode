@@ -9,12 +9,12 @@ func countSubIslands(grid1 [][]int, grid2 [][]int) int { //nolint:cyclop
 		visited = make([][]bool, rows)
 		bfs     = func(startRow int, startCol int) bool {
 			found := true
-			queue := NewQueue[PairNode]()
+			que := NewQueue[PairNode]()
 
 			visited[startRow][startCol] = true
 
-			for queue.Enqueue(PairNode{startRow, startCol}); !queue.IsEmpty(); {
-				node, _ := queue.Dequeue()
+			for que.Enqueue(PairNode{startRow, startCol}); !que.IsEmpty(); {
+				node, _ := que.Dequeue()
 
 				row, col := node[0], node[1]
 
@@ -33,7 +33,7 @@ func countSubIslands(grid1 [][]int, grid2 [][]int) int { //nolint:cyclop
 						newCol < cols &&
 						grid2[newRow][newCol] == 1 &&
 						!visited[newRow][newCol] {
-						queue.Enqueue(PairNode{newRow, newCol})
+						que.Enqueue(PairNode{newRow, newCol})
 
 						visited[newRow][newCol] = true
 					}
