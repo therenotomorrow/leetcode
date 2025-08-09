@@ -17,6 +17,7 @@
 - 790: https://leetcode.com/problems/domino-and-tromino-tiling/description/
 - 838: https://leetcode.com/problems/push-dominoes/description/
 - 862: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/description/
+- 904: https://leetcode.com/problems/fruit-into-baskets/description/
 - 951: https://leetcode.com/problems/flip-equivalent-binary-trees/description/
 - 983: https://leetcode.com/problems/minimum-cost-for-tickets/description/
 - 1007: https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/description/
